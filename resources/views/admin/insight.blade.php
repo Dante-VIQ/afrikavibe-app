@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-sm-12">
         <div
-            class="statistics-details d-flex align-items-center justify-content-between">
+            class="statistics-details d-flex align-items-center justify-content-between px-5">
             <div>
                 <p class="statistics-title">Bounce Rate</p>
                 <h3 class="rate-percentage">{{ $bounceRate }}%</h3>
