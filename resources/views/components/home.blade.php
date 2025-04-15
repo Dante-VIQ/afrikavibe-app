@@ -1,0 +1,3 @@
+<div>
+    <livewire:adboard />
+</div>

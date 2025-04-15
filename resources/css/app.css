@@ -1,0 +1,22 @@
+@tailwind utilities;
+@tailwind base;
+@tailwind components;
+
+[x-cloak] {
+    display: none;
+}
+
+.fix-underline{
+    outline: none;
+}
+
+*, *::after, *::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: content-box;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    list-style-type: none;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    }
