@@ -4,7 +4,7 @@
             class="statistics-details d-flex align-items-center justify-content-between px-5">
             <div>
                 <p class="statistics-title">Bounce Rate</p>
-                <h3 class="rate-percentage">{{ $bounceRate }}%</h3>
+                <h3 class="rate-percentage">bounceRate%</h3>
                 <p class="text-danger d-flex text-xl"><i
                         class="mdi mdi-menu-down"></i><span>-0.5%</span></p>
             </div>
@@ -26,7 +26,7 @@
             </div>
             <div>
                 <p class="statistics-title">New Sessions</p>
-                <h3 class="rate-percentage">{{ $newSessions }}</h3>
+                {{-- <h3 class="rate-percentage">{{ $newSessions }}</h3> --}}
                 <p class="text-danger d-flex"><i
                         class="mdi mdi-menu-down"></i><span>68.8</span></p>
             </div>

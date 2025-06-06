@@ -1,48 +1,27 @@
 <div>
-    <!-- Page Header Start -->
-    <div class="container-fluid page-header py-5 mb-5 wow fadeIn" data-wow-delay="0.1s">
-        <div class="container py-5">
-            <h1 class="display-3 text-white mb-3 animated slideInDown">Destinations</h1>
-            <nav aria-label="breadcrumb animated slideInDown">
-                <ol class="breadcrumb text-uppercase mb-0">
-                    <li class="breadcrumb-item"><a class="text-white" href="#">Home</a></li>
-                    <li class="breadcrumb-item"><a class="text-white" href="#">Pages</a></li>
-                    <li class="breadcrumb-item text-primary active" aria-current="page">Destinations</li>
-                </ol>
-            </nav>
-        </div>
-    </div>
-    <!-- Page Header End -->
+    <section class="bg-white">
+        <div class="px-4 mx-auto max-w-screen-xl text-center lg:py-8 lg:px-6">
+            <div class="grid gap-5 lg:gap-16 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 wow FadeInUp"
+                data-wow-delay="0.1s">
 
+                @unless (count($doctors) == 0)
+                    @foreach ($doctors as $doctor)
+                        <x-destination-card>
+                            @include('livewire.includes.doctor-show')                           
+                        </x-destination-card>
+                    @endforeach
+                @else
+                    <p class="text-black-italic text-lg text-center">No Destinations At The Moment</p>
+                @endunless
 
-    <!-- Team Start -->
-    <div class="container-xxl py-5">
-        <div class="container">
-            <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-                <p class="d-inline-block border rounded-pill py-1 px-4">Destinations</p>
-                <h1>Explore Diverse African Sceneries.</h1>
             </div>
-        <div>
-            <livewire:doctors-card />
-        </div>
-        </div>
-    </div>
-    <!-- Team End -->
-
-    <section class="team_section layout_padding my-5 px-lg-0">
-        <div class="container">
-            <livewire:city-card />
+            <div class="mt-12 text-center">
+                <a href="/eco-trails"
+                    class="inline-block bg-green-700 text-white px-6 py-3 rounded-full text-sm font-medium hover:bg-green-800 transition">
+                    Discover More Destinations
+                </a>
+            </div>
         </div>
     </section>
-
-    <!-- Footer Start -->
-    <livewire:footer-card />
-    <!-- Footer End -->
-
-
-    <!-- Back to Top -->
-    <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i
-            class="bi bi-arrow-up"></i></a>
-
 
 </div>

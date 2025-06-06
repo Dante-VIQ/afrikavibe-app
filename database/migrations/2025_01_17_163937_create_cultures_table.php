@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('name')->unique();
             $table->string('location');
             $table->longText('detail');
-            $table->string('image');
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }

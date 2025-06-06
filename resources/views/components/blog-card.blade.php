@@ -1,18 +1,57 @@
-@props(['blog'])
+<div>
+    <div class="grid lg:grid-cols-3 p-3 md:grid-cols-2 gap-4 sm:grid-cols-1 fix-underline wow FadeInUp">
+        @unless (count($blogs) == 0)
+            @foreach ($blogs as $blog)
+                <article wire:key="{{ $blog->id }}" class="service-item p-6 bg-white rounded-lg border border-gray-200 shadow-md">
+                    <!-- Article Image -->
+                    <a href="/blogs/{{ $blog->id }}" class="hover:opacity-75 background-cover">
+                        {{-- <a href="#">
+                            <p class="text-gray-500 text-sm font-bold pb-4 uppercase fix-underline">
+                                {{ $blog->category }}</p>
+                        </a> --}}
+                        <img class="mx-auto mb-4 w-full h-40 rounded-lg" src="{{ asset('storage/' . $blog->image) }}"
+                            alt="{{ $blog->category }}"/>
+                    </a>
+                    
+                    <div class="bg-white flex flex-col justify-between">
+                        <h3 class="text-xl sm:text-2xl font-semibold text-green-700  mb-2">{{ $blog->title }}</h3>
+                        <p class="text-sm pb-3">
+                            By <i class=" hover:text-gray-800">{{ $blog->user->name }}</i>,
+                            {{ $blog->created_at->diffForHumans() }}
+                        </p>
+                        <p class="mb-6 h-24 text-sm text-gray-700 overflow-hidden text-wrap">{{ $blog->description }}</p>
+                        <a href="/blogs/{{ $blog->id }}" class="text-gray-800 hover:text-black italic">Continue
+                            Reading <i class="fas fa-arrow-right"></i></a>
+                    </div>
 
-        <div class="blog_box">
-         
-            {{-- <h6 class="desc block" id="category">{{$blog->category}}</h6> --}}
-            <img src="{{$blog->image ? asset('storage/' . $blog->image) : asset('/images/no-image.png')}}" alt="Blog Image" class="blog_img">
-            <div class="blog_data">
-                <p class="date">
-                    <i class="fa-solid fa-calendar-days"></i> 2/23/2024
-                </p>
-                <h6 class="blog_title">{{$blog->title}}</h6>
-                <div class="blog_desc text-xl text-white-50">{{$blog->description}}</div>
+                  
+                </article>
+            @endforeach
+        @else
+        @endunless
 
-                <x-button class="read-btn"><a href="/blogs/{{$blog->id}}" class="no-underline text-white-50">Read More</a>
-                     <i class="fa-solid fa-arrow-right"></i>
-                </x-button>
+    </div>
+    <div class="mt-12 text-center">
+        <a href="/main"
+            class="inline-block bg-green-700 text-white px-6 py-3 rounded-full text-sm font-medium hover:bg-green-800 transition">
+            Read More Blogs
+        </a>
+    </div>
+
+
+    {{-- <div class="flex">
+        @can('create', $blog)
+            <div class="relative p-5 mx-auto" x-data="{ show: false }">
+                <x-button x-on:click.prevent="show = true" class="px-4 py-2 text-light rounded bg-primary"><i
+                        class="fa fa-add text-primary"></i>
+                    Add Blog</x-button>
+
+                <div class="mx-auto z-9 top-1/3 left-1/3" x-show="show" x-on:click.outside.prevent="show = false">
+                    @include('livewire.includes.blog-create')
+                </div>
             </div>
-        </div>
+        @endcan
+    </div> --}}
+</div>
+
+

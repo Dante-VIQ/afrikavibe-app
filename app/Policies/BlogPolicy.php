@@ -11,7 +11,7 @@ class BlogPolicy
 {
     use HandlesAuthorization;
     public function before(User $user, $abiity){
-        if ($user->role == 'master'){
+        if ($user->isMaster()){
             return true;
         }
     }
@@ -44,7 +44,10 @@ class BlogPolicy
      */
     public function update(User $user, Blog $blog): bool
     {
-        return $user->id === $blog->user->id;
+
+        return  $user->isMaster() ||
+        $user->role == 'editor' && !$model->isAdmin() ||
+        $user->id === $blog->id;
     }
 
     /**
@@ -52,7 +55,7 @@ class BlogPolicy
      */
     public function delete(User $user, Blog $blog): bool
     {
-        return $user->id === $blog->user->id;
+        return  $user->isAdmin();
     }
 
     /**

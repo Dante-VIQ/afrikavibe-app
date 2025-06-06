@@ -6,7 +6,10 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <meta name="keywords" content="Africa travel, African culture, African destinations, Explore Africa, travel blog, African art, African history, African cuisine.">
         <meta name="description" content="Discover the rich tapestry of Africa's diverse cultures, breathtaking landscapes, and unique experiences. Explore top travel destinations, art, history, and cuisine on AfrikaVibe.">
-        <title>{{ config('app.name', 'AfriWise - Discover Africa') }}</title>
+        <title>{{ config('app.name', 'Vumbi Ventures - Discover Africa') }}</title>
+
+        {{-- <link rel="preload" href="{{ Vite::asset('/resources/css/app.css') }}" as="style">
+        <link rel="preload" href="{{ Vite::asset('/resources/js/app.js') }}" as="script"> --}}
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
@@ -94,18 +97,20 @@
         <!-- Livewire Styles -->
         @livewireStyles
     </head>
-    <body class="font-sans">
+    <body class="font-mono">
 
         {{-- <x-banner /> --}}
 
         <div class="min-h-screen bg-gray-100">
-           
+
             <!-- Page Content -->
             <div>
                 {{ $slot }}
             </div>
         </div>
 
+
+        <script src="{{ asset('/public/build/assets/app-DqMUDAdC.js') }}" defer></script>
         <script>
             function sendMessage() {
                 const message = document.getElementById('userMessage').value;
@@ -132,17 +137,17 @@
         </script>
 
         <!-- Additional Scripts -->
-        <script src="{{ asset('/lib/wow/wow.min.js') }}"></script>
-        <script src="{{ asset('/lib/easing/easing.min.js') }}"></script>
-        <script src="{{ asset('/lib/waypoints/waypoints.min.js') }}"></script>
-        <script src="{{ asset('/lib/counterup/counterup.min.js') }}"></script>
-        <script src="{{ asset('/lib/owlcarousel/owl.carousel.min.js') }}"></script>
-        <script src="{{ asset('/js/main.js') }}"></script>
-        <script src="{{ asset('/fontawesome6/js/all.min.js') }}"></script>
-        <script src="/node_modules/jquery/dist/jquery.js"></script>
-        <script src="{{ asset('/lib/tempusdominus/js/moment.min.js') }}"></script>
-        <script src="{{ asset('/lib/tempusdominus/js/moment-timezone.min.js') }}"></script>
-        <script src="{{ asset('/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js') }}"></script>
+        <script type="module" src="{{ asset('/lib/wow/wow.min.js') }}" defer></script>
+        <script type="module" src="{{ asset('/lib/easing/easing.min.js') }}" defer></script>
+        <script type="module" src="{{ asset('/lib/waypoints/waypoints.min.js') }}" defer></script>
+        <script type="module" src="{{ asset('/lib/counterup/counterup.min.js') }}" defer></script>
+        <script type="module" src="{{ asset('/lib/owlcarousel/owl.carousel.min.js') }}" defer></script>
+        <script type="module" src="{{ asset('/js/main.js') }}" defer></script>
+        <script type="module" src="{{ asset('/fontawesome6/js/all.min.js') }}" defer></script>
+        <script type="module" src="/node_modules/jquery/dist/jquery.js" defer></script>
+        <script type="module" src="{{ asset('/lib/tempusdominus/js/moment.min.js') }}" defer></script>
+        <script type="module" src="{{ asset('/lib/tempusdominus/js/moment-timezone.min.js') }}" defer></script>
+        <script type="module" src="{{ asset('/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js') }}" defer></script>
 
         @stack('modals')
 

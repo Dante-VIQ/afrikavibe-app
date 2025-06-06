@@ -6,7 +6,7 @@
   14 => 'view',
   'app' => 
   array (
-    'name' => 'Tembia',
+    'name' => 'vumbiventures',
     'env' => 'local',
     'debug' => true,
     'url' => 'http://127.0.0.1:8000',
@@ -210,7 +210,7 @@
         'driver' => 'octane',
       ),
     ),
-    'prefix' => 'tembia_cache_',
+    'prefix' => 'vumbiventures_cache_',
   ),
   'chatify' => 
   array (
@@ -398,7 +398,7 @@
       'options' => 
       array (
         'cluster' => 'redis',
-        'prefix' => 'tembia_database_',
+        'prefix' => 'vumbiventures_database_',
       ),
       'default' => 
       array (
@@ -547,6 +547,81 @@
       4 => 'two-factor-authentication',
     ),
   ),
+  'geoip' => 
+  array (
+    'log_failures' => true,
+    'include_currency' => true,
+    'service' => NULL,
+    'services' => 
+    array (
+      'maxmind_database' => 
+      array (
+        'class' => 'Torann\\GeoIP\\Services\\MaxMindDatabase',
+        'database_path' => 'D:\\Master\\htdocs\\AfrikaVibe\\afrikavibe-app\\storage\\app/geoip.mmdb',
+        'update_url' => 'https://download.maxmind.com/app/geoip_download?edition_id=GeoLite2-City&license_key=&suffix=tar.gz',
+        'locales' => 
+        array (
+          0 => 'en',
+        ),
+      ),
+      'maxmind_api' => 
+      array (
+        'class' => 'Torann\\GeoIP\\Services\\MaxMindWebService',
+        'user_id' => NULL,
+        'license_key' => NULL,
+        'locales' => 
+        array (
+          0 => 'en',
+        ),
+      ),
+      'ipgeolocation' => 
+      array (
+        'class' => 'Torann\\GeoIP\\Services\\IPGeoLocation',
+        'secure' => true,
+        'key' => NULL,
+        'continent_path' => 'D:\\Master\\htdocs\\AfrikaVibe\\afrikavibe-app\\storage\\app/continents.json',
+        'lang' => 'en',
+      ),
+      'ipdata' => 
+      array (
+        'class' => 'Torann\\GeoIP\\Services\\IPData',
+        'key' => NULL,
+        'secure' => true,
+      ),
+      'ipfinder' => 
+      array (
+        'class' => 'Torann\\GeoIP\\Services\\IPFinder',
+        'key' => NULL,
+        'secure' => true,
+        'locales' => 
+        array (
+          0 => 'en',
+        ),
+      ),
+    ),
+    'cache' => 'all',
+    'cache_tags' => 
+    array (
+      0 => 'torann-geoip-location',
+    ),
+    'cache_expires' => 86400,
+    'default_location' => 
+    array (
+      'ip' => '127.0.0.0',
+      'iso_code' => 'US',
+      'country' => 'United States',
+      'city' => 'New Haven',
+      'state' => 'CT',
+      'state_name' => 'Connecticut',
+      'postal_code' => '06510',
+      'lat' => 41.31,
+      'lon' => -72.92,
+      'timezone' => 'America/New_York',
+      'continent' => 'NA',
+      'default' => true,
+      'currency' => 'USD',
+    ),
+  ),
   'jetstream' => 
   array (
     'stack' => 'livewire',
@@ -607,7 +682,7 @@
       'show_progress_bar' => true,
       'progress_bar_color' => '#2299dd',
     ),
-    'inject_morph_markers' => false,
+    'inject_morph_markers' => true,
     'pagination_theme' => 'tailwind',
   ),
   'logging' => 
@@ -818,23 +893,24 @@
         18 => 'Laravel\\Octane\\Listeners\\FlushDatabaseRecordModificationState',
         19 => 'Laravel\\Octane\\Listeners\\FlushDatabaseQueryLog',
         20 => 'Laravel\\Octane\\Listeners\\RefreshQueryDurationHandling',
-        21 => 'Laravel\\Octane\\Listeners\\FlushLogContext',
-        22 => 'Laravel\\Octane\\Listeners\\FlushArrayCache',
+        21 => 'Laravel\\Octane\\Listeners\\FlushArrayCache',
+        22 => 'Laravel\\Octane\\Listeners\\FlushLogContext',
         23 => 'Laravel\\Octane\\Listeners\\FlushMonologState',
         24 => 'Laravel\\Octane\\Listeners\\FlushStrCache',
         25 => 'Laravel\\Octane\\Listeners\\FlushTranslatorCache',
-        26 => 'Laravel\\Octane\\Listeners\\PrepareInertiaForNextOperation',
-        27 => 'Laravel\\Octane\\Listeners\\PrepareLivewireForNextOperation',
-        28 => 'Laravel\\Octane\\Listeners\\PrepareScoutForNextOperation',
-        29 => 'Laravel\\Octane\\Listeners\\PrepareSocialiteForNextOperation',
-        30 => 'Laravel\\Octane\\Listeners\\FlushLocaleState',
-        31 => 'Laravel\\Octane\\Listeners\\FlushQueuedCookies',
-        32 => 'Laravel\\Octane\\Listeners\\FlushSessionState',
-        33 => 'Laravel\\Octane\\Listeners\\FlushAuthenticationState',
-        34 => 'Laravel\\Octane\\Listeners\\EnforceRequestScheme',
-        35 => 'Laravel\\Octane\\Listeners\\EnsureRequestServerPortMatchesScheme',
-        36 => 'Laravel\\Octane\\Listeners\\GiveNewRequestInstanceToApplication',
-        37 => 'Laravel\\Octane\\Listeners\\GiveNewRequestInstanceToPaginator',
+        26 => 'Laravel\\Octane\\Listeners\\FlushVite',
+        27 => 'Laravel\\Octane\\Listeners\\PrepareInertiaForNextOperation',
+        28 => 'Laravel\\Octane\\Listeners\\PrepareLivewireForNextOperation',
+        29 => 'Laravel\\Octane\\Listeners\\PrepareScoutForNextOperation',
+        30 => 'Laravel\\Octane\\Listeners\\PrepareSocialiteForNextOperation',
+        31 => 'Laravel\\Octane\\Listeners\\FlushLocaleState',
+        32 => 'Laravel\\Octane\\Listeners\\FlushQueuedCookies',
+        33 => 'Laravel\\Octane\\Listeners\\FlushSessionState',
+        34 => 'Laravel\\Octane\\Listeners\\FlushAuthenticationState',
+        35 => 'Laravel\\Octane\\Listeners\\EnforceRequestScheme',
+        36 => 'Laravel\\Octane\\Listeners\\EnsureRequestServerPortMatchesScheme',
+        37 => 'Laravel\\Octane\\Listeners\\GiveNewRequestInstanceToApplication',
+        38 => 'Laravel\\Octane\\Listeners\\GiveNewRequestInstanceToPaginator',
       ),
       'Laravel\\Octane\\Events\\RequestHandled' => 
       array (
@@ -865,15 +941,16 @@
         18 => 'Laravel\\Octane\\Listeners\\FlushDatabaseRecordModificationState',
         19 => 'Laravel\\Octane\\Listeners\\FlushDatabaseQueryLog',
         20 => 'Laravel\\Octane\\Listeners\\RefreshQueryDurationHandling',
-        21 => 'Laravel\\Octane\\Listeners\\FlushLogContext',
-        22 => 'Laravel\\Octane\\Listeners\\FlushArrayCache',
+        21 => 'Laravel\\Octane\\Listeners\\FlushArrayCache',
+        22 => 'Laravel\\Octane\\Listeners\\FlushLogContext',
         23 => 'Laravel\\Octane\\Listeners\\FlushMonologState',
         24 => 'Laravel\\Octane\\Listeners\\FlushStrCache',
         25 => 'Laravel\\Octane\\Listeners\\FlushTranslatorCache',
-        26 => 'Laravel\\Octane\\Listeners\\PrepareInertiaForNextOperation',
-        27 => 'Laravel\\Octane\\Listeners\\PrepareLivewireForNextOperation',
-        28 => 'Laravel\\Octane\\Listeners\\PrepareScoutForNextOperation',
-        29 => 'Laravel\\Octane\\Listeners\\PrepareSocialiteForNextOperation',
+        26 => 'Laravel\\Octane\\Listeners\\FlushVite',
+        27 => 'Laravel\\Octane\\Listeners\\PrepareInertiaForNextOperation',
+        28 => 'Laravel\\Octane\\Listeners\\PrepareLivewireForNextOperation',
+        29 => 'Laravel\\Octane\\Listeners\\PrepareScoutForNextOperation',
+        30 => 'Laravel\\Octane\\Listeners\\PrepareSocialiteForNextOperation',
       ),
       'Laravel\\Octane\\Events\\TaskTerminated' => 
       array (
@@ -901,15 +978,16 @@
         18 => 'Laravel\\Octane\\Listeners\\FlushDatabaseRecordModificationState',
         19 => 'Laravel\\Octane\\Listeners\\FlushDatabaseQueryLog',
         20 => 'Laravel\\Octane\\Listeners\\RefreshQueryDurationHandling',
-        21 => 'Laravel\\Octane\\Listeners\\FlushLogContext',
-        22 => 'Laravel\\Octane\\Listeners\\FlushArrayCache',
+        21 => 'Laravel\\Octane\\Listeners\\FlushArrayCache',
+        22 => 'Laravel\\Octane\\Listeners\\FlushLogContext',
         23 => 'Laravel\\Octane\\Listeners\\FlushMonologState',
         24 => 'Laravel\\Octane\\Listeners\\FlushStrCache',
         25 => 'Laravel\\Octane\\Listeners\\FlushTranslatorCache',
-        26 => 'Laravel\\Octane\\Listeners\\PrepareInertiaForNextOperation',
-        27 => 'Laravel\\Octane\\Listeners\\PrepareLivewireForNextOperation',
-        28 => 'Laravel\\Octane\\Listeners\\PrepareScoutForNextOperation',
-        29 => 'Laravel\\Octane\\Listeners\\PrepareSocialiteForNextOperation',
+        26 => 'Laravel\\Octane\\Listeners\\FlushVite',
+        27 => 'Laravel\\Octane\\Listeners\\PrepareInertiaForNextOperation',
+        28 => 'Laravel\\Octane\\Listeners\\PrepareLivewireForNextOperation',
+        29 => 'Laravel\\Octane\\Listeners\\PrepareScoutForNextOperation',
+        30 => 'Laravel\\Octane\\Listeners\\PrepareSocialiteForNextOperation',
       ),
       'Laravel\\Octane\\Events\\TickTerminated' => 
       array (
@@ -1098,6 +1176,67 @@
       'validate_csrf_token' => 'Illuminate\\Foundation\\Http\\Middleware\\ValidateCsrfToken',
     ),
   ),
+  'scout' => 
+  array (
+    'driver' => 'algolia',
+    'prefix' => '',
+    'queue' => true,
+    'after_commit' => false,
+    'chunk' => 
+    array (
+      'searchable' => 500,
+      'unsearchable' => 500,
+    ),
+    'soft_delete' => false,
+    'identify' => false,
+    'algolia' => 
+    array (
+      'id' => '32MPSWTEKV',
+      'secret' => '490023688b3ec314a1dab9c4b493d75f',
+      'index-settings' => 
+      array (
+      ),
+    ),
+    'meilisearch' => 
+    array (
+      'host' => 'http://localhost:7700',
+      'key' => NULL,
+      'index-settings' => 
+      array (
+      ),
+    ),
+    'typesense' => 
+    array (
+      'client-settings' => 
+      array (
+        'api_key' => 'xyz',
+        'nodes' => 
+        array (
+          0 => 
+          array (
+            'host' => 'localhost',
+            'port' => '8108',
+            'path' => '',
+            'protocol' => 'http',
+          ),
+        ),
+        'nearest_node' => 
+        array (
+          'host' => 'localhost',
+          'port' => '8108',
+          'path' => '',
+          'protocol' => 'http',
+        ),
+        'connection_timeout_seconds' => 2,
+        'healthcheck_interval_seconds' => 30,
+        'num_retries' => 3,
+        'retry_interval_seconds' => 1,
+      ),
+      'model-settings' => 
+      array (
+      ),
+    ),
+  ),
   'services' => 
   array (
     'postmark' => 
@@ -1138,7 +1277,7 @@
       0 => 2,
       1 => 100,
     ),
-    'cookie' => 'tembia_session',
+    'cookie' => 'vumbiventures_session',
     'path' => '/',
     'domain' => NULL,
     'secure' => NULL,

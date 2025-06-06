@@ -113,7 +113,13 @@
     @livewireStyles
 </head>
 
-<body class="font-family">
+<body class="font-family" data-content-id="{{ $blog->id }}" data-content-type="{{ get_class($blog) }}">
+   @push('scripts')
+       <script>
+        window.contentTrackingEnabled = true;
+       </script>
+    @vite(['resources/js/content-tracking.js'])
+   @endpush
     <x-banner />
 
     <div class="max-h-screen bg-gray-100">

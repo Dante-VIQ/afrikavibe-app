@@ -21,7 +21,7 @@ class DoctorFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => $this->faker->place(),
+            'name' => $this->faker->city(),
             'department' => $this->faker->sentence(),
             'detail' => $this->faker->paragraph(2),
             'image' => $this->faker->image

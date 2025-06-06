@@ -4,15 +4,17 @@ namespace App\Livewire;
 
 use App\Models\Header;
 use Livewire\Component;
-use App\Models\Destination;
 use Livewire\WithFileUploads;
-use Livewire\Attributes\Computed;
+use Livewire\Attributes\Layout;
 use Livewire\Attributes\Validate;
 use Illuminate\Support\Facades\Gate;
+use App\TrackableViews;
 
+#[Layout('layouts.art')]
 class HeaderCard extends Component
 {
     use WithFileUploads;
+    use TrackableViews;
 
     public $headers, $header, $name, $category, $header_id, $user;
 

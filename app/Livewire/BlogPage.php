@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use App\Models\Blog;
+use App\TrackableViews;
 use Livewire\Attributes\Computed;
 use Livewire\Component;
 use Livewire\Attributes\Title;
@@ -13,11 +14,13 @@ use Usamamuneerchaudhary\Commentify\Traits\Commentable;
 #[Layout('layouts.app')]
 class BlogPage extends Component
 {
+    use Commentable;
+    use TrackableViews;
     public $blogs, $user, $blog_id;
 
     public Blog $blog;
 
-    #[Computed]
+    #[Computed()]
     public function blogs()
     {
         return Blog::latest()
@@ -25,9 +28,10 @@ class BlogPage extends Component
             ->get();
     }
 
-    // public function mount($blogID)
+    // #[Computed()]
+    // public function mount()
     // {
-    //     return view('livewire.blog-page')
+    //     return view('yutpo')
     //     ->with('blog', Blog::findOrFail($blogID));
     // }
 
@@ -41,7 +45,7 @@ class BlogPage extends Component
 
     public function render()
     {
-        $this->blogs = Blog::All();
+        $this->blogs = Blog::latest()->get();
         return view('livewire.blog-page');
     }
 }

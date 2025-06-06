@@ -2,17 +2,21 @@
 
 namespace App\Livewire;
 
-use App\Models\Blog;
 use App\Models\Culture;
 use Livewire\Component;
 use Livewire\WithFileUploads;
+use Livewire\Attributes\Layout;
 use Livewire\Attributes\Validate;
 use Illuminate\Support\Facades\Gate;
+use App\TrackableViews;
 
+
+#[Layout('layouts.art')]
 class CultureCard extends Component
 {
 
     use WithFileUploads;
+    use TrackableViews;
 
     public $cultures, $culture, $culture_id, $user;
 

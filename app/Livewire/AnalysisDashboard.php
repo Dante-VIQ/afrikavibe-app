@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Livewire;
+
+use App\Http\Controllers\AnalyticsController;
 use Carbon\Carbon;
 use App\Models\Blog;
 use App\Models\City;
@@ -14,6 +16,9 @@ use Livewire\Attributes\Computed;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Gate;
 use Livewire\Attributes\Layout;
+use App\Http\Controllers\UserActivity;
+use App\Livewire\UserActivity as LivewireUserActivity;
+use App\Models\Analytics;
 
 #[Layout('layouts.art')]
 class AnalysisDashboard extends Component
@@ -22,33 +27,16 @@ class AnalysisDashboard extends Component
 
     public $blogs, $blog;
 
-    public $bounceRate, $pageViews, $newSessions, $weeklyIncome;
-
-    public $pageType = 'blog';
-
-    public $period = 'daily';
-
-    public $chartData;
-
     public $search;
+  
+    public AnalyticsController $analytics;
+
+    public $range = [], $contentType = [], $trends = [];
 
     protected $rules = [
         'search' => 'alpha|min:3|max:50',
     ];
 
-    public function loadChartData()
-    {
-        $data = $this->getActivityStats($this->pageType, $this->period);
-        $this->chartData = [
-            'labels' => $data->pluck('date')->toArray(),
-            'views' =>$data->pluck('total_views')->toArray(),
-            'timeSpent' => $data->pluck('total_time_spent')->map(function ($time) {
-                return round($time / 60, 2);
-            })->toArray(),
-        ];
-
-        $this->emit('chartUpdated', $this->chartData);
-    }
     #[Computed()]
     public function getUserCountProperty()
     {
@@ -63,6 +51,19 @@ class AnalysisDashboard extends Component
         return Destination::count();
     }
 
+    #[Computed()]
+    public function analytics($range, $contentType)
+    {
+        return view('activity.trends', [
+            'stats' => $this->getStats($range, $contentType),
+            'trends' => $this->getTrends($range, $contentType),
+            'topContent' => $this->getTopContent($range, $contentType),
+            'filters' => [
+                'range' => $range,
+                'type' => $contentType
+            ]
+        ]);
+    }
     #[Computed()]
     public function getBlogCountProperty()
     {
@@ -83,54 +84,20 @@ class AnalysisDashboard extends Component
 
     public function calculateBounceRate()
     {
-        $totalSessions = \DB::table('analyses')->count('session_id');
+        $totalSessions = DB::table('analyses')->count('session_id');
 
-        $bounces = \DB::table('analyses')
+        $bounces = DB::table('analyses')
             ->where('is_bounce', 1)
             ->whereBetween('created_at', [now()->startOfWeek(), now()->endOfWeek()])
             ->count();
 
         return $totalSessions > 0 ? round(($bounces / $totalSessions) * 100, 2) : 0;
     }
-    public function calculatePageViews()
-    {
-        return \DB::table('analyses')
-            ->select('page_url', \DB::raw('COUNT(*) as views'))
-            ->groupBy('page_url')
-            ->whereBetween('created_at', [now()->startOfWeek(), now()->endOfWeek()])
-            ->get();
-    }
-
-    public function calculateNewSessions()
-    {
-        return \DB::table('analyses')->where('is_new_session', 1)->count();
-    }
-
-    public function calculateWeeklyIncome()
-    {
-        return \DB::table('analyses')
-            ->whereBetween('created_at', [now()->startOfWeek(), now()->endOfWeek()])
-            ->sum('income');
-    }
 
 
-    #[Computed]
-    public function mount()
-    {
-        $this->bounceRate = $this->calculateBounceRate();
-        $this->pageViews = $this->calculatePageViews();
-        $this->newSessions = $this->calculateNewSessions();
-        $this->weeklyIncome = $this->calculateWeeklyIncome();
-    }
     public function render()
     {
         // $this->analysis = Analysis::all();
-        return view('livewire.analysis-dashboard', [
-            'bounceRate' => $this->bounceRate,
-            'pageViews' => $this->pageViews,
-            'newSessions' => $this->newSessions,
-            'weeklyIncome' => $this->weeklyIncome,
-            'chartData' => $this->chartData,
-        ]);
+        return view('livewire.analysis-dashboard');
     }
 }

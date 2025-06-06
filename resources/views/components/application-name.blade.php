@@ -1,5 +1,7 @@
-<a href="/" class="navbar-brand d-flex align-items-center px-4 px-lg-3">
+        <div>
+            {{-- <img class="img-fluid w-32 h-16" src="{{ asset('/img/default.png') }}" alt="Jasiri" /> --}}
+            <h4>
+                <a href="/dashboard" class="text-2xl p-2 text-green-900 outline-none">Vumbi Ventures</a>
+            </h4>
+        </div>
 
-        <h1 class="font-semibold m-0 text-primary lg:text-3xl sm:text-2xl"></i>Tembia</h1>
-
-</a>

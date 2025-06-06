@@ -1,50 +1,50 @@
+<div>
+@section('content')
 <div class="chartjs-wrapper mt-4 relative">
-    <select wire:model="period" id="period" class="rounded float-right text-gray-600 bg-gray-300">
-        <option value="daily">Daily</option>
-        <option value="weekly">Weekly</option>
-        <option value="monthly">Monthly</option>
-        <option value="yearly">Yearly</option>
+    <select id="timeRange" class="rounded text-gray-600 bg-gray-300">
+        <option value="1">Daily</option>
+        <option value="7">Weekly</option>
+        <option value="30">Monthly</option>
+        <option value="90">Yearly</option>
     </select>
-    <canvas id="pageViewStats"
-        class="w-full h-full"></canvas>
+    <select id="contentType" class="rounded text-gray-600 bg-gray-300 px-3 py-1">
+        <option value="">All Content Types</option>
+        <option value="App\Models\Blog">Blogs</option>
+        <option value="App\Models\Doctor">Destinations</option>
+        <option value="App\Models\Culture">Cultures</option>
+    </select>
+
+    <div class="chart-container" style="height: 400px; width: 100%">
+        
+        <activity-trend-chart
+            ref="trendChart"
+            :days="selectedDays"
+            :content-type="selectedType">
+
+    </activity-trend-chart>
+    </div>
 </div>
+@endsection
 
+@push('scripts')
 <script>
-    document.addEventListener('livewire:load', function () {
-        const ctx = document.getElementById('pageViewStats').getContext('2d');
-
-        let chart;
-
-        livewire.on('chartUpdated', function (chartData) {
-            if(chart) chart.destroy();
-
-            chart = new Chart(ctx, {
-                type: 'line',
-                data: {
-                    labels: chartData.labels,
-                    datasets: [
-                        {
-                        labels: 'Total Views',
-                        data: chartData.views,
-                        borderColor: 'blue',
-                        backgroundColor: 'rgba(0, 0, 255, 0.1)',
-                    },
-                    {
-                        labels: 'Total Time Spent (Minutes)',
-                        data: chartData.timeSpent,
-                        borderColor: 'orange',
-                        backgroundColor: 'rgba(255, 165, 0, 0.1)',
-                    }
-                ]
-                },
-                options: {
-                    responsive: true,
-                    scales:{
-                        y: { beginAtZero: true },
-                    }
-                }
+    new Vue({
+        el: '#app',
+        data: {
+            selectedDays: 30,
+            selectedType: null
+        },
+        mounted() {
+            document.getElementById('timeRange').addEventListener('change', (e) => {
+                this.selectedDays = e.target.value;
             });
-        });
-    });
 
-</script>
+            document.getElementById('contentType').addEventListener('change', (e) => {
+                this.selectedType = e.target.value || null;
+            });
+        }
+    });
+    </script>
+@endpush
+
+</div>

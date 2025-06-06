@@ -14,6 +14,7 @@ use App\Models\Service;
 use App\Models\Analysis;
 use App\Models\Destination;
 use App\Models\Testimonial;
+use App\Role;
 use Laravel\Sanctum\HasApiTokens;
 use Laravel\Jetstream\HasProfilePhoto;
 use Illuminate\Notifications\Notifiable;
@@ -32,9 +33,12 @@ class User extends Authenticatable
     use Notifiable;
     use TwoFactorAuthenticatable;
 
-    const ROLE_ADMIN = 'admin';
-
     const ROLE_MASTER = 'master';
+     const ROLE_ADMIN = 'admin';
+     const ROLE_EDITOR = 'editor';
+     const ROLE_USER = 'user';
+
+
     /**
      * The attributes that are mass assignable.
      *
@@ -45,6 +49,7 @@ class User extends Authenticatable
         'email',
         'password',
     ];
+
 
     /**
      * The attributes that should be hidden for serialization.
@@ -154,6 +159,15 @@ class User extends Authenticatable
         return true;
     }
 
+    public function isEditor()
+    {
+        if ($this->role != self::ROLE_EDITOR) {
+            return false;
+        }
+
+        return true;
+    }
+
     public function isMaster()
     {
         if ($this->role != self::ROLE_MASTER) {
@@ -162,4 +176,9 @@ class User extends Authenticatable
 
         return true;
     }
+
+//     public function hasRole(User $user): bool
+//     {
+//         return $this->role === $role;
+//     }
 }

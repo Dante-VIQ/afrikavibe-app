@@ -22,8 +22,8 @@ class CultureFactory extends Factory
         return [
             'name' => $this->faker->words(2),
             'detail' => $this->faker->paragraphs(5),
-            'location' => $this->faker->word(),
-            'image' => $this->faker->image,
+            'location' => $this->faker->city(),
+            'image' => $this->faker->image
         ];
     }
 }

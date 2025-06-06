@@ -21,7 +21,7 @@ class AnalysisPolicy
      */
     public function viewAny(User $user): bool
     {
-        return true;
+        return $user->role == 'master';
     }
 
     /**
@@ -29,7 +29,7 @@ class AnalysisPolicy
      */
     public function view(User $user, Analysis $analysis): bool
     {
-        return true;
+        return $user->role == 'master';
     }
 
     /**

@@ -1,46 +1,91 @@
 <div>
-    <div class="grid lg:grid-cols-3 p-3 md:grid-cols-2 gap-4 sm:grid-cols-1 fix-underline wow FadeInUp">
-        @unless (count($blogs) == 0)
-            @foreach ($blogs as $blog)
-                <article wire:key="{{ $blog->id }}" class="service-item p-6 bg-white rounded-lg border border-gray-200 shadow-md">
-                    <!-- Article Image -->
-                    <a href="/blogs/{{ $blog->id }}" class="hover:opacity-75 background-cover">
-                        {{-- <a href="#">
-                            <p class="text-gray-500 text-sm font-bold pb-4 uppercase fix-underline">
-                                {{ $blog->category }}</p>
-                        </a> --}}
-                        <img class="mx-auto mb-4 w-full h-40 rounded-lg" src="{{ asset('storage/' . $blog->image) }}"
-                            alt="{{ $blog->category }}"/>
-                    </a>
-                    
-                    <div class="bg-white flex flex-col justify-between">
-                        <h3 class="text-2xl text-gray-800 font-bold pb-2">{{ $blog->title }}</h3>
-                        <p class="text-sm pb-3">
-                            By <a href="/blogs/{{ $blog->id }}" class="font-semibold hover:text-gray-800">{{ $blog->user->name }}</a>,
-                            {{ $blog->created_at->diffForHumans() }}
-                        </p>
-                        <p class="mb-6 h-24 overflow-hidden text-wrap">{{ $blog->description }}</p>
-                        <a href="/blogs/{{ $blog->id }}" class="text-gray-800 hover:text-black italic">Continue
-                            Reading <i class="fas fa-arrow-right"></i></a>
+    <div class="col-12 grid-margin stretch-card">
+        <div class="card card-rounded">
+            <div class="card-body">
+                <div class="d-sm-flex justify-content-between align-items-start">
+                    <div>
+                        <h4 class="card-title card-title-dash">Destinations</h4>
+                        <p class="card-subtitle card-subtitle-dash">You can manage your destinations here</p>
                     </div>
-                </article>
-            @endforeach
-        @else
-        @endunless
-    </div>
+                    <div x-data="{ show: false }" x-cloak>
+                        <button x-on:click.prevent="show = true" class="btn btn-primary btn-lg text-white mb-0 me-0" type="submit"><i
+                                class="mdi mdi-account-plus"></i>Add
+                            New Blog</button>
+                    </div>
+                    <div class="mx-auto z-9 top-1/3 left-1/3" x-show="show" x-on:click.outside.prevent="show = false">
+                        @include('livewire.includes.blog-create')
+                    </div>
+                </div>
+                <div class="table-responsive  mt-1">
+                    <table class="table select-table">
+                        <thead>
+                            <tr>
+                                <th>
+                                    <div class="form-check form-check-flat mt-0">
+                                        <label class="form-check-label">
+                                            <input type="checkbox" class="form-check-input" aria-checked="false"
+                                                id="check-all"><i class="input-helper"></i></label>
+                                    </div>
+                                </th>
+                                <th>Blog</th>
+                                <th>Created by</th>
+                                <th>Manage</th>
+                                <th>Clicks</th>
+                            </tr>
+                        </thead>
+                        @unless (count($blogs) == 0)
+                            @foreach ($this->blogs as $blog)
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <div class="form-check form-check-flat mt-0">
+                                                <label class="form-check-label">
+                                                    <input type="checkbox" class="form-check-input" aria-checked="false"><i
+                                                        class="input-helper"></i></label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="d-flex ">
+                                                <img src="{{ asset('storage/' . $doctor->image) }}" alt="">
+                                                <div>
+                                                    <h6>{{ $blog->name }}</h6>
+                                                    <p>{{ $blog->category }}</p>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <h6>{{ $blog->user->name }}</h6>
+                                            <p>{{ $blog->user->id }}</p>
+                                        </td>
+                                        <td>
+                                            <div>
+                                                <div
+                                                    class="d-flex justify-content-between align-items-center mb-1 max-width-progress-wrap">
+                                                    <p class="text-success">79%
+                                                    </p>
+                                                    <p>85/162</p>
+                                                </div>
+                                                <div class="progress progress-md">
+                                                    <div class="progress-bar bg-success" role="progressbar"
+                                                        style="width: 85%" aria-valuenow="25" aria-valuemin="0"
+                                                        aria-valuemax="100">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="badge badge-opacity-warning">
+                                                In progress</div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            @endforeach
 
-
-    <div class="flex">
-        @can('create', $blog)
-            <div class="relative p-5 mx-auto" x-data="{ show: false }">
-                <x-button x-on:click.prevent="show = true" class="px-4 py-2 text-light rounded bg-primary"><i
-                        class="fa fa-add text-primary"></i>
-                    Add Blog</x-button>
-
-                <div class="mx-auto z-9 top-1/3 left-1/3" x-show="show" x-on:click.outside.prevent="show = false">
-                    @include('livewire.includes.blog-create')
+                        @endunless
+                    </table>
                 </div>
             </div>
-        @endcan
+        </div>
     </div>
+
 </div>

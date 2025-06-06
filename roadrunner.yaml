@@ -1,9 +1,0 @@
-server:
-  command: "php artisan octane:start --server=roadrunner --host=127.0.0.1 --port=8000"
-
-http:
-  address: "127.0.0.1:8000"
-
-logs:
-  mode: production
-  level: error

@@ -13,14 +13,12 @@ return new class extends Migration
     {
         Schema::create('activities', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->nullable()->constrained()->onDelete('cascade');
-            $table->string('page_type')->nullable();
-            $table->unsignedBigInteger('page_id')->nullable();
-            $table->unsignedBigInteger('view_count')->default(0);
-            $table->string('session_id')->nullable();
-            $table->string('page')->default(0);
-            $table->unsignedBigInteger('time_spent')->default(0);
-            $table->date('date')->nullable();
+            $table->foreignId('user_id')->nullable()->constrained()->cascadeOnDelete('cascade');
+            $table->string('action')->nullable();
+            $table->text('description');
+            $table->string('ip_address')->default(0);
+            $table->string('user_agent')->nullable();
+            $table->json('metadata')->nullable();
             $table->timestamps();
         });
     }

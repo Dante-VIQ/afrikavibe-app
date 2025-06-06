@@ -18,7 +18,7 @@ class CityFactory extends Factory
     {
         return [
 
-                // 'email' => $this->faker->companyEmail(),o
+                // 'email' => $this->faker->companyEmail(),
                 'name' => $this->faker->word(),
                 'country' => $this->faker->country(),
                 'image' => $this->faker->image()

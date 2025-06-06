@@ -3,11 +3,13 @@
 namespace App\Livewire;
 
 use DB;
-use Request;
 use Carbon\Carbon;
 use App\Models\Blog;
+use App\TrackableViews;
 use Livewire\Component;
 use App\Models\Activity;
+use App\Events\UserActivity;
+use Laravel\Scout\Searchable;
 use Livewire\Attributes\Rule;
 use Livewire\WithFileUploads;
 use Livewire\Attributes\Title;
@@ -15,14 +17,17 @@ use Livewire\Attributes\Layout;
 use Livewire\Attributes\Computed;
 use Livewire\Attributes\Validate;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Request;
 use Illuminate\Auth\Middleware\Authorize;
 use Usamamuneerchaudhary\Commentify\Traits\Commentable;
 
-#[Title('layouts.app')]
+#[Title('layouts.art')]
 class BlogCard extends Component
 {
     use WithFileUploads;
     use Commentable;
+    use Searchable;
+
 
     public $title, $user;
     public $blogs, $blog, $blog_id;
@@ -53,7 +58,11 @@ class BlogCard extends Component
         'NewImage' => 'image|sometimes|nullable|max:10240',
         'NewCategory' => 'required',
     ];
-    // #[Computed()]
+
+    #[Computed()]
+    public function blogs() {
+        $this->blogs = Blog::latest()->get();
+    }
 
     // create a blog
     public function create(Blog $blog)
@@ -94,8 +103,9 @@ class BlogCard extends Component
     }
 
     // update blog
-    public function update(Blog $blog)
+    public function update(Request $request, Blog $blog)
     {
+
         Gate::authorize('update', Blog::class);
         $validated = $this->validate([
             'NewTitle' => 'required',
@@ -124,6 +134,14 @@ class BlogCard extends Component
         //     'detail' => $this->editingNewDetail,
         // ]);
         $this->resetFields();
+
+        event(new UserActivity(
+            $request->user(),
+            'blog_updated',
+            "Updated Blog {$blog->title}",
+            $request,
+            ['blog_id' => $blog->id]
+        ));
     }
 
     // delete blog
@@ -177,47 +195,7 @@ class BlogCard extends Component
                 'page_id' => $blog->id,
                 'date' => now()->toDateString(),
             ],
-            ['view_count' => \DB::raw('view_count + 1')],
+            ['view_count' => DB::raw('view_count + 1')],
         );
-    }
-
-    public function updatedTotalTimeSpent($timeSpent)
-    {
-        Activity::where('page_type', 'blog')
-            ->where('page_id', $this->blog->id)
-            ->where('date', now()->toDateString())
-            ->increment('time_spent', $timeSpent);
-    }
-
-    public function getActivityStats($pageType, $period = 'daily')
-    {
-        $query = Activity::where('page_type', $pageType);
-
-        switch ($period) {
-            case 'daily':
-                $query->whereDate('date', [now()->toDateString()]);
-                break;
-
-            case 'weekly':
-                $query->whereBetween('date', [now()->startOfWeek(), now()->endOfWeek()]);
-                break;
-            case 'monthly':
-                $query->whereMonth('date', now()->month)->whereYear('date', now()->year);
-                break;
-            case 'yearly':
-                $query->whereYear('date', now()->year);
-                break;
-        }
-
-        $data = $query
-            ->selectRaw(
-                'date, SUM(view_count) as total_views,
-        SUM(time_spent) as total_time_spent',
-            )
-            ->groupBy('date')
-            ->orderBy('date')
-            ->get();
-
-        return $data;
     }
 }

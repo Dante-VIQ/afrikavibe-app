@@ -2,13 +2,14 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\TrackContentView;
 use App\Http\Middleware\TrackUserActivity;
 use Spatie\ResponseCache\Middlewares\CacheResponse;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
 {
-    
+
     /**
      * The application's global HTTP middleware stack.
      *
@@ -40,7 +41,8 @@ class Kernel extends HttpKernel
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
             \App\Http\Middleware\VerifyCsrfToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
-            TrackUserActivity::class,
+            \App\Http\Middleware\TrackUserActivity::class,
+            \App\Http\Middleware\TrackContentView::class,
         ],
 
         'api' => [
@@ -69,8 +71,6 @@ class Kernel extends HttpKernel
         'signed' => \App\Http\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
-        'admin' => \App\Http\Middleware\Admin::class,
-        'master' => \App\Http\Middleware\Master::class,
-        // 'SuperAdmin' => \App\Http\Middleware\SuperAdmin::class,
+        'role' => \App\Http\Middleware\RoleCheck::class,
     ];
 }

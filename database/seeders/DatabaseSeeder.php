@@ -15,6 +15,7 @@ use App\Models\Culture;
 use App\Models\Feature;
 use App\Models\Service;
 use App\Models\Analysis;
+use App\Models\ContentView;
 use App\Models\Destination;
 use App\Models\Testimonial;
 use Illuminate\Database\Seeder;
@@ -33,7 +34,12 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
-        $user = User::factory()->create();
+        $user = User::factory()->create([
+            'name' => 'Dante Maina',
+            'email' => 'mwangiloxine@gmail.com',
+            'password' => bcrypt('Taurusboy1992'),
+            'role' => User::ROLE_MASTER,
+        ]);
 
         Service::factory(4)->create([
             'user_id' => $user->id,
@@ -84,6 +90,10 @@ class DatabaseSeeder extends Seeder
         ]);
         
         Analysis::factory(4)->create([
+            'user_id' => $user->id,
+        ]);
+
+        ContentView::factory(4)->create([
             'user_id' => $user->id,
         ]);
     }

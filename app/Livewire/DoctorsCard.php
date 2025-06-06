@@ -3,22 +3,24 @@
 namespace App\Livewire;
 
 use App\Models\Doctor;
-
+use App\TrackableViews;
 use Livewire\Component;
 use Illuminate\Http\Request;
 use Livewire\WithPagination;
+use Laravel\Scout\Searchable;
 use Livewire\WithFileUploads;
+use Livewire\Attributes\Layout;
 use Livewire\Attributes\Computed;
 use Livewire\Attributes\Validate;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
 
-
+#[Layout('layouts.art')]
 class DoctorsCard extends Component
 {
     use WithFileUploads;
     use WithPagination;
-
+    use TrackableViews;
 
     public $doctors, $doctor, $doctor_id, $user;
 
@@ -48,6 +50,7 @@ class DoctorsCard extends Component
     #[Computed()]
     public function doctors(){
         $this->doctors = Doctor::latest()->get();
+        return view('eco-destination');
     }
 
     public function render()

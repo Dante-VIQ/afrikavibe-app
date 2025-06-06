@@ -35,4 +35,14 @@
         </a>
     </div>
 
+    @section('scripts')
+    <script>
+        window.contentData = @json([
+            'id' => $blog->id,
+            'type' => 'blog'
+        ]);
+    </script>
+
+@vite(['resources/js/content-tracking.js'])
+    @endsection
 </x-app-layout>

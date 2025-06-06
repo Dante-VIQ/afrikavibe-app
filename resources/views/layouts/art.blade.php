@@ -26,14 +26,18 @@
     <!-- End plugin css for this page -->
     <!-- inject:css -->
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+    {{-- <link rel="preload" href="{{ asset('/css/style.css') }}" rel="stylesheet"> --}}
+    {{-- <link rel="preload" href="{{ asset('/css/tailwind.css') }}" rel="stylesheet"> --}}
+
+
     <!-- endinject -->
     <link rel="shortcut icon" href="{{ asset('assets/images/favicon.png') }}" />
 
-    {{-- <script src="https://cdn.tailwindcss.com"></script> --}}
+    <script src="https://cdn.tailwindcss.com"></script>
 
-    {{-- <script>
+    <script>
         tailwind.config = {
-            darkMode: 'true',
+            darkMode: 'class',
             theme: {
                 extend: {
                     colors: {
@@ -90,19 +94,19 @@
                 }
             }
         }
-    </script> --}}
+    </script>
 
     <!-- Scripts -->
     {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
 
     <!-- Styles -->
-    {{-- @livewireStyles --}}
+    @livewireStyles
 </head>
 
 <body>
     <div class="container-scroller">
         <!-- partial:../../partials/_navbar.html -->
-        <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex align-items-top flex-row">
+        <nav class="navbar p-0 fixed-top d-flex align-items-top flex-row">
             <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-start">
                 <div class="me-3">
                     <button class="navbar-toggler navbar-toggler align-self-center" type="button"
@@ -111,22 +115,17 @@
                     </button>
                 </div>
                 <div>
-                    <a class="navbar-brand brand-logo" href="../../index.html">
+                    {{-- <a class="navbar-brand brand-logo" href="../../index.html">
                         <img src="../../assets/images/logo.svg" alt="logo" />
-                    </a>
-                    <a class="navbar-brand brand-logo-mini" href="../../index.html">
-                        Afrionix
+                    </a> --}}
+                    <a class="navbar-brand brand-logo" href="../../dashboard">
+                        BazeFinest
                     </a>
                 </div>
             </div>
             <div class="navbar-menu-wrapper d-flex align-items-top">
-                <ul class="navbar-nav">
-                    <li class="nav-item fw-semibold d-none d-lg-block ms-0">
-                        <h1 class="welcome-text">Good Morning, <span class="text-black fw-bold">John Doe</span></h1>
-                        <h3 class="welcome-sub-text">Your performance summary this week </h3>
-                    </li>
-                </ul>
-                <ul class="navbar-nav ms-auto">
+
+                <ul class="navbar-nav ms-auto gap-3">
                     <li class="nav-item dropdown d-none d-lg-block">
                         <a class="nav-link dropdown-bordered dropdown-toggle dropdown-toggle-split" id="messageDropdown"
                             href="#" data-bs-toggle="dropdown" aria-expanded="false"> Select Category </a>
@@ -164,14 +163,14 @@
                             </a>
                         </div>
                     </li>
-                    <li class="nav-item d-none d-lg-block">
+                    {{-- <li class="nav-item d-none d-lg-block">
                         <div id="datepicker-popup" class="input-group date datepicker navbar-date-picker">
                             <span class="input-group-addon input-group-prepend border-right">
                                 <span class="icon-calendar input-group-text calendar-icon"></span>
                             </span>
                             <input type="text" class="form-control">
                         </div>
-                    </li>
+                    </li> --}}
                     <li class="nav-item">
                         <form class="search-form" action="#">
                             <i class="icon-search"></i>
@@ -263,33 +262,67 @@
                             </a>
                         </div>
                     </li>
-                    <li class="nav-item dropdown d-none d-lg-block user-dropdown">
-                        <a class="nav-link" id="UserDropdown" href="#" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            <img class="img-xs rounded-circle" src="../../assets/images/faces/face8.jpg"
-                                alt="Profile image"> </a>
-                        <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
-                            <div class="dropdown-header text-center">
-                                <img class="img-md rounded-circle" src="../../assets/images/faces/face8.jpg"
-                                    alt="Profile image">
-                                <p class="mb-1 mt-3 fw-semibold">Allen Moreno</p>
-                                <p class="fw-light text-muted mb-0">allenmoreno@gmail.com</p>
-                            </div>
-                            <a class="dropdown-item"><i
-                                    class="dropdown-item-icon mdi mdi-account-outline text-primary me-2"></i> My
-                                Profile <span class="badge badge-pill badge-danger">1</span></a>
-                            <a class="dropdown-item"><i
-                                    class="dropdown-item-icon mdi mdi-message-text-outline text-primary me-2"></i>
-                                Messages</a>
-                            <a class="dropdown-item"><i
-                                    class="dropdown-item-icon mdi mdi-calendar-check-outline text-primary me-2"></i>
-                                Activity</a>
-                            <a class="dropdown-item"><i
-                                    class="dropdown-item-icon mdi mdi-help-circle-outline text-primary me-2"></i>
-                                FAQ</a>
-                            <a class="dropdown-item"><i
-                                    class="dropdown-item-icon mdi mdi-power text-primary me-2"></i>Sign Out</a>
-                        </div>
+                    <li>
+                        <x-dropdown align="right" width="44">
+                            <x-slot name="trigger">
+                                @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
+                                    <div class="flex gap-5">
+
+                                        <button
+                                            class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300 transition">
+                                            <img class="h-10 w-10 rounded-full object-cover"
+                                                src="{{ Auth::user()->profile_photo_url }}"
+                                                alt="{{ Auth::user()->name }}" />
+                                        </button>
+
+                                    </div>
+                                @else
+                                    <span class="inline-flex rounded-md">
+                                        <button type="button"
+                                            class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none focus:bg-gray-50 active:bg-gray-50 transition ease-in-out duration-150">
+                                            {{ Auth::user()->name }}
+
+                                            <svg class="ms-2 -me-0.5 h-4 w-4" xmlns="http://www.w3.org/2000/svg"
+                                                fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                                stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                    d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                                            </svg>
+                                        </button>
+                                    </span>
+                                @endif
+                            </x-slot>
+
+                            <x-slot name="content">
+                                <!-- Account Management -->
+                                <div class="block px-4 py-2 text-xs text-gray-400">
+                                    {{ __('Manage Account') }}
+                                </div>
+
+                                <x-dropdown-link wire:navigate href="{{ route('profile.show') }}">
+                                    {{ __('Profile') }}
+                                </x-dropdown-link>
+                                {{-- <div class="sm:flex">
+                                <x-nav-item />
+                                </div> --}}
+                                @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
+                                    <x-dropdown-link href="{{ route('api-tokens.index') }}">
+                                        {{ __('API Tokens') }}
+                                    </x-dropdown-link>
+                                @endif
+
+                                <div class="border-t border-gray-200"></div>
+
+                                <!-- Authentication -->
+                                <form method="POST" action="{{ route('logout') }}" x-data>
+                                    @csrf
+
+                                    <x-dropdown-link href="{{ route('logout') }}" @click.prevent="$root.submit();">
+                                        {{ __('Log Out') }}
+                                    </x-dropdown-link>
+                                </form>
+                            </x-slot>
+                        </x-dropdown>
                     </li>
                 </ul>
                 <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
@@ -301,7 +334,7 @@
         <!-- partial -->
         <div class="container-fluid page-body-wrapper">
             <!-- partial:../../partials/_sidebar.html -->
-           <x-sidebar />
+            <x-sidebar />
             <!-- partial -->
             <div class="main-panel">
                 <div class="content-wrapper">
@@ -326,6 +359,8 @@
     </div>
     <!-- container-scroller -->
     <!-- plugins:js -->
+
+
     <script src="{{ asset('assets/vendors/js/vendor.bundle.base.js') }}"></script>
     <script src="{{ asset('assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js') }}"></script>
     <!-- endinject -->
@@ -334,22 +369,26 @@
     <script src="{{ asset('assets/vendors/progressbar.js/progressbar.min.js') }}"></script>
     <!-- End plugin js for this page -->
     <!-- inject:js -->
-    <script src="{{ asset('assets/js/off-canvas.js') }}"></script>
+    {{-- <script src="{{ asset('assets/js/off-canvas.js') }}"></script>
     <script src="{{ asset('assets/js/template.js') }}"></script>
     <script src="{{ asset('assets/js/settings.js') }}"></script>
     <script src="{{ asset('assets/js/hoverable-collapse.js') }}"></script>
-    <script src="{{ asset('assets/js/todolist.js') }}"></script>
+    <script src="{{ asset('assets/js/todolist.js') }}"></script> --}}
     <!-- endinject -->
     <!-- Custom js for this page-->
     <script src="{{ asset('assets/js/jquery.cookie.js') }}" type="text/javascript"></script>
     <script src="{{ asset('assets/js/dashboard.js') }}"></script>
     <script src="{{ asset('/js/chart.js') }}"></script>
+    <script src="{{ asset('/resources/js/content-tracking.js') }}"></script>
+    <script src="{{ asset('/resources/js/components/ActivityTrendChart.js') }}"></script>
+
+
     <!-- Custom js for this page -->
     <!-- End custom js for this page -->
 
     {{-- @stack('modals') --}}
 
-    {{-- @livewireScripts --}}
+    @livewireScripts
 </body>
 
 </html>

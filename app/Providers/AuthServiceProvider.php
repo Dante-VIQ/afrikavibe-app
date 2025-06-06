@@ -2,6 +2,9 @@
 
 namespace App\Providers;
 
+use App\Role;
+use App\Models\User;
+use App\Policies\UserPolicy;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 
@@ -23,6 +26,8 @@ class AuthServiceProvider extends ServiceProvider
         'App\Models\Service' => 'App\Policies\ServicePolicy',
         'App\Models\Analysis' => 'App\Policies\AnalysisPolicy',
         'App\Models\Culture' => 'App\Policies\CulturePolicy',
+        User::class => UserPolicy::class,
+        'App\Models\Analytics' => 'App\Policies\AnalyticsPolicy',
 
     ];
 
@@ -31,6 +36,25 @@ class AuthServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+
+        Gate::before(function (User $user, $ability){
+            if($user->isMaster()) {
+                return true;
+            }
+        });
+        Gate::define('manage-users', function ($user) {
+            return $user->role === User::ROLE_MASTER;
+        });
+
+        Gate::define('edit-content', function (User $user) {
+            return in_array($user->role, [User::ROLE_MASTER, User::ROLE_EDITOR, User::ROLE_ADMIN]);
+        });
+
+        Gate::define('view-activity-logs', function ($user) {
+            return $user->role === User::ROLE_ADMIN || $user->role === User::ROLE_MASTER;
+        });
+
         $this->registerPolicies();
+
     }
 }

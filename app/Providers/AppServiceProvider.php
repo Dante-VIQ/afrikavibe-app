@@ -10,6 +10,7 @@ use App\Models\Culture;
 use App\Models\Feature;
 use App\Models\Service;
 use App\Models\Analysis;
+use App\Models\Analytics;
 use App\Models\Destination;
 use App\Policies\BlogPolicy;
 use App\Policies\AboutPolicy;
@@ -19,6 +20,7 @@ use App\Policies\CulturePolicy;
 use App\Policies\FeaturePolicy;
 use App\Policies\ServicePolicy;
 use App\Policies\AnalysisPolicy;
+use App\Policies\AnalyticsPolicy;
 use App\Policies\DestinationPolicy;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\ServiceProvider;
@@ -50,6 +52,8 @@ class AppServiceProvider extends ServiceProvider
         Gate::policy(Service::class, ServicePolicy::class);
         Gate::policy(Analysis::class, AnalysisPolicy::class);
         Gate::policy(Culture::class, CulturePolicy::class);
+        Gate::policy(Analytics::class, AnalyticsPolicy::class);
+
 
 
     }

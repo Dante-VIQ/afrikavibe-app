@@ -52,6 +52,13 @@
       0 => 'Laravel\\Sanctum\\SanctumServiceProvider',
     ),
   ),
+  'laravel/scout' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Laravel\\Scout\\ScoutServiceProvider',
+    ),
+  ),
   'laravel/tinker' => 
   array (
     'providers' => 
@@ -111,6 +118,17 @@
     'providers' => 
     array (
       0 => 'Spatie\\ResponseCache\\ResponseCacheServiceProvider',
+    ),
+  ),
+  'torann/geoip' => 
+  array (
+    'aliases' => 
+    array (
+      'GeoIP' => 'Torann\\GeoIP\\Facades\\GeoIP',
+    ),
+    'providers' => 
+    array (
+      0 => 'Torann\\GeoIP\\GeoIPServiceProvider',
     ),
   ),
   'usamamuneerchaudhary/commentify' => 

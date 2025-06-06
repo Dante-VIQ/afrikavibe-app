@@ -4,12 +4,15 @@ use App\Livewire\BlogCard;
 use App\Livewire\BlogPage;
 use App\Livewire\AboutPage;
 use App\Livewire\DoctorPage;
+use App\Livewire\ManageLink;
 use App\Livewire\ContactPage;
 use App\Livewire\CultureCard;
+use App\Livewire\DoctorsCard;
 use App\Livewire\ServicePage;
 use App\Livewire\AppontmentPage;
 use App\Livewire\AnalysisDashboard;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TrackingController;
 
 Route::view('/', 'welcome');
 
@@ -31,20 +34,23 @@ Route::get('/appointment', AppontmentPage::class);
 
 Route::get('/contact', ContactPage::class);
 
-Route::get('/page', CultureCard::class);
 
+// Route::get('/eco-destination', DoctorsCard::class);
 
+// Route::get('/arts', CultureCard::class);
 // Route::get('/blog-lay', function () {
 //     return view('blog-lay');
 // })->name('blog-lay');
 
-// Route::get('/blogs/{blog}', BlogPage::class, 'show');
-Route::get('/blogs/{blog}', BlogPage::class);
-Route::get('/main', BlogCard::class);
-Route::get('/blogs/{blog}', [BlogCard::class, 'show']);
+Route::get('/blogs/{blog}', BlogPage::class, 'show');
+// Route::get('/blogs/{blog}', BlogPage::class);
+// Route::get('/main', BlogPage::class );
+// Route::get('/blogs/{blog}', [BlogCard::class, 'show']);
 
-Route::get('/Analysis', AnalysisDashboard::class);
+Route::post('track/view', [TrackingController::class, 'trackView']);
 
+require __DIR__ . '/admin.php';
+require __DIR__ . '/master.php';
 
 
 // Route::middleware([
