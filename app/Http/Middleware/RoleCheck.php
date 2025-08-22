@@ -18,7 +18,7 @@ class RoleCheck
         $user = $request->user();
 
         if($user->isMaster()) {
-        return $next($request);
+        return redirect('./Analysis');
 
         }
         if(!$user || !in_array($user->role, $roles)) {

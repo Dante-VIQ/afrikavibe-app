@@ -3,34 +3,51 @@
 namespace App\Http\Controllers;
 
 use Carbon\CarbonPeriod;
+use App\Models\ActivityLog;
 use App\Models\ContentView;
 use Illuminate\Http\Request;
+use App\Models\UserActivityLog;
 use Illuminate\Routing\Controller;
 
 class AnalyticsController extends Controller
 {
     public function index(Request $request)
     {
-        $this->authorize('view-analytics');
+        $this->authorize('view-activity');
 
-        // try {
-            $range = $request->input('range', 30);
+
+            $range = $request->input('range', 7);
             $contentType = $request->input('type');
+            $period = CarbonPeriod::create(now()->subDays($range), now());
 
             $stats = $this->getStats($range, $contentType);
             $trends = $this->getTrends($range, $contentType) ?? ['labels' => [], 'data' => []];
             $topContent = $this->getTopContent($range, $contentType);
             $filters = compact('range', 'contentType');
 
+            $labels = $period->map(fn($date) => $date->format('M j'));
+            $data = $period->map(fn($date) => $data[$date->format('Y-m-d')] ?? 0);
+            $actions = UserActivityLog::distinct('action')->pluck('action');
+
+            $data = UserActivityLog::query()
+            ->selectRaw('DATE(created_at) as date, COUNT(*) as count')
+            ->where('created_at', '>=', now()->subDays($range))
+            ->groupBy('date')
+            ->orderBy('date')
+            ->pluck('count', 'date');
+
+
             // return view('activity.trends', compact('stats', 'trends', 'topContent', 'range', 'contentType'));
         // } catch (\Exception $e) {
         //     logger()->error('activity error: ' . $e->getMessage());
 
-            return view('activity.trends', [
+            return view('admin.admin', [
                 'stats' => $stats,
                 'trends' => $trends,
                 'topContent' => $topContent,
-                'filters' => $filters
+                'filters' => $filters,
+                'labels' => $labels,
+                'actions' => $actions
             ]);
         // }
     }
@@ -89,7 +106,7 @@ class AnalyticsController extends Controller
                 return [
                     'title' => $item->viewable->title ?? $item->viewable->name,
                     'views' => $item->views,
-                    'url' => route($item->viewable_type::getRouteName(), $item->viewable),
+                    'url' => $this->getContentUrl($item->viewable_type, $item->viewable_id),
                 ];
             });
     }

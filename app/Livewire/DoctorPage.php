@@ -3,29 +3,74 @@
 namespace App\Livewire;
 
 use App\Models\Doctor;
+use App\Models\Culture;
 use App\TrackableViews;
 use Livewire\Component;
+use App\Models\Comments;
+use App\Models\UserActivityLog;
 use Livewire\Attributes\Layout;
 use Livewire\Attributes\Computed;
 
-#[Layout('layouts.app')]
+// #[Layout('layouts.app')]
 class DoctorPage extends Component
 {
 use TrackableViews;
     public $user, $user_id;
-    
+
     public $doctors, $doctor_id;
 
     public Doctor $doctor;
 
+     public $filter = null;
+
+    public function mount($category = null)
+    {
+        $this->filter = $category;
+    }
+
+    public function setFilter($category)
+    {
+        $this->filter = $category;
+
+        $url = $category ? route('doctor.category', $category) : route('main');
+
+        $this->dispatch('pushState', [
+            'url' => $url,
+            'title' => ucfirst($category ?? 'Doctor'),
+        ]);
+    }
     #[Computed()]
     public function doctors(){
         $this->doctors = Doctor::latest()->get();
-        
+
+        return view('destination')->with('doctors', $this->doctors);
+
     }
+
+    public function comments()
+{
+    return $this->morphMany(Comments::class, 'commentable');
+}
+
     public function render()
     {
-        $this->doctors = Doctor::latest()->get();
+        // $this->doctors = Doctor::latest()->get();
+        $this->doctors = Doctor::when($this->filter, fn($q) => $q->where('category', $this->filter))->take(4)->get();
         return view('livewire.doctor-page');
     }
+
+    // #[Computed()]
+    // public function show(Doctor $doctor)
+    // {
+    //     UserActivityLog::log(
+    //         action: 'view_doctor',
+    //         description: "Viewed doctor: {$doctor->title}",
+    //         metadata: [
+    //             'blog_id' =>$doctor->id,
+    //             'category' => $doctor->category
+    //         ]
+    //         );
+
+    //     return view('destination')->with('doctor', compact('doctor'));
+    // }
 }

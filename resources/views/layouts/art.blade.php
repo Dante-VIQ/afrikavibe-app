@@ -97,7 +97,7 @@
     </script>
 
     <!-- Scripts -->
-    {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
+    @vite(['resources/js/app.js'])
 
     <!-- Styles -->
     @livewireStyles
@@ -344,10 +344,8 @@
                 <!-- partial:../../partials/_footer.html -->
                 <footer class="footer">
                     <div class="d-sm-flex justify-content-center justify-content-sm-between">
-                        <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Premium <a
-                                href="https://www.bootstrapdash.com/" target="_blank">Bootstrap admin template</a>
-                            from BootstrapDash.</span>
-                        <span class="float-none float-sm-end d-block mt-1 mt-sm-0 text-center">Copyright © 2023. All
+                        <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Vumbi Ventures</span>
+                        <span class="float-none float-sm-end d-block mt-1 mt-sm-0 text-center">Copyright © 2025. All
                             rights reserved.</span>
                     </div>
                 </footer>
@@ -360,6 +358,8 @@
     <!-- container-scroller -->
     <!-- plugins:js -->
 
+
+    @push('scripts')
 
     <script src="{{ asset('assets/vendors/js/vendor.bundle.base.js') }}"></script>
     <script src="{{ asset('assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js') }}"></script>
@@ -382,13 +382,111 @@
     <script src="{{ asset('/resources/js/content-tracking.js') }}"></script>
     <script src="{{ asset('/resources/js/components/ActivityTrendChart.js') }}"></script>
 
+       @if (!empty($trends['data']))
+       <script src="/node_modules/chart.js/dist/chart.js"></script>
+       <script>
+           const ctx = document.getElementById('trendsChart').getContext('2d');
+           new Chart(ctx, {
+               type: 'line',
+               data: {
+                   labels: @json($trends['labels'] ?? []),
+                   datasets: [{
+                       label: 'Views',
+                       data: @json($trends['data'] ?? []),
+                       borderColor: '#3B82F6',
+                       backgroundColor: '#3B82F633', // #3B82F620
+                       borderWidth: 2,
+                       tension: 0.3,
+                       fill: true
+                   }]
+               },
+               options: {
+                   responsive: true,
+                   plugins: {
+                       legend: {
+                           display: false
+                       },
+                       tooltip: {
+                           mode: 'index',
+                           intersect: false
+                       }
+                   },
+                   scales: {
+                       y: {
+                           beginAtZero: true,
+                           ticks: {
+                               precision: 0
+                           }
 
-    <!-- Custom js for this page -->
-    <!-- End custom js for this page -->
+                       }
+                   }
+               }
+           });
 
-    {{-- @stack('modals') --}}
+           // Filter controls
+           document.getElementById('contentType').addEventListener('change', updateFilters);
+           document.getElementById('timeRange').addEventListener('change', updateFilters);
 
-    @livewireScripts
+           function updateFilters() {
+               const params = new URLSearchParams({
+                   type: document.getElementById('contentType').value,
+                   range: document.getElementById('timeRange').value
+               });
+               window.location.href = `${window.location.pathname}?${params.toString()}`;
+           }
+       </script>
+   @endif
+
+
+    @if (!empty($trends['data']))
+    <script src="/node_modules/chart.js/dist/chart.js"></script>
+    <script>
+        const ctx = document.getElementById('activityChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: @json($labels),
+                datasets: [{
+                    label: 'Activity',
+                    data: @json($data),
+                    borderColor: '#3B82F6',
+                    backgroundColor: '#3B82F633', // #3B82F620
+                    borderWidth: 2,
+                    tension: 0.3,
+                    fill: true
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        mode: 'index',
+                        intersect: false
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            precision: 0
+                        }
+
+                    }
+                }
+            }
+        });
+
+    </script>
+@endif
+
+@endpush
+{{-- @stack('modals') --}}
+
+@livewireScripts
+
 </body>
 
 </html>

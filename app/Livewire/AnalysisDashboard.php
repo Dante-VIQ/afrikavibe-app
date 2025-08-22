@@ -2,23 +2,25 @@
 
 namespace App\Livewire;
 
-use App\Http\Controllers\AnalyticsController;
 use Carbon\Carbon;
 use App\Models\Blog;
 use App\Models\City;
 use App\Models\User;
 use App\Models\Admin;
+use App\Models\Doctor;
+use App\Models\Culture;
 use App\Models\Feature;
 use Livewire\Component;
 use App\Models\Analysis;
+use App\Models\Analytics;
 use App\Models\Destination;
+use Livewire\Attributes\Layout;
 use Livewire\Attributes\Computed;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Gate;
-use Livewire\Attributes\Layout;
 use App\Http\Controllers\UserActivity;
+use App\Http\Controllers\AnalyticsController;
 use App\Livewire\UserActivity as LivewireUserActivity;
-use App\Models\Analytics;
 
 #[Layout('layouts.art')]
 class AnalysisDashboard extends Component
@@ -46,9 +48,9 @@ class AnalysisDashboard extends Component
     }
 
     #[Computed()]
-    public function getDestinationCountProperty()
+    public function getDoctorCountProperty()
     {
-        return Destination::count();
+        return Doctor::count();
     }
 
     #[Computed()]
@@ -70,6 +72,11 @@ class AnalysisDashboard extends Component
         return Blog::count();
     }
 
+    #[Computed()]
+    public function getCultureCountProperty()
+    {
+        return Culture::count();
+    }
     #[Computed()]
     public function getCityCountProperty()
     {

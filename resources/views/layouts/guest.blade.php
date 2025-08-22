@@ -1,127 +1,74 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="csrf-token" content="{{ csrf_token() }}">
-        <meta name="keywords" content="Africa travel, African culture, African destinations, Explore Africa, travel blog, African art, African history, African cuisine.">
-        <meta name="description" content="Discover the rich tapestry of Africa's diverse cultures, breathtaking landscapes, and unique experiences. Explore top travel destinations, art, history, and cuisine on AfrikaVibe.">
-        <title>{{ config('app.name', 'Vumbi Ventures - Discover Africa') }}</title>
 
-        {{-- <link rel="preload" href="{{ Vite::asset('/resources/css/app.css') }}" as="style">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="keywords"
+        content="Africa travel, African culture, African destinations, Explore Africa, travel blog, African art, African history, African cuisine.">
+    <meta name="description"
+        content="Discover the rich tapestry of Africa's diverse cultures, breathtaking landscapes, and unique experiences. Explore top travel destinations, art, history, and cuisine on AfrikaVibe.">
+
+    <link rel="icon" href="{{ asset('img/logo1.png') }}" type="image/png">
+    <link rel="apple-touch-icon" href="{{ asset('img/logo1.png') }}" type="image/png">
+    <link rel="shortcut icon" href="{{ asset('img/logo1.png') }}" type="image/png">
+    <title>{{ config('app.name', 'Vumbi Ventures - Discover Africa') }}</title>
+
+    {{-- <link rel="preload" href="{{ Vite::asset('/resources/css/app.css') }}" as="style">
         <link rel="preload" href="{{ Vite::asset('/resources/js/app.js') }}" as="script"> --}}
 
-        <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
-
-        <!-- Libraries Stylesheet -->
-        <link href="{{ asset('/lib/animate/animate.min.css') }}" rel="stylesheet">
-        <link href="{{ asset('/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css') }}" rel="stylesheet">
-
-        <!-- Customized Bootstrap Stylesheet -->
-        <link href="{{ asset('/css/bootstrap.min.css') }}" rel="stylesheet">
-
-        <!-- Template Stylesheet -->
-        <link href="{{ asset('/css/style.css') }}" rel="stylesheet">
-        <link href="{{ asset('/resources/css/output.css') }}" rel="stylesheet">
-        <link href="{{ asset('./fontawesome6/css/all.min.css') }}" rel="stylesheet">
-
-        <!-- Owl Carousel Stylesheet -->
-        <link rel="stylesheet" href="{{ asset('/lib/owlcarousel/assets/owl.carousel.min.css') }}" />
-
-        <!-- Tailwind CSS -->
-        <script src="https://cdn.tailwindcss.com"></script>
-        <script>
-            tailwind.config = {
-                darkMode: 'class', // Corrected from 'true' to 'class'
-                theme: {
-                    extend: {
-                        colors: {
-                            primary: {
-                                "50": "#eff6ff",
-                                "100": "#dbeafe",
-                                "200": "#bfdbfe",
-                                "300": "#93c5fd",
-                                "400": "#60a5fa",
-                                "500": "#3b82f6",
-                                "600": "#2563eb",
-                                "700": "#1d4ed8",
-                                "800": "#1e40af",
-                                "900": "#1e3a8a",
-                                "950": "#172554"
-                            }
-                        }
-                    },
-                    fontFamily: {
-                        'body': [
-                            'Inter',
-                            'ui-sans-serif',
-                            'system-ui',
-                            '-apple-system',
-                            'Segoe UI',
-                            'Roboto',
-                            'Helvetica Neue',
-                            'Arial',
-                            'Noto Sans',
-                            'sans-serif',
-                            'Apple Color Emoji',
-                            'Segoe UI Emoji',
-                            'Segoe UI Symbol',
-                            'Noto Color Emoji'
-                        ],
-                        'sans': [
-                            'Inter',
-                            'ui-sans-serif',
-                            'system-ui',
-                            '-apple-system',
-                            'Segoe UI',
-                            'Roboto',
-                            'Helvetica Neue',
-                            'Arial',
-                            'Noto Sans',
-                            'sans-serif',
-                            'Apple Color Emoji',
-                            'Segoe UI Emoji',
-                            'Segoe UI Symbol',
-                            'Noto Color Emoji'
-                        ]
-                    }
-                }
-            }
-        </script>
-
-        <!-- Vite Scripts -->
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
-
-        <!-- Livewire Styles -->
-        @livewireStyles
-    </head>
-    <body class="font-mono">
-
-        {{-- <x-banner /> --}}
-
-        <div class="min-h-screen bg-gray-100">
-
-            <!-- Page Content -->
-            <div>
-                {{ $slot }}
-            </div>
-        </div>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.bunny.net">
+    <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
 
-        <script src="{{ asset('/public/build/assets/app-DqMUDAdC.js') }}" defer></script>
-        <script>
-            function sendMessage() {
-                const message = document.getElementById('userMessage').value;
+  <link href="{{ asset('/css/bootstrap.min.css') }}" rel="stylesheet">
+    <!-- Vite Scripts -->
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 
-                fetch('/chatbot', {
+    <!-- Livewire Styles -->
+    @livewireStyles
+</head>
+
+<body class="font-body">
+
+    <x-banner />
+
+    <div class="min-h-screen bg-gray-100">
+
+        @auth
+            @include('livewire.layout.navigation')
+        @else
+            @include('livewire.welcome.navigation')
+        @endauth
+        <main>
+            {{ $slot }}
+            {{-- @livewire('spa-container') --}}
+
+        </main>
+    </div>
+
+    {{-- <x-skeleton-loader /> --}}
+
+
+    @livewire('comment-modal')
+        @livewireScripts
+    <script>
+        function sendMessage() {
+            const message = document.getElementById('userMessage').value;
+
+            fetch('/chatbot', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
                         'X-CSRF-TOKEN': '{{ csrf_token() }}'
                     },
-                    body: JSON.stringify({ message }) // Fixed typo: JSON.stringfy -> JSON.stringify
+                    body: JSON.stringify({
+                        message
+                    }) // Fixed typo: JSON.stringfy -> JSON.stringify
                 })
                 .then(response => response.json())
                 .then(data => {
@@ -133,24 +80,59 @@
                     document.getElementById('userMessage').value = '';
                 })
                 .catch(error => console.error('Error:', error)); // Added error handling
-            }
-        </script>
+        }
+    </script>
 
-        <!-- Additional Scripts -->
-        <script type="module" src="{{ asset('/lib/wow/wow.min.js') }}" defer></script>
-        <script type="module" src="{{ asset('/lib/easing/easing.min.js') }}" defer></script>
-        <script type="module" src="{{ asset('/lib/waypoints/waypoints.min.js') }}" defer></script>
-        <script type="module" src="{{ asset('/lib/counterup/counterup.min.js') }}" defer></script>
-        <script type="module" src="{{ asset('/lib/owlcarousel/owl.carousel.min.js') }}" defer></script>
-        <script type="module" src="{{ asset('/js/main.js') }}" defer></script>
-        <script type="module" src="{{ asset('/fontawesome6/js/all.min.js') }}" defer></script>
-        <script type="module" src="/node_modules/jquery/dist/jquery.js" defer></script>
-        <script type="module" src="{{ asset('/lib/tempusdominus/js/moment.min.js') }}" defer></script>
-        <script type="module" src="{{ asset('/lib/tempusdominus/js/moment-timezone.min.js') }}" defer></script>
-        <script type="module" src="{{ asset('/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js') }}" defer></script>
+<script>
+document.addEventListener('alpine:init', () => {
+    Alpine.store('commentModal', {
+        isOpen: false,
+        commentableId: null,
+        commentableType: null,
+        commentableModel: null,
+        
+        open(commentableId, commentableType, modelData = null) {
+            this.commentableId = commentableId;
+            this.commentableType = commentableType;
+            this.commentableModel = modelData;
+            this.isOpen = true;
+        },
+        
+        close() {
+            this.isOpen = false;
+            this.commentableId = null;
+            this.commentableType = null;
+            this.commentableModel = null;
+        },
+        
+        getCommentableTitle() {
+            if (!this.commentableModel) return 'Item';
+            
+            return this.commentableModel.title || 
+                   this.commentableModel.name || 
+                   this.commentableModel.subject || 
+                   'Item';
+        }
+    });
+});
+</script>
+    <!-- Additional Scripts -->
+    {{-- <script type="module" src="{{ asset('/lib/wow/wow.min.js') }}" defer></script>
+    <script type="module" src="{{ asset('/lib/easing/easing.min.js') }}" defer></script>
+    <script type="module" src="{{ asset('/lib/waypoints/waypoints.min.js') }}" defer></script>
+    <script type="module" src="{{ asset('/lib/counterup/counterup.min.js') }}" defer></script>
+    <script type="module" src="{{ asset('/lib/owlcarousel/owl.carousel.min.js') }}" defer></script>
+   
+    <script type="module" src="{{ asset('/fontawesome6/js/all.min.js') }}" defer></script>
+    <script type="module" src="/node_modules/jquery/dist/jquery.js" defer></script>
+    <script type="module" src="{{ asset('/lib/tempusdominus/js/moment.min.js') }}" defer></script>
+    <script type="module" src="{{ asset('/lib/tempusdominus/js/moment-timezone.min.js') }}" defer></script>
+    <script type="module" src="{{ asset('/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js') }}" defer></script> --}}
 
-        @stack('modals')
+     <script type="module" src="{{ asset('/js/main.js') }}" defer></script>
+    @stack('modals')
 
-        @livewireScripts
-    </body>
+
+</body>
+
 </html>

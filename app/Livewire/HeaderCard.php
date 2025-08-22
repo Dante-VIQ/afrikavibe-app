@@ -2,13 +2,17 @@
 
 namespace App\Livewire;
 
+use App\Models\Blog;
+use App\Models\Culture;
+use App\Models\Doctor;
 use App\Models\Header;
+use App\TrackableViews;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use Livewire\Attributes\Layout;
+use Livewire\Attributes\Computed;
 use Livewire\Attributes\Validate;
 use Illuminate\Support\Facades\Gate;
-use App\TrackableViews;
 
 #[Layout('layouts.art')]
 class HeaderCard extends Component
@@ -28,8 +32,6 @@ class HeaderCard extends Component
     public function render()
     {
         $this->headers = Header::latest()->take(1)->get();
-
-        // $this->headers = auth()->user()->headers;
         return view('livewire.header-card');
     }
 
@@ -81,8 +83,8 @@ class HeaderCard extends Component
             $validated['image'] = $this->images->store('image', 'public');
         }
 
-        $doctor = Header::find($this->header_id);
-        $doctor->update($validated);
+        $header = Header::find($this->header_id);
+        $header->update($validated);
 
         $this->resetFields();
     }
@@ -90,9 +92,8 @@ class HeaderCard extends Component
     public function deleteHeader(Header $header)
     {
         Gate::authorize('delete', $header);
-        Header::find($id)->delete();
+        Header::findorFail($header->id)->delete();
     }
-
     private function resetFields()
     {
         $this->name = '';

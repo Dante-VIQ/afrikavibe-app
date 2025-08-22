@@ -2,8 +2,7 @@
     <div class="grid lg:grid-cols-2 gap-3 p-3 sm:grid-cols-1 md:grid-cols-2 fix-underline wow FadeInUp">
         @unless (count($cultures) == 0)
             @foreach ($cultures as $culture)
-                <article
-                    class="p-6 bg-white rounded-lg border border-gray-200 shadow-md">
+                <article class="p-6 bg-white rounded-lg border border-gray-200 shadow-md">
                     <div class="flex justify-between items-center mb-3 text-gray-500">
                         <span
                             class="bg-primary-100 text-primary-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded">
@@ -28,6 +27,12 @@
                                 {{ $culture->user->name }}
                             </span>
                         </div>
+                        <button
+                            wire:click="$emit('openCommentModal', { type: 'App\\Models\\Culture', id: {{ $culture->id }} })"
+                            class="mt-3 text-sm bg-amber-600 hover:bg-amber-700 text-white px-3 py-1 rounded-lg">
+                            💬
+                        </button>
+
                         <a href="/cultures/{{ $culture->id }}"
                             class="inline-flex items-center font-medium text-primary-600 hover:underline italic">
                             Read more
@@ -40,7 +45,7 @@
                         </a>
                     </div>
 
-                   
+
                 </article>
             @endforeach
         @else
@@ -49,7 +54,7 @@
 
     </div>
     <div class="mt-12 text-center">
-        <a href="/eco-trails"
+        <a href="/art"
             class="inline-block bg-green-700 text-white px-6 py-3 rounded-full text-sm font-medium hover:bg-green-800 transition">
             Discover More Cultures
         </a>

@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Session;
 use Symfony\Component\HttpFoundation\Response;
+use Jaybizzle\LaravelCrawlerDetect\Facades\LaravelCrawlerDetect;
 
 
 class TrackUserActivity
@@ -30,24 +31,22 @@ class TrackUserActivity
 
     protected function shouldTrack(Request $request): bool
     {
-        return auth()->check() &&
-        !LaravelCrawlerDetect::isCrawler() &&
-        $request->isMethod('GET');
+        return !LaravelCrawlerDetect::isCrawler() &&
+        $request->isMethod('GET') &&
+        !$request->ajax();
     }
 
     protected function logActivity(Request $request)
     {
-        UserActivityLog::create([
-            'user_id' => auth()->id(),
+        UserActivityLog::log(
+            action: 'route_visit',
+            description: "Visited {$request->route()->getName()}",
+            metadata: [
             'route' => $request->route()->getName(),
             'url' => $request->fullUrl(),
-            'ip_address' => $request->ip(),
-            'user_agent' => substr($request->userAgent(), 0, 255),
-            'metadata' => [
-            'method' => $request->method(),
-            'parameters' => $request->route()->parameters()
+            'params' => $request->route()->parameters()
             ]
 
-            ]);
+            );
     }
 }

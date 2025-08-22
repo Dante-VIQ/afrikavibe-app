@@ -1,4 +1,15 @@
 <?php return array (
+  'jaybizzle/laravel-crawler-detect' => 
+  array (
+    'aliases' => 
+    array (
+      'Crawler' => 'Jaybizzle\\LaravelCrawlerDetect\\Facades\\LaravelCrawlerDetect',
+    ),
+    'providers' => 
+    array (
+      0 => 'Jaybizzle\\LaravelCrawlerDetect\\LaravelCrawlerDetectServiceProvider',
+    ),
+  ),
   'laravel/breeze' => 
   array (
     'providers' => 
@@ -129,13 +140,6 @@
     'providers' => 
     array (
       0 => 'Torann\\GeoIP\\GeoIPServiceProvider',
-    ),
-  ),
-  'usamamuneerchaudhary/commentify' => 
-  array (
-    'providers' => 
-    array (
-      0 => 'Usamamuneerchaudhary\\Commentify\\Providers\\MarkdownServiceProvider',
     ),
   ),
 );

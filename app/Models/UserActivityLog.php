@@ -14,4 +14,17 @@ class UserActivityLog extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public static function log($action, $description = null, $metadata = [])
+     {
+        return self::create([
+            'user_id' => auth()->id(),
+            'action' => $action,
+            'description' => $description,
+            'ip_address' => request()->ip(),
+            'user_agent' => request()->userAgent(),
+            'country_code' =>app('geoip')->getCountryCode(),
+            'metadata' => $metadata
+        ]);
+     }
 }

@@ -2,7 +2,6 @@
 
 namespace Database\Factories;
 
-use App\Models\class;
 use App\Models\ContentView;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -22,7 +21,7 @@ class ContentViewFactory extends Factory
     public function definition(): array
     {
         return [
-            'user_id' => \App\Models\User::factory(),
+            // 'user_id' => \App\Models\User::factory(),
             'viewable_type' => $this->faker->randomElement([
                 'App\Models\Blog',
                 'App\Models\Doctor',
@@ -30,7 +29,7 @@ class ContentViewFactory extends Factory
             ]),
             'viewable_id' => function (array $attributes) {
                 return class_basename($attributes['viewable_type'])::factory();
-            },
+            },'';//j
             'ip_address' =>$this->faker->ipv4,
             'user_agent' => $this->faker->userAgent,
             'country_code' => $this->faker->countryCode,

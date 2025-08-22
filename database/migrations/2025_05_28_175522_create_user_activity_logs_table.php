@@ -13,6 +13,12 @@ return new class extends Migration
     {
         Schema::create('user_activity_logs', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->nullable()->constrained()->cascadeOnDelete('cascade');
+            $table->string('action')->nullable();
+            $table->text('description');
+            $table->string('ip_address')->default(0);
+            $table->string('user_agent')->nullable();
+            $table->json('metadata')->nullable();
             $table->timestamps();
         });
     }

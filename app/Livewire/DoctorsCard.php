@@ -20,7 +20,6 @@ class DoctorsCard extends Component
 {
     use WithFileUploads;
     use WithPagination;
-    use TrackableViews;
 
     public $doctors, $doctor, $doctor_id, $user;
 

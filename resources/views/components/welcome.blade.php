@@ -1,18 +1,12 @@
-<div wire:navigate.keep-alive>
+<div wire:poll.keep-alive.2s>
     {{-- <!-- Header Start --> --}}
 
-        <div>
-            <livewire:header-page />
-        </div>
+    <div>
+        <livewire:header-page />
+    </div>
 
     {{-- <!-- Header End --> --}}
 
-    {{-- <div>
-        @include('Partials._search')
-    </div> --}}
-    {{-- @if (auth()->check() && auth()->user()->isMaster())
-        <a href="/Analysis" class="text-2xl text-center font-semiBold">Admin</a>
-    @endif --}}
     {{-- <!-- Service Start --> --}}
     <div class="container-xxl py-5">
 
@@ -24,21 +18,13 @@
         <div class="text-center mx-auto mb-3 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
 
             <h2 class="text-2xl sm:text-3xl font-bold text-green-800 mb-4">
-             Destinations
+                Destinations
             </h2>
-
-            <p class="text-gray-600 mb-12 max-w-4xl">
-                Explore Africa’s wildlife, cities, culture, cuisines and a taste of African entetainment. These
-                destinations offer hands-on experiences in sustainable agriculture, conservation, and local culture.
-            </p>
-
         </div>
         <div>
             {{-- <livewire:doctors-card lazy /> --}}
             <livewire:doctor-page />
         </div>
-
-        <x-section-border />
 
         <div>
             {{-- <livewire:service-list lazy /> --}}
@@ -61,17 +47,10 @@
             <h2 class="text-2xl sm:text-3xl font-bold text-green-800 mb-4">
                 People and Culture
             </h2>
-
-            <p class="text-gray-600 mb-12 max-w-4xl">
-                Meat Africa's diverse culture and its people Learn about their cuisine preferences, art, entertinment
-                and religious beliefs.
-            </p>
-
-
         </div>
 
         <div>
-            <livewire:culture-page lazy />
+            <livewire:culture-page />
         </div>
 
     </div>
@@ -99,14 +78,9 @@
             <h2 class="text-2xl sm:text-3xl font-bold text-green-800 mb-4">
                 Daily Read
             </h2>
-
-            <p class="text-gray-600 mb-12 max-w-4xl">
-                Meat Africa's diverse culture and its people Learn about their cuisine preferences, art, entertinment
-                and religious beliefs.
-            </p>
         </div>
         <div>
-            <livewire:blog-page lazy />
+            <livewire:blog-page />
         </div>
         {{-- </div> --}}
     </section>
@@ -157,8 +131,8 @@
 
     <!-- Footer Start -->
     <div>
-    <livewire:footer-card />
-</div>
+        <livewire:footer-card />
+    </div>
     <!-- Footer End -->
 
 

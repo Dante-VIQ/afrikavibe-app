@@ -83,7 +83,7 @@ Route::delete('/doctors/{doctor}', [DoctorsCard::class, 'destroy']);
 Route::middleware(['auth', 'role:admin,master'])->group(function () {
 
     Route::post('track/time-spent', [TrackingController::class, 'recordTimeSpent']);
-    Route::get('/analytics/trends', [AnalyticsController::class, 'index']);
+    Route::get('/admin/admin', [AnalyticsController::class, 'index'])->name('admin.admin');
     // Route::get('/api/analytics/activity-trends', [AnalyticsController::class, 'activityTrends']);
 
 

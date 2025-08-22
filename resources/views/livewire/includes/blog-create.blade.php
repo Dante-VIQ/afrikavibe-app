@@ -1,7 +1,7 @@
 <x-card class="p-10 max-w-lg" style="top: 10%; left: 30%;">
     <header class="text-center text-black">
         <h2 class="text-2xl font-bold uppercase mb-1">Post an Article</h2>
-        <p class="mb-4 font-semibold">Post a gig</p>
+        {{-- <p class="mb-4 font-semibold">Post a gig</p> --}}
     </header>
 
     <form wire:submit.prevent="create">

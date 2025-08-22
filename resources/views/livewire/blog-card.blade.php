@@ -46,7 +46,7 @@
                                         </td>
                                         <td>
                                             <div class="d-flex ">
-                                                <img src="{{ asset('storage/' . $doctor->image) }}" alt="">
+                                                <img src="{{ asset('storage/' . $blog->image) }}" alt="">
                                                 <div>
                                                     <h6>{{ $blog->name }}</h6>
                                                     <p>{{ $blog->category }}</p>

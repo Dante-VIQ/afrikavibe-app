@@ -4,51 +4,41 @@
             class="statistics-details d-flex align-items-center justify-content-between px-5">
             <div>
                 <p class="statistics-title">Bounce Rate</p>
-                <h3 class="rate-percentage">bounceRate%</h3>
-                <p class="text-danger d-flex text-xl"><i
-                        class="mdi mdi-menu-down"></i><span>-0.5%</span></p>
+                <h3 class="rate-percentage text-success text-center">0%</h3>
+                {{-- <p class="text-danger d-flex text-xl"><i
+                        class="mdi mdi-menu-down"></i><span>-0.5%</span></p> --}}
             </div>
-            <div>
-                <p class="statistics-title">Page Views</p>
-                {{-- @unless (count($pageViews) == 0) --}}
-
-
-                {{-- @foreach ($pageViews as $pageView)
-                    <h3 class="rate-percentage">{{ $pageView->page_url }} :
-                        {{ $pageViews->views }}</h3>
-                @endforeach --}}
-                {{-- @else
-                    <h3 class="rate-percentage">0</h3>
-
-                @endunless --}}
-                <p class="text-success d-flex"><i
-                        class="mdi mdi-menu-up"></i><span>+0.1%</span></p>
-            </div>
-            <div>
+           
+            {{-- <div>
                 <p class="statistics-title">New Sessions</p>
-                {{-- <h3 class="rate-percentage">{{ $newSessions }}</h3> --}}
+                <h3 class="rate-percentage">{{ $newSessions }}</h3>
                 <p class="text-danger d-flex"><i
                         class="mdi mdi-menu-down"></i><span>68.8</span></p>
-            </div>
+            </div> --}}
             <div class="d-none d-md-block">
                 <p class="statistics-title">Avg. Time on Site</p>
-                <h3 class="rate-percentage">2m:35s</h3>
-                <p class="text-success d-flex"><i
-                        class="mdi mdi-menu-down"></i><span>+0.8%</span></p>
+                <h3 class="rate-percentage text-success text-center">{{ isset($stats['avg_time']) ? gmdate('i:s', $stats['avg_time']) : '0:00' }}</h3>
+                {{-- <p class="text-success d-flex"><i
+                        class="mdi mdi-menu-down"></i><span>+0.8%</span></p> --}}
+            </div>
+            <div>
+                <p class="statistics-title">Cultures</p>
+              
+                <h3 class="rate-percentage text-success text-center"><span>{{ $this->cultureCount }}</span></h3>
             </div>
             <div class="d-none d-md-block">
                 <p class="statistics-title">Blogs</p>
 
-                <h3 class="rate-percentage">{{ $this->blogCount }}</h3>
+                <h3 class="rate-percentage text-success text-center">{{ $this->blogCount }}</h3>
 
-                <p class="text-danger d-flex"><i
-                        class="mdi mdi-menu-down"></i><span>68.8</span></p>
+                {{-- <p class="text-danger d-flex"><i
+                        class="mdi mdi-menu-down"></i><span>68.8</span></p> --}}
             </div>
             <div class="d-none d-md-block">
                 <p class="statistics-title">Destinations</p>
-                <h3 class="rate-percentage">{{ $this->destinationCount }}</h3>
-                <p class="text-success d-flex"><i
-                        class="mdi mdi-menu-down"></i><span>+0.8%</span></p>
+                <h3 class="rate-percentage text-success text-center">{{ $this->doctorCount }}</h3>
+                {{-- <p class="text-success d-flex"><i
+                        class="mdi mdi-menu-down"></i><span>+0.8%</span></p> --}}
             </div>
         </div>
     </div>

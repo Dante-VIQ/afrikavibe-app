@@ -1,6 +1,6 @@
 <div class="container bg-purple-950 text-light mt-5 pt-4 wow fadeIn" data-wow-delay="0.1s">
 
-    <div class="grid grid-cols-4 gap-2 p-4">
+    <div class="grid gap-5 lg:gap-16 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 items-center text-center">
         <div>
             <h5 class="text-light mb-4">Address</h5>
             <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Free Area - Nakuru City</p>

@@ -2,24 +2,28 @@
 
 namespace App\Models;
 
+use App\Role;
 use App\Models\Blog;
 use App\Models\City;
 use App\Models\Todo;
 use App\Models\About;
 use App\Models\Doctor;
 use App\Models\Header;
+use App\Models\Upvote;
+use App\Models\Comment;
 use App\Models\Culture;
 use App\Models\Feature;
 use App\Models\Service;
 use App\Models\Analysis;
+use App\Models\Comments;
 use App\Models\Destination;
 use App\Models\Testimonial;
-use App\Role;
 use Laravel\Sanctum\HasApiTokens;
 use Laravel\Jetstream\HasProfilePhoto;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -85,6 +89,15 @@ class User extends Authenticatable
         ];
     }
 
+     public function comments(): HasMany
+    {
+        return $this->hasMany(Comment::class);
+    }
+
+    public function upvotes(): HasMany
+    {
+        return $this->hasMany(Upvote::class);
+    }
     // Relationship With services
     public function services()
     {

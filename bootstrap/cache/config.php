@@ -6,7 +6,7 @@
   14 => 'view',
   'app' => 
   array (
-    'name' => 'vumbiventures',
+    'name' => 'Vumbi-Ventures',
     'env' => 'local',
     'debug' => true,
     'url' => 'http://127.0.0.1:8000',
@@ -210,7 +210,7 @@
         'driver' => 'octane',
       ),
     ),
-    'prefix' => 'vumbiventures_cache_',
+    'prefix' => 'vumbi_ventures_cache_',
   ),
   'chatify' => 
   array (
@@ -323,7 +323,7 @@
         'driver' => 'mysql',
         'url' => NULL,
         'host' => '127.0.0.1',
-        'port' => '3306',
+        'port' => '3306J',
         'database' => 'Tembia',
         'username' => 'root',
         'password' => '',
@@ -343,7 +343,7 @@
         'driver' => 'mariadb',
         'url' => NULL,
         'host' => '127.0.0.1',
-        'port' => '3306',
+        'port' => '3306J',
         'database' => 'Tembia',
         'username' => 'root',
         'password' => '',
@@ -363,7 +363,7 @@
         'driver' => 'pgsql',
         'url' => NULL,
         'host' => '127.0.0.1',
-        'port' => '3306',
+        'port' => '3306J',
         'database' => 'Tembia',
         'username' => 'root',
         'password' => '',
@@ -378,7 +378,7 @@
         'driver' => 'sqlsrv',
         'url' => NULL,
         'host' => '127.0.0.1',
-        'port' => '3306',
+        'port' => '3306J',
         'database' => 'Tembia',
         'username' => 'root',
         'password' => '',
@@ -398,7 +398,7 @@
       'options' => 
       array (
         'cluster' => 'redis',
-        'prefix' => 'vumbiventures_database_',
+        'prefix' => 'vumbi_ventures_database_',
       ),
       'default' => 
       array (
@@ -675,7 +675,7 @@
       'cleanup' => true,
     ),
     'render_on_redirect' => false,
-    'legacy_model_binding' => true,
+    'legacy_model_binding' => false,
     'inject_assets' => true,
     'navigate' => 
     array (
@@ -1277,7 +1277,7 @@
       0 => 2,
       1 => 100,
     ),
-    'cookie' => 'vumbiventures_session',
+    'cookie' => 'vumbi_ventures_session',
     'path' => '/',
     'domain' => NULL,
     'secure' => NULL,

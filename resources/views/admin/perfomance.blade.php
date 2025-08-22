@@ -9,6 +9,8 @@
                     <h5 class="card-subtitle card-subtitle-dash">
                         Here is how content is doing over the past
                         one week</h5>
+
+                       
                 </div>
                 {{-- <div id="pageViewStats"></div> --}}
               @include('activity.trends')

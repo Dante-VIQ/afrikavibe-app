@@ -3,28 +3,29 @@
 namespace App\Models;
 
 use App\Models\User;
+use App\Models\Comments;
 use App\TrackableViews;
 use Laravel\Scout\Searchable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Usamamuneerchaudhary\Commentify\Traits\Commentable;
+// use Usamamuneerchaudhary\Commentify\Traits\Commentable;
 
 class Blog extends Model
 {
     use HasFactory;
-    use Commentable;
+    // use Commentable;
     // use Searchable;
     use TrackableViews;
 
       protected $fillable = ['title', 'image', 'description', 'category'];
 
       protected $hidden = ['user_id'];
-      
+
       public function toSearchableArray(){
         return [
         'id' => $this->id,
         'title' => $this->title,
-        'description' => $this->description,
+        'description' => $this->description
         ];
     }
       public function scopeFilter($query, array $filters) {
@@ -39,6 +40,11 @@ class Blog extends Model
                 ->orWhere('tags', 'like', '%' . request('search') . '%');
         }
     }
+
+    public function comments()
+{
+    return $this->morphMany(Comments::class, 'commentable');
+}
 
     // Relationship To User
     public function user() {

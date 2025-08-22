@@ -13,19 +13,23 @@ class Culture extends Model
     use HasFactory;
     // use Searchable;
     use TrackableViews;
-    
+
     protected $fillable = ['user_id', 'name', 'location', 'detail', 'image'];
 
     protected $hidden = ['user_id'];
 
-
-    public function toSearchableArray(){
-        return [
-        'id' => $this->id,
-        'name' => $this->name,
-        'detail' => $this->detail,
-        ];
+      public function comments()
+    {
+        return $this->morphMany(Comments::class, 'commentable');
     }
+
+    // public function toSearchableArray(){
+    //     return [
+    //     'id' => $this->id,
+    //     'name' => $this->name,
+    //     'detail' => $this->detail,
+    //     ];
+    // }
     public function user()
     {
         return $this->belongsTo(User::class, 'user_id');

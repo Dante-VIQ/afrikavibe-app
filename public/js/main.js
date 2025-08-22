@@ -97,3 +97,11 @@ import $ from 'jquery';
 
 })(jQuery);
 
+
+  document.addEventListener('livewire:init', () => {
+    Livewire.on('comment-posted', () => {
+      // Optional: Toast notification
+      Toastify({ text: "Comment posted!" }).showToast();
+    });
+  });
+

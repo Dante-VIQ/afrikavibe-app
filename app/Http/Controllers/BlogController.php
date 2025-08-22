@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Blog;
 use App\TrackableViews;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controller;
 use App\Http\Middleware\TrackContentView;
+use App\Models\User;
 
 class BlogController extends Controller
 {
@@ -13,7 +15,7 @@ class BlogController extends Controller
 
     public function __construct()
     {
-        $this->authorizeResource(Blog::class, 'blog');
+        $this->authorize(Blog::class, 'blog');
 
     }
 
@@ -38,7 +40,26 @@ class BlogController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $this->validate([
+            'title' => 'required',
+            'description' => 'required',
+            'category' => 'required',
+            'image' => 'image|sometimes|nullable|max:10240',
+        ]);
+
+        if ($request->hasFile('image')) {
+            $validated['image'] = $request->file('image')->store('images', 'public');
+        }
+
+        // $imagePath = $this->imageUrl;
+        //    auth()->user()->blogs()->create($validated);
+
+        Blog::create($validated);
+        $this->resetFields();
+
+        return redirect('/Analysis')->with('message', 'Blog created successfully!');
+
+
     }
 
     /**
@@ -72,4 +93,5 @@ class BlogController extends Controller
     {
         //
     }
+
 }

@@ -1,36 +1,29 @@
-<div class="container-fluid header bg-light p-0 mb-5">
-    <div class="row g-0 align-items-center flex-column flex-lg-row">
-        <div class="col-lg-6 p-5 wow fadeIn" data-wow-delay="0.1s">
-            <x-our-blog />
-        </div>
-        <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
-            @unless (count($headers) == 0)
+<div>
 
-            @foreach ($headers as $header)
-            <div class="owl-carousel header-carousel">
-                <div class="owl-carousel-item relative">
-                    <img class="img-fluid" src="{{ asset('storage/' . $header->image) }}" alt="{{ $header->name }}">
-                    <div class="owl-carousel-text">
-                        <h1 class="display-1 text-white mb-0">{{ $header->name }}</h1>
-                    </div>
+
+    <div>
+        <div class="w-full bg-white dark:bg-gray-900 py-8">
+            <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 px-6">
+
+                <!-- Left: Headline -->
+                <div class="flex flex-col justify-center">
+                    <h1 class="text-4xl font-extrabold text-gray-900 dark:text-white mb-4">
+                        Explore Africa Your Way
+                    </h1>
+                    <p class="text-lg text-gray-600 dark:text-gray-300">
+                        Adventure, Luxury, and Culture — your journey starts here.
+                    </p>
+                </div>
+
+                <!-- Right: Unique Social-Style Grid -->
+               
+                {{-- image/video slider --}}
+                <div>
+
+                    <livewire:header-media-feed />  
                 </div>
 
             </div>
-            @endforeach
-            @endunless
         </div>
-
     </div>
-
-    {{-- @if (auth()->check() && auth()->user()->isMaster())
-        <div class="relative p-5 mx-auto" x-data="{ show: false }" x-cloak>
-            <button x-on:click.prevent="show = true" class="px-4 py-2 text-light rounded bg-primary"><i
-                    class="fa fa-add text-primary"></i>
-                Add Header</button>
-
-            <div class="mx-auto z-9 top-1/3 left-1/3" x-show="show" x-on:click.outside.prevent="show = false">
-                @include('livewire.includes.header-show')
-            </div>
-        </div>
-    @endif --}}
 </div>

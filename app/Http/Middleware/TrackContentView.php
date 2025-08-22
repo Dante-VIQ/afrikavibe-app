@@ -3,9 +3,10 @@
 namespace App\Http\Middleware;
 
 use Closure;
-use App\Models\ContentView;
 use App\Models\User;
+use App\Models\ContentView;
 use Illuminate\Http\Request;
+use Jaybizzle\LaravelCrawlerDetect\Facades\LaravelCrawlerDetect;
 
 
 class TrackContentView
@@ -36,7 +37,7 @@ class TrackContentView
     protected function isTrackableRoute(Request $request): bool
     {
         $route = $request->route();
-        return $route && in_array($route->getName(), [
+        return in_array($route->getName(), [
             'blog-lay',
             'livewire.doctors-page',
             'livewire.culture-page'
@@ -44,7 +45,7 @@ class TrackContentView
     }
     protected function recordView(Request $request)
     {
-        $model = $request->route()->parameter('blog') ?? 
+        $model = $request->route()->parameter('blog') ??
                     $request->route()->parameter('doctor') ??
                      $request->route()->parameter('culture');
 
@@ -53,7 +54,7 @@ class TrackContentView
             'viewable_type' => get_class($model),
             'viewable_id' => $model->id,
             'ip_address' => $request->ip(),
-            'user_agent' => $request->userAgent(),
+            'user_agent' => substr($request->userAgent(), 0, 255),
             'country_code' => $this->getCountryCode($request->ip()),
         ]);
     }

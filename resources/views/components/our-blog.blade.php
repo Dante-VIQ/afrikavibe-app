@@ -5,7 +5,7 @@
     </div>
 
     <div class="mb-8">
-        <h4 class="text-xl text-gray-600">Chat with BazeFinest AI</h3>
+        <h4 class="text-xl text-gray-600">Ask Anything about Africa</h3>
         <div id="chatbox" class="h-64 overflow-y-auto border p-4 mb-4 bg-gray-100 rounded"></div>
         <div class="flex">
             <input type="text" id="UserMessage" class="flex-grow border border-gray-300 p-2 rounded mr-2" placeholder="Ask anything about Africa">

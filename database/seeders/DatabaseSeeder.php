@@ -29,17 +29,17 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
-
-        $user = User::factory()->create([
-            'name' => 'Dante Maina',
-            'email' => 'mwangiloxine@gmail.com',
-            'password' => bcrypt('Taurusboy1992'),
-            'role' => User::ROLE_MASTER,
+        $user = \App\Models\User::factory()->create([
+            'name' => 'Test User',
+            'email' => 'test@example.com',
         ]);
+
+        // $user = User::factory()->create([
+        //     'name' => 'Dante Maina',
+        //     'email' => 'mwangiloxine@gmail.com',
+        //     'password' => bcrypt('Taurusboy1992'),
+        //     'role' => User::ROLE_MASTER,
+        // ]);
 
         Service::factory(4)->create([
             'user_id' => $user->id,
@@ -77,6 +77,10 @@ class DatabaseSeeder extends Seeder
             'user_id' => $user->id,
         ]);
 
+        // ContentView::factory(100)->create([
+        //   'user_id' => $user->id,
+        // ]);
+
         City::factory(4)->create([
             'user_id' => $user->id,
         ]);
@@ -88,13 +92,9 @@ class DatabaseSeeder extends Seeder
         Todo::factory(4)->create([
             'user_id' => $user->id,
         ]);
-        
-        Analysis::factory(4)->create([
-            'user_id' => $user->id,
-        ]);
 
-        ContentView::factory(4)->create([
-            'user_id' => $user->id,
-        ]);
+        // Analysis::factory(4)->create([
+        //     'user_id' => $user->id,
+        // ]);
     }
 }

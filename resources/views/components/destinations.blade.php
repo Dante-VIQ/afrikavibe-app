@@ -46,3 +46,14 @@
 
 
 </div>
+{{-- 
+@section('scripts')
+<script>
+    window.contentData = @json([
+        'id' => $doctor->id,
+        'type' => 'doctor'
+    ]);
+</script>
+
+@vite(['resources/js/content-tracking.js'])
+@endsection --}}

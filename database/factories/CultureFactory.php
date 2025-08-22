@@ -20,9 +20,9 @@ class CultureFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => $this->faker->words(2),
-            'detail' => $this->faker->paragraphs(5),
-            'location' => $this->faker->city(),
+            'name' => $this->faker->words(),
+            'detail' => $this->faker->paragraph(30),
+            'location' => $this->faker->name(),
             'image' => $this->faker->image
         ];
     }

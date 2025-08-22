@@ -9,6 +9,7 @@ use App\TrackableViews;
 use Livewire\Component;
 use App\Models\Activity;
 use App\Events\UserActivity;
+use App\Models\UserActivityLog;
 use Laravel\Scout\Searchable;
 use Livewire\Attributes\Rule;
 use Livewire\WithFileUploads;
@@ -19,14 +20,12 @@ use Livewire\Attributes\Validate;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Auth\Middleware\Authorize;
-use Usamamuneerchaudhary\Commentify\Traits\Commentable;
 
-#[Title('layouts.art')]
+#[Layout('layouts.art')]
 class BlogCard extends Component
 {
     use WithFileUploads;
-    use Commentable;
-    use Searchable;
+    // use Searchable;
 
 
     public $title, $user;
@@ -62,6 +61,7 @@ class BlogCard extends Component
     #[Computed()]
     public function blogs() {
         $this->blogs = Blog::latest()->get();
+        return view('blogs');
     }
 
     // create a blog
@@ -85,6 +85,7 @@ class BlogCard extends Component
         // $imagePath = $this->imageUrl;
 
         auth()->user()->blogs()->create($validated);
+        // Blog::create($validated);
 
         $this->resetFields();
 
@@ -147,7 +148,7 @@ class BlogCard extends Component
     // delete blog
     public function destroy(Blog $blog)
     {
-        Gate::authorize('delete', $blog);
+        Gate::authorize('destroy', $blog);
         $blog->delete();
 
         return to_route('dashboard');
@@ -171,9 +172,18 @@ class BlogCard extends Component
 
     //  Show single blog
     #[Computed]
-    public function show($blogID)
+    public function show(Blog $blog)
     {
-        return view('yutpo')->with('blog', Blog::findOrFail($blogID));
+        UserActivityLog::log(
+            action: 'view_blog',
+            description: "Viewed blog: {$blog->title}",
+            metadata: [
+                'blog_id' =>$blog->id,
+                'category' => $blog->category
+            ]
+            );
+
+        return view('yutpo')->with('blog', compact('blog'));
     }
 
     private function resetFields()
@@ -185,17 +195,17 @@ class BlogCard extends Component
         $this->blog_id = null;
     }
 
-    public function mount(Blog $blog)
-    {
+    // public function mount(Blog $blog)
+    // {
 
-        $this->blog = $blog;
-        Activity::updateOrCreate(
-            [
-                'page_type' => 'blog',
-                'page_id' => $blog->id,
-                'date' => now()->toDateString(),
-            ],
-            ['view_count' => DB::raw('view_count + 1')],
-        );
-    }
+    //     $this->blog = $blog;
+    //     Activity::updateOrCreate(
+    //         [
+    //             'page_type' => 'blog',
+    //             'page_id' => $blog->id,
+    //             'date' => now()->toDateString(),
+    //         ],
+    //         ['view_count' => DB::raw('view_count + 1')],
+    //     );
+    // }
 }
