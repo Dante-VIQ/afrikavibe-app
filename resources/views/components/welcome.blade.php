@@ -26,10 +26,7 @@
             <livewire:doctor-page />
         </div>
 
-        <div>
-            {{-- <livewire:service-list lazy /> --}}
-            <x-eco--tours />
-        </div>
+     
     </div>
     {{-- <div class="2xl:container container py-2">
 
@@ -56,21 +53,6 @@
     </div>
     {{-- <!-- Destination End --> --}}
 
-    {{-- events --}}
-    {{-- <div class="container-fluid overflow-hidden my-5 px-lg-0">
-
-        <div class="container feature px-lg-0">
-            <div>
-                <livewire:feature-card lazy />
-
-            </div>
-        </div>
-
-    </div> --}}
-
-    {{-- <!-- Feature Start --> --}}
-
-    {{-- <!-- Feature End --> --}}
 
     <section class="container-xxl py-5 bg-white">
         {{-- <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6"> --}}

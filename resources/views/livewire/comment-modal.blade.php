@@ -1,46 +1,46 @@
 <div x-data="commentModal()" x-cloak>
-    <!-- Modal Backdrop -->
-    <div x-show="Alpine.store('commentModal').isOpen" 
-         x-transition.opacity 
-         @click.away="closeModal()"
-         @keydown.escape.window="closeModal()"
+    <!-- Modal -->
+    <div x-show="$wire.showModal" 
+         x-transition.opacity
          class="fixed inset-0 z-[9999] flex items-center justify-center bg-black/50">
         
-        <!-- Modal Content -->
-        <div @click.stop class="bg-white rounded-lg w-full max-w-md max-h-[90vh] flex flex-col shadow-xl m-4">
+        <div class="bg-white rounded-lg w-full max-w-md max-h-[90vh] flex flex-col shadow-xl m-4">
             <!-- Header -->
             <div class="p-4 border-b flex justify-between items-center">
-                <div>
-                    <h2 class="font-bold text-lg">Comments</h2>
-                    <p class="text-sm text-gray-600" x-text="getCommentableTitle()"></p>
-                </div>
-                <button @click="closeModal()" class="text-gray-500 hover:text-gray-700">
+                <h2 class="font-bold text-lg">Comments</h2>
+                <button wire:click="closeModal" class="text-gray-500 hover:text-gray-700">
                     ✕
                 </button>
             </div>
 
+            <!-- Loading State -->
+            <div wire:loading wire:target="loadComments" class="p-8 text-center">
+                <div class="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-blue-500"></div>
+                <p class="mt-2 text-gray-600">Loading comments...</p>
+            </div>
+
             <!-- Comments List -->
-            <div class="flex-1 overflow-y-auto p-4 space-y-4" x-ref="commentsContainer">
-                <template x-for="comment in comments" :key="comment.id">
+            <div wire:loading.remove wire:target="loadComments" 
+                 class="flex-1 overflow-y-auto p-4 space-y-4">
+                 
+                @forelse($comments as $comment)
                     <div class="border-b pb-4 last:border-b-0">
-                        <!-- Comment Content -->
                         <div class="flex items-start gap-3">
-                            <img :src="comment.user.avatar_url || `https://i.pravatar.cc/40?u=${comment.user.email}`" 
-                                 :alt="comment.user.name" 
-                                 class="w-10 h-10 rounded-full object-cover">
+                            <img src="{{ $comment->user->avatar_url ?? 'https://i.pravatar.cc/40?u=' . $comment->user->email }}"
+                                alt="{{ $comment->user->name }}" 
+                                class="w-10 h-10 rounded-full object-cover">
                             
                             <div class="flex-1">
                                 <div class="flex items-baseline justify-between">
-                                    <div>
-                                        <span class="font-semibold" x-text="comment.user.name"></span>
-                                        <span class="text-gray-500 text-xs ml-2" x-text="formatDate(comment.created_at)"></span>
-                                    </div>
+                                    <span class="font-semibold">{{ $comment->user->name }}</span>
+                                    <span class="text-gray-500 text-xs ml-2">
+                                        {{ $comment->created_at->diffForHumans() }}
+                                    </span>
                                 </div>
 
-                                <p class="mt-1 text-gray-800" x-text="comment.content"></p>
+                                <p class="mt-1 text-gray-800">{{ $comment->content }}</p>
 
-                                <!-- Reply Button -->
-                                <button @click="setReplyTo(comment.id)" 
+                                <button wire:click="reply({{ $comment->id }})" 
                                         class="mt-2 text-sm text-blue-500 hover:text-blue-700">
                                     Reply
                                 </button>
@@ -48,71 +48,87 @@
                         </div>
 
                         <!-- Replies -->
-                        <template x-if="comment.replies && comment.replies.length > 0">
+                        @if ($comment->replies->count() > 0)
                             <div class="ml-12 mt-3 space-y-3 border-l-2 border-gray-100 pl-3">
-                                <template x-for="reply in comment.replies" :key="reply.id">
+                                @foreach ($comment->replies as $reply)
                                     <div class="pt-2">
                                         <div class="flex items-start gap-2">
-                                            <img :src="reply.user.avatar_url || `https://i.pravatar.cc/30?u=${reply.user.email}`" 
-                                                 :alt="reply.user.name" 
-                                                 class="w-8 h-8 rounded-full">
-                                            <div>
+                                            <img src="{{ $reply->user->avatar_url ?? 'https://i.pravatar.cc/30?u=' . $reply->user->email }}"
+                                                alt="{{ $reply->user->name }}" 
+                                                class="w-8 h-8 rounded-full">
+                                            <div class="flex-1">
                                                 <div class="flex items-baseline justify-between">
-                                                    <span class="font-medium text-sm" x-text="reply.user.name"></span>
-                                                    <span class="text-gray-500 text-xs ml-2" x-text="formatDate(reply.created_at)"></span>
+                                                    <span class="font-medium text-sm">{{ $reply->user->name }}</span>
+                                                    <span class="text-gray-500 text-xs ml-2">
+                                                        {{ $reply->created_at->diffForHumans() }}
+                                                    </span>
                                                 </div>
-                                                <p class="text-sm text-gray-700" x-text="reply.content"></p>
+                                                <p class="text-sm text-gray-700">{{ $reply->content }}</p>
                                             </div>
                                         </div>
                                     </div>
-                                </template>
+                                @endforeach
                             </div>
-                        </template>
+                        @endif
                     </div>
-                </template>
+                @empty
+                    <div class="text-center py-6 text-gray-500">
+                        No comments yet. Be the first to comment!
+                    </div>
+                @endforelse
 
-                <!-- Empty State -->
-                <div x-show="comments.length === 0" class="text-center py-6 text-gray-500">
-                    No comments yet. Be the first to comment!
-                </div>
+                @if($error)
+                    <div class="p-4 bg-red-50 text-red-700 rounded-lg">
+                        {{ $error }}
+                    </div>
+                @endif
             </div>
 
             <!-- Comment Form -->
-            <form @submit.prevent="submitComment()" class="p-4 border-t">
+            <form wire:submit="save" class="p-4 border-t">
+                @csrf
                 <div class="flex gap-3">
-                    <!-- User Avatar -->
-                    <img :src="userAvatar" alt="Your profile" class="w-10 h-10 rounded-full">
+                    <img src="{{ auth()->user()->avatar_url ?? 'https://i.pravatar.cc/40?u=' . auth()->user()->email }}"
+                         alt="Your profile" 
+                         class="w-10 h-10 rounded-full">
                     
-                    <!-- Comment Input -->
                     <div class="flex-1">
-                        <input type="hidden" x-model="parentId">
+                        <input type="hidden" wire:model="parentId">
                         <textarea 
-                            x-model="content" 
+                            wire:model="content" 
                             x-ref="commentInput"
-                            :placeholder="parentId ? 'Write your reply...' : 'Write your comment...'" 
+                            placeholder="{{ $parentId ? 'Write your reply...' : 'Write your comment...' }}" 
                             rows="2"
                             class="w-full p-3 border rounded-lg focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+                            wire:loading.attr="disabled"
                         ></textarea>
-                        <p x-show="error" class="mt-1 text-sm text-red-600" x-text="error"></p>
+                        @error('content')
+                            <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+                        @enderror
                     </div>
                 </div>
 
                 <div class="flex justify-end gap-2 mt-2">
-                    <button 
-                        type="button" 
-                        x-show="parentId" 
-                        @click="cancelReply()"
-                        class="px-4 py-2 text-gray-500 hover:text-gray-700"
-                    >
-                        Cancel
-                    </button>
+                    <!-- Cancel Reply Button (conditionally shown) -->
+                    @if($parentId)
+                        <button 
+                            type="button" 
+                            wire:click="cancelReply"
+                            class="px-4 py-2 text-gray-500 hover:text-gray-700"
+                            wire:loading.attr="disabled"
+                        >
+                            Cancel
+                        </button>
+                    @endif
+                    
+                    <!-- Submit Button -->
                     <button 
                         type="submit"
-                        class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition"
-                        :disabled="isSubmitting"
+                        class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition disabled:opacity-50"
+                     
                     >
-                        <span x-show="!isSubmitting">Post</span>
-                        <span x-show="isSubmitting">Posting...</span>
+                        <span wire:loading.remove>Post</span>
+                        <span wire:loading>Saving...</span>
                     </button>
                 </div>
             </form>
@@ -123,106 +139,30 @@
 <script>
 function commentModal() {
     return {
-        comments: [],
-        content: '',
-        parentId: null,
-        isSubmitting: false,
-        error: null,
-        userAvatar: 'https://i.pravatar.cc/40',
-        
         init() {
-            // Load user avatar if authenticated
-            this.loadUserData();
-            
-            // Watch for modal open to load comments
-            this.$watch('$store.commentModal.isOpen', (isOpen) => {
-                if (isOpen) {
-                    this.loadComments();
-                }
-            });
-        },
-        
-        getCommentableTitle() {
-            return Alpine.store('commentModal').getCommentableTitle();
-        },
-        
-        async loadComments() {
-            const store = Alpine.store('commentModal');
-            if (!store.commentableId || !store.commentableType) return;
-            
-            try {
-                const response = await fetch(`/api/comments?commentable_id=${store.commentableId}&commentable_type=${store.commentableType}`);
-                this.comments = await response.json();
-            } catch (error) {
-                console.error('Error loading comments:', error);
-            }
-        },
-        
-        async submitComment() {
-            this.isSubmitting = true;
-            this.error = null;
-            
-            const store = Alpine.store('commentModal');
-            
-            try {
-                const response = await fetch('/api/comments', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'X-CSRF-TOKEN': '{{ csrf_token() }}'
-                    },
-                    body: JSON.stringify({
-                        commentable_id: store.commentableId,
-                        commentable_type: store.commentableType,
-                        content: this.content,
-                        parent_id: this.parentId
-                    })
+            // Focus on input when reply is started
+            Livewire.on('reply-started', () => {
+                this.$nextTick(() => {
+                    const input = this.$refs.commentInput;
+                    if (input) {
+                        input.focus();
+                    }
                 });
-                
-                if (response.ok) {
-                    this.content = '';
-                    this.parentId = null;
-                    await this.loadComments(); // Reload comments
-                    this.$refs.commentInput.focus();
-                } else {
-                    this.error = 'Failed to post comment';
-                }
-            } catch (error) {
-                this.error = 'Network error. Please try again.';
-            }
-            
-            this.isSubmitting = false;
-        },
-        
-        setReplyTo(commentId) {
-            this.parentId = commentId;
-            this.$nextTick(() => {
-                this.$refs.commentInput.focus();
             });
-        },
-        
-        cancelReply() {
-            this.parentId = null;
-        },
-        
-        closeModal() {
-            Alpine.store('commentModal').close();
-            this.comments = [];
-            this.content = '';
-            this.parentId = null;
-            this.error = null;
-        },
-        
-        formatDate(dateString) {
-            return new Date(dateString).toLocaleDateString();
-        },
-        
-        loadUserData() {
-            // You can implement user data loading here
-            // For example, if you have a global user object:
-            if (window.user) {
-                this.userAvatar = window.user.avatar_url || `https://i.pravatar.cc/40?u=${window.user.email}`;
-            }
+
+            // Close modal when clicking outside (using Livewire)
+            document.addEventListener('click', (e) => {
+                if (this.$wire.showModal && !e.target.closest('.bg-white')) {
+                    this.$wire.closeModal();
+                }
+            });
+
+            // Close modal with Escape key (using Livewire)
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && this.$wire.showModal) {
+                    this.$wire.closeModal();
+                }
+            });
         }
     }
 }

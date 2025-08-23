@@ -12,6 +12,7 @@ use App\Livewire\CultureCard;
 use App\Livewire\CulturePage;
 use App\Livewire\DoctorsCard;
 use App\Livewire\ServicePage;
+use App\Livewire\CommentModal;
 use App\Livewire\AppontmentPage;
 use App\Livewire\AnalysisDashboard;
 use Illuminate\Support\Facades\Route;
@@ -59,6 +60,12 @@ Route::get('/blog', BlogPage::class );
 
 Route::post('track/view', [TrackingController::class, 'trackView']);
 
+Route::middleware(['auth'])->group(function () {
+    // Get comments
+    // Route::get('/api/comments', function (Request $request) {
+      
+
+});
 
 require __DIR__ . '/admin.php';
 require __DIR__ . '/master.php';

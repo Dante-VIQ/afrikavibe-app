@@ -7,14 +7,20 @@
         {{ $doctor->name }}
     </h3>
     {{-- <p>{{ $doctor->department }}</p> --}}
-    <p class="h-15 max-h-full text-sm text-gray-700 mb-3 overflow-y-ellipsis">{{ $doctor->detail }}</p>
+    <p class="h-[40vh] text-sm text-gray-700 mb-3 overflow-y-hidden overflow-y-ellipsis">{{ $doctor->detail }}</p>
 
     <div class="flex justify-evenly">
-          <button 
-            x-on:click="$dispatch('openCommentModal', { type: 'App\\Models\\Doctor', id: {{ $doctor->id }} })"
-            class="mt-3 text-sm h-8 bg-amber-600 hover:bg-amber-700 text-white p-2 rounded-lg">
-            💬
-        </button>
+            <button class="mt-2 px-4 py-1 bg-orange-500 rounded-full text-white hover:bg-orange-600"
+                                    wire:click="$dispatch('openCommentModal', {
+                                  commentableId: {{ $doctor->id }},
+                                    commentableType: 'App\Models\Doctor' })">
+                                    💬
+                                    @if ($doctor->comments_count > 0)
+                                        <span class="ml-2 text-xs bg-white/20 px-2 py-0.5 rounded-full">
+                                            {{ $doctor->comments_count }}
+                                        </span>
+                                    @endif
+                                </button>
         <a class="btn" href=""><i class="fa fa-plus text-blue-700 me-2 m-2"></i>Read More</a>
     </div>
 </x-slot>

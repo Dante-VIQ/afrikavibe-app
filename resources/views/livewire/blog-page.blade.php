@@ -22,11 +22,17 @@
                         </p>
                         <p class="mb-6 h-24 text-sm text-gray-700 overflow-hidden text-wrap">{{ $blog->description }}</p>
                         <div class="flex">
-                            <button
-                                wire:click="$emit('openCommentModal', { type: 'App\\Models\\Blog', id: {{ $blog->id }} })"
-                                class="mt-3 text-sm bg-amber-600 hover:bg-amber-700 text-white px-3 py-1 rounded-lg">
-                                💬
-                            </button>
+                             <button class="mt-2 px-4 py-1 bg-orange-500 rounded-full text-white hover:bg-orange-600"
+                                    wire:click="$dispatch('openCommentModal', { 
+                                  commentableId: {{ $blog->id }}, 
+                                    commentableType: 'App\Models\Blog' })">
+                                    💬
+                                    @if ($blog->comments_count > 0)
+                                        <span class="ml-2 text-xs bg-white/20 px-2 py-0.5 rounded-full">
+                                            {{ $blog->comments_count }}
+                                        </span>
+                                    @endif
+                                </button>
 
                             <a href="/blogs/{{ $blog->id }}" class="text-gray-800 hover:text-black italic">Continue
                                 Reading <i class="fas fa-arrow-right"></i></a>

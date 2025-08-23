@@ -27,11 +27,17 @@
                                 {{ $culture->user->name }}
                             </span>
                         </div>
-                        <button
-                            wire:click="$emit('openCommentModal', { type: 'App\\Models\\Culture', id: {{ $culture->id }} })"
-                            class="mt-3 text-sm bg-amber-600 hover:bg-amber-700 text-white px-3 py-1 rounded-lg">
-                            💬
-                        </button>
+                        <button class="mt-2 px-4 py-1 bg-orange-500 rounded-full text-white hover:bg-orange-600"
+                                    wire:click="$dispatch('openCommentModal', { 
+                                  commentableId: {{ $culture->id }}, 
+                                    commentableType: 'App\Models\Culture' })">
+                                    💬
+                                    @if ($culture->comments_count > 0)
+                                        <span class="ml-2 text-xs bg-white/20 px-2 py-0.5 rounded-full">
+                                            {{ $culture->comments_count }}
+                                        </span>
+                                    @endif
+                                </button>
 
                         <a href="/cultures/{{ $culture->id }}"
                             class="inline-flex items-center font-medium text-primary-600 hover:underline italic">

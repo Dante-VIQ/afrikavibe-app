@@ -21,11 +21,11 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
-  
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    {{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" /> --}}
 
 
-  <link href="{{ asset('/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('/css/bootstrap.min.css') }}" rel="stylesheet">
     <!-- Vite Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
@@ -55,7 +55,7 @@
 
 
     @livewire('comment-modal')
-        @livewireScripts
+    @livewireScripts
     <script>
         function sendMessage() {
             const message = document.getElementById('userMessage').value;
@@ -83,53 +83,41 @@
         }
     </script>
 
-<script>
-document.addEventListener('alpine:init', () => {
-    Alpine.store('commentModal', {
-        isOpen: false,
-        commentableId: null,
-        commentableType: null,
-        commentableModel: null,
-        
-        open(commentableId, commentableType, modelData = null) {
-            this.commentableId = commentableId;
-            this.commentableType = commentableType;
-            this.commentableModel = modelData;
-            this.isOpen = true;
-        },
-        
-        close() {
-            this.isOpen = false;
-            this.commentableId = null;
-            this.commentableType = null;
-            this.commentableModel = null;
-        },
-        
-        getCommentableTitle() {
-            if (!this.commentableModel) return 'Item';
-            
-            return this.commentableModel.title || 
-                   this.commentableModel.name || 
-                   this.commentableModel.subject || 
-                   'Item';
-        }
-    });
-});
-</script>
-    <!-- Additional Scripts -->
-    {{-- <script type="module" src="{{ asset('/lib/wow/wow.min.js') }}" defer></script>
-    <script type="module" src="{{ asset('/lib/easing/easing.min.js') }}" defer></script>
-    <script type="module" src="{{ asset('/lib/waypoints/waypoints.min.js') }}" defer></script>
-    <script type="module" src="{{ asset('/lib/counterup/counterup.min.js') }}" defer></script>
-    <script type="module" src="{{ asset('/lib/owlcarousel/owl.carousel.min.js') }}" defer></script>
-   
-    <script type="module" src="{{ asset('/fontawesome6/js/all.min.js') }}" defer></script>
-    <script type="module" src="/node_modules/jquery/dist/jquery.js" defer></script>
-    <script type="module" src="{{ asset('/lib/tempusdominus/js/moment.min.js') }}" defer></script>
-    <script type="module" src="{{ asset('/lib/tempusdominus/js/moment-timezone.min.js') }}" defer></script>
-    <script type="module" src="{{ asset('/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js') }}" defer></script> --}}
+    <script>
+        document.addEventListener('alpine:init', () => {
+            Alpine.store('commentModal', {
+                isOpen: false,
+                commentableId: null,
+                commentableType: null,
+                commentableModel: null,
 
-     <script type="module" src="{{ asset('/js/main.js') }}" defer></script>
+                open(commentableId, commentableType, modelData = null) {
+                    this.commentableId = commentableId;
+                    this.commentableType = commentableType;
+                    this.commentableModel = modelData;
+                    this.isOpen = true;
+                },
+
+                close() {
+                    this.isOpen = false;
+                    this.commentableId = null;
+                    this.commentableType = null;
+                    this.commentableModel = null;
+                },
+
+                getCommentableTitle() {
+                    if (!this.commentableModel) return 'Item';
+
+                    return this.commentableModel.title ||
+                        this.commentableModel.name ||
+                        this.commentableModel.subject ||
+                        'Item';
+                }
+            });
+        });
+    </script>
+
+    <script type="module" src="{{ asset('/js/main.js') }}" defer></script>
     @stack('modals')
 
 

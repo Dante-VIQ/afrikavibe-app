@@ -3,7 +3,7 @@
 namespace App\Models;
 
 use App\Models\User;
-use App\Models\Comments;
+use App\Models\Comment;
 use App\TrackableViews;
 use Laravel\Scout\Searchable;
 use Illuminate\Database\Eloquent\Model;
@@ -43,7 +43,7 @@ class Blog extends Model
 
     public function comments()
 {
-    return $this->morphMany(Comments::class, 'commentable');
+    return $this->morphMany(Comment::class, 'commentable');
 }
 
     // Relationship To User

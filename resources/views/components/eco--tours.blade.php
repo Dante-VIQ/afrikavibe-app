@@ -1,8 +1,8 @@
-<section class="bg-white py-4 px-4 sm:px-8">
+<section class="bg-white py-2 px-4 sm:px-8">
     <div class="max-w-7xl mx-auto">
         <div class="text-center mx-auto mb-3 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
 
-            <h2 class="text-xl sm:text-2xl font-bold text-green-800 mb-4">
+            <h2 class=" hidden text-lg sm:text-2xl font-bold text-green-600 mb-4">
                 Agri-Ecotourism Trails
             </h2>
             {{-- <p class="text-gray-600 mb-12 max-w-full">

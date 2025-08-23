@@ -28,35 +28,67 @@
     @livewireStyles
 </head>
 
-<body class="font-mono">
+<body class="font-body">
 
     <x-banner />
 
-    {{-- @include('livewire.layout.navigation') --}}
     <div class="min-h-screen bg-gray-100">
         @include('livewire.layout.navigation')
 
         <!-- Page Content -->
-        <main wire:navigate>
+        <main>
             {{ $slot }}
             {{-- @livewire('spa-container') --}}
         </main>
 
-      
+
 
     </div>
+    @livewire('comment-modal')
 
+    @livewireScripts
     {{-- <x-skeleton-loader /> --}}
     {{-- <script src="{{ asset('/public/build/assets/app-DqMUDAdC.js') }}" defer></script> --}}
-    <script></script>
+    <script>
+        document.addEventListener('alpine:init', () => {
+            Alpine.store('commentModal', {
+                isOpen: false,
+                commentableId: null,
+                commentableType: null,
+                commentableModel: null,
+
+                open(commentableId, commentableType, modelData = null) {
+                    this.commentableId = commentableId;
+                    this.commentableType = commentableType;
+                    this.commentableModel = modelData;
+                    this.isOpen = true;
+                },
+
+                close() {
+                    this.isOpen = false;
+                    this.commentableId = null;
+                    this.commentableType = null;
+                    this.commentableModel = null;
+                },
+
+                getCommentableTitle() {
+                    if (!this.commentableModel) return 'Item';
+
+                    return this.commentableModel.title ||
+                        this.commentableModel.name ||
+                        this.commentableModel.subject ||
+                        'Item';
+                }
+            });
+        });
+    </script>
 
     <script type="module" src="{{ asset('/js/main.js') }}" defer></script>
 
-        {{-- @livewire('comment-modal') --}}
 
     @stack('modals')
 
-    @livewireScripts
+
 
 
 </body>

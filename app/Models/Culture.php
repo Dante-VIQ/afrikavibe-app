@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Comment;
 use App\Models\User;
 use App\TrackableViews;
 use Laravel\Scout\Searchable;
@@ -20,7 +21,7 @@ class Culture extends Model
 
       public function comments()
     {
-        return $this->morphMany(Comments::class, 'commentable');
+        return $this->morphMany(Comment::class, 'commentable');
     }
 
     // public function toSearchableArray(){

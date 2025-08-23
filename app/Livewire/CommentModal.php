@@ -2,7 +2,6 @@
 
 namespace App\Livewire;
 
-use App\Models\Upvote;
 use App\Models\Comment;
 use Livewire\Component;
 use Livewire\Attributes\On;
@@ -15,107 +14,92 @@ class CommentModal extends Component
     public $content = '';
     public $parentId = null;
     public $showModal = false;
+    public $comments = [];
+    public $isLoading = false;
+    public $error = null;
 
-    #[On('open-comment-modal')]
+    #[On('openCommentModal')]
     public function openCommentModal($commentableId, $commentableType)
     {
         $this->commentableId = $commentableId;
         $this->commentableType = $commentableType;
         $this->showModal = true;
-        $this->reset(['content', 'parentId']);
+        $this->reset(['content', 'parentId', 'error']);
+        $this->loadComments();
     }
 
-    public function closeModal()
+    public function loadComments()
     {
-        $this->showModal = false;
-        $this->reset(['content', 'parentId', 'commentableId', 'commentableType']);
-    }
+        if (!$this->commentableId || !$this->commentableType) {
+            return;
+        }
 
-    protected $rules = [
-        'content' => 'required|min:3|max:1000'
-    ];
+        $this->isLoading = true;
+
+        try {
+            $this->comments = Comment::with(['user', 'replies.user'])
+                ->where('commentable_id', $this->commentableId)
+                ->where('commentable_type', $this->commentableType)
+                ->whereNull('parent_id')
+                ->latest()
+                ->get();
+
+            $this->isLoading = false;
+        } catch (\Exception $e) {
+            $this->error = 'Failed to load comments';
+            $this->isLoading = false;
+        }
+    }
 
     public function save()
     {
-        $this->validate();
-
-        if (!Auth::check()) {
-            return redirect()->route('login');
-        }
-
-        Comment::create([
-            'user_id' => Auth::id(),
-            'commentable_id' => $this->commentableId,
-            'commentable_type' => $this->commentableType,
-            'content' => $this->content,
-            'parent_id' => $this->parentId
+        $this->validate([
+            'content' => 'required|min:3|max:1000'
         ]);
 
-        // Reset form and notify
-        $this->reset(['content', 'parentId']);
-        $this->dispatch('comment-added');
-        
-        // Optional: Show success message
-        session()->flash('message', 'Comment posted successfully!');
+        if (!Auth::check()) {
+            $this->error = 'Please login to comment';
+            return;
+        }
+
+        try {
+            Comment::create([
+                'user_id' => Auth::id(),
+                'commentable_id' => $this->commentableId,
+                'commentable_type' => $this->commentableType,
+                'content' => $this->content,
+                'parent_id' => $this->parentId
+            ]);
+
+            $this->content = '';
+            $this->parentId = null;
+            $this->error = null;
+            $this->loadComments(); // Reload comments
+
+        } catch (\Exception $e) {
+            $this->error = 'Failed to post comment';
+        }
     }
 
     public function reply($commentId)
     {
         $this->parentId = $commentId;
-        $this->dispatch('focus-comment-input');
+        $this->dispatch('reply-started'); // Tell Alpine to focus
     }
 
     public function cancelReply()
     {
-        $this->reset('parentId');
+        $this->parentId = null;
     }
 
-    public function upvote($commentId)
+    public function closeModal()
     {
-        if (!Auth::check()) return;
-
-        $comment = Comment::findOrFail($commentId);
-
-        // Toggle upvote
-        $upvote = $comment->upvotes()->where('user_id', Auth::id())->first();
-
-        if ($upvote) {
-            $upvote->delete();
-        } else {
-            Upvote::create([
-                'user_id' => Auth::id(),
-                'comment_id' => $commentId
-            ]);
-        }
-
-        // Refresh the component to show updated counts
-        $this->dispatch('comment-upvoted');
-    }
-
-    public function getCommentsProperty()
-    {
-        if (!$this->commentableId || !$this->commentableType) {
-            return collect();
-        }
-
-        return Comment::with([
-                'user', 
-                'replies.user', 
-                'replies.upvotes',
-                'upvotes'
-            ])
-            ->withCount(['upvotes', 'replies'])
-            ->where('commentable_id', $this->commentableId)
-            ->where('commentable_type', $this->commentableType)
-            ->whereNull('parent_id')
-            ->latest()
-            ->get();
+        $this->showModal = false;
+        $this->reset(['content', 'parentId', 'commentableId', 'commentableType', 'comments', 'error']);
     }
 
     public function render()
     {
-        return view('livewire.comment-modal', [
-            'comments' => $this->comments
-        ]);
+        return view('livewire.comment-modal');
     }
 }

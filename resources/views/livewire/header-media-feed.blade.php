@@ -28,9 +28,9 @@
 
                                 {{-- Comment Button --}}
                                 <button class="mt-2 px-4 py-1 bg-orange-500 rounded-full text-white hover:bg-orange-600"
-                                    @click="Alpine.store('commentModal').open({{ $media->id }}, 'App\\\\Models\\\\HeaderMedia', {
-            title: '{{ $media->title }}',
-            name: '{{ $media->title }}' })">
+                                    wire:click="$dispatch('openCommentModal', { 
+                                  commentableId: {{ $media->id }}, 
+                                    commentableType: 'App\Models\HeaderMedia' })">
                                     💬 Comment
                                     @if ($media->comments_count > 0)
                                         <span class="ml-2 text-xs bg-white/20 px-2 py-0.5 rounded-full">
