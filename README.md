@@ -1,4 +1,4 @@
-# Vumbi Ventures - Laravel Web Application
+# Vumbi Ventures - Discover the Hidden gems of Africa
 
 AfrikaVibe is a modern, AI-enhanced, multilingual Laravel web platform showcasing African destinations, culture, cuisine, art, and travel insights. Built using Laravel 11, Livewire 3, and the TALL stack, it delivers an engaging and progressive user experience optimized for growth and discovery.
 
