@@ -1,4 +1,4 @@
-# AfrikaVibe - Laravel Web Application
+# Vumbi Ventures - Laravel Web Application
 
 AfrikaVibe is a modern, AI-enhanced, multilingual Laravel web platform showcasing African destinations, culture, cuisine, art, and travel insights. Built using Laravel 11, Livewire 3, and the TALL stack, it delivers an engaging and progressive user experience optimized for growth and discovery.
 
@@ -55,9 +55,9 @@ chmod -R 775 storage bootstrap/cache
 
 5. Run migrations:
 
-<code>
+```bash
 php artisan migrate
-</code>
+
 
 6. Link storage:
 
