@@ -99,3 +99,6 @@ This project is open-source and available under the MIT license.
 ---
 
 Made with passion by Daniel Mwangi — Showcasing the soul of Africa through technology.
+
+# afrikavibe-app
+Travel site
