@@ -6,7 +6,7 @@
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}" wire:navigate>
-                    <x-application-logo class="block h-9 w-auto fill-current text-gray-800" />
+                        <x-application-logo class="block h-9 w-auto fill-current text-gray-800" />
                         <x-application-name class="block h-9 w-auto fill-current text-gray-800" />
                     </a>
                 </div>
@@ -25,11 +25,16 @@
                     <x-nav-link wire:click="$emit('navigateTo', 'blog')" href="/blog" :active="request()->routeIs('blog')">
                         {{ __('Blog') }}
                     </x-nav-link>
-                  
-                    <x-nav-link wire:click="$emit('navigateTo', 'Analysis')" href="/Analysis" :active="request()->routeIs('Analysis')">
-                        {{ __('Analysis') }}
-                    </x-nav-link>
-                    
+
+                    @auth
+                        @if (auth()->check() && auth()->user()->safeIsMaster())
+                            <!-- Master admin menu items -->
+                            <x-nav-link wire:click="$emit('navigateTo', 'Analysis')" href="/Analysis" :active="request()->routeIs('Analysis')">
+                                {{ __('Analysis') }}
+                            </x-nav-link>
+                        @endif
+                    @endauth
+
                 </div>
             </div>
 

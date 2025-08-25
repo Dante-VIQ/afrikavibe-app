@@ -35,7 +35,7 @@
 
 <body class="font-body">
 
-    <x-banner />
+    {{-- <x-banner /> --}}
 
     <div class="min-h-screen bg-gray-100">
 
@@ -44,11 +44,11 @@
         @else
             @include('livewire.welcome.navigation')
         @endauth
-        <main>
+        <div>
             {{ $slot }}
             {{-- @livewire('spa-container') --}}
 
-        </main>
+        </div>
     </div>
 
     {{-- <x-skeleton-loader /> --}}

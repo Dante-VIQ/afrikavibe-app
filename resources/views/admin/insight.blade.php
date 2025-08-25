@@ -24,7 +24,7 @@
             <div>
                 <p class="statistics-title">Cultures</p>
               
-                <h3 class="rate-percentage text-success text-center"><span>{{ $this->cultureCount }}</span></h3>
+                <h3 class="rate-percentage text-success text-center"><span>{{ $cultureCount }}</span></h3>
             </div>
             <div class="d-none d-md-block">
                 <p class="statistics-title">Blogs</p>

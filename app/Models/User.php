@@ -2,9 +2,9 @@
 
 namespace App\Models;
 
-use App\Role;
 use App\Models\Blog;
 use App\Models\City;
+use App\Models\Role;
 use App\Models\Todo;
 use App\Models\About;
 use App\Models\Doctor;
@@ -15,10 +15,10 @@ use App\Models\Culture;
 use App\Models\Feature;
 use App\Models\Service;
 use App\Models\Analysis;
-use App\Models\Comments;
 use App\Models\Destination;
 use App\Models\Testimonial;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Support\Facades\Log;
 use Laravel\Jetstream\HasProfilePhoto;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
@@ -38,43 +38,30 @@ class User extends Authenticatable
     use TwoFactorAuthenticatable;
 
     const ROLE_MASTER = 'master';
-     const ROLE_ADMIN = 'admin';
-     const ROLE_EDITOR = 'editor';
-     const ROLE_USER = 'user';
-
+    const ROLE_ADMIN = 'admin';
+    //  const ROLE_EDITOR = 'editor';
+    const ROLE_USER = 'user';
 
     /**
      * The attributes that are mass assignable.
      *
      * @var array<int, string>
      */
-    protected $fillable = [
-        'name',
-        'email',
-        'password',
-    ];
-
+    protected $fillable = ['name', 'email', 'password'];
 
     /**
      * The attributes that should be hidden for serialization.
      *
      * @var array<int, string>
      */
-    protected $hidden = [
-        'password',
-        'remember_token',
-        'two_factor_recovery_codes',
-        'two_factor_secret',
-    ];
+    protected $hidden = ['password', 'remember_token', 'two_factor_recovery_codes', 'two_factor_secret'];
 
     /**
      * The accessors to append to the model's array form.
      *
      * @var array<int, string>
      */
-    protected $appends = [
-        'profile_photo_url',
-    ];
+    protected $appends = ['profile_photo_url'];
 
     /**
      * Get the attributes that should be cast.
@@ -89,7 +76,7 @@ class User extends Authenticatable
         ];
     }
 
-     public function comments(): HasMany
+    public function comments(): HasMany
     {
         return $this->hasMany(Comment::class);
     }
@@ -156,11 +143,13 @@ class User extends Authenticatable
         return $this->hasMany(Todo::class, 'user_id');
     }
 
-    public function analysis(){
+    public function analysis()
+    {
         return $this->hasMany(Analysis::class, 'user_id');
     }
 
-    public function cultures(){
+    public function cultures()
+    {
         return $this->hasMany(Culture::class, 'user_id');
     }
     public function isAdmin()
@@ -172,26 +161,78 @@ class User extends Authenticatable
         return true;
     }
 
-    public function isEditor()
+    // public function isEditor()
+    // {
+    //     if ($this->role != self::ROLE_EDITOR) {
+    //         return false;
+    //     }
+
+    //     return true;
+    // }
+
+    // public function isMaster()
+    // {
+    //     if ($this->role != self::ROLE_MASTER) {
+    //         return false;
+    //     }
+
+    //     return true;
+    // }
+
+    public function safeIsMaster()
     {
-        if ($this->role != self::ROLE_EDITOR) {
+        try {
+            // Check if we have a role relationship that works
+            if (isset($this->roleRelation) && $this->roleRelation instanceof Role) {
+                return $this->roleRelation->slug === self::ROLE_MASTER;
+            }
+            
+            // Check if we have a string role column
+            if (isset($this->attributes['role']) && is_string($this->attributes['role'])) {
+                return $this->attributes['role'] === self::ROLE_MASTER;
+            }
+            
+            // Check if we have a role_id that might be used elsewhere
+            if (isset($this->attributes['role_id'])) {
+                // You might need to load the role relationship
+                if (!$this->relationLoaded('roleRelation')) {
+                    $this->load('roleRelation');
+                }
+                return $this->roleRelation && $this->roleRelation->slug === self::ROLE_MASTER;
+            }
+            
+            return false;
+        } catch (\Exception $e) {
+            // Log the error but don't break the application
+            Log::warning('Error checking master role: ' . $e->getMessage());
             return false;
         }
-
-        return true;
     }
 
+    /**
+     * Keep the original method but make it safer
+     */
     public function isMaster()
     {
-        if ($this->role != self::ROLE_MASTER) {
-            return false;
-        }
-
-        return true;
+        return $this->safeIsMaster();
     }
 
-//     public function hasRole(User $user): bool
-//     {
-//         return $this->role === $role;
-//     }
+    public function roleRelation()
+    {
+        return $this->belongsTo(Role::class, 'role_id');
+    }
+
+    public function getRoleAttribute()
+    {
+        if ($this->role_id && $this->roleRelation) {
+            return $this->roleRelation->slug;
+        }
+
+        return $this->attributes['role'] ?? null;
+    }
+
+    //     public function hasRole(User $user): bool
+    //     {
+    //         return $this->role === $role;
+    //     }
 }

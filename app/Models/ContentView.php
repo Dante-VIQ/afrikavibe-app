@@ -3,10 +3,13 @@
 namespace App\Models;
 
 use App\Models\User;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class ContentView extends Model
 {
+    use HasFactory;
+    
     protected $guarded = [];
 
     public function viewable()
@@ -27,9 +30,19 @@ class ContentView extends Model
     public static function last30DaysTrends()
     {
         return self::selectRaw('DATE(created_at) as date, COUNT(*) as views')
-        ->where('created_at', '>=', now()->subDays(30))
-        ->groupBy('date')
-        ->orderBy('date')
-        ->get();
+            ->where('created_at', '>=', now()->subDays(30))
+            ->groupBy('date')
+            ->orderBy('date')
+            ->get();
+    }
+
+    // Add scope for content type filtering
+    public function scopeOfContentType($query, $contentType)
+    {
+        if ($contentType) {
+            $modelClass = "App\\Models\\" . ucfirst($contentType);
+            return $query->where('viewable_type', $modelClass);
+        }
+        return $query;
     }
 }

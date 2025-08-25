@@ -13,7 +13,9 @@ class AnalyticsPolicy
      */
     public function viewAny(User $user): bool
     {
-        return in_array($user->role, [User::ROLE_ADMIN, User::ROLE_MASTER]);
+        // return in_array($user->role, [User::ROLE_ADMIN, User::ROLE_MASTER]);
+        return true;
+
     }
 
     /**

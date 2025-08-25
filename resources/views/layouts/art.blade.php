@@ -138,8 +138,9 @@
     <!-- container-scroller -->
     <!-- plugins:js -->
 
+@livewireScripts
 
-    @push('scripts')
+    {{-- @push('scripts') --}}
 
     <script src="{{ asset('assets/vendors/js/vendor.bundle.base.js') }}"></script>
     <script src="{{ asset('assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js') }}"></script>
@@ -156,71 +157,98 @@
     <script src="{{ asset('assets/js/todolist.js') }}"></script> --}}
     <!-- endinject -->
     <!-- Custom js for this page-->
-    <script src="{{ asset('assets/js/jquery.cookie.js') }}" type="text/javascript"></script>
-    <script src="{{ asset('assets/js/dashboard.js') }}"></script>
-    <script src="{{ asset('/js/chart.js') }}"></script>
+    {{-- <script src="{{ asset('assets/js/jquery.cookie.js') }}" type="text/javascript"></script> --}}
+    {{-- <script src="{{ asset('assets/js/dashboard.js') }}"></script> --}}
+    {{-- <script src="{{ asset('/js/chart.js') }}"></script> --}}
     <script src="{{ asset('/resources/js/content-tracking.js') }}"></script>
-    <script src="{{ asset('/resources/js/components/ActivityTrendChart.js') }}"></script>
+    {{-- <script src="{{ asset('/resources/js/components/ActivityTrendChart.js') }}"></script> --}}
 
-       @if (!empty($trends['data']))
-       <script src="/node_modules/chart.js/dist/chart.js"></script>
-       <script>
-           const ctx = document.getElementById('trendsChart').getContext('2d');
-           new Chart(ctx, {
-               type: 'line',
-               data: {
-                   labels: @json($trends['labels'] ?? []),
-                   datasets: [{
-                       label: 'Views',
-                       data: @json($trends['data'] ?? []),
-                       borderColor: '#3B82F6',
-                       backgroundColor: '#3B82F633', // #3B82F620
-                       borderWidth: 2,
-                       tension: 0.3,
-                       fill: true
-                   }]
-               },
-               options: {
-                   responsive: true,
-                   plugins: {
-                       legend: {
-                           display: false
-                       },
-                       tooltip: {
-                           mode: 'index',
-                           intersect: false
-                       }
-                   },
-                   scales: {
-                       y: {
-                           beginAtZero: true,
-                           ticks: {
-                               precision: 0
-                           }
+       {{-- @if (!empty($trends['data'])) --}}
+       {{-- <script src="/node_modules/chart.js/dist/chart.js"></script> --}}
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Initialize Charts
+        initCharts();
 
-                       }
-                   }
-               }
-           });
+        // Setup filter event listeners
+        setupFilters();
+    });
 
-           // Filter controls
-           document.getElementById('contentType').addEventListener('change', updateFilters);
-           document.getElementById('timeRange').addEventListener('change', updateFilters);
+    function initCharts() {
+        // Content Views Chart
+        @if (!empty($contentTrends))
+            new Chart(document.getElementById('contentTrendsChart'), {
+                type: 'line',
+                data: {
+                    labels: {!! json_encode($contentTrends['labels'] ?? []) !!},
+                    datasets: [{
+                        label: 'Content Views',
+                        data: {!! json_encode($contentTrends['data'] ?? []) !!},
+                        borderColor: 'rgb(59, 130, 246)',
+                        backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                        tension: 0.1,
+                        fill: true
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: { display: false }
+                    }
+                }
+            });
+        @endif
 
-           function updateFilters() {
-               const params = new URLSearchParams({
-                   type: document.getElementById('contentType').value,
-                   range: document.getElementById('timeRange').value
-               });
-               window.location.href = `${window.location.pathname}?${params.toString()}`;
-           }
-       </script>
-   @endif
+        // User Activity Chart
+        @if (!empty($activityTrends))
+            new Chart(document.getElementById('activityTrendsChart'), {
+                type: 'line',
+                data: {
+                    labels: {!! json_encode($activityTrends['labels'] ?? []) !!},
+                    datasets: [{
+                        label: 'User Activities',
+                        data: {!! json_encode($activityTrends['data'] ?? []) !!},
+                        borderColor: 'rgb(16, 185, 129)',
+                        backgroundColor: 'rgba(16, 185, 129, 0.1)',
+                        tension: 0.1,
+                        fill: true
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: { display: false }
+                    }
+                }
+            });
+        @endif
+    }
+
+  function setupFilters() {
+    const dataSource = document.getElementById('dataSource');
+    const contentType = document.getElementById('contentType');
+    const timeRange = document.getElementById('timeRange');
+
+    [dataSource, contentType, timeRange].forEach(select => {
+        select.addEventListener('change', function() {
+            const params = new URLSearchParams({
+                range: timeRange.value,
+                type: contentType.value,
+                source: dataSource.value // This must be included
+            });
+            
+            window.location.href = '{{ route('admin.admin') }}?' + params.toString();
+        });
+    });
+}
+</script>
+   {{-- @endif --}}
 
 
-    @if (!empty($trends['data']))
+    {{-- @if (!empty($trends['data'])) --}}
     <script src="/node_modules/chart.js/dist/chart.js"></script>
-    <script>
+    {{-- <script>
         const ctx = document.getElementById('activityChart').getContext('2d');
         new Chart(ctx, {
             type: 'line',
@@ -259,13 +287,12 @@
             }
         });
 
-    </script>
-@endif
+    </script> --}}
+{{-- @endif --}}
 
-@endpush
+{{-- @endpush --}}
 {{-- @stack('modals') --}}
 
-@livewireScripts
 
 </body>
 

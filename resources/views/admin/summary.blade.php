@@ -34,7 +34,7 @@
                             <div>
                                 <p class="text-small mb-2">Unique
                                     Visitors</p>
-                                <h4 class="mb-0 fw-bold">{{ number_format($stats['unique_visitors'] ?? 0) }}</h4>
+                                <h4 class="mb-0 fw-bold">{{ number_format($stats['activity_unique_users'] ?? 0) }}</h4>
                             </div>
                         </div>
                     </div>

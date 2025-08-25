@@ -28,14 +28,13 @@ Route::get('/page', CultureCard::class);
 
 Route::get('/header', HeaderCard::class);
 
-Route::post('track/view', [TrackingController::class, 'trackView']);
-Route::middleware(['auth', 'role:admin,master'])->group(function () {
+// Route::post('track/view', [TrackingController::class, 'trackView']);
+// Route::middleware(['auth', 'role:admin,master'])->group(function () {
 
-    Route::get('/analytics/trends', [AnalyticsController::class, 'index']);
     // Route::get('/api/analytics/activity-trends', [AnalyticsController::class, 'activityTrends']);
 
 
-});
+// });
 // Route::resource('/', AboutCard::class);
 // Route::resource('destination', DestinationCard::class);
 // Route::resource ('service', ServiceList::class);

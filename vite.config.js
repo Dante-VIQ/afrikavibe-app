@@ -20,7 +20,6 @@ export default defineConfig({
             output: {
                 manualChunks: {
                     vendor: [
-                        'swiper',
                         'lodash'
                         // add more vendor libraries here if needed
                     ],

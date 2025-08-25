@@ -13,6 +13,7 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule): void
     {
         // $schedule->command('inspire')->hourly();
+        $schedule->command('analytics:generate-test-data')->daily(); // Example schedule
         $schedule->call(function () {
             \App\Models\ContentView::where('created_at', '<', now()->subYear())
                 ->delete();
@@ -27,5 +28,11 @@ class Kernel extends ConsoleKernel
         $this->load(__DIR__.'/Commands');
 
         require base_path('routes/console.php');
+
+        // Manually register your command (optional - usually auto-loaded)
+        // $this->app->singleton('command.analytics.generate', function () {
+        //     return new \App\Console\Commands\GenerateTestAnalyticsData();
+        // });
+        // $this->commands('command.analytics.generate');
     }
 }

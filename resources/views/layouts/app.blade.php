@@ -30,16 +30,16 @@
 
 <body class="font-body">
 
-    <x-banner />
+    {{-- <x-banner /> --}}
 
     <div class="min-h-screen bg-gray-100">
         @include('livewire.layout.navigation')
 
         <!-- Page Content -->
-        <main>
+        <div>
             {{ $slot }}
             {{-- @livewire('spa-container') --}}
-        </main>
+        </div>
 
 
 
@@ -85,11 +85,7 @@
 
     <script type="module" src="{{ asset('/js/main.js') }}" defer></script>
 
-
     @stack('modals')
-
-
-
 
 </body>
 
