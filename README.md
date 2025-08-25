@@ -1,2 +1,0 @@
-# afrikavibe-app
-Travel site
