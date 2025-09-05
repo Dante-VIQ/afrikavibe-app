@@ -13,7 +13,7 @@
     <link rel="icon" href="{{ asset('img/logo1.png') }}" type="image/png">
     <link rel="apple-touch-icon" href="{{ asset('img/logo1.png') }}" type="image/png">
     <link rel="shortcut icon" href="{{ asset('img/logo1.png') }}" type="image/png">
-    <title>{{ config('app.name', 'Vumbi Ventures - Discover Africa') }}</title>
+    <title>{{ config('app.name', 'Vumbi - Discover Africa') }}</title>
 
     {{-- <link rel="preload" href="{{ Vite::asset('/resources/css/app.css') }}" as="style">
         <link rel="preload" href="{{ Vite::asset('/resources/js/app.js') }}" as="script"> --}}
@@ -24,8 +24,24 @@
 
     {{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" /> --}}
 
+    <!-- Inline CSS for masking -->
+
+    {{-- <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'body': ['Open Sans', 'sans-serif'],
+                        'heading': ['Roboto', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script> --}}
 
     <link href="{{ asset('/css/bootstrap.min.css') }}" rel="stylesheet">
+      {{-- <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script> --}}
     <!-- Vite Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
@@ -39,16 +55,17 @@
 
     <div class="min-h-screen bg-gray-100">
 
-        @auth
-            @include('livewire.layout.navigation')
-        @else
-            @include('livewire.welcome.navigation')
-        @endauth
-        <div>
+
+        <main>
             {{ $slot }}
             {{-- @livewire('spa-container') --}}
+        </main>
 
+        <!-- Footer Start -->
+        <div>
+            <livewire:footer-card />
         </div>
+        <!-- Footer End -->
     </div>
 
     {{-- <x-skeleton-loader /> --}}
@@ -56,6 +73,7 @@
 
     @livewire('comment-modal')
     @livewireScripts
+
     <script>
         function sendMessage() {
             const message = document.getElementById('userMessage').value;
@@ -83,39 +101,7 @@
         }
     </script>
 
-    <script>
-        document.addEventListener('alpine:init', () => {
-            Alpine.store('commentModal', {
-                isOpen: false,
-                commentableId: null,
-                commentableType: null,
-                commentableModel: null,
 
-                open(commentableId, commentableType, modelData = null) {
-                    this.commentableId = commentableId;
-                    this.commentableType = commentableType;
-                    this.commentableModel = modelData;
-                    this.isOpen = true;
-                },
-
-                close() {
-                    this.isOpen = false;
-                    this.commentableId = null;
-                    this.commentableType = null;
-                    this.commentableModel = null;
-                },
-
-                getCommentableTitle() {
-                    if (!this.commentableModel) return 'Item';
-
-                    return this.commentableModel.title ||
-                        this.commentableModel.name ||
-                        this.commentableModel.subject ||
-                        'Item';
-                }
-            });
-        });
-    </script>
 
     <script type="module" src="{{ asset('/js/main.js') }}" defer></script>
     @stack('modals')

@@ -1,11 +1,11 @@
-<div wire:poll.keep-alive.2s>
+<div>
     {{-- <!-- Header Start --> --}}
 
     <div>
         <livewire:header-page />
     </div>
-
-    {{-- <!-- Header End --> --}}
+    {{-- partner --}}
+@include('partner.index')
 
     {{-- <!-- Service Start --> --}}
     <div class="container-xxl py-5">
@@ -26,7 +26,7 @@
             <livewire:doctor-page />
         </div>
 
-     
+
     </div>
     {{-- <div class="2xl:container container py-2">
 
@@ -52,7 +52,10 @@
 
     </div>
     {{-- <!-- Destination End --> --}}
-
+    {{-- <x-splash-card   class="w-[400px] h-[300px] my-8" /> --}}
+    {{-- <x-splash-card photo="/img/injera.png" mask="/img/logo1.png" title="Nyama Choma"
+        caption="Kenya’s signature roasted meat, a dish that brings people together over laughter, stories, and spice."
+        buttonText="Read More" buttonLink="/culture-cuisine/nyama-choma" /> --}}
 
     <section class="container-xxl py-5 bg-white">
         {{-- <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6"> --}}
@@ -70,7 +73,7 @@
 
 
     {{-- <!-- Appointment Start --> --}}
-    <div class="container-xxl py-3">
+    {{-- <div class="container-xxl py-3">
         <div class="container">
             <div class="row g-5">
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
@@ -91,7 +94,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
     {{-- <!-- Appointment End --> --}}
 
 
@@ -109,14 +112,6 @@
         </div>
     </div>
     <!-- Testimonial End -->
-
-
-    <!-- Footer Start -->
-    <div>
-        <livewire:footer-card />
-    </div>
-    <!-- Footer End -->
-
 
     <!-- Back to Top -->
     <a href="#" class="btn btn-lg btn-success btn-lg-square rounded-circle back-to-top"><i

@@ -13,13 +13,46 @@
     <link rel="icon" href="{{ asset('img/logo1.png') }}" type="image/png">
     <link rel="apple-touch-icon" href="{{ asset('img/logo1.png') }}" type="image/png">
     <link rel="shortcut icon" href="{{ asset('img/logo1.png') }}" type="image/png">
-    <title>{{ config('app.name', '  VumbiVentures - Discover Africa') }}</title>
+    <title>{{ config('app.name', '  Vumbi - Discover Africa') }}</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
-    <link href="{{ asset('/css/bootstrap.min.css') }}" rel="stylesheet">
+    {{-- <link href="{{ asset('/css/bootstrap.min.css') }}" rel="stylesheet"> --}}
 
+    <!-- Inline CSS for masking -->
+    {{-- <style>
+        .splash-mask .splash-image {
+            width: 100%;
+            height: 100%;
+            background-image: url('{{ $photo }}');
+            background-size: cover;
+            background-position: center;
+
+            -webkit-mask-image: url('{{ $mask }}');
+            -webkit-mask-repeat: no-repeat;
+            -webkit-mask-size: cover;
+            -webkit-mask-position: center;
+
+            mask-image: url('{{ $mask }}');
+            mask-repeat: no-repeat;
+            mask-size: cover;
+            mask-position: center;
+        }
+    </style> --}}
+    {{-- <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'body': ['Open Sans', 'sans-serif'],
+                        'heading': ['Roboto', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script> --}}
 
     <!-- Vite Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -30,58 +63,29 @@
 
 <body class="font-body">
 
-    {{-- <x-banner /> --}}
+    <x-banner />
 
     <div class="min-h-screen bg-gray-100">
         @include('livewire.layout.navigation')
 
         <!-- Page Content -->
-        <div>
+        <main>
             {{ $slot }}
             {{-- @livewire('spa-container') --}}
+        </main>
+
+
+        <!-- Footer Start -->
+        <div>
+            <livewire:footer-card />
         </div>
-
-
+        <!-- Footer End -->
 
     </div>
     @livewire('comment-modal')
 
     @livewireScripts
     {{-- <x-skeleton-loader /> --}}
-    {{-- <script src="{{ asset('/public/build/assets/app-DqMUDAdC.js') }}" defer></script> --}}
-    <script>
-        document.addEventListener('alpine:init', () => {
-            Alpine.store('commentModal', {
-                isOpen: false,
-                commentableId: null,
-                commentableType: null,
-                commentableModel: null,
-
-                open(commentableId, commentableType, modelData = null) {
-                    this.commentableId = commentableId;
-                    this.commentableType = commentableType;
-                    this.commentableModel = modelData;
-                    this.isOpen = true;
-                },
-
-                close() {
-                    this.isOpen = false;
-                    this.commentableId = null;
-                    this.commentableType = null;
-                    this.commentableModel = null;
-                },
-
-                getCommentableTitle() {
-                    if (!this.commentableModel) return 'Item';
-
-                    return this.commentableModel.title ||
-                        this.commentableModel.name ||
-                        this.commentableModel.subject ||
-                        'Item';
-                }
-            });
-        });
-    </script>
 
     <script type="module" src="{{ asset('/js/main.js') }}" defer></script>
 

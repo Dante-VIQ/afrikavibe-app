@@ -467,6 +467,7 @@
     array (
       'confirm' => true,
       'confirmPassword' => true,
+      'window' => 0,
     ),
   ),
   'fortify' => 

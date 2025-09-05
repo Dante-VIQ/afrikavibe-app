@@ -2,9 +2,9 @@
     <!-- Modal -->
     <div x-show="$wire.showModal"
          x-transition.opacity
-         class="fixed inset-0 z-[9999] flex items-center justify-center bg-black/50">
+         class="fixed inset-0 z-[9999] flex items-center justify-center bg-black/50 p-3">
 
-        <div class="bg-white rounded-lg w-full max-w-md max-h-[90vh] flex flex-col shadow-xl m-4">
+        <div class="bg-white rounded-lg w-full max-w-md max-h-[120vh] flex flex-col shadow-xl m-4">
             <!-- Header -->
             <div class="p-4 border-b flex justify-between items-center">
                 <h2 class="font-bold text-lg">Comments</h2>
@@ -21,7 +21,7 @@
 
             <!-- Comments List -->
             <div wire:loading.remove wire:target="loadComments"
-                 class="flex-1 overflow-y-auto p-4 space-y-4">
+                 class="flex-1 overflow-y-auto p-4 space-y-4 w-auto">
 
                 @forelse($comments as $comment)
                     <div class="border-b pb-4 last:border-b-0">
@@ -87,7 +87,7 @@
             <!-- Comment Form -->
             <form wire:submit="save" class="p-4 border-t">
                 @csrf
-                <div class="flex gap-3">
+                <div class="flex gap-3 p-4">
                     @auth
                     <img src="{{ auth()->user()->avatar_url ?? 'https://i.pravatar.cc/40?u=' . auth()->user()->email }}"
                          alt="Your profile"
@@ -102,7 +102,7 @@
                     <div class="flex-1">
                         <input type="hidden" wire:model="parentId">
                         <textarea
-                            wire:model="content" 
+                            wire:model="content"
                             x-ref="commentInput"
                             placeholder="{{ $parentId ? 'Write your reply...' : 'Write your comment...' }}"
                             rows="2"
@@ -115,7 +115,7 @@
                     </div>
                 </div>
 
-                <div class="flex justify-end gap-2 mt-2">
+                <div class="flex justify-end gap-2 mt-2 p-3">
                     <!-- Cancel Reply Button (conditionally shown) -->
                     @if($parentId)
                         <button

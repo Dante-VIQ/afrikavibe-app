@@ -15,7 +15,7 @@
                                 <img src="{{ asset('storage/headers/' . basename($media->media_path)) }}"
                                     alt="{{ $media->title }}" class="w-full h-96 object-cover rounded-3xl">
                             @elseif($media->media_type === 'video')
-                                <video controls class="w-full h-96 object-cover rounded-3xl">
+                                <video controls  class="w-full h-96 object-cover rounded-3xl">
                                     <source src="{{ asset('storage/headers/' . basename($media->media_path)) }}">
                                 </video>
                             @endif
@@ -28,8 +28,8 @@
 
                                 {{-- Comment Button --}}
                                 <button class="mt-2 px-4 py-1 bg-orange-500 rounded-full text-white hover:bg-orange-600"
-                                    wire:click="$dispatch('openCommentModal', { 
-                                  commentableId: {{ $media->id }}, 
+                                    wire:click="$dispatch('openCommentModal', {
+                                  commentableId: {{ $media->id }},
                                     commentableType: 'App\Models\HeaderMedia' })">
                                     💬 Comment
                                     @if ($media->comments_count > 0)
@@ -98,7 +98,7 @@
             initSlider() {
                 this.setupTouchEvents();
                 this.setupKeyboardEvents();
-                this.startAutoPlay();
+                // this.startAutoPlay();
             },
 
             setupTouchEvents() {
@@ -184,7 +184,7 @@
                     if (this.totalSlides > 1) {
                         this.next();
                     }
-                }, 5000); // Change slide every 5 seconds
+                }, 10000); // Change slide every 5 seconds
             },
 
             next() {

@@ -4,17 +4,20 @@
             <div class="card-body">
                 <div class="d-sm-flex justify-content-between align-items-start">
                     <div>
-                        <h4 class="card-title card-title-dash">Destinations</h4>
-                        <p class="card-subtitle card-subtitle-dash">You can manage your destinations here</p>
+                        <h4 class="card-title card-title-dash">Blogs</h4>
+                        <p class="card-subtitle card-subtitle-dash">You can manage your Blogs here</p>
                     </div>
                     <div x-data="{ show: false }" x-cloak>
-                        <button x-on:click.prevent="show = true" class="btn btn-primary btn-lg text-white mb-0 me-0" type="submit"><i
-                                class="mdi mdi-account-plus"></i>Add
+                        <button x-on:click.prevent="show = true" class="btn btn-primary btn-lg text-white mb-0 me-0 px-4 py-2"
+                            type="submit"><i class="mdi mdi-account-plus"></i>Add
                             New Blog</button>
+
+                        <div class="mx-auto z-9 top-1/3 left-1/3" x-show="show"
+                            x-on:click.outside.prevent="show = false">
+                            @include('livewire.includes.blog-create')
+                        </div>
                     </div>
-                    <div class="mx-auto z-9 top-1/3 left-1/3" x-show="show" x-on:click.outside.prevent="show = false">
-                        @include('livewire.includes.blog-create')
-                    </div>
+
                 </div>
                 <div class="table-responsive  mt-1">
                     <table class="table select-table">

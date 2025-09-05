@@ -14,7 +14,7 @@ content: [
 "./resources/**/*.vue"
 ],
 
-darkMode: 'class',
+darkMode: 'false',
 theme: {
 	extend: {
 		colors: {

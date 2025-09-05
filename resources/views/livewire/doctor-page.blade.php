@@ -42,7 +42,7 @@
             </a>
         </div>
     </section>
-    <div class="border-2 border-gray-800"></div>
+    <x-section-border />
     <div>
         {{-- <livewire:service-list lazy /> --}}
         <x-eco--tours />

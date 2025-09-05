@@ -1,15 +1,19 @@
         <div class="bg-gray-50 text-black/50">
-           
-            <div class="relative min-h-screen flex flex-col items-center justify-center selection:bg-[#FF2D20] selection:text-white">
+
+            <div
+                class="relative min-h-screen flex flex-col items-center justify-center selection:bg-[#FF2D20] selection:text-white">
                 <div class="relative w-full max-w-2xl px-6 lg:max-w-7xl">
-                    {{-- <header class="grid grid-cols-2 items-center gap-2 py-10 lg:grid-cols-3">
-                        <div class="flex lg:justify-center lg:col-start-2">
-                            
-                        </div>
-                        @if (Route::has('login'))
+                    <header>
+                      
+                        {{-- @if (Route::has('login'))
                             @include('livewire.welcome.navigation')
-                        @endif
-                    </header> --}}
+                        @endif --}}
+                        @auth
+                            @include('livewire.layout.navigation')
+                        @else
+                            @include('livewire.welcome.navigation')
+                        @endauth
+                    </header>
 
                     <div class="py-4">
                         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">

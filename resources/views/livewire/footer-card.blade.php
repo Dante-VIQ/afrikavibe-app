@@ -1,6 +1,7 @@
-<div class="container bg-purple-950 text-light mt-5 pt-4 wow fadeIn" data-wow-delay="0.1s">
+<div class="bg-purple-950 text-light mt-5 pt-4 p-4 wow fadeIn">
 
-    <div class="grid gap-5 lg:gap-16 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 items-center text-center">
+    <div class="grid gap-5 lg:gap-12 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 text-center"
+        data-wow-delay="0.1s">
         <div>
             <h5 class="text-light mb-4">Address</h5>
             <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Free Area - Nakuru City</p>
@@ -60,7 +61,7 @@
 
     <div class="container">
         <div class="copyright">
-            <div class="row">
+            <div class="row g-5">
                 <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
                     &copy; <a class="border-bottom text-white" href="#">Tembia</a>, All Right Reserved.
                 </div>

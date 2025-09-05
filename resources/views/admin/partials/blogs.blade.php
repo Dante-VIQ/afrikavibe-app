@@ -39,7 +39,7 @@
                     
                 
                 
-                    <div class="flex">
+                    {{-- <div class="flex">
                         @can('create', $blog)
                             <div class="relative p-5 mx-auto" x-data="{ show: false }">
                                 <x-button x-on:click.prevent="show = true" class="px-4 py-2 text-light rounded bg-primary"><i
@@ -51,7 +51,7 @@
                                 </div>
                             </div>
                         @endcan
-                    </div>
+                    </div> --}}
                 
             </div>
         </div>

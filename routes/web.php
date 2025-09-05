@@ -1,27 +1,28 @@
 <?php
 
 use App\Models\Comment;
-use App\Livewire\Welcome;
-use App\Livewire\BlogCard;
+
 use App\Livewire\BlogPage;
 use App\Livewire\AboutPage;
 use App\Livewire\DoctorPage;
-use App\Livewire\ManageLink;
+
 use App\Livewire\ContactPage;
 use App\Livewire\CultureCard;
 use App\Livewire\CulturePage;
-use App\Livewire\DoctorsCard;
+
 use App\Livewire\ServicePage;
 use App\Livewire\CommentModal;
 use App\Livewire\AppontmentPage;
 use App\Livewire\AnalysisDashboard;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Request;
+use App\Http\Controllers\ItemController;
+use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\TrackingController;
 
 Route::view('/', 'welcome');
 
-Route::get('/',Welcome::class);
+// Route::get('/',Welcome::class);
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
@@ -31,11 +32,10 @@ Route::view('profile', 'profile')
     ->middleware(['auth'])
     ->name('profile');
 
-    Route::get('/service', ServicePage::class);
+Route::get('/service', ServicePage::class);
 
 Route::get('/destination', DoctorPage::class);
 Route::get('doctors', DoctorPage::class);
-
 
 Route::get('/about', AboutPage::class);
 
@@ -45,17 +45,15 @@ Route::get('/contact', ContactPage::class);
 
 Route::get('/art', CulturePage::class);
 
-
-
 // Route::get('/eco-destination', DoctorsCard::class);
 
 // Route::get('/blog-lay', function () {
 //     return view('blog-lay');
 // })->name('blog-lay');
 
-// Route::get('/blogs/{blog}', BlogPage::class, 'show');
-// Route::get('/blogs/{blog}', BlogPage::class);
-Route::get('/blog', BlogPage::class );
+Route::get('/blogs/{blog}', BlogPage::class, 'show');
+Route::get('blogs', BlogPage::class);
+Route::get('/blog', BlogPage::class);
 // Route::get('/blogs/{blog}', [BlogCard::class, 'show']);
 
 Route::post('track/view', [TrackingController::class, 'trackView']);
@@ -63,13 +61,58 @@ Route::post('track/view', [TrackingController::class, 'trackView']);
 Route::middleware(['auth'])->group(function () {
     // Get comments
     // Route::get('/api/comments', function (Request $request) {
-      
-
 });
+
+// List all partners
+Route::get('/partners', [PartnerController::class, 'index'])->name('partners.index');
+
+// Show form to create a partner
+Route::get('/partners/create', [PartnerController::class, 'create'])->name('partners.create');
+
+// Store a new partner
+Route::post('/partners', [PartnerController::class, 'store'])->name('partners.store');
+
+// Show a single partner profile
+Route::get('/partners/{partner}', [PartnerController::class, 'show'])->name('partners.show');
+
+// Show form to edit a partner
+Route::get('/partners/{partner}/edit', [PartnerController::class, 'edit'])->name('partners.edit');
+
+// Update a partner
+Route::put('/partners/{partner}', [PartnerController::class, 'update'])->name('partners.update');
+Route::patch('/partners/{partner}', [PartnerController::class, 'update']); // optional
+
+// Delete a partner
+Route::delete('/partners/{partner}', [PartnerController::class, 'destroy'])->name('partners.destroy');
+
+
+// ================= ITEMS (nested under partners) =================
+
+// List all items for a partner
+Route::get('/partners/{partner}/items', [ItemController::class, 'index'])->name('partners.items.index');
+
+// Show form to create an item for a partner
+Route::get('/partners/{partner}/items/create', [ItemController::class, 'create'])->name('partners.items.create');
+
+// Store a new item for a partner
+Route::post('/partners/{partner}/items', [ItemController::class, 'store'])->name('partners.items.store');
+
+// Show a single item
+Route::get('/partners/{partner}/items/{item}', [ItemController::class, 'show'])->name('partners.items.show');
+
+// Show form to edit an item
+Route::get('/partners/{partner}/items/{item}/edit', [ItemController::class, 'edit'])->name('partners.items.edit');
+
+// Update an item
+Route::put('/partners/{partner}/items/{item}', [ItemController::class, 'update'])->name('partners.items.update');
+Route::patch('/partners/{partner}/items/{item}', [ItemController::class, 'update']); // optional
+
+// Delete an item
+Route::delete('/partners/{partner}/items/{item}', [ItemController::class, 'destroy'])->name('partners.items.destroy');
+
 
 require __DIR__ . '/admin.php';
 require __DIR__ . '/master.php';
-
 
 // Route::middleware([
 //     'auth:sanctum',

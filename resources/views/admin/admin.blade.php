@@ -5,6 +5,10 @@
             <div class="tab-content tab-content-basic">
                 <div class="tab-pane fade show active" id="overview" role="tabpanel" aria-labelledby="overview">
                     {{-- @include('admin.insight') --}}
+                    <div class="max-w-3xl mx-auto bg-white p-6 rounded-lg shadow">
+                        <h1 class="text-xl font-bold mb-4">Add New Partner</h1>
+                        @include('partner.create')
+                    </div>
                     <div class="row">
                         <div class="col-lg-8 d-flex flex-column">
                             <div class="row flex-grow">
@@ -35,7 +39,7 @@
                                 </div>
                             </div>
                             <div class="row flex-grow">
-                              @include('admin.requests')
+                                @include('admin.requests')
                             </div>
                             <div class="row flex-grow">
                                 @include('admin.events')
@@ -49,7 +53,7 @@
                             @include('admin.charts')
                             <div class="row flex-grow">
                                 <div class="col-12 grid-margin stretch-card">
-                                   @include('admin.perfomers')
+                                    @include('admin.perfomers')
                                 </div>
                             </div>
                         </div>

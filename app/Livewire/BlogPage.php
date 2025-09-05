@@ -54,20 +54,12 @@ class BlogPage extends Component
     //     ->with('blog', Blog::findOrFail($blogID));
     // }
 
-    // #[Computed()]
-    // public function show(Blog $blog)
-    // {
-    //     UserActivityLog::log(
-    //         action: 'view_blog',
-    //         description: "Viewed blog: {$blog->title}",
-    //         metadata: [
-    //             'blog_id' =>$blog->id,
-    //             'category' => $blog->category
-    //         ]
-    //         );
-
-    //     return view('blog-lay')->with('blog', compact('blog'));
-    // }
+    #[Computed()]
+    public function show(Blog $blog)
+    {
+       
+        return view('blog-lay')->with('blog', compact('blog'));
+    }
     //Show single blog
 
     public function render()

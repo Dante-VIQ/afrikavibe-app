@@ -3,7 +3,6 @@
 
 /* Your custom styles */
 @import "../css/style.css";
-@import "../css/output.css";
 
 @tailwind base;
 @tailwind components;
@@ -14,6 +13,7 @@
     --light: #EFF5FF;
     --dark: #1B2C51;
 }
+
 [x-cloak] {
     display: none;
 }

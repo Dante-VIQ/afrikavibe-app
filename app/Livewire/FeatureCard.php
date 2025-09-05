@@ -9,12 +9,10 @@ use Livewire\WithFileUploads;
 use Livewire\Attributes\Validate;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Request;
-use Usamamuneerchaudhary\Commentify\Traits\Commentable;
 
 class FeatureCard extends Component
 {
     use WithFileUploads;
-    use Commentable;
 
     public $features, $feature, $feature_id, $user;
    
