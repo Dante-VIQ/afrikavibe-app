@@ -9,23 +9,37 @@
         content="Africa travel, African culture, African destinations, Explore Africa, travel blog, African art, African history, African cuisine.">
     <meta name="description"
         content="Discover the rich tapestry of Africa's diverse cultures, breathtaking landscapes, and unique experiences. Explore top travel destinations, art, history, and cuisine on AfrikaVibe.">
-
+    <!-- Logo and App Name at the top of the head visually -->
     <link rel="icon" href="{{ asset('img/logo1.png') }}" type="image/png">
     <link rel="apple-touch-icon" href="{{ asset('img/logo1.png') }}" type="image/png">
     <link rel="shortcut icon" href="{{ asset('img/logo1.png') }}" type="image/png">
-    <title>{{ config('app.name', 'Vumbi - Discover Africa') }}</title>
-
-    {{-- <link rel="preload" href="{{ Vite::asset('/resources/css/app.css') }}" as="style">
-        <link rel="preload" href="{{ Vite::asset('/resources/js/app.js') }}" as="script"> --}}
+    <title>{{ config('app.name', '  Vumbi - Discover Africa') }}</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
-
-    {{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" /> --}}
+    {{-- <link href="{{ asset('/css/bootstrap.min.css') }}" rel="stylesheet"> --}}
 
     <!-- Inline CSS for masking -->
+    {{-- <style>
+        .splash-mask .splash-image {
+            width: 100%;
+            height: 100%;
+            background-image: url('{{ $photo }}');
+            background-size: cover;
+            background-position: center;
 
+            -webkit-mask-image: url('{{ $mask }}');
+            -webkit-mask-repeat: no-repeat;
+            -webkit-mask-size: cover;
+            -webkit-mask-position: center;
+
+            mask-image: url('{{ $mask }}');
+            mask-repeat: no-repeat;
+            mask-size: cover;
+            mask-position: center;
+        }
+    </style> --}}
     {{-- <script>
         tailwind.config = {
             darkMode: 'class',
@@ -40,8 +54,6 @@
         }
     </script> --}}
 
-    <link href="{{ asset('/css/bootstrap.min.css') }}" rel="stylesheet">
-      {{-- <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script> --}}
     <!-- Vite Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
@@ -51,61 +63,37 @@
 
 <body class="font-body">
 
-    {{-- <x-banner /> --}}
+    <x-banner />
 
     <div class="min-h-screen bg-gray-100">
+        @auth
+        @include('livewire.welcome.navigation')
+        @else
+        @include('livewire.layout.navigation')
+        @endauth
 
-
+        <!-- Page Content -->
         <main>
             {{ $slot }}
             {{-- @livewire('spa-container') --}}
         </main>
+
 
         <!-- Footer Start -->
         <div>
             <livewire:footer-card />
         </div>
         <!-- Footer End -->
-    </div>
 
+    </div>
+    @livewire('comment-modal')
+
+    @livewireScripts
     {{-- <x-skeleton-loader /> --}}
 
-
-    @livewire('comment-modal')
-    @livewireScripts
-
-    <script>
-        function sendMessage() {
-            const message = document.getElementById('userMessage').value;
-
-            fetch('/chatbot', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'X-CSRF-TOKEN': '{{ csrf_token() }}'
-                    },
-                    body: JSON.stringify({
-                        message
-                    }) // Fixed typo: JSON.stringfy -> JSON.stringify
-                })
-                .then(response => response.json())
-                .then(data => {
-                    const chatbox = document.getElementById('chatbox');
-
-                    // Fixed innerHtml -> innerHTML and corrected template literal syntax
-                    chatbox.innerHTML += `<p><strong>User:</strong> ${message}</p>`;
-                    chatbox.innerHTML += `<p><strong>AI:</strong> ${data.reply}</p>`;
-                    document.getElementById('userMessage').value = '';
-                })
-                .catch(error => console.error('Error:', error)); // Added error handling
-        }
-    </script>
-
-
-
     <script type="module" src="{{ asset('/js/main.js') }}" defer></script>
-    @stack('modals')
 
+    @stack('modals')
 
 </body>
 

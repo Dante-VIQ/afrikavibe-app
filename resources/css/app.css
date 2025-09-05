@@ -1,12 +1,9 @@
-@import "animate.css/animate.min.css";
-@import "@fortawesome/fontawesome-free/css/all.min.css";
-
-/* Your custom styles */
 @import "../css/style.css";
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 
 :root {
     --primary: #0463FA;

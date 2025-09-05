@@ -2,14 +2,13 @@
 
 use App\Models\Comment;
 
+use App\Livewire\Welcome;
 use App\Livewire\BlogPage;
 use App\Livewire\AboutPage;
 use App\Livewire\DoctorPage;
-
 use App\Livewire\ContactPage;
 use App\Livewire\CultureCard;
 use App\Livewire\CulturePage;
-
 use App\Livewire\ServicePage;
 use App\Livewire\CommentModal;
 use App\Livewire\AppontmentPage;

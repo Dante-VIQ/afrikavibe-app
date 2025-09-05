@@ -20,7 +20,7 @@ export default defineConfig({
         rollupOptions: {
             output: {
                 manualChunks: {
-                    vendor: ['vue', 'axios', 'lodash'], // Add your main dependencies
+                    vendor: ['axios'], // Add your main dependencies
                 }
             }
         }
@@ -29,17 +29,7 @@ export default defineConfig({
     resolve: {
         alias: {
             '~': path.resolve(__dirname, 'node_modules'),
-            // Add common aliases for better imports
-            '@': path.resolve(__dirname, 'resources/js'),
         },
     },
 
-    // Optional: Server configuration for development
-    server: {
-        host: '0.0.0.0',
-        port: 5173,
-        hmr: {
-            host: 'localhost',
-        },
-    },
 });
