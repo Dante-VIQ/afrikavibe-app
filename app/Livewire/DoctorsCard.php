@@ -74,7 +74,9 @@ class DoctorsCard extends Component
         ]);
 
         if ($this->image) {
-            $validated['image'] = $this->image->store('images', 'public');
+            $filename = uniqid() . '.' . $this->image->getClientOriginalExtension();
+            $this->image->move(public_path('uploads'), $filename);
+            $validated['image'] = 'uploads/' . $filename;
         }
 
         $imagePath = $this->imageUrl;
@@ -118,7 +120,9 @@ class DoctorsCard extends Component
         ]);
 
         if ($this->NewImage) {
-            $validated['NewImage'] = $this->image->store('images', 'public');
+            $filename = uniqid() . '.' . $this->image->getClientOriginalExtension();
+            $this->image->move(public_path('uploads'), $filename);
+            $validated['NewImage'] = 'uploads/' . $filename;
         }
 
         Doctor::FindorFail($this->editingDoctorID)->update([

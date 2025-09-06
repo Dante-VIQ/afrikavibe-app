@@ -25,9 +25,9 @@
                                 {{ $blog->category }}</p>
                         </a> --}}
                         <img class="mx-auto mb-4 w-full h-40 rounded-lg" src="{{ asset('storage/' . $blog->image) }}"
-                            alt="{{ $blog->category }}" />
+                            alt="{{ $blog->category }}" src="{{ asset('uploads/' . basename($blog->image)) }}" />
                     </a>
-
+ 
                     <div class="bg-white flex flex-col justify-between">
                         <h3 class="text-xl sm:text-2xl font-semibold text-green-700  mb-2">{{ $blog->title }}</h3>
                         <p class="text-sm pb-3">

@@ -12,11 +12,11 @@
                     @foreach ($this->headerMedia as $media)
                         <div class="w-full flex-shrink-0" wire:key="media-{{ $media->id }}">
                             @if ($media->media_type === 'image')
-                                <img src="{{ asset('storage/headers/' . basename($media->media_path)) }}"
+                                <img src="{{ asset('uploads/' . basename($media->media_path)) }}"
                                     alt="{{ $media->title }}" class="w-full h-96 object-cover rounded-3xl">
                             @elseif($media->media_type === 'video')
                                 <video controls  class="w-full h-96 object-cover rounded-3xl">
-                                    <source src="{{ asset('storage/headers/' . basename($media->media_path)) }}">
+                                    <source src="{{ asset('uploads/' . basename($media->media_path)) }}">
                                 </video>
                             @endif
 

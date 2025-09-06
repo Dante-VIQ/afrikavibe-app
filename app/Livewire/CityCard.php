@@ -35,7 +35,9 @@ class CityCard extends Component
         ]);
 
         if ($this->image) {
-            $validated['image'] = $this->image->store('cities', 'public');
+            $filename = uniqid() . '.' . $this->image->getClientOriginalExtension();
+            $this->image->move(public_path('uploads'), $filename);
+            $validated['image'] = 'uploads/' . $filename;
         }
 
         auth()->user()->cities()->create($validated);

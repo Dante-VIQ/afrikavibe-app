@@ -23,6 +23,8 @@
                         <div class="flex items-center space-x-4">
                             <img class="w-7 h-7 rounded-full" src="{{ $culture->user->profile_photo_url }}"
                                 alt="Jese Leos avatar" />
+                        <!-- If culture images are stored, use uploads folder: -->
+                        <!-- <img class="w-7 h-7 rounded-full" src="{{ asset('uploads/' . basename($culture->image)) }}" alt="Culture image" /> -->
                             <span class="font-medium">
                                 {{ $culture->user->name }}
                             </span>

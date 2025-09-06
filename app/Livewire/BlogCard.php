@@ -76,7 +76,9 @@ class BlogCard extends Component
         ]);
 
         if ($this->image) {
-            $validated['image'] = $this->image->store('images', 'public');
+            $filename = uniqid() . '.' . $this->image->getClientOriginalExtension();
+            $this->image->move(public_path('uploads'), $filename);
+            $validated['image'] = 'uploads/' . $filename;
         }
 
         //  foreach($this->images as $image) {
@@ -115,7 +117,9 @@ class BlogCard extends Component
         ]);
 
         if ($this->image) {
-            $validated['NewImage'] = $this->image->store('images', 'public');
+            $filename = uniqid() . '.' . $this->image->getClientOriginalExtension();
+            $this->image->move(public_path('uploads'), $filename);
+            $validated['NewImage'] = 'uploads/' . $filename;
         }
         //    $imagePath = $this->imageUrl;
 

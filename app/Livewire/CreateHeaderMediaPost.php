@@ -39,7 +39,9 @@ class CreateHeaderMediaPost extends Component
         $mediaPath = null;
         $mediaType = null;
         if ($this->media) {
-            $mediaPath = $this->media->store('headers', 'public');
+            $filename = uniqid() . '.' . $this->media->getClientOriginalExtension();
+            $this->media->move(public_path('uploads'), $filename);
+            $mediaPath = 'uploads/' . $filename;
             $mime = $this->media->getMimeType();
             $mediaType = ($mime === 'video/mp4') ? 'video' : 'image';
         }

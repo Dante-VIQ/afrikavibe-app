@@ -12,7 +12,7 @@
                         </span>
                         {{-- <span class="text-sm">{{ $blog->created_at }}</span> --}}
                     </div>
-    <img class="mx-auto mb-4 w-full h-40 rounded-lg" src="{{ asset('storage/' . $doctor->image) }}" />
+    <img class="mx-auto mb-4 w-full h-40 rounded-lg" src="{{ asset('uploads/' . basename($doctor->image)) }}" />
 
 </x-slot>
 <x-slot name="content">
