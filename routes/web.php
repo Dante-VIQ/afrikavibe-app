@@ -33,8 +33,12 @@ Route::view('profile', 'profile')
 
 Route::get('/service', ServicePage::class);
 
-Route::get('/destination', DoctorPage::class);
 Route::get('doctors', DoctorPage::class);
+Route::get('/destination', function() {
+    return view('destination');
+})->name('destination');
+Route::get('/doctors/{doctor}', DoctorPage::class, 'show');
+
 
 Route::get('/about', AboutPage::class);
 
@@ -42,7 +46,11 @@ Route::get('/appointment', AppontmentPage::class);
 
 Route::get('/contact', ContactPage::class);
 
-Route::get('/art', CulturePage::class);
+Route::get('cultures', CulturePage::class);
+Route::get('/art', function() {
+    return view('art');
+})->name('art');
+Route::get('cultures/{culture}', CulturePage::class);
 
 // Route::get('/eco-destination', DoctorsCard::class);
 
@@ -109,9 +117,14 @@ Route::patch('/partners/{partner}/items/{item}', [ItemController::class, 'update
 // Delete an item
 Route::delete('/partners/{partner}/items/{item}', [ItemController::class, 'destroy'])->name('partners.items.destroy');
 
+Route::middleware(['auth', 'role:admin'])->group(function () {
+    require __DIR__ . '/admin.php';
+});
 
-require __DIR__ . '/admin.php';
-require __DIR__ . '/master.php';
+// Protect master routes
+Route::middleware(['auth', 'role:master'])->group(function () {
+    require __DIR__ . '/master.php';
+});
 
 // Route::middleware([
 //     'auth:sanctum',

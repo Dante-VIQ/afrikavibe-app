@@ -63,6 +63,8 @@ class AnalysisDashboard extends Component
 
     public function mount()
     {
+        // Authorization: Only allow master role
+        $this->authorize('viewAny', Analysis::class);
         $this->loadData();
     }
 
@@ -347,6 +349,7 @@ class AnalysisDashboard extends Component
 
     public function render()
     {
+       
         $this->analysis = Analysis::all();
         return view('livewire.analysis-dashboard');
     }

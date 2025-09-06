@@ -26,14 +26,14 @@
                         {{ __('Blog') }}
                     </x-nav-link>
 
-                    {{-- @auth
-                        @if (auth()->check() && auth()->user()->safeIsMaster())
+                    @auth
+                        @if(auth()->user()->isMaster())
                             <!-- Master admin menu items -->
                             <x-nav-link wire:click="$emit('navigateTo', 'Analysis')" href="/Analysis" :active="request()->routeIs('Analysis')">
                                 {{ __('Analysis') }}
                             </x-nav-link>
                         @endif
-                    @endauth --}}
+                    @endauth
 
                 </div>
             </div>
@@ -118,9 +118,13 @@
             <x-responsive-nav-link wire:click="$emit('navigateTo', 'blog')" href="/blog">
                 {{ __('Blog') }}
             </x-responsive-nav-link>
-            <x-responsive-nav-link wire:click="$emit('navigateTo', 'Analysis')" href="/Analysis">
-                {{ __('Analysis') }}
-            </x-responsive-nav-link>
+            @auth
+                @if(auth()->user()->isMaster())
+                    <x-responsive-nav-link wire:click="$emit('navigateTo', 'Analysis')" href="/Analysis">
+                        {{ __('Analysis') }}
+                    </x-responsive-nav-link>
+                @endif
+            @endauth
         </div>
 
         <!-- Responsive Settings Options -->

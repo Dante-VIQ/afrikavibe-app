@@ -10,6 +10,7 @@ use App\Models\Comments;
 use App\Models\UserActivityLog;
 use Livewire\Attributes\Layout;
 use Livewire\Attributes\Computed;
+use App\Models\Comment;
 
 // #[Layout('layouts.app')]
 class DoctorPage extends Component
@@ -43,13 +44,13 @@ use TrackableViews;
     public function doctors(){
         $this->doctors = Doctor::latest()->get();
 
-        return view('destination')->with('doctors', $this->doctors);
+        // return view('destination')->with('doctors', $this->doctors);
 
     }
 
     public function comments()
 {
-    return $this->morphMany(Comments::class, 'commentable');
+    return $this->morphMany(Comment::class, 'commentable');
 }
 
     public function render()

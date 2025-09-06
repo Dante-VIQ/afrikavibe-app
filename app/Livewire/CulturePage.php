@@ -33,6 +33,14 @@ class CulturePage extends Component
             'title' => ucfirst($category ?? 'Blog'),
         ]);
     }
+
+     #[Computed()]
+    public function cultures()
+    {
+        return Culture::latest()
+            ->filter(request(['like',  'search']))
+            ->get();
+    }
     public function render()
     {
         // $this->cultures = Culture::latest()
