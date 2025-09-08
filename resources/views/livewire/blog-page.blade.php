@@ -4,8 +4,8 @@
             @foreach ($blogs as $blog)
                 <article wire:key="{{ $blog->id }}"
                     class="service-item p-6 bg-white rounded-lg border border-gray-200 shadow-md">
-                    
-                     <div class="flex justify-between items-center mb-3 text-gray-500">
+
+                    <div class="flex justify-between items-center mb-3 text-gray-500">
                         <span
                             class="bg-primary-100 text-primary-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded">
                             <svg class="mr-1 w-3 h-3" fill="currentColor" viewBox="0 0 20 20"
@@ -26,19 +26,19 @@
                         </a> --}}
 
 
-     @if ($blog->media_type === 'image')
-        @if ($blog->media_path)
-            <img src="{{ asset($blog->media_path) }}" alt="{{ $blog->title }}" class="mx-auto mb-4 w-full h-40 rounded-lg" />
-        @endif
-        
-         @elseif($blog->media_type === 'video')
-        <video controls class="w-full h-96 object-cover rounded-3xl">
-            <source src="{{ asset($blog->media_path) }}">
-            Your browser does not support the video tag.
-        </video>
-    @endif
+                        @if ($blog->media_type === 'image')
+                            @if ($blog->media_path)
+                                <img src="{{ asset($blog->media_path) }}" alt="{{ $blog->title }}"
+                                    class="mx-auto mb-4 w-full h-40 rounded-lg" />
+                            @endif
+                        @elseif($blog->media_type === 'video')
+                            <video controls class="w-full h-96 object-cover rounded-3xl">
+                                <source src="{{ asset($blog->media_path) }}">
+                                Your browser does not support the video tag.
+                            </video>
+                        @endif
                     </a>
- 
+
                     <div class="bg-white flex flex-col justify-between">
                         <h3 class="text-xl sm:text-2xl font-semibold text-green-700  mb-2">{{ $blog->title }}</h3>
                         <p class="text-sm pb-3">
@@ -47,17 +47,17 @@
                         </p>
                         <p class="mb-6 h-24 text-sm text-gray-700 overflow-hidden text-wrap">{{ $blog->description }}</p>
                         <div class="flex">
-                             <button class="mt-2 px-4 py-1 bg-orange-500 rounded-full text-white hover:bg-orange-600"
-                                    wire:click="$dispatch('openCommentModal', { 
+                            <button class="mt-2 px-4 py-1 bg-orange-500 rounded-full text-white hover:bg-orange-600"
+                                wire:click="$dispatch('openCommentModal', { 
                                   commentableId: {{ $blog->id }}, 
                                     commentableType: 'App\Models\Blog' })">
-                                    💬
-                                    @if ($blog->comments_count > 0)
-                                        <span class="ml-2 text-xs bg-white/20 px-2 py-0.5 rounded-full">
-                                            {{ $blog->comments_count }}
-                                        </span>
-                                    @endif
-                                </button>
+                                💬
+                                @if ($blog->comments_count > 0)
+                                    <span class="ml-2 text-xs bg-white/20 px-2 py-0.5 rounded-full">
+                                        {{ $blog->comments_count }}
+                                    </span>
+                                @endif
+                            </button>
 
                             <a href="/blogs/{{ $blog->id }}" class="text-gray-800 hover:text-black italic">Continue
                                 Reading <i class="fas fa-arrow-right"></i></a>

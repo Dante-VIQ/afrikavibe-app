@@ -12,10 +12,10 @@
     </div>
     @if ($doctor->media_type === 'image')
         @if ($doctor->media_path)
-            <img src="{{ asset($doctor->media_path) }}" alt="{{ $doctor->title }}" class="mx-auto mb-4 w-full h-40 rounded-lg" />
+            <img src="{{ asset($doctor->media_path) }}" alt="{{ $doctor->title }}"
+                class="mx-auto mb-4 w-full h-40 rounded-lg" />
         @endif
-        
-         @elseif($doctor->media_type === 'video')
+    @elseif($doctor->media_type === 'video')
         <video controls class="w-full h-96 object-cover rounded-3xl">
             <source src="{{ asset($doctor->media_path) }}">
             Your browser does not support the video tag.
@@ -28,7 +28,7 @@
         {{ $doctor->name }}
     </h3>
     {{-- <p>{{ $doctor->department }}</p> --}}
-    <p class="h-[40vh] text-sm text-gray-700 mb-3 overflow-y-hidden overflow-y-ellipsis">{{ $doctor->detail }}</p>
+    <p class="h-24 text-sm text-gray-700 mb-3 overflow-hidden text-wrap">{{ $doctor->detail }}</p>
 
     <div class="flex justify-evenly">
         <button class="mt-2 px-4 py-1 bg-orange-500 rounded-full text-white hover:bg-orange-600"
