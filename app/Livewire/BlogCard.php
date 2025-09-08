@@ -21,6 +21,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Auth\Middleware\Authorize;
+use Spatie\LaravelImageOptimizer\Facades\ImageOptimizer;
 
 #[Layout('layouts.art')]
 class BlogCard extends Component
@@ -49,11 +50,11 @@ class BlogCard extends Component
     protected $rules = [
         'title' => 'required',
         'description' => 'required',
-        'media' => 'required|file|max:2048',
+        'media' => 'required|file|max:10240',
         'category' => 'required',
         'NewTitle' => 'required',
         'NewDescription' => 'required',
-        'NewMedia' => 'required|file|max:2048',
+        'NewMedia' => 'required|file|max:10240',
         'NewCategory' => 'required',
     ];
 
@@ -86,15 +87,15 @@ class BlogCard extends Component
 
             // Get the temporary file path from Livewire
             $tempPath = $this->media->getRealPath();
-
+            ImageOptimizer::optimize($tempPath);
             // Move using PHP's rename function (faster than copy)
             rename($tempPath, $media);
 
             // Determine media type based on file extension or MIME type
             $extension = strtolower($this->media->getClientOriginalExtension());
             $mediaType = $this->getMediaType($extension);
-
             $validated['media_path'] = 'blogs/' . $filename;
+          
             $validated['media_type'] = $mediaType;
         } else {
             $validated['media'] = null;

@@ -14,6 +14,7 @@ use Livewire\Attributes\Computed;
 use Livewire\Attributes\Validate;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
+use Spatie\LaravelImageOptimizer\Facades\ImageOptimizer;
 
 #[Layout('layouts.art')]
 class DoctorsCard extends Component
@@ -44,7 +45,7 @@ class DoctorsCard extends Component
         'NewName' => 'required',
         'NewDepartment' => 'required',
         'NewLinks' => 'required',
-        'media' => 'required|file|max:2048',
+        'media' => 'required|file|max:10480',
     ];
     #[Computed()]
     public function doctors(){
@@ -110,8 +111,9 @@ class DoctorsCard extends Component
 
         $validated['user_id'] = Auth::id();
         $validated['image_path'] = 'destinations/' . $filename;
+        ImageOptimizer::optimize($validated['image_path']);
         $validated['media_type'] = $mediaType;
-        auth()->user()->doctors()->create($validated);
+        Auth::user()->doctor()->create($validated);
 
         $this->resetFields();
         session()->flash('success', 'Header post created successfully!');

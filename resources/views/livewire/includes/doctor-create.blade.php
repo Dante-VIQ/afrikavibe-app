@@ -1,4 +1,4 @@
-<x-card class="p-6 mx-auto mt-24" style="top: 10%; left: 30%;">
+<x-card class="p-10 max-w-lg" style="top: 10%; left: 30%;">
 
     <header class="text-center text-black">
         <h2 class="text-2xl font-bold uppercase mb-1 ">Post an Article</h2>
@@ -56,7 +56,7 @@
                     <label for="media" class="inline-block text-lg mb-2">
                         Media
                     </label>
-                    <input  accept="image/* video/*" wire:model="media" type="file" class="border border-gray-200 rounded p-2 w-full" />
+                    <input  accept="image/* video/*" wire:model.live="media" type="file" class="border border-gray-200 rounded p-2 w-full" />
 
                     @error('media')
                         <p class="text-red-500 text-xs mt-1">{{ $message }}</p>

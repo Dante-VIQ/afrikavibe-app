@@ -120,6 +120,17 @@
       0 => 'Termwind\\Laravel\\TermwindServiceProvider',
     ),
   ),
+  'spatie/laravel-image-optimizer' => 
+  array (
+    'aliases' => 
+    array (
+      'ImageOptimizer' => 'Spatie\\LaravelImageOptimizer\\Facades\\ImageOptimizer',
+    ),
+    'providers' => 
+    array (
+      0 => 'Spatie\\LaravelImageOptimizer\\ImageOptimizerServiceProvider',
+    ),
+  ),
   'spatie/laravel-responsecache' => 
   array (
     'aliases' => 

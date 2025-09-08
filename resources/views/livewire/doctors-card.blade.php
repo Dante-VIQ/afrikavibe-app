@@ -9,13 +9,14 @@
                     </div>
                     <div x-data="{ show: false }" x-cloak>
                         <div>
-                            <x-button x-on:click.prevent="show = true" class="btn btn-primary btn-lg text-white mb-0 me-0"
-                                ><i class="mdi mdi-account-plus"></i>Add
+                            <x-button x-on:click.prevent="show = true"
+                                class="btn btn-primary btn-lg text-white mb-0 me-0"><i
+                                    class="mdi mdi-account-plus"></i>Add
                                 New Destination</x-button>
-                                <div x-show="show"
-                        x-on:click.outside.prevent="show = false" class="mx-auto z-9 top-1/3 left-1/3">
-                            @include('livewire.includes.doctor-create')
-                        </div>
+                            <div x-show="show" x-on:click.outside.prevent="show = false"
+                                class="mx-auto z-9 top-1/3 left-1/3">
+                                @include('livewire.includes.doctor-create')
+                            </div>
                         </div>
 
                     </div>
@@ -65,16 +66,18 @@
 
                                             <div
                                                 class="d-flex justify-content-between align-items-center mb-1 max-width-progress-wrap">
-                                                <a href="/doctors/{{$doctor->id}}/edit" class="text-blue-400 px-6 py-2 rounded-xl"><i
-                                                    class="fa-solid fa-pen-to-square"></i>
-                                                  Edit</a>
+                                                <a href="/doctors/{{ $doctor->id }}/edit"
+                                                    class="text-blue-400 px-6 py-2 rounded-xl"><i
+                                                        class="fa-solid fa-pen-to-square"></i>
+                                                    Edit</a>
                                             </div>
                                             <div class="progress progress-md">
-                                                <form method="POST" action="/doctors/{{$doctor->id}}">
+                                                <form method="POST" action="/doctors/{{ $doctor->id }}">
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button class="text-red-500"><i class="fa-solid fa-trash"></i> Delete</button>
-                                                  </form>
+                                                    <button class="text-red-500"><i class="fa-solid fa-trash"></i>
+                                                        Delete</button>
+                                                </form>
                                             </div>
 
                                         </td>
