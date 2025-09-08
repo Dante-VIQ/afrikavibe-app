@@ -6,6 +6,7 @@ use App\Models\City;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use Livewire\Attributes\Validate;
+use Illuminate\Support\Facades\Auth;
 
 class CityCard extends Component
 {
@@ -35,12 +36,20 @@ class CityCard extends Component
         ]);
 
         if ($this->image) {
+            $uploadDir = public_path('destinations');
+            if (!file_exists($uploadDir)) {
+                mkdir($uploadDir, 0755, true);
+            }
             $filename = uniqid() . '.' . $this->image->getClientOriginalExtension();
-            $this->image->move(public_path('uploads'), $filename);
-            $validated['image'] = 'uploads/' . $filename;
+            $destination = $uploadDir . '/' . $filename;
+            $tempPath = $this->image->getRealPath();
+            rename($tempPath, $destination);
+            $validated['image'] = 'destinations/' . $filename;
+        } else {
+            $validated['image'] = null;
         }
 
-        auth()->user()->cities()->create($validated);
+    Auth::user()->cities()->create($validated);
 
         $this->resetFields();
 

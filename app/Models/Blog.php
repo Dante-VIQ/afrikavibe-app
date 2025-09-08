@@ -17,7 +17,7 @@ class Blog extends Model
     // use Searchable;
     use TrackableViews;
 
-      protected $fillable = ['title', 'image', 'description', 'category'];
+      protected $fillable = ['title', 'image', 'description', 'category', 'media_path', 'media_type'];
 
       protected $hidden = ['user_id'];
 

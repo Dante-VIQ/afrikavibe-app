@@ -117,14 +117,14 @@ Route::patch('/partners/{partner}/items/{item}', [ItemController::class, 'update
 // Delete an item
 Route::delete('/partners/{partner}/items/{item}', [ItemController::class, 'destroy'])->name('partners.items.destroy');
 
-Route::middleware(['auth', 'role:admin'])->group(function () {
+// Route::middleware(['auth', 'role:admin'])->group(function () {
     require __DIR__ . '/admin.php';
-});
+// });
 
 // Protect master routes
-Route::middleware(['auth', 'role:master'])->group(function () {
+// Route::middleware(['auth', 'role:master'])->group(function () {
     require __DIR__ . '/master.php';
-});
+// });
 
 // Route::middleware([
 //     'auth:sanctum',

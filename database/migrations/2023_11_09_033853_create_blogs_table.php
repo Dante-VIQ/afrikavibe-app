@@ -18,11 +18,12 @@ return new class extends Migration
             $table->id();
             $table->foreignIdFor(User::class)->onDelete('cascade');
             $table->string('category');
-            $table->string('image');
             $table->string('title');
             // $table->string('email');
             // $table->string('tags');
             $table->longText('description');
+            $table->string('media_path')->nullable();
+            $table->enum('media_type', ['image', 'video'])->nullable();
             $table->timestamps();
 
             // $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

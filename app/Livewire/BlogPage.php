@@ -42,9 +42,7 @@ class BlogPage extends Component
     #[Computed()]
     public function blogs()
     {
-        return Blog::latest()
-            ->filter(request(['like',  'search']))
-            ->get();
+        return Blog::latest()->get();
     }
 
     // #[Computed()]

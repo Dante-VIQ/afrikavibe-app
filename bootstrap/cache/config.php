@@ -648,9 +648,14 @@
     'lazy_placeholder' => NULL,
     'temporary_file_upload' => 
     array (
-      'disk' => NULL,
-      'rules' => NULL,
-      'directory' => NULL,
+      'disk' => 'local',
+      'rules' => 
+      array (
+        0 => 'required',
+        1 => 'image',
+        2 => 'max:2048',
+      ),
+      'directory' => 'livewire-tmp',
       'middleware' => NULL,
       'preview_mimes' => 
       array (

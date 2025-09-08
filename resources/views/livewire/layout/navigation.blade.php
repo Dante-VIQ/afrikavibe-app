@@ -27,7 +27,7 @@
                     </x-nav-link>
 
                     @auth
-                        @if(auth()->user()->isMaster())
+                       @if(auth()->user() && auth()->user()->isMaster())
                             <!-- Master admin menu items -->
                             <x-nav-link wire:click="$emit('navigateTo', 'Analysis')" href="/Analysis" :active="request()->routeIs('Analysis')">
                                 {{ __('Analysis') }}

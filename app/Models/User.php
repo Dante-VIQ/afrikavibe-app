@@ -47,7 +47,7 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
-    protected $fillable = ['name', 'email', 'password'];
+    protected $fillable = ['name', 'email', 'password', 'role_id'];
 
     /**
      * The attributes that should be hidden for serialization.
@@ -152,87 +152,50 @@ class User extends Authenticatable
     {
         return $this->hasMany(Culture::class, 'user_id');
     }
-    public function isAdmin()
+// FIXED: Accessor for role attribute
+    public function getRoleAttribute()
     {
-        if ($this->role != self::ROLE_ADMIN) {
-            return false;
+        // Use the relationship method, not the attribute
+        if ($this->roleRelation) {
+            return $this->roleRelation->slug;
         }
 
-        return true;
+        // Fallback to direct attribute if relationship isn't loaded
+        return $this->attributes['role'] ?? null;
     }
 
-    // public function isEditor()
-    // {
-    //     if ($this->role != self::ROLE_EDITOR) {
-    //         return false;
-    //     }
+    // Helper methods - FIXED to avoid circular references
+    public function isAdmin(): bool
+    {
+        return $this->getRoleAttribute() === self::ROLE_ADMIN;
+    }
 
-    //     return true;
-    // }
+    public function isMaster(): bool
+    {
+        return $this->getRoleAttribute() === self::ROLE_MASTER;
+    }
 
-    // public function isMaster()
-    // {
-    //     if ($this->role != self::ROLE_MASTER) {
-    //         return false;
-    //     }
+    public function isUser(): bool
+    {
+        return $this->getRoleAttribute() === self::ROLE_USER;
+    }
 
-    //     return true;
-    // }
-
+    // Remove the problematic safeIsMaster() method or fix it:
     public function safeIsMaster()
     {
         try {
-            // Check if we have a role relationship that works
-            if (isset($this->roleRelation) && $this->roleRelation instanceof Role) {
-                return $this->roleRelation->slug === self::ROLE_MASTER;
-            }
-            
-            // Check if we have a string role column
-            if (isset($this->attributes['role']) && is_string($this->attributes['role'])) {
-                return $this->attributes['role'] === self::ROLE_MASTER;
-            }
-            
-            // Check if we have a role_id that might be used elsewhere
-            if (isset($this->attributes['role_id'])) {
-                // You might need to load the role relationship
-                if (!$this->relationLoaded('roleRelation')) {
-                    $this->load('roleRelation');
-                }
-                return $this->roleRelation && $this->roleRelation->slug === self::ROLE_MASTER;
-            }
-            
-            return false;
+            return $this->getRoleAttribute() === self::ROLE_MASTER;
         } catch (\Exception $e) {
-            // Log the error but don't break the application
-            Log::warning('Error checking master role: ' . $e->getMessage());
+            \Log::warning('Error checking master role: ' . $e->getMessage());
             return false;
         }
     }
 
-    /**
-     * Keep the original method but make it safer
-     */
-    public function isMaster()
-    {
-        return $this->safeIsMaster();
-    }
-
+    // Keep this relationship method but rename it to avoid conflict
     public function roleRelation()
     {
         return $this->belongsTo(Role::class, 'role_id');
     }
 
-    public function getRoleAttribute()
-    {
-        if ($this->role_id && $this->roleRelation) {
-            return $this->roleRelation->slug;
-        }
 
-        return $this->attributes['role'] ?? null;
-    }
-
-    //     public function hasRole(User $user): bool
-    //     {
-    //         return $this->role === $role;
-    //     }
 }

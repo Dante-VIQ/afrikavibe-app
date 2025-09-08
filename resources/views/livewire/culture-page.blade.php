@@ -21,8 +21,9 @@
                         {{ $culture->detail }}</p>
                     <div class="flex justify-between items-center">
                         <div class="flex items-center space-x-4">
-                            <img class="w-7 h-7 rounded-full" src="{{ $culture->user->profile_photo_url }}"
-                                alt="Jese Leos avatar" />
+                            @if($culture->image)
+                                <img class="w-7 h-7 rounded-full" src="{{ asset($culture->image) }}" alt="Culture image" />
+                            @endif
                         <!-- If culture images are stored, use uploads folder: -->
                         <!-- <img class="w-7 h-7 rounded-full" src="{{ asset('uploads/' . basename($culture->image)) }}" alt="Culture image" /> -->
                             <span class="font-medium">

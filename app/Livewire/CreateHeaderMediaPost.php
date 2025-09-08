@@ -38,23 +38,60 @@ class CreateHeaderMediaPost extends Component
 
         $mediaPath = null;
         $mediaType = null;
-        if ($this->media) {
+      if ($this->media) {
+            // Ensure uploads directory exists
+            $uploadDir = public_path('headers');
+            if (!file_exists($uploadDir)) {
+                mkdir($uploadDir, 0755, true);
+            }
+
             $filename = uniqid() . '.' . $this->media->getClientOriginalExtension();
-            $this->media->move(public_path('uploads'), $filename);
-            $mediaPath = 'uploads/' . $filename;
-            $mime = $this->media->getMimeType();
-            $mediaType = ($mime === 'video/mp4') ? 'video' : 'image';
+            $media = $uploadDir . '/' . $filename;
+
+            // Get the temporary file path from Livewire
+            $tempPath = $this->media->getRealPath();
+
+            // Move using PHP's rename function (faster than copy)
+            rename($tempPath, $media);
+
+            // Determine media type based on file extension or MIME type
+            $extension = strtolower($this->media->getClientOriginalExtension());
+            $mediaType = $this->getMediaType($extension);
+
+            $validated['media_path'] = 'headers/' . $filename;
+            $validated['media_type'] = $mediaType;
+        } else {
+            $validated['media'] = null;
         }
 
         $validated['user_id'] = Auth::id();
-        $validated['media_path'] = $mediaPath;
+        $validated['image_path'] = 'headers/' . $filename;
         $validated['media_type'] = $mediaType;
 
         HeaderMedia::create($validated);
 
-        $this->reset(['title', 'body', 'media', 'location']);
+        $this->resetForm();
         session()->flash('success', 'Header post created successfully!');
         $this->dispatch('headerMediaPosted');
+    }
+
+    private function getMediaType($extension)
+    {
+        $imageExtensions = ['jpg', 'jpeg', 'png', 'gif', 'bmp', 'webp'];
+        $videoExtensions = ['mp4', 'mov', 'avi', 'wmv', 'flv', 'webm', 'mkv'];
+
+        if (in_array($extension, $imageExtensions)) {
+            return 'image';
+        } elseif (in_array($extension, $videoExtensions)) {
+            return 'video';
+        } else {
+            return 'other'; // or throw an exception
+        }
+    }
+
+    private function resetForm()
+    {
+        $this->reset(['title', 'body', 'media', 'location']);
     }
 
     public function render()

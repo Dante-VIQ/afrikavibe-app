@@ -42,28 +42,32 @@
                     <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
                 @enderror
             </div>
-            <div class="mb-6 text-black font-semibold">
-                <label for="image" class="inline-block text-lg mb-2">
-                    Image
-                </label>
-                <input  wire:model="image" accept="image/png, image/jpeg, image/jfif, image/jpg" type="file"
-                    class="border border-gray-200 rounded p-2 w-full" />
+                <div class="mb-6 text-black font-semibold">
+                    <label for="media" class="inline-block text-lg mb-2">
+                        Media
+                    </label>
+                    <input  accept="image/* video/*" wire:model="media" type="file" class="border border-gray-200 rounded p-2 w-full" />
 
-                @error('image')
-                    <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
-                @enderror
+                    @error('media')
+                        <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                    @enderror
 
-                @if ($image)
-
-                {{-- @foreach ($this->images as $image) --}}
-                    <img class="img-fluid w-24 h-24" src="{{ $image->temporaryUrl() }}" alt="">
-                {{-- @endforeach --}}
-
-                @endif
-                <div wire:loading wire:target="image">
-                    <span class="text-green-500 text-center">Uploading...</span>
+                    {{-- @if ($media)
+                        <img class="img-fluid w-24 h-24" src="{{ $image->temporaryUrl() }}" alt="">
+                    @endif --}}
+                    <div wire:loading wire:target="media">
+                        <span class="text-green-500 text-center">Uploading...</span>
+                    </div>
                 </div>
-            </div>
+
+                                <div class="mb-6 text-black font-semibold">
+                        <label for="media_type" class="block text-sm font-medium text-gray-700 mb-1">Media Type</label>
+                        <select wire:model="media_type" class="w-full border border-gray-300 rounded p-2 focus:ring-orange-400 focus:border-orange-400">
+                            <option value="">Select Type</option>
+                            <option value="image">Image</option>
+                            <option value="video">Video</option>
+                        </select>
+                    </div>
 
         </div>
 

@@ -18,7 +18,8 @@ return new class extends Migration
             $table->string('department');
             $table->longText('detail');
             $table->string('links')->nullable();
-            $table->string('image');
+            $table->string('media_path')->nullable();
+            $table->enum('media_type', ['image', 'video'])->nullable();
             $table->timestamps();
         });
     }

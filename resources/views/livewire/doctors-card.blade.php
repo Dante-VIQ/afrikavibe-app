@@ -17,7 +17,7 @@
                             @include('livewire.includes.doctor-create')
                         </div>
                         </div>
-                        
+
                     </div>
                 </div>
                 <div class="table-responsive  mt-1">
@@ -62,7 +62,7 @@
                                             <p>{{ $doctor->user->id }}</p>
                                         </td>
                                         <td>
-                                           
+
                                             <div
                                                 class="d-flex justify-content-between align-items-center mb-1 max-width-progress-wrap">
                                                 <a href="/doctors/{{$doctor->id}}/edit" class="text-blue-400 px-6 py-2 rounded-xl"><i
@@ -76,7 +76,7 @@
                                                     <button class="text-red-500"><i class="fa-solid fa-trash"></i> Delete</button>
                                                   </form>
                                             </div>
-                                        
+
                                         </td>
                                         <td>
                                             <div class="badge badge-opacity-warning">
@@ -93,4 +93,7 @@
         </div>
     </div>
 
+    <div>
+        <livewire:blog-card />
+    </div>
 </div>

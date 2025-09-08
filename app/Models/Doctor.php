@@ -16,7 +16,7 @@ class Doctor extends Model
     // use Searchable;
     use TrackableViews;
 
-    protected $fillable = ['user_id', 'name', 'category', 'department', 'detail', 'links', 'image'];
+    protected $fillable = ['user_id', 'name', 'category', 'department', 'detail', 'links', 'media_path', 'media_type'];
 
     protected $hidden = ['user_id'];
 
@@ -33,6 +33,10 @@ class Doctor extends Model
         return $this->morphMany(Comment::class, 'commentable');
     }
     
+public function getImagePathAttribute()
+{
+    return $this->image; // Returns the stored path
+}
     public function user()
     {
         return $this->belongsTo(User::class, 'user_id');

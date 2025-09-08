@@ -9,14 +9,15 @@ use App\TrackableViews;
 use Livewire\Component;
 use App\Models\Activity;
 use App\Events\UserActivity;
-use App\Models\UserActivityLog;
 use Laravel\Scout\Searchable;
 use Livewire\Attributes\Rule;
 use Livewire\WithFileUploads;
 use Livewire\Attributes\Title;
+use App\Models\UserActivityLog;
 use Livewire\Attributes\Layout;
 use Livewire\Attributes\Computed;
 use Livewire\Attributes\Validate;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Auth\Middleware\Authorize;
@@ -32,15 +33,13 @@ class BlogCard extends Component
     public $blogs, $blog, $blog_id;
     public $NewTitle;
     public $NewDescription;
-    public $NewImage;
+    public $NewMedia, $media, $media_type;
     public $editingBlogID;
     #[Rule('required|min:3|max:2000')]
     public $description;
 
     public $category, $NewCategory;
 
-    #[Validate(['image' => 'image|max:10240'])]
-    public $image;
 
     // public function placeholder()
     // {
@@ -50,11 +49,11 @@ class BlogCard extends Component
     protected $rules = [
         'title' => 'required',
         'description' => 'required',
-        'image' => 'image|sometimes|nullable|max:10240',
+        'media' => 'required|file|max:2048',
         'category' => 'required',
         'NewTitle' => 'required',
         'NewDescription' => 'required',
-        'NewImage' => 'image|sometimes|nullable|max:10240',
+        'NewMedia' => 'required|file|max:2048',
         'NewCategory' => 'required',
     ];
 
@@ -72,22 +71,39 @@ class BlogCard extends Component
             'title' => 'required',
             'description' => 'required',
             'category' => 'required',
-            'image' => 'image|sometimes|nullable|max:10240',
+            'media' => 'image|sometimes|nullable|max:10240',
         ]);
 
-        if ($this->image) {
-            $filename = uniqid() . '.' . $this->image->getClientOriginalExtension();
-            $this->image->move(public_path('uploads'), $filename);
-            $validated['image'] = 'uploads/' . $filename;
+      if ($this->media) {
+            // Ensure uploads directory exists
+            $uploadDir = public_path('blogs');
+            if (!file_exists($uploadDir)) {
+                mkdir($uploadDir, 0755, true);
+            }
+
+            $filename = uniqid() . '.' . $this->media->getClientOriginalExtension();
+            $media = $uploadDir . '/' . $filename;
+
+            // Get the temporary file path from Livewire
+            $tempPath = $this->media->getRealPath();
+
+            // Move using PHP's rename function (faster than copy)
+            rename($tempPath, $media);
+
+            // Determine media type based on file extension or MIME type
+            $extension = strtolower($this->media->getClientOriginalExtension());
+            $mediaType = $this->getMediaType($extension);
+
+            $validated['media_path'] = 'blogs/' . $filename;
+            $validated['media_type'] = $mediaType;
+        } else {
+            $validated['media'] = null;
         }
 
-        //  foreach($this->images as $image) {
-        //  $validated['images'] = $image->store('images', 'public');
-        // }
-        // $imagePath = $this->imageUrl;
-
+         $validated['user_id'] = Auth::id();
+        $validated['image_path'] = 'blogs/' . $filename;
+        $validated['media_type'] = $mediaType;
         auth()->user()->blogs()->create($validated);
-        // Blog::create($validated);
 
         $this->resetFields();
 
@@ -102,8 +118,9 @@ class BlogCard extends Component
         $this->NewTitle = Blog::findorFail($blogID)->title;
         $this->NewDescription = Blog::findorFail($blogID)->description;
         $this->NewCategory = Blog::findorFail($blogID)->category;
-        $this->NewImage = Blog::findorFail($blogID)->image;
+        $this->NewMedia = Blog::findorFail($blogID)->image;
     }
+
 
     // update blog
     public function update(Request $request, Blog $blog)
@@ -116,12 +133,31 @@ class BlogCard extends Component
             // 'image' => 'image|sometimes|nullable|max:10240',
         ]);
 
-        if ($this->image) {
-            $filename = uniqid() . '.' . $this->image->getClientOriginalExtension();
-            $this->image->move(public_path('uploads'), $filename);
-            $validated['NewImage'] = 'uploads/' . $filename;
+      if ($this->media) {
+            // Ensure uploads directory exists
+            $uploadDir = public_path('blogs');
+            if (!file_exists($uploadDir)) {
+                mkdir($uploadDir, 0755, true);
+            }
+
+            $filename = uniqid() . '.' . $this->media->getClientOriginalExtension();
+            $media = $uploadDir . '/' . $filename;
+
+            // Get the temporary file path from Livewire
+            $tempPath = $this->media->getRealPath();
+
+            // Move using PHP's rename function (faster than copy)
+            rename($tempPath, $media);
+
+            // Determine media type based on file extension or MIME type
+            $extension = strtolower($this->media->getClientOriginalExtension());
+            $mediaType = $this->getMediaType($extension);
+
+            $validated['media_path'] = 'blogs/' . $filename;
+            $validated['media_type'] = $mediaType;
+        } else {
+            $validated['media'] = null;
         }
-        //    $imagePath = $this->imageUrl;
 
         Blog::FindorFail($this->editingBlogID)->update([
             'title' => $this->NewTitle,
@@ -158,21 +194,7 @@ class BlogCard extends Component
         return to_route('dashboard');
     }
 
-    public function render()
-    {
-        // $this->blogs = Blog::latest()
-        //     ->take(4)
-        //     ->filter(request(['title', 'search']))
-        //     ->get();
-        $this->blogs = Blog::latest()
-        ->take(4)
-        ->get()
-        ->map(function ($blog) {
-            $blog->timeframe = $blog->created_at->diffForHumans();
-            return $blog;
-        });
-        return view('livewire.blog-card');
-    }
+
 
     //  Show single blog
     #[Computed]
@@ -190,6 +212,22 @@ class BlogCard extends Component
         return view('yutpo')->with('blog', compact('blog'));
     }
 
+
+        public function render()
+    {
+        // $this->blogs = Blog::latest()
+        //     ->take(4)
+        //     ->filter(request(['title', 'search']))
+        //     ->get();
+        $this->blogs = Blog::latest()
+        ->take(4)
+        ->get()
+        ->map(function ($blog) {
+            $blog->timeframe = $blog->created_at->diffForHumans();
+            return $blog;
+        });
+        return view('livewire.blog-card');
+    }
     private function resetFields()
     {
         $this->title = '';
@@ -199,17 +237,17 @@ class BlogCard extends Component
         $this->blog_id = null;
     }
 
-    // public function mount(Blog $blog)
-    // {
+        private function getMediaType($extension)
+    {
+        $imageExtensions = ['jpg', 'jpeg', 'png', 'gif', 'bmp', 'webp'];
+        $videoExtensions = ['mp4', 'mov', 'avi', 'wmv', 'flv', 'webm', 'mkv'];
 
-    //     $this->blog = $blog;
-    //     Activity::updateOrCreate(
-    //         [
-    //             'page_type' => 'blog',
-    //             'page_id' => $blog->id,
-    //             'date' => now()->toDateString(),
-    //         ],
-    //         ['view_count' => DB::raw('view_count + 1')],
-    //     );
-    // }
+        if (in_array($extension, $imageExtensions)) {
+            return 'image';
+        } elseif (in_array($extension, $videoExtensions)) {
+            return 'video';
+        } else {
+            return 'other'; // or throw an exception
+        }
+    }
 }

@@ -24,8 +24,19 @@
                             <p class="text-gray-500 text-sm font-bold pb-4 uppercase fix-underline">
                                 {{ $blog->category }}</p>
                         </a> --}}
-                        <img class="mx-auto mb-4 w-full h-40 rounded-lg" src="{{ asset('storage/' . $blog->image) }}"
-                            alt="{{ $blog->category }}" src="{{ asset('uploads/' . basename($blog->image)) }}" />
+
+
+     @if ($blog->media_type === 'image')
+        @if ($blog->media_path)
+            <img src="{{ asset($blog->media_path) }}" alt="{{ $blog->title }}" class="mx-auto mb-4 w-full h-40 rounded-lg" />
+        @endif
+        
+         @elseif($blog->media_type === 'video')
+        <video controls class="w-full h-96 object-cover rounded-3xl">
+            <source src="{{ asset($blog->media_path) }}">
+            Your browser does not support the video tag.
+        </video>
+    @endif
                     </a>
  
                     <div class="bg-white flex flex-col justify-between">

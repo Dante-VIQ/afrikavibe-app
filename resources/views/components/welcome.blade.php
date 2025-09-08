@@ -58,7 +58,7 @@
         buttonText="Read More" buttonLink="/culture-cuisine/nyama-choma" /> --}}
 
     <section class="container-xxl py-5 bg-white">
-        {{-- <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6"> --}}
+ 
         <div class="mx-auto max-w-screen-sm text-center lg:mb-16 mb-8">
             <h2 class="text-2xl sm:text-3xl font-bold text-green-800 mb-4">
                 Daily Read
@@ -67,7 +67,7 @@
         <div>
             <livewire:blog-page />
         </div>
-        {{-- </div> --}}
+
     </section>
 
 
@@ -98,7 +98,7 @@
     {{-- <!-- Appointment End --> --}}
 
 
-  
+
     <!-- Testimonial End -->
 
     <!-- Back to Top -->

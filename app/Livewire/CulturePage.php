@@ -37,9 +37,7 @@ class CulturePage extends Component
      #[Computed()]
     public function cultures()
     {
-        return Culture::latest()
-            ->filter(request(['like',  'search']))
-            ->get();
+        return Culture::latest()->get();
     }
     public function render()
     {

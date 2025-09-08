@@ -26,7 +26,7 @@
             data-wow-delay="0.1s">
 
             @unless (count($doctors) == 0)
-                @foreach ($this->doctors as $doctor)
+                @foreach ($doctors as $doctor)
                     <x-destination-card wire:loading.remove>
                         @include('livewire.includes.doctor-show')
                     </x-destination-card>
@@ -36,7 +36,7 @@
             @endunless
         </div>
         <div class="mt-12 text-center">
-            <a href="/eco-trails"
+            <a href="/destination"
                 class="inline-block bg-green-700 text-white px-6 py-3 rounded-full text-sm font-medium hover:bg-green-800 transition">
                 Discover More Destinations
             </a>

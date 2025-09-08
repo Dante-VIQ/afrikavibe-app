@@ -1,6 +1,6 @@
 <div class="bg-purple-950 text-white mt-5 pt-4 p-4 wow fadeIn">
 
-    <div class="grid gap-5 lg:gap-12 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 text-center"
+    <div class="grid gap-5 lg:gap-12 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 text-center justify-around"
         data-wow-delay="0.1s">
 
         <div class="text-gray-200">

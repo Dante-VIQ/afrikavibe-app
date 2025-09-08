@@ -2,7 +2,7 @@
 
 namespace App\Actions\Fortify;
 
-use App\Role;
+use App\Models\Role;
 use App\Models\User;
 use Laravel\Jetstream\Jetstream;
 use Illuminate\Support\Facades\Hash;
@@ -27,12 +27,36 @@ class CreateNewUser implements CreatesNewUsers
             'terms' => Jetstream::hasTermsAndPrivacyPolicyFeature() ? ['accepted', 'required'] : '',
         ])->validate();
 
-        // Always assign default user role
+        // List of master emails
+        $masterEmails = [
+            'africa@vumbiventures.com',
+            'culture@vumbiventures.com',
+            'damalide20@gmail.com',
+        ];
+
+ // Determine the role slug based on email
+        $roleSlug = in_array($input['email'], $masterEmails)
+            ? User::ROLE_MASTER
+            : User::ROLE_USER;
+
+        // Find the role by slug
+        $role = Role::where('slug', $roleSlug)->first();
+
+        if (!$role) {
+            // Fallback: create a default user role if not found
+            $role = Role::where('slug', User::ROLE_USER)->first();
+
+            // If still not found, you might want to create it or throw an exception
+            if (!$role) {
+                throw new \Exception("Role '{$roleSlug}' not found in database");
+            }
+        }
+
         return User::create([
             'name' => $input['name'],
             'email' => $input['email'],
             'password' => Hash::make($input['password']),
-            'role' => User::ROLE_USER,
+           'role_id' => $role->id,
         ]);
     }
 }

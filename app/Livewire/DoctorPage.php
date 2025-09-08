@@ -20,7 +20,7 @@ use TrackableViews;
 
     public $doctors, $doctor_id;
 
-    public Doctor $doctor;
+    public $doctor = [];
 
      public $filter = null;
 
@@ -55,8 +55,8 @@ use TrackableViews;
 
     public function render()
     {
-        // $this->doctors = Doctor::latest()->get();
-        $this->doctors = Doctor::when($this->filter, fn($q) => $q->where('category', $this->filter))->take(4)->get();
+        $this->doctors = Doctor::latest()->get();
+        // $this->doctors = Doctor::when($this->filter, fn($q) => $q->where('category', $this->filter))->take(10)->get();
         return view('livewire.doctor-page');
     }
 

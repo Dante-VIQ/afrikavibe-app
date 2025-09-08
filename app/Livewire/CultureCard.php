@@ -3,12 +3,13 @@
 namespace App\Livewire;
 
 use App\Models\Culture;
+use App\TrackableViews;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use Livewire\Attributes\Layout;
 use Livewire\Attributes\Validate;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
-use App\TrackableViews;
 
 
 #[Layout('layouts.art')]
@@ -65,12 +66,25 @@ class CultureCard extends Component
         ]);
 
         if ($this->image) {
+            $uploadDir = public_path('destinations');
+            if (!file_exists($uploadDir)) {
+                mkdir($uploadDir, 0755, true);
+            }
             $filename = uniqid() . '.' . $this->image->getClientOriginalExtension();
-            $this->image->move(public_path('uploads'), $filename);
-            $validated['image'] = 'uploads/' . $filename;
+            $destination = $uploadDir . '/' . $filename;
+            $tempPath = $this->image->getRealPath();
+            rename($tempPath, $destination);
+            $validated['image'] = 'destinations/' . $filename;
+            $extension = strtolower($this->image->getClientOriginalExtension());
+            $mediaType = $this->getMediaType($extension);
+            $validated['media_type'] = $mediaType;
+        } else {
+            $validated['image'] = null;
+            $validated['media_type'] = null;
         }
+        $validated['user_id'] = Auth::id();
 
-        auth()->user()->cultures()->create($validated);
+        Culture::create($validated);
 
         session()->flash('success', 'Created successfully');
         return to_route('dashboard');
@@ -97,10 +111,30 @@ class CultureCard extends Component
             'image' => 'image|sometimes|nullable|max:10240',
         ]);
 
-        if ($this->image) {
+          if ($this->NewImage) {
+            // Ensure uploads directory exists
+            $uploadDir = public_path('destinstions');
+            if (!file_exists($uploadDir)) {
+                mkdir($uploadDir, 0755, true);
+            }
+
             $filename = uniqid() . '.' . $this->image->getClientOriginalExtension();
-            $this->image->move(public_path('uploads'), $filename);
-            $validated['NewImage'] = 'uploads/' . $filename;
+            $NewImage = $uploadDir . '/' . $filename;
+
+            // Get the temporary file path from Livewire
+            $tempPath = $this->NewImage->getRealPath();
+
+            // Move using PHP's rename function (faster than copy)
+            rename($tempPath, $NewImage);
+
+            // Determine image type based on file extension or MIME type
+            $extension = strtolower($this->NewImage->getClientOriginalExtension());
+            $mediaType = $this->getMediaType($extension);
+
+            $validated['media_path'] = 'destinstions/' . $filename;
+            $validated['media_type'] = $mediaType;
+        } else {
+            $validated['NewImage'] = null;
         }
         //    $imagePath = $this->imageUrl;
 
@@ -131,5 +165,18 @@ class CultureCard extends Component
         return to_route('dashboard');
     }
 
+        private function getMediaType($extension)
+    {
+        $imageExtensions = ['jpg', 'jpeg', 'png', 'gif', 'bmp', 'webp'];
+        $videoExtensions = ['mp4', 'mov', 'avi', 'wmv', 'flv', 'webm', 'mkv'];
+
+        if (in_array($extension, $imageExtensions)) {
+            return 'image';
+        } elseif (in_array($extension, $videoExtensions)) {
+            return 'video';
+        } else {
+            return 'other'; // or throw an exception
+        }
+    }
 
 }
