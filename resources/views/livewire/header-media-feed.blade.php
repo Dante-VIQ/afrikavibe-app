@@ -15,7 +15,7 @@
                                 @if($media->media_path)
                                     <img src="{{ asset($media->media_path) }}" alt="{{ $media->title }}" />
                                 @endif
-                                    class="w-full h-96 object-cover rounded-3xl">
+                               
                             @elseif($media->media_type === 'video')
                                 <video controls class="w-full h-96 object-cover rounded-3xl">
                                     <source src="{{ asset($media->media_path) }}">
