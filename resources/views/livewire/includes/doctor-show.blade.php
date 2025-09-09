@@ -30,18 +30,46 @@
     {{-- <p>{{ $doctor->department }}</p> --}}
     <p class="h-24 text-sm text-gray-700 mb-3 overflow-hidden text-wrap">{{ $doctor->detail }}</p>
 
-    <div class="flex justify-evenly">
+    <div x-data="{ open: false }" class="flex justify-evenly" x-cloak>
         <button class="mt-2 px-4 py-1 bg-orange-500 rounded-full text-white hover:bg-orange-600"
             wire:click="$dispatch('openCommentModal', {
                                   commentableId: {{ $doctor->id }},
                                     commentableType: 'App\Models\Doctor' })">
-            💬
+            💬 Comment
             @if ($doctor->comments_count > 0)
                 <span class="ml-2 text-xs bg-white/20 px-2 py-0.5 rounded-full">
                     {{ $doctor->comments_count }}
                 </span>
             @endif
         </button>
-        <a class="btn" href=""><i class="fa fa-plus text-blue-700 me-2 m-2"></i>Read More</a>
+        <button @click="open = true" class="mt-3 text-blue-600 font-semibold hover:underline">
+            Read more →
+        </button>
+
+        <x-read-more-card>
+            <div>
+                @if ($doctor->media_type === 'image')
+                    @if ($doctor->media_path)
+                        <img src="{{ asset($doctor->media_path) }}" alt="{{ $doctor->title }}"
+                            class="mx-auto mb-4 w-full h-40 rounded-lg" />
+                    @endif
+                @elseif($doctor->media_type === 'video')
+                    <video controls class="w-full h-96 object-cover rounded-3xl">
+                        <source src="{{ asset($doctor->media_path) }}">
+                        Your browser does not support the video tag.
+                    </video>
+                @endif
+            </div>
+
+            <slot name="content">
+
+                <h3 class="mb-1 text-xl sm:text-2xl font-semibold text-green-700 fix-underline">
+                    {{ $doctor->name }}
+                </h3>
+                <div class="prose max-w-none text-gray-700">
+                    {!! $doctor->detail !!}
+                </div>
+            </slot>
+        </x-read-more-card>
     </div>
 </x-slot>
