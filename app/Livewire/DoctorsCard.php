@@ -35,7 +35,15 @@ class DoctorsCard extends Component
     public $detail, $NewDetail;
 
     #[Validate('image|max:10240')]
-    public $media, $media_type, $NewImage, $image_path, $imageUrl;
+    #[Validate('image|max:10240')]
+    #[Validate('image|max:10240')]
+    #[Validate('image|max:10240')]
+    #[Validate('image|max:10240')]
+    public $media,
+        $media_type,
+        $NewImage,
+        $image_path,
+        $imageUrl;
 
     protected $rules = [
         'name' => 'required',
@@ -47,18 +55,18 @@ class DoctorsCard extends Component
         'NewLinks' => 'required',
         'media' => 'required|file|max:10480',
     ];
-    #[Computed()]
-    public function doctors(){
+    #[Computed]
+    public function doctors()
+    {
         $this->doctors = Doctor::latest()->get();
         return view('eco-destination');
     }
 
-
-    public function mount(){
+    public function mount()
+    {
         $this->doctors = Doctor::latest()->get();
 
         return view('livewire.doctor-page')->with('doctors', $this->doctors);
-
     }
     public function render()
     {
@@ -83,30 +91,33 @@ class DoctorsCard extends Component
 
         $mediaPath = null;
         $mediaType = null;
-      if ($this->media) {
-            // Ensure uploads directory exists
-            $uploadDir = public_path('destinations');
-            if (!file_exists($uploadDir)) {
-                mkdir($uploadDir, 0755, true);
+        $filename = null;
+        if ($filename) {
+            if ($this->media) {
+                // Ensure uploads directory exists
+                $uploadDir = public_path('destinations');
+                if (!file_exists($uploadDir)) {
+                    mkdir($uploadDir, 0755, true);
+                }
+
+                $filename = uniqid() . '.' . $this->media->getClientOriginalExtension();
+                $media = $uploadDir . '/' . $filename;
+
+                // Get the temporary file path from Livewire
+                $tempPath = $this->media->getRealPath();
+                ImageOptimizer::optimize($tempPath);
+                // Move using PHP's rename function (faster than copy)
+                rename($tempPath, $media);
+
+                // Determine media type based on file extension or MIME type
+                $extension = strtolower($this->media->getClientOriginalExtension());
+                $mediaType = $this->getMediaType($extension);
+
+                $validated['media_path'] = 'destinations/' . $filename;
+                $validated['media_type'] = $mediaType;
+            } else {
+                $validated['media'] = null;
             }
-
-            $filename = uniqid() . '.' . $this->media->getClientOriginalExtension();
-            $media = $uploadDir . '/' . $filename;
-
-            // Get the temporary file path from Livewire
-            $tempPath = $this->media->getRealPath();
-             ImageOptimizer::optimize($tempPath);
-            // Move using PHP's rename function (faster than copy)
-            rename($tempPath, $media);
-
-            // Determine media type based on file extension or MIME type
-            $extension = strtolower($this->media->getClientOriginalExtension());
-            $mediaType = $this->getMediaType($extension);
-
-            $validated['media_path'] = 'destinations/' . $filename;
-            $validated['media_type'] = $mediaType;
-        } else {
-            $validated['media'] = null;
         }
 
         $validated['user_id'] = Auth::id();
@@ -145,14 +156,14 @@ class DoctorsCard extends Component
         Gate::authorize('update', Doctor::class);
 
         $validated = $this->validate([
-            'NewName'  => 'required',
+            'NewName' => 'required',
             'NewDepartment' => 'required',
             'NewDetail' => 'required',
             'NewLinks' => 'required',
             'NewImage' => 'nullable|sometimes|image:1024',
         ]);
 
-          if ($this->NewImage) {
+        if ($this->NewImage) {
             // Ensure uploads directory exists
             $uploadDir = public_path('destinstions');
             if (!file_exists($uploadDir)) {
@@ -196,7 +207,7 @@ class DoctorsCard extends Component
         return back()->with('message', 'Destination deleted successfully');
     }
 
-        private function getMediaType($extension)
+    private function getMediaType($extension)
     {
         $imageExtensions = ['jpg', 'jpeg', 'png', 'gif', 'bmp', 'webp'];
         $videoExtensions = ['mp4', 'mov', 'avi', 'wmv', 'flv', 'webm', 'mkv'];
