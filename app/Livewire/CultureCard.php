@@ -67,7 +67,7 @@ class CultureCard extends Component
         ]);
 
         if ($this->image) {
-            $uploadDir = public_path('destinations');
+            $uploadDir = public_path('cultures');
             if (!file_exists($uploadDir)) {
                 mkdir($uploadDir, 0755, true);
             }
@@ -76,7 +76,7 @@ class CultureCard extends Component
             $tempPath = $this->image->getRealPath();
             ImageOptimizer::optimize($tempPath);
             rename($tempPath, $destination);
-            $validated['image'] = 'destinations/' . $filename;
+            $validated['image'] = 'cultures/' . $filename;
             $extension = strtolower($this->image->getClientOriginalExtension());
             $mediaType = $this->getMediaType($extension);
             $validated['media_type'] = $mediaType;
@@ -84,7 +84,7 @@ class CultureCard extends Component
             $validated['image'] = null;
             $validated['media_type'] = null;
         }
-        
+
         $validated['user_id'] = Auth::id();
 
         auth()->user()->cultures()->create($validated);
