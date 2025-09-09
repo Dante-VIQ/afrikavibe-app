@@ -10,6 +10,7 @@ use Livewire\Attributes\Layout;
 use Livewire\Attributes\Validate;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
+use Spatie\LaravelImageOptimizer\Facades\ImageOptimizer;
 
 
 #[Layout('layouts.art')]
@@ -73,6 +74,7 @@ class CultureCard extends Component
             $filename = uniqid() . '.' . $this->image->getClientOriginalExtension();
             $destination = $uploadDir . '/' . $filename;
             $tempPath = $this->image->getRealPath();
+            ImageOptimizer::optimize($tempPath);
             rename($tempPath, $destination);
             $validated['image'] = 'destinations/' . $filename;
             $extension = strtolower($this->image->getClientOriginalExtension());
@@ -82,9 +84,10 @@ class CultureCard extends Component
             $validated['image'] = null;
             $validated['media_type'] = null;
         }
+        
         $validated['user_id'] = Auth::id();
 
-        Culture::create($validated);
+        auth()->user()->cultures()->create($validated);
 
         session()->flash('success', 'Created successfully');
         return to_route('dashboard');

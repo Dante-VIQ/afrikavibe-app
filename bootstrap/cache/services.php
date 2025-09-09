@@ -41,10 +41,11 @@
     37 => 'Termwind\\Laravel\\TermwindServiceProvider',
     38 => 'Spatie\\LaravelImageOptimizer\\ImageOptimizerServiceProvider',
     39 => 'Spatie\\ResponseCache\\ResponseCacheServiceProvider',
-    40 => 'Torann\\GeoIP\\GeoIPServiceProvider',
-    41 => 'App\\Providers\\AppServiceProvider',
-    42 => 'App\\Providers\\FortifyServiceProvider',
-    43 => 'App\\Providers\\JetstreamServiceProvider',
+    40 => 'Spatie\\Sitemap\\SitemapServiceProvider',
+    41 => 'Torann\\GeoIP\\GeoIPServiceProvider',
+    42 => 'App\\Providers\\AppServiceProvider',
+    43 => 'App\\Providers\\FortifyServiceProvider',
+    44 => 'App\\Providers\\JetstreamServiceProvider',
   ),
   'eager' => 
   array (
@@ -72,10 +73,11 @@
     21 => 'Termwind\\Laravel\\TermwindServiceProvider',
     22 => 'Spatie\\LaravelImageOptimizer\\ImageOptimizerServiceProvider',
     23 => 'Spatie\\ResponseCache\\ResponseCacheServiceProvider',
-    24 => 'Torann\\GeoIP\\GeoIPServiceProvider',
-    25 => 'App\\Providers\\AppServiceProvider',
-    26 => 'App\\Providers\\FortifyServiceProvider',
-    27 => 'App\\Providers\\JetstreamServiceProvider',
+    24 => 'Spatie\\Sitemap\\SitemapServiceProvider',
+    25 => 'Torann\\GeoIP\\GeoIPServiceProvider',
+    26 => 'App\\Providers\\AppServiceProvider',
+    27 => 'App\\Providers\\FortifyServiceProvider',
+    28 => 'App\\Providers\\JetstreamServiceProvider',
   ),
   'deferred' => 
   array (

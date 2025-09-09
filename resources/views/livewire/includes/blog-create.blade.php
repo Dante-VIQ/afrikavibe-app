@@ -37,15 +37,7 @@
         </div>
 
         <div class="flex space-x-2">
-            <div class="mb-6 text-black font-semibold">
-                <label for="links" class="inline-block text-lg mb-2">links</label>
-                <input wire:model.live="links" type="text" class="border border-gray-200 rounded p-2 w-full"
-                    name="links" value="{{ old('links') }}" />
 
-                @error('links')
-                    <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
-                @enderror
-            </div>
 
             <div class="mb-6 text-black font-semibold">
                 <label for="media" class="inline-block text-lg mb-2">
@@ -70,9 +62,7 @@
                 </div>
             </div>
 
-        </div>
-
-                            <div class="mb-6 text-black font-semibold">
+                     <div class="mb-6 text-black font-semibold">
                         <label for="media_type" class="block text-sm font-medium text-gray-700 mb-1">Media Type</label>
                         <select wire:model="media_type" class="w-full border border-gray-300 rounded p-2 focus:ring-orange-400 focus:border-orange-400">
                             <option value="">Select Type</option>
@@ -80,6 +70,9 @@
                             <option value="video">Video</option>
                         </select>
                     </div>
+        </div>
+
+
         <div class="mb-6 text-black font-semibold">
             <button class="bg-laravel rounded py-2 px-4">
                 Create

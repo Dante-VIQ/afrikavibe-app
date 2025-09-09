@@ -62,7 +62,7 @@ class DoctorsCard extends Component
     }
     public function render()
     {
-        $this->doctors = Doctor::latest()->take(4)->get();
+        $this->doctors = Doctor::latest()->take(10)->get();
 
         return view('livewire.doctors-card');
     }
@@ -95,7 +95,7 @@ class DoctorsCard extends Component
 
             // Get the temporary file path from Livewire
             $tempPath = $this->media->getRealPath();
-
+             ImageOptimizer::optimize($tempPath);
             // Move using PHP's rename function (faster than copy)
             rename($tempPath, $media);
 
@@ -111,9 +111,8 @@ class DoctorsCard extends Component
 
         $validated['user_id'] = Auth::id();
         $validated['image_path'] = 'destinations/' . $filename;
-        ImageOptimizer::optimize($validated['image_path']);
         $validated['media_type'] = $mediaType;
-        Auth::user()->doctor()->create($validated);
+        auth()->user()->doctors()->create($validated);
 
         $this->resetFields();
         session()->flash('success', 'Header post created successfully!');

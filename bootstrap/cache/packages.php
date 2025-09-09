@@ -142,6 +142,13 @@
       0 => 'Spatie\\ResponseCache\\ResponseCacheServiceProvider',
     ),
   ),
+  'spatie/laravel-sitemap' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Spatie\\Sitemap\\SitemapServiceProvider',
+    ),
+  ),
   'torann/geoip' => 
   array (
     'aliases' => 

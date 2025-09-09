@@ -10,7 +10,7 @@
             @csrf
             <div class="flex space-x-2">
                 <div class="mb-6 text-black font-semibold">
-                    <label for="name" class="inline-block text-lg mb-2">Name</label>
+                    <label for="name" class="inline-block text-lg mb-2">Title</label>
                     <input wire:model.live="name" type="text" class="border border-gray-200 rounded p-2 w-full"
                         name="name" value="{{ old('name') }}" />
 
@@ -20,7 +20,7 @@
                 </div>
 
                 <div class="mb-6 text-black font-semibold">
-                    <label for="department" class="inline-block text-lg mb-2">Description</label>
+                    <label for="department" class="inline-block text-lg mb-2">Category</label>
                     <input wire:model.live="department" type="text" class="border border-gray-200 rounded p-2 w-full"
                         name="department" value="{{ old('department') }}" />
 
