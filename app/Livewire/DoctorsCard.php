@@ -34,11 +34,6 @@ class DoctorsCard extends Component
 
     public $detail, $NewDetail;
 
-    #[Validate('image|max:10240')]
-    #[Validate('image|max:10240')]
-    #[Validate('image|max:10240')]
-    #[Validate('image|max:10240')]
-    #[Validate('image|max:10240')]
     public $media,
         $media_type,
         $NewImage,
@@ -91,8 +86,7 @@ class DoctorsCard extends Component
 
         $mediaPath = null;
         $mediaType = null;
-        $filename = null;
-        if ($filename) {
+
             if ($this->media) {
                 // Ensure uploads directory exists
                 $uploadDir = public_path('destinations');
@@ -118,7 +112,6 @@ class DoctorsCard extends Component
             } else {
                 $validated['media'] = null;
             }
-        }
 
         $validated['user_id'] = Auth::id();
         $validated['image_path'] = 'destinations/' . $filename;
