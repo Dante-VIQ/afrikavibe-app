@@ -13,7 +13,7 @@
         <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
             <!-- Destination Card -->
             <div class="bg-green-50 rounded-2xl shadow-sm overflow-hidden hover:shadow-md transition">
-                <img src="{{ asset('/img/2.jpg') }}" alt="Nyeri Coffee Farm"
+                <img src="{{ asset('/img/women plucking coffee.webp') }}" alt="Nyeri Coffee Farm"
                     class="w-full h-48 object-cover" />
                 <div class="p-6">
                     <h3 class="text-xl font-semibold text-green-700 mb-2">Nyeri, Kenya</h3>
@@ -27,7 +27,7 @@
 
             <!-- Destination Card -->
             <div class="bg-green-50 rounded-2xl shadow-sm overflow-hidden hover:shadow-md transition">
-                <img src="{{ asset('/img/3.jpg') }}" alt="Lake Kivu" class="w-full h-48 object-cover">
+                <img src="{{ asset('/img/Lake Kivu.jpg') }}" alt="Lake Kivu" class="w-full h-48 object-cover">
                 <div class="p-6">
                     <h3 class="text-xl font-semibold text-green-700 mb-2">Lake Kivu, Rwanda</h3>
                     <p class="text-sm text-gray-700 mb-3">
@@ -39,7 +39,7 @@
 
             <!-- Destination Card -->
             <div class="bg-green-50 rounded-2xl shadow-sm overflow-hidden hover:shadow-md transition">
-                <img src="{{ asset('/img/4.jpg') }}" alt="Northern Ghana Shea" class="w-full h-48 object-cover">
+                <img src="{{ asset('/img/Shea Butter.jpg') }}" alt="Northern Ghana Shea" class="w-full h-48 object-cover">
                 <div class="p-6">
                     <h3 class="text-xl font-semibold text-green-700 mb-2">Northern Ghana</h3>
                     <p class="text-sm text-gray-700 mb-3">
