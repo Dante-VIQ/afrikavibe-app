@@ -48,8 +48,8 @@
                         <p class="mb-6 h-24 text-sm text-gray-700 overflow-hidden text-wrap">{{ $blog->description }}</p>
                         <div x-data="{ open: false }" class="flex" x-cloak>
                             <button class="mt-2 px-4 py-1 bg-orange-500 rounded-full text-white hover:bg-orange-600"
-                                wire:click="$dispatch('openCommentModal', { 
-                                  commentableId: {{ $blog->id }}, 
+                                wire:click="$dispatch('openCommentModal', {
+                                  commentableId: {{ $blog->id }},
                                     commentableType: 'App\Models\Blog' })">
                                 💬
                                 @if ($blog->comments_count > 0)
@@ -108,7 +108,7 @@
         </a>
     </div>
 
-    <div class="grid grid-cols-1 fix-underline wow FadeInUp">
+    @push('scripts')
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1920954764751411"
             crossorigin="anonymous"></script>
         <ins class="adsbygoogle" style="display:block" data-ad-format="fluid" data-ad-layout-key="-5b+cl-e-8b+of"
@@ -116,7 +116,7 @@
         <script>
             (adsbygoogle = window.adsbygoogle || []).push({});
         </script>
-    </div>
+    @endpush
 
     {{-- <div class="flex">
         @can('create', $blog)
