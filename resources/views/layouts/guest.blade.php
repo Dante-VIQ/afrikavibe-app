@@ -9,6 +9,8 @@
         content="Africa travel, African culture, African destinations, Explore Africa, travel blog, African art, African history, African cuisine.">
     <meta name="description"
         content="Discover the rich tapestry of Africa's diverse cultures, breathtaking landscapes, and unique experiences. Explore top travel destinations, art, history, and cuisine on AfrikaVibe.">
+
+        <meta name="google-adsense-account" content="ca-pub-1920954764751411">
     <!-- Logo and App Name at the top of the head visually -->
     <link rel="icon" href="{{ asset('img/logo1.png') }}" type="image/png">
     <link rel="apple-touch-icon" href="{{ asset('img/logo1.png') }}" type="image/png">
@@ -40,19 +42,15 @@
             mask-position: center;
         }
     </style> --}}
-    {{-- <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    fontFamily: {
-                        'body': ['Open Sans', 'sans-serif'],
-                        'heading': ['Roboto', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script> --}}
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-TJQZ8G6KGS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-TJQZ8G6KGS');
+</script>
 
     <!-- Vite Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
