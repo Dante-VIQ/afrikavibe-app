@@ -26,7 +26,7 @@
             @foreach ($doctors as $doctor)
                 <div>
                     <i class="fa fa-arrow-right-long"></i>
-                    <a class="btn text-light hover:spacing-1" href="">{{ $doctor->title }}</a>
+                    <a class="btn text-light hover:spacing-1" href="">{{ $doctor->name }}</a>
                 </div>
             @endforeach
         </div>
