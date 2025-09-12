@@ -11,7 +11,7 @@
         </button>
     </div>
     <!-- Full Content -->
-    <div class="space-y-4 p-3 sm:p-2">
+    <div class="space-y-4 p-3 sm:p-2 overflow-scroll">
         {{ $slot }}
     </div>
 </div>
