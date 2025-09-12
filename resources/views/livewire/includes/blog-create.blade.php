@@ -6,7 +6,6 @@
 
     <form wire:submit.prevent="create">
         @csrf
-        <div class="flex space-x-2">
             <div class="mb-6 text-black font-semibold">
                 <label for="title" class="inline-block text-lg mb-2">Title</label>
                 <input wire:model.live="title" type="text" class="border border-gray-200 rounded p-2 w-full"
@@ -25,18 +24,11 @@
                 @enderror
             </div>
 
-            <div class="mb-6 text-black font-semibold">
-                <label for="description" class="inline-block text-lg mb-2">Description</label>
-                <input wire:model.live="description" type="text" class="border border-gray-200 rounded p-2 w-full"
-                    name="description" value="{{ old('description') }}" />
-
-                @error('description')
-                    <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
-                @enderror
-            </div>
-        </div>
-
-        <div class="flex space-x-2">
+                                <div>
+                        <label class="block text-sm font-medium">Description</label>
+                        <textarea wire:model="description" class="w-full border rounded px-3 py-2"></textarea>
+                        @error('description') <span class="text-red-500 text-sm">{{ $message }}</span> @enderror
+                    </div>
 
 
             <div class="mb-6 text-black font-semibold">
@@ -70,7 +62,6 @@
                             <option value="video">Video</option>
                         </select>
                     </div>
-        </div>
 
 
         <div class="mb-6 text-black font-semibold">
