@@ -187,13 +187,16 @@ class BlogCard extends Component
     }
 
     // delete blog
-    public function destroy(Blog $blog)
-    {
-    
-        $blog->delete();
+    public function destroy($id)
+{
+    $blog = Blog::findOrFail($id);
 
-        return to_route('dashboard');
-    }
+
+    $blog->delete();
+
+    session()->flash('success', 'Blog deleted successfully!');
+    return redirect()->route('dashboard'); // Or use Livewire's redirect
+}
 
 
 
