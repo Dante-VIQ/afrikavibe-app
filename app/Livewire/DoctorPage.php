@@ -22,6 +22,8 @@ use TrackableViews;
 
     public $doctor = [];
 
+public $detail = [];
+
      public $filter = null;
 
     public function mount($category = null)
