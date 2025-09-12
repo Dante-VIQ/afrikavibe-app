@@ -70,12 +70,10 @@
                                                     Edit</a>
                                             </div>
                                             <div class="progress progress-md">
-                                                <form method="POST" action="/blogs/{{ $blog->id }}">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button class="text-red-500"><i class="fa-solid fa-trash"></i>
-                                                        Delete</button>
-                                                </form>
+                                                <button wire:click="destroy({{ $blog->id }})" 
+                onclick="return confirm('Are you sure you want to delete this blog?')">
+            Delete
+        </button>
                                             </div>
 
                                         </td>
