@@ -23,10 +23,10 @@
         <div class="text-gray-200">
             <h5 class="text-light mb-4 pl-3">Services</h5>
 
-            @foreach ($services as $service)
+            @foreach ($doctors as $doctor)
                 <div>
                     <i class="fa fa-arrow-right-long"></i>
-                    <a class="btn text-light hover:spacing-1" href="">{{ $service->title }}</a>
+                    <a class="btn text-light hover:spacing-1" href="">{{ $doctor->title }}</a>
                 </div>
             @endforeach
         </div>
@@ -40,16 +40,14 @@
                     <a class="btn text-light" href="/about">About Us</a>
                 </div>
                 <div>
-                    <i class="fa fa-arrow-right-long"> <a class="btn text-light" href="/contact"></i>Contact
+                    <i class="fa fa-arrow-right-long"> <a class="btn text-light" href="/art"></i>Culture and Art
                     Us</a>
                 </div>
                 <div>
-                    <i class="fa fa-arrow-right-long"> <a class="btn text-light" href="/services"></i>Our
-                    Services</a>
+                    <i class="fa fa-arrow-right-long"> <a class="btn text-light" href="/destination"></i>Our
+                    Destination</a>
                 </div>
-                <div>
-                    <i class="fa fa-arrow-right-long"><a class="btn text-light" href=""></i>Support</a>
-                </div>
+                
             </div>
         </div>
     </div>
@@ -58,7 +56,7 @@
         <div class="copyright">
             <div class="row g-5">
                 <div class="col-md-6 text-center text-md-start text-gray-100 mb-3 mb-md-0 justify-around">
-                    &copy; <a class="border-bottom text-white" href="#">Tembia</a>, All Right Reserved.
+                    &copy; <a class="border-bottom text-white" href="#">Vumbi Ventures</a>, All Right Reserved.
                 </div>
                 <div class="col-md-6 text-center text-md-end mb-3 mb-md-0">
                     Designed By <a class="border-bottom text-white" href="#">Daniel M. Maina</a>
