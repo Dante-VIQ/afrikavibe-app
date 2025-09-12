@@ -1,6 +1,6 @@
 <x-guest-layout>
 <div>
-    <livewire:doctor-page :doctor="$doctor" :key="$doctor->id" lazy />
+    <livewire:doctor-page lazy />
     {{-- <x-destinations /> --}}
 </div>
 </x-guest-layout>
