@@ -1,4 +1,5 @@
-<div 
+<div x-show="open">
+<div
     class="bg-white rounded-2xl shadow-lg max-w-7xl w-full p-6 overflow-y-auto max-h-[90vh] relative
         sm:max-w-md sm:p-4 sm:rounded-xl
         xs:max-w-xs xs:p-2 xs:rounded-lg"
@@ -13,4 +14,5 @@
     <div class="space-y-4">
         {{ $slot }}
     </div>
+</div>
 </div>
