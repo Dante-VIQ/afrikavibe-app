@@ -30,7 +30,7 @@
     {{-- <p>{{ $doctor->department }}</p> --}}
 
     <p class="h-24 text-sm text-gray-700 mb-3 overflow-hidden text-wrap">
-    {!! $this->formatted_detail !!}
+    {!! $doctor->detail !!}
 </p>
 
 
