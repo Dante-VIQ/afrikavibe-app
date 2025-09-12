@@ -60,21 +60,24 @@
                                             <h6>{{ $blog->user->name }}</h6>
                                             <p>{{ $blog->user->id }}</p>
                                         </td>
-                                        <td>
-                                            <div>
-                                                <div
-                                                    class="d-flex justify-content-between align-items-center mb-1 max-width-progress-wrap">
-                                                    <p class="text-success">79%
-                                                    </p>
-                                                    <p>85/162</p>
-                                                </div>
-                                                <div class="progress progress-md">
-                                                    <div class="progress-bar bg-success" role="progressbar"
-                                                        style="width: 85%" aria-valuenow="25" aria-valuemin="0"
-                                                        aria-valuemax="100">
-                                                    </div>
-                                                </div>
+                                                                                <td>
+
+                                            <div
+                                                class="d-flex justify-content-between align-items-center mb-1 max-width-progress-wrap">
+                                                <a href="/blogs/{{ $blog->id }}/edit"
+                                                    class="text-blue-400 px-6 py-2 rounded-xl"><i
+                                                        class="fa-solid fa-pen-to-square"></i>
+                                                    Edit</a>
                                             </div>
+                                            <div class="progress progress-md">
+                                                <form method="POST" action="/blogs/{{ $blog->id }}">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button class="text-red-500"><i class="fa-solid fa-trash"></i>
+                                                        Delete</button>
+                                                </form>
+                                            </div>
+
                                         </td>
                                         <td>
                                             <div class="badge badge-opacity-warning">
