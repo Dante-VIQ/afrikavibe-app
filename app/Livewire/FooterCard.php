@@ -8,7 +8,7 @@ use Livewire\Component;
 class FooterCard extends Component
 {
 
-    public $doctors, $title;
+    public $doctors, $name;
     public function render()
     {
         $this->doctors = Doctor::latest()->take(6)->get();
