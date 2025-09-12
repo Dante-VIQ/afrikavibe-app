@@ -4,7 +4,7 @@
         data-wow-delay="0.1s">
 
         <div class="text-gray-200">
-            <h5 class="text-light mb-4">Address</h5>
+            <h5 class="text-light font-semiBold mb-4">Address</h5>
             <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Free Area - Nakuru City</p>
             <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+254 734591543</p>
             <p class="mb-2"><i class="fa fa-envelope me-3"></i>africa@vumbiventures.com</p>
@@ -21,7 +21,7 @@
         </div>
 
         <div class="text-gray-200">
-            <h5 class="text-light mb-4 pl-3">Destinations</h5>
+            <h5 class="text-light font-semiBold mb-4 pl-3">Destinations</h5>
 
             @foreach ($doctors as $doctor)
                 <div>
@@ -33,7 +33,7 @@
 
         <div class="text-gray-200">
 
-            <h5 class="text-light mb-4 pl-3">Quick Links</h5>
+            <h5 class="text-light font-semiBold mb-4 pl-3">Quick Links</h5>
             <div class="inline-block">
                 <div>
                     <i class="fa fa-arrow-right-long"></i>
