@@ -21,12 +21,12 @@
         </div>
 
         <div class="text-gray-200">
-            <h5 class="text-light mb-4 pl-3">Services</h5>
+            <h5 class="text-light mb-4 pl-3">Destinations</h5>
 
             @foreach ($doctors as $doctor)
                 <div>
                     <i class="fa fa-arrow-right-long"></i>
-                    <a class="btn text-light hover:spacing-1" href="">{{ $doctor->name }}</a>
+                    <a class="btn text-light text-lg sm:text-sm hover:spacing-1" href="">{{ $doctor->name }}</a>
                 </div>
             @endforeach
         </div>
