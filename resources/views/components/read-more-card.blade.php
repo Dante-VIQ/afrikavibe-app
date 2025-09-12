@@ -1,4 +1,4 @@
-<div x-show="open" class="fixed rounded-lg inset-0">
+<div x-show="open" class="fixed rounded-lg inset-0 flex items-center z-50">
 <div
     class="bg-white rounded-2xl shadow-lg max-w-7xl w-full p-6 overflow-y-auto max-h-[90vh] relative
         sm:max-w-md sm:p-4 sm:rounded-xl
