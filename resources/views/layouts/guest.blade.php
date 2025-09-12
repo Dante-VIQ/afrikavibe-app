@@ -78,13 +78,8 @@
 
 
         <!-- Footer Start -->
-        <footer class="footer">
-                    <div class="sm:flex justify-content-center sm:justify-content-between">
-                        <span class="text-muted text-center sm:text-left block sm:d-inline-block">Vumbi Ventures</span>
-                        <span class="float-none sm:float-end d-block mt-1 sm:mt-0 text-center">Copyright © 2025. All
-                            rights reserved.</span>
-                    </div>
-                </footer>
+        <div>
+<Livewire:footer-card />
         <!-- Footer End -->
 
     </div>
