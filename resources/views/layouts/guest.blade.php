@@ -65,9 +65,9 @@
 
     <div class="min-h-screen bg-gray-100">
         @auth
-        @include('livewire.welcome.navigation')
-        @else
         @include('livewire.layout.navigation')
+        @else
+        @include('livewire.welcome.navigation')
         @endauth
 
         <!-- Page Content -->
