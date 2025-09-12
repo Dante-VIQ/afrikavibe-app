@@ -53,6 +53,11 @@ use TrackableViews;
     return $this->morphMany(Comment::class, 'commentable');
 }
 
+public function getFormattedDetailProperty()
+{
+    return nl2br(e($this->doctor->detail));
+}
+
     public function render()
     {
         $this->doctors = Doctor::latest()->get();
