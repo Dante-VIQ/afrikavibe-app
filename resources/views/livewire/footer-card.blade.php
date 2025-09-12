@@ -26,7 +26,7 @@
             @foreach ($doctors as $doctor)
                 <div>
                     <i class="fa fa-arrow-right-long"></i>
-                    <a class="btn text-light text-lg sm:text-sm hover:spacing-1" href="">{{ $doctor->name }}</a>
+                    <a class="btn text-lg sm:text-sm hover:spacing-1" href="">{{ $doctor->name }}</a>
                 </div>
             @endforeach
         </div>
@@ -37,14 +37,14 @@
             <div class="inline-block">
                 <div>
                     <i class="fa fa-arrow-right-long"></i>
-                    <a class="btn text-light" href="/about">About Us</a>
+                    <a class="btn text-gray-200 text-lg sm:text-md" href="/about">About Us</a>
                 </div>
                 <div>
-                    <i class="fa fa-arrow-right-long"> <a class="btn text-light" href="/art"></i>Culture and Art
+                    <i class="fa fa-arrow-right-long"> <a class="btn text-gray-200 text-lg sm:text-md" href="/art"></i>Culture and Art
                     Us</a>
                 </div>
                 <div>
-                    <i class="fa fa-arrow-right-long"> <a class="btn text-light" href="/destination"></i>Our
+                    <i class="fa fa-arrow-right-long"> <a class="btn text-gray-200 text-lg sm:text-md" href="/destination"></i>Our
                     Destination</a>
                 </div>
                 
