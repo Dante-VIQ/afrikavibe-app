@@ -28,11 +28,9 @@
         {{ $doctor->name }}
     </h3>
     {{-- <p>{{ $doctor->department }}</p> --}}
-    <p class="h-24 text-sm text-gray-700 mb-3 overflow-hidden text-wrap">{{ $doctor->detail }}</p>
-
-<p class="h-24 text-sm text-gray-700 mb-3 overflow-hidden text-wrap">
-    {!! nl2br(e($doctor->detail)) !!}
-</p>
+<div class="h-24 text-sm text-gray-700 mb-3 overflow-hidden text-wrap">
+    {!! Str::of(e($doctor->detail))->replace("\n\n", "</p><p>")->prepend("<p>")->append("</p>") !!}
+</div>
 
     <div x-data="{ open: false }" class="flex justify-evenly" x-cloak>
         <button class="mt-2 px-4 py-1 bg-orange-500 rounded-full text-white hover:bg-orange-600"
