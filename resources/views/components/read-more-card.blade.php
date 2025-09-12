@@ -6,7 +6,7 @@
     @click.away="open = false">
     <!-- Close Button -->
     <div>
-        <button class="absolute top-2 right-2 text-gray-600 hover:text-black p-3 sm:p-2 xs:p-1" @click="open = false">
+        <button class="absolute top-2 right-2 text-gray-600 hover:text-black text-lg p-3 sm:p-3 xs:p-1" @click="open = false">
             ✕
         </button>
     </div>
