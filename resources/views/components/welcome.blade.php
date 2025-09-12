@@ -23,7 +23,7 @@
         </div>
         <div>
             {{-- <livewire:doctors-card lazy /> --}}
-            <livewire:doctor-page :doctor="$doctor" :key="$doctor->id" />
+            <livewire:doctor-page />
         </div>
 
 
