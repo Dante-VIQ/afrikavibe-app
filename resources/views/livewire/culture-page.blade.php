@@ -30,28 +30,51 @@
                                 {{ $culture->user->name }}
                             </span>
                         </div>
-                        <button class="mt-2 px-4 py-1 bg-orange-500 rounded-full text-white hover:bg-orange-600"
-                                    wire:click="$dispatch('openCommentModal', { 
-                                  commentableId: {{ $culture->id }}, 
+                                              <div x-data="{ open: false }" class="flex" x-cloak>
+                            <button class="mt-2 px-4 py-1 bg-orange-500 rounded-full text-white hover:bg-orange-600"
+                                wire:click="$dispatch('openCommentModal', {
+                                  commentableId: {{ $culture->id }},
                                     commentableType: 'App\Models\Culture' })">
-                                    💬
-                                    @if ($culture->comments_count > 0)
-                                        <span class="ml-2 text-xs bg-white/20 px-2 py-0.5 rounded-full">
-                                            {{ $culture->comments_count }}
-                                        </span>
-                                    @endif
-                                </button>
+                                💬
+                                @if ($culture->comments_count > 0)
+                                    <span class="ml-2 text-xs bg-white/20 px-2 py-0.5 rounded-full">
+                                        {{ $culture->comments_count }}
+                                    </span>
+                                @endif
+                            </button>
 
-                        <a href="/cultures/{{ $culture->id }}"
-                            class="inline-flex items-center font-medium text-primary-600 hover:underline italic">
-                            Read more
-                            <svg class="ml-2 w-4 h-4" fill="currentColor" viewBox="0 0 20 20"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd"
-                                    d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                                    clip-rule="evenodd"></path>
-                            </svg>
-                        </a>
+                            
+                            <button @click="open = true" class="mt-3 text-blue-600 font-semibold hover:underline">
+                                Read more →
+                            </button>
+
+                            <x-read-more-card>
+                                <div>
+                                    @if ($culture->media_type === 'image')
+                                        @if ($culture->media_path)
+                                            <img src="{{ asset($culture->media_path) }}" alt="{{ $culture->name }}"
+                                                class="mx-auto mb-4 w-full h-40 rounded-lg" />
+                                        @endif
+                                    @elseif($culture->media_type === 'video')
+                                        <video controls class="w-full h-96 object-cover rounded-3xl">
+                                            <source src="{{ asset($culture->media_path) }}">
+                                            Your browser does not support the video tag.
+                                        </video>
+                                    @endif
+                                </div>
+
+                                <slot name="content">
+
+                                    <h3 class="mb-1 text-xl sm:text-2xl font-semibold text-green-700 fix-underline">
+                                        {{ $culture->name }}
+                                    </h3>
+                                    <div class="prose max-w-none text-gray-700">
+                                        {!! $culture->detail !!}
+                                    </div>
+                                </slot>
+                            </x-read-more-card>
+                        </div>
+                    </div>
                     </div>
 
 
