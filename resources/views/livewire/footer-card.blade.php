@@ -7,7 +7,7 @@
             <h5 class="text-light mb-4">Address</h5>
             <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Free Area - Nakuru City</p>
             <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+254 734591543</p>
-            <p class="mb-2"><i class="fa fa-envelope me-3"></i>damalide20@gmail.com</p>
+            <p class="mb-2"><i class="fa fa-envelope me-3"></i>africa@vumbiventures.com</p>
             <div class="d-flex pt-2 justify-around">
                 <a class="btn btn-outline-light btn-social rounded-circle" href=""><i
                         class="fab fa-tiktok"></i></a>
