@@ -141,9 +141,10 @@
                     </x-responsive-nav-link>
                     <!-- Authentication -->
                     <button wire:click="logout" class="w-full text-start">
-                        <x-responsive-nav-link>
+                        <x-responsive-nav-link href="{{ route('logout') }}" @click.prevent="$root.submit();">
                             {{ __('Log Out') }}
                         </x-responsive-nav-link>
+
                     </button>
                 </div>
             @else
