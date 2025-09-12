@@ -29,7 +29,7 @@
     </h3>
     {{-- <p>{{ $doctor->department }}</p> --}}
 <div class="h-24 text-sm text-gray-700 mb-3 overflow-hidden text-wrap">
-    {!! Str::of(e($doctor->detail))->replace("\n\n", "</p><p>")->prepend("<p>")->append("</p>") !!}
+    {!! $doctor->detail !!}
 </div>
 
     <div x-data="{ open: false }" class="flex justify-evenly" x-cloak>
