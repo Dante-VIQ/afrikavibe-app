@@ -75,7 +75,6 @@
                             </x-read-more-card>
                         </div>
                     </div>
-                    </div>
 
 
                 </article>
