@@ -189,7 +189,7 @@ class BlogCard extends Component
     // delete blog
     public function destroy(Blog $blog)
     {
-        Gate::authorize('destroy', $blog);
+    
         $blog->delete();
 
         return to_route('dashboard');
