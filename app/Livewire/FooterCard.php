@@ -2,16 +2,16 @@
 
 namespace App\Livewire;
 
-use App\Models\Service;
+use App\Models\Doctor;
 use Livewire\Component;
 
 class FooterCard extends Component
 {
 
-    public $services, $title;
+    public $doctors, $title;
     public function render()
     {
-        $this->services = Service::latest()->take(6)->get();
+        $this->doctors = Doctor::latest()->take(6)->get();
         return view('livewire.footer-card');
     }
 }
