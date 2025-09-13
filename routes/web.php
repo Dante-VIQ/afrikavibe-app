@@ -67,7 +67,7 @@ Route::get('/robots.txt', function () {
 User-agent: *
 Disallow: /Analysis
 
-Sitemap: https://yourdomain.com/sitemap.xml
+Sitemap: https://vumbiventures.com/sitemap.xml
 ROBOTS;
 
     return Response::make($content, 200, [
