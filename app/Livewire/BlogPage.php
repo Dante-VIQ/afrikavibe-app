@@ -62,8 +62,8 @@ class BlogPage extends Component
 
     public function render()
     {
-        // $this->blogs = Blog::latest()->get();
-        $this->blogs = Blog::when($this->filter, fn($q) => $q->where('category', $this->filter))->take(3)->get();
+         $this->blogs = Blog::latest()->get();
+        
         return view('livewire.blog-page');
     }
 }
