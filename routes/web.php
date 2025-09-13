@@ -18,6 +18,48 @@ use Illuminate\Support\Facades\Request;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\TrackingController;
+use Spatie\Sitemap\Sitemap;
+use Spatie\Sitemap\Tags\Url;
+
+Route::get('/sitemap.xml', function () {
+    $sitemap = Sitemap::create()
+        ->add(Url::create('/')->setPriority(1.0)->setChangeFrequency('daily'))
+        ->add(Url::create('/destinations')->setPriority(0.8)->setChangeFrequency('weekly'))
+        ->add(Url::create('/blogs')->setPriority(0.7)->setChangeFrequency('weekly'));
+
+    // Add dynamic blog posts
+    Blog::all()->each(function ($blog) use ($sitemap) {
+        $sitemap->add(
+            Url::create("/blogs/{$blog->slug}")
+                ->setLastModificationDate($blog->updated_at)
+                ->setChangeFrequency('weekly')
+                ->setPriority(0.7)
+        );
+    });
+
+// Add dynamic cultures
+Culture::all()->each(function ($culture) use ($sitemap) {
+        $sitemap->add(
+            Url::create("/cultures/{$culture->slug}")
+                ->setLastModificationDate($culture->updated_at)
+                ->setChangeFrequency('weekly')
+                ->setPriority(0.7)
+        );
+    });
+
+    // Add dynamic destinations
+    Doctor::all()->each(function ($doctor) use ($sitemap) {
+        $sitemap->add(
+            Url::create("/doctors/{$doctor->slug}")
+                ->setLastModificationDate($doctor->updated_at)
+                ->setChangeFrequency('monthly')
+                ->setPriority(0.6)
+        );
+    });
+
+
+    return $sitemap->toResponse(request());
+});
 
 Route::view('/', 'welcome');
 
