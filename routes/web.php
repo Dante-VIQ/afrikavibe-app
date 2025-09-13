@@ -61,6 +61,19 @@ Culture::all()->each(function ($culture) use ($sitemap) {
     return $sitemap->toResponse(request());
 });
 
+Route::get('/robots.txt', function () {
+    $content = <<<ROBOTS
+User-agent: *
+Disallow: /Analysis
+
+Sitemap: https://yourdomain.com/sitemap.xml
+ROBOTS;
+
+    return Response::make($content, 200, [
+        'Content-Type' => 'text/plain',
+    ]);
+});
+
 Route::view('/', 'welcome');
 
 // Route::get('/',Welcome::class);
