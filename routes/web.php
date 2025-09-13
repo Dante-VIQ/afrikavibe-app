@@ -20,6 +20,7 @@ use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\TrackingController;
 use Spatie\Sitemap\Sitemap;
 use Spatie\Sitemap\Tags\Url;
+use Illuminate\Support\Facades\Response;
 
 Route::get('/sitemap.xml', function () {
     $sitemap = Sitemap::create()
