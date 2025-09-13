@@ -62,7 +62,7 @@ class BlogPage extends Component
 
     public function render()
     {
-         $this->blogs = Blog::latest()->get();
+         $this->blogs = Blog::latest()->take(4)->get();
         
         return view('livewire.blog-page');
     }
