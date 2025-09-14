@@ -1,3 +1,9 @@
+@php
+    $formatted = collect(preg_split("/\n\s*\n/", e($doctor->detail)))
+        ->map(fn($p) => "<p>{$p}</p>")
+        ->implode('');
+@endphp
+
 <x-slot name="photo">
     <div class="flex justify-between items-center mb-3 text-gray-500">
         <span class="bg-primary-100 text-gray-700 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded">
@@ -72,9 +78,7 @@
                 </h3>
                 
 <div class="text-sm text-gray-700 mb-3">
-    {!! collect(preg_split("/\n\s*\n/", e($doctor->detail)))
-        ->map(fn($p) => "<p>{$p}</p>")
-        ->implode('') !!}
+    {!! $formatted !!}
 </div>
             </slot>
         </x-read-more-card>
