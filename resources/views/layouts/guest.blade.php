@@ -59,7 +59,7 @@
     @livewireStyles
 </head>
 
-<body class="font-body">
+<body class="font-serif">
 
     <x-banner />
 
