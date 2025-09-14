@@ -55,18 +55,6 @@ public $detail;
     return $this->morphMany(Comment::class, 'commentable');
 }
 
-public function getFormattedDetailProperty()
-    {
-        if (!$this->doctor || !$this->doctor->detail) {
-            return '';
-        }
-
-        // OR if you want paragraphs instead:
-         $text = e($this->doctor->detail);
-         return collect(preg_split("/\n\s*\n/", $text))
-             ->map(fn($p) => "<p>{$p}</p>")
-             ->implode('');
-    }
 
     public function render()
     {
