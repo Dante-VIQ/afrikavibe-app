@@ -62,18 +62,14 @@ Culture::all()->each(function ($culture) use ($sitemap) {
     return $sitemap->toResponse(request());
 });
 
-Route::get('/robots.txt', function () {
-    $content = <<<ROBOTS
-User-agent: *
-Disallow: /Analysis
-Disallow: /admin
-Disallow: /master
-Disallow: /doctors
-Disallow: /arts
-Disallow: /blogs
+use Illuminate\Support\Facades\Response;
 
-Sitemap: https://vumbiventures.com/sitemap.xml
-ROBOTS;
+Route::get('/robots.txt', function () {
+    $content = "User-agent: *\n"
+             . "Disallow: /Analysis\n"
+             . "Disallow: /admin\n"
+             . "Disallow: /master\n\n"
+             . "Sitemap: " . url('/sitemap.xml');
 
     return Response::make($content, 200, [
         'Content-Type' => 'text/plain',
