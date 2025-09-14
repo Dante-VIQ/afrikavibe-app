@@ -71,8 +71,8 @@
                     {{ $doctor->name }}
                 </h3>
                 
-<div class="prose max-w-none text-gray-700">
-    {!! $this->formatted_detail !!}
+<div class="prose text-sm text-gray-700 mb-3 whitespace-pre-line space-y-3">
+    {{ $doctor->detail }}
 </div>
             </slot>
         </x-read-more-card>
