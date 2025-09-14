@@ -1,10 +1,7 @@
 <div class="w-full bg-white rounded-2xl shadow-sm overflow-hidden">
     {{-- Post form --}}
-    @auth
-        @if (auth()->user() && auth()->user()->isMaster())
             @livewire('create-header-media-post')
-        @endif
-    @endauth
+     
 
     {{-- Alpine.js Media Slider --}}
     @if ($this->headerMedia->isNotEmpty())
