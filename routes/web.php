@@ -66,6 +66,9 @@ Route::get('/robots.txt', function () {
     $content = <<<ROBOTS
 User-agent: *
 Disallow: /Analysis
+Disallow: /admin
+Disallow: /master
+Disallow: /doctors
 
 Sitemap: https://vumbiventures.com/sitemap.xml
 ROBOTS;
