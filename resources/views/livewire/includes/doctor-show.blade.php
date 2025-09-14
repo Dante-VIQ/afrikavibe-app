@@ -70,9 +70,10 @@
                 <h3 class="mb-1 text-xl sm:text-2xl font-semibold text-green-700 fix-underline">
                     {{ $doctor->name }}
                 </h3>
-                <div class="prose max-w-none text-gray-700">
-                    {!! $doctor->detail !!}
-                </div>
+                
+<div class="prose max-w-none text-gray-700">
+    {!! $this->formatted_detail !!}
+</div>
             </slot>
         </x-read-more-card>
     </div>
