@@ -74,7 +74,7 @@
                                         {{ $culture->name }}
                                     </h3>
                                     <div class="text-sm text-gray-700 mb-3">
-    {!! $formatted !!}
+    {!! $culture->detail !!}
 </div>
                                 </slot>
                             </x-read-more-card>
