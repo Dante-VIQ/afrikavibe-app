@@ -22,7 +22,7 @@ use Spatie\Sitemap\Sitemap;
 use Spatie\Sitemap\Tags\Url;
 use Illuminate\Support\Facades\Response;
 
-Route::get('/sitemap.xml', function () {
+Route::get('/robots.txt', function () {
     $sitemap = Sitemap::create()
         ->add(Url::create('/')->setPriority(1.0)->setChangeFrequency('daily'))
         ->add(Url::create('/destinations')->setPriority(0.8)->setChangeFrequency('weekly'))
