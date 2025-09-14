@@ -69,6 +69,8 @@ Disallow: /Analysis
 Disallow: /admin
 Disallow: /master
 Disallow: /doctors
+Disallow: /arts
+Disallow: /blogs
 
 Sitemap: https://vumbiventures.com/sitemap.xml
 ROBOTS;
