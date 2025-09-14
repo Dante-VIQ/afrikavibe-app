@@ -15,6 +15,7 @@ class CulturePage extends Component
 
     public Culture $culture;
 
+public $detail;
      public $filter = null;
 
     public function mount($category = null) 
