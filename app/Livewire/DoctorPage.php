@@ -61,9 +61,6 @@ public function getFormattedDetailProperty()
             return '';
         }
 
-        // Escape and turn line breaks into <br>
-        return nl2br(e($this->doctor->detail));
-
         // OR if you want paragraphs instead:
          $text = e($this->doctor->detail);
          return collect(preg_split("/\n\s*\n/", $text))
