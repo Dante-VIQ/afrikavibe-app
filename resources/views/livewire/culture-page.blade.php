@@ -1,8 +1,3 @@
-@php
-    $formatted = collect(preg_split("/\n\s*\n/", e($culture->detail)))
-        ->map(fn($p) => "<p>{$p}</p>")
-        ->implode('');
-@endphp
 <div>
     <div class="grid lg:grid-cols-2 gap-3 p-3 sm:grid-cols-1 md:grid-cols-2 fix-underline wow FadeInUp">
         @unless (count($cultures) == 0)
