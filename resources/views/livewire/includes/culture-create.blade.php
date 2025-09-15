@@ -6,7 +6,7 @@
 
     <form wire:submit.prevent="create">
         @csrf
-        <div class="flex space-x-2">
+       
             <div class="mb-6 text-black font-semibold">
                 <label for="name" class="inline-block text-lg mb-2">Name</label>
                 <input wire:model.live="name" type="text" class="border border-gray-200 rounded p-2 w-full"
@@ -25,13 +25,6 @@
                     <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
                 @enderror
             </div>
-
-
-
-        </div>
-
-
-        <div class="flex space-x-2">
 
             <div class="mb-6 text-black font-semibold">
                 <label for="detail" class="inline-block text-lg mb-2">Details</label>
@@ -58,7 +51,7 @@
                     <div wire:loading wire:target="media">
                         <span class="text-green-500 text-center">Uploading...</span>
                     </div>
-                </div>
+                
 
                                 <div class="mb-6 text-black font-semibold">
                         <label for="media_type" class="block text-sm font-medium text-gray-700 mb-1">Media Type</label>
