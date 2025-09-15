@@ -2,6 +2,11 @@
     <div class="grid lg:grid-cols-2 gap-3 p-3 sm:grid-cols-1 md:grid-cols-2 fix-underline wow FadeInUp">
         @unless (count($cultures) == 0)
             @foreach ($cultures as $culture)
+@php
+    $formatted = collect(preg_split("/\n\s*\n/", e($culture->detail)))
+        ->map(fn($p) => "<p>{$p}</p>")
+        ->implode('');
+@endphp
                 <article class="p-6 bg-white rounded-lg border border-gray-200 shadow-md">
                     <div class="flex justify-between items-center mb-3 text-gray-500">
                         <span
@@ -69,7 +74,7 @@
                                         {{ $culture->name }}
                                     </h3>
                                     <div class="text-sm text-gray-700 mb-3">
-    {!! $culture->detail !!}
+    {!! $formatted !!}
 </div>
                                 </slot>
                             </x-read-more-card>
