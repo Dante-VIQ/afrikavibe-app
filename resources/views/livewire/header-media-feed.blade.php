@@ -101,7 +101,7 @@
             initSlider() {
                 this.setupTouchEvents();
                 this.setupKeyboardEvents();
-                // this.startAutoPlay();
+                 this.startAutoPlay();
             },
 
             setupTouchEvents() {
