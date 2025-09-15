@@ -77,7 +77,7 @@
                     {{ $doctor->name }}
                 </h3>
                 
-<div class="text-sm text-gray-700 mb-3">
+<div class="prose text-sm text-gray-700 mb-3">
     {!! $formatted !!}
 </div>
             </slot>
