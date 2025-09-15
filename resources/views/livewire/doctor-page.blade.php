@@ -1,4 +1,4 @@
-<div>
+<div wire:key="{ $doctor->id }">
     <section class="bg-white px-4 mx-auto max-w-screen-xl text-center lg:py-8 lg:px-6">
         <!-- Full Page Skeleton Loader (shown during Livewire loading) -->
         <div class="w-full min-h-screen bg-gray-200 dark:bg-gray-800 animate-pulse fixed inset-0 z-50" wire:loading.flex>
