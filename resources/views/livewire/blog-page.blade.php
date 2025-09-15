@@ -2,6 +2,11 @@
     <div class="grid lg:grid-cols-3 p-3 md:grid-cols-2 gap-4 sm:grid-cols-1 fix-underline wow FadeInUp">
         @unless (count($blogs) == 0)
             @foreach ($blogs as $blog)
+@php
+    $formatted = collect(preg_split("/\n\s*\n/", e($blog->description)))
+        ->map(fn($p) => "<p>{$p}</p>")
+        ->implode('');
+@endphp
                 <article wire:key="{{ $blog->id }}"
                     class="service-item p-6 bg-white rounded-lg border border-gray-200 shadow-md">
 
@@ -86,7 +91,7 @@
                                         {{ $blog->title }}
                                     </h3>
                                     <div class="prose max-w-none text-gray-700">
-                                        {!! $blog->description !!}
+                                        {!! $formatted !!}
                                     </div>
                                 </slot>
                             </x-read-more-card>
