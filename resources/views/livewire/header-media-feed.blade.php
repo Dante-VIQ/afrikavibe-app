@@ -14,7 +14,7 @@
                         <div class="w-full flex-shrink-0" wire:key="media-{{ $media->id }}">
                             @if ($media->media_type === 'image')
                                 @if ($media->media_path)
-                                    <img class="img-fluid h-36 max-h-2xl" src="{{ asset($media->media_path) }}" alt="{{ $media->title }}" />
+                                    <img class="img-fluid h-36 max-h-5xl" src="{{ asset($media->media_path) }}" alt="{{ $media->title }}" />
                                 @endif
                             @elseif($media->media_type === 'video')
                                 <video controls class="w-full h-96 object-cover rounded-3xl">
