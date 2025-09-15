@@ -42,12 +42,8 @@ public $detail;
     }
     public function render()
     {
-        // $this->cultures = Culture::latest()
-        // ->take(4)
-        // // ->filter(request(['name', 'search']))
-        // ->get();
+         $this->cultures = Culture::latest()->take(4)->get();
 
-         $this->cultures = Culture::when($this->filter, fn($q) => $q->where('category', $this->filter))->take(4)->get();
         return view('livewire.culture-page');
     }
 
