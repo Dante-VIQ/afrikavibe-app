@@ -1,4 +1,4 @@
-<div class="w-full bg-white rounded-2xl shadow-sm overflow-hidden">
+<div class="w-full bg-white rounded-2xl shadow-sm overflow-hidden space-y-2">
     {{-- Post form --}}
             @livewire('create-header-media-post')
      
