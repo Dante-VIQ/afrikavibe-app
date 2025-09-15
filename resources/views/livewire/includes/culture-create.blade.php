@@ -52,7 +52,7 @@
                         <span class="text-green-500 text-center">Uploading...</span>
                     </div>
                 
-
+</div>
                                 <div class="mb-6 text-black font-semibold">
                         <label for="media_type" class="block text-sm font-medium text-gray-700 mb-1">Media Type</label>
                         <select wire:model="media_type" class="w-full border border-gray-300 rounded p-2 focus:ring-orange-400 focus:border-orange-400">
@@ -62,7 +62,6 @@
                         </select>
                     </div>
 
-        </div>
 
         <div class="mb-6 text-black font-semibold">
             <button class="bg-laravel rounded py-2 px-4">
