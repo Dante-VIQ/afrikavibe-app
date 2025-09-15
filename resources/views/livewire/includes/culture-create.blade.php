@@ -28,7 +28,7 @@
 
             <div class="mb-6 text-black font-semibold">
                 <label for="detail" class="inline-block text-lg mb-2">Details</label>
-                <textarea wire:model.live="detail" cols="30" rows="5" type="text" class="border border-gray-200 rounded p-2 w-full"
+                <textarea wire:model.live="detail" cols="30" rows="10" type="text" class="border border-gray-200 rounded p-2 w-full"
                     name="detail" value="{{ old('detail') }}"></textarea>
                     {{-- <textarea name="" id="" cols="30" rows="10"></textarea> --}}
                 @error('detail')
