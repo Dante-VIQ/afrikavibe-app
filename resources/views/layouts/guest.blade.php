@@ -7,6 +7,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="keywords"
         content="Africa travel, African culture, African destinations, Explore Africa, travel blog, African art, African history, African cuisine.">
+<meta name="google-adsense-account" content="ca-pub-1920954764751411">
     <meta name="description"
         content="Discover the rich tapestry of Africa's diverse cultures, breathtaking landscapes, and unique experiences. Explore top travel destinations, art, history, and cuisine on AfrikaVibe.">
 
