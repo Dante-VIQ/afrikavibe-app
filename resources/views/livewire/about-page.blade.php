@@ -17,7 +17,9 @@
     <div class="container-xxl py-5">
         <div class="container">
             <div>
-                @include('about-fig')
+                   @foreach ($abouts as $about)
+@include('about-fig')
+    @endforeach 
             </div>
         </div>
     </div>
