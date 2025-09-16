@@ -3,10 +3,11 @@
         @unless (count($blogs) == 0)
             @foreach ($blogs as $blog)
 @php
-    $formatted = collect(preg_split("/\n\s*\n/", e($blog->description)))
-        ->map(fn($p) => "<p>{$p}</p>")
+    $formatted = collect(preg_split("/\r\n|\r|\n/", e($blog->description)))
+    ->map(fn($p) => "<p>{$p}</p>")
         ->implode('');
 @endphp
+
                 <article wire:key="{{ $blog->id }}"
                     class="service-item p-6 bg-white rounded-lg border border-gray-200 shadow-md">
 
