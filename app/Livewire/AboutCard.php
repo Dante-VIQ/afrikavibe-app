@@ -62,7 +62,7 @@ class AboutCard extends Component
 
     public function create(About $about)
     {
-        Gate::authorize('create', $about);
+        
         $validated = $this->validate([
             'detail' => 'required',
             'title' => 'required',
