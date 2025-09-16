@@ -17,7 +17,7 @@
     <div class="container-xxl py-5">
         <div class="container">
             <div>
-                <livewire:about-card />
+                @include('about-fig')
             </div>
         </div>
     </div>
