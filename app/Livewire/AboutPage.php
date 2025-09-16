@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Models\About;
 use Livewire\Component;
 use Livewire\Attributes\Layout;
 use Livewire\Attributes\Title;
