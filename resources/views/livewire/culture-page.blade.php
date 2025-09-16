@@ -3,10 +3,11 @@
         @unless (count($cultures) == 0)
             @foreach ($cultures as $culture)
 @php
-    $formatted = collect(preg_split("/\n\s*\n/", e($culture->detail)))
-        ->map(fn($p) => "<p>{$p}</p>")
+    $formatted = collect(preg_split("/\r\n|\r|\n/", e($culture->detail)))
+    ->map(fn($p) => "<p>{$p}</p>")
         ->implode('');
 @endphp
+
                 <article class="p-6 bg-white rounded-lg border border-gray-200 shadow-md">
                     <div class="flex justify-between items-center mb-3 text-gray-500">
                         <span
