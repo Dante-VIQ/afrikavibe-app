@@ -1,3 +1,9 @@
+<div>
+    <div class="me-3">
+        <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-bs-toggle="minimize">
+            <span class="icon-menu"></span>
+        </button>
+    </div>
  <nav class="sidebar sidebar-offcanvas" id="sidebar">
                 <ul class="nav">
                     <li class="nav-item">
@@ -81,3 +87,4 @@
                     </li>
                 </ul>
             </nav>
+</div>
