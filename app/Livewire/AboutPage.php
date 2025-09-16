@@ -7,7 +7,6 @@ use Livewire\Component;
 use Livewire\Attributes\Layout;
 use Livewire\Attributes\Title;
 
-#[Layout('guest.app')]
 class AboutPage extends Component
 {
 public $abouts, $about;
