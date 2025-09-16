@@ -1,7 +1,7 @@
 <div>
     {{-- <div class="row g-5"> --}}
     @foreach ($abouts as $about)
-        
+        @include('about-fig')
     @endforeach
 
     {{-- </div> --}}
