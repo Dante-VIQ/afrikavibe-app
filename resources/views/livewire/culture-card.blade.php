@@ -65,10 +65,17 @@
 
                                             <div
                                                 class="d-flex justify-content-between align-items-center mb-1 max-width-progress-wrap">
-                                                <a href="/cultures/{{ $culture->id }}/edit"
-                                                    class="text-blue-400 px-6 py-2 rounded-xl"><i
-                                                        class="fa-solid fa-pen-to-square"></i>
-                                                    Edit</a>
+                                                                    <div x-data="{ show: false }" x-cloak>
+                        <div>
+                            <x-button x-on:click.prevent="show = true" class="btn btn-primary btn-lg text-white mb-0 me-0"
+                                type="submit"><i class="mdi mdi-account-plus"></i>Add
+                edit</x-button>
+                        </div>
+                        <div x-show="show" x-on:click.outside.prevent="show = false"
+                            class="mx-auto z-9 top-1/3 left-1/3">
+                            @include('livewire.includes.culture-edit')
+                        </div>
+                    </div>
                                             </div>
                                             <div class="progress progress-md">
                                                 <form method="POST" action="/cultures/{{ $culture->id }}">
