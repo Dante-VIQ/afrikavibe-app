@@ -63,8 +63,7 @@
                                         </td>
                                         <td>
 
-                                            <div
-                                                class="d-flex justify-content-between align-items-center mb-1 max-width-progress-wrap">
+                                                      <div class="d-sm-flex justify-content-between align-items-start">
                                                                     <div x-data="{ show: false }" x-cloak>
                         <div>
                             <x-button x-on:click.prevent="show = true" class="btn btn-primary btn-lg text-white mb-0 me-0"
