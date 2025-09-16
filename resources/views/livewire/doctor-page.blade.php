@@ -28,11 +28,7 @@
             @unless (count($doctors) == 0)
                 @foreach ($doctors as $doctor)
                     <x-destination-card wire:loading.remove>
-                    @php
-    $formatted = collect(preg_split("/\n\s*\n/", e($doctor->detail)))
-        ->map(fn($p) => "<p>{$p}</p>")
-        ->implode('');
-@endphp
+                    
     @include('livewire.includes.doctor-show')
                     </x-destination-card>
                 @endforeach
