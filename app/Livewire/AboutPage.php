@@ -6,12 +6,12 @@ use Livewire\Component;
 use Livewire\Attributes\Layout;
 use Livewire\Attributes\Title;
 
-#[Layout('layouts.app')]
-#[Title('Cosite')]
+#[Layout('guest.app')]
 class AboutPage extends Component
 {
     public function render()
     {
+         $this->abouts = About::latest()->take(1)->get();
         return view('livewire.about-page');
     }
 }
