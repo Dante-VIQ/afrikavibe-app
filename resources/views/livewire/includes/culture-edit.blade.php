@@ -4,7 +4,7 @@
         <p class="mb-4 font-semibold">Post a gig</p>
     </header>
 
-    <form wire:submit.prevent="create">
+    <form wire:submit.prevent="edit">
         @csrf
 
             <div class="mb-6 text-black font-semibold">
@@ -48,7 +48,7 @@
                     {{-- @if ($media)
                         <img class="img-fluid w-24 h-24" src="{{ $image->temporaryUrl() }}" alt="">
                     @endif --}}
-                    <div wire:loading wire:target="media">
+                    <div wire:loading wire:target="NewMedia">
                         <span class="text-green-500 text-center">Uploading...</span>
                     </div>
 
