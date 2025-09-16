@@ -41,7 +41,7 @@
     {{-- </div> --}}
 
      <div class="flex">
-        @can('create', $about)
+        
             <div class="relative p-2" x-data="{ show: false }">
 
                 <x-button x-on:click.prevent="show = true" class="px-4 py-2 text-light rounded bg-primary"><i
@@ -53,7 +53,7 @@
                 </div>
 
             </div>
-        @endcan
+        
         @can('update', $about)
             <div class="relative p-2" x-data="{ show: false }" x-cloak>
 
