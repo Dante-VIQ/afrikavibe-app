@@ -72,16 +72,7 @@
                 </div>
             </template>
 
-            {{-- Pagination Dots --}}
-            <template x-if="totalSlides > 1">
-                <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 z-30 flex space-x-2">
-                    <template x-for="(_, index) in Array(totalSlides).fill()" :key="index">
-                        <button @click="goTo(index)" class="w-3 h-3 rounded-full transition-colors duration-300"
-                            :class="currentIndex === index ? 'bg-orange-500' : 'bg-white/50'">
-                        </button>
-                    </template>
-                </div>
-            </template>
+            
         </div>
     @else
         <p class="text-gray-500 text-center w-full py-8">No media posts available</p>
