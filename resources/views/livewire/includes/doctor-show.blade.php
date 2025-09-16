@@ -1,6 +1,7 @@
 @php
-    $formatted = collect(preg_split("/\n\s*\n/", e($doctor->detail)))
-        ->map(fn($p) => "<p>{$p}</p>")
+    $formatted = collect(preg_split("/\r\n|\r|\n/", e($doctor->detail)))
+    ->map(fn($p) => "<p>{$p}</p>")
+    ->implode('')
         ->implode('');
 @endphp
 
