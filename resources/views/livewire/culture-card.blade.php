@@ -62,13 +62,11 @@
                                             <p>{{ $culture->user->id }}</p>
                                         </td>
                                         <td>
-
-                                                      <div class="d-sm-flex justify-content-between align-items-start">
+                                                  <div class="d-sm-flex justify-content-between align-items-start">
                                                                     <div x-data="{ show: false }" x-cloak>
                         <div>
-                            <x-button x-on:click.prevent="show = true" class="btn btn-primary btn-lg text-white mb-0 me-0"
-                                type="submit"><i class="mdi mdi-account-plus"></i>Add
-                edit</x-button>
+                            <button x-on:click.prevent="show = true" class="btn btn-primary btn-lg text-white mb-0 me-0"
+                                type="submit">edit</button>
                         </div>
                         <div x-show="show" x-on:click.outside.prevent="show = false"
                             class="mx-auto z-9 top-1/3 left-1/3">
