@@ -1,6 +1,6 @@
 @php
     $formatted = collect(preg_split("/\r\n|\r|\n/", e($doctor->detail)))
-    ->map(fn($p) => "<p>{$p}</p>")
+        ->map(fn($p) => "<p>{$p}</p>")
         ->implode('');
 @endphp
 
@@ -36,8 +36,8 @@
     {{-- <p>{{ $doctor->department }}</p> --}}
 
     <p class="h-24 text-sm text-gray-700 mb-3 overflow-hidden text-wrap">
-    {!! $doctor->detail !!}
-</p>
+        {!! $doctor->detail !!}
+    </p>
 
 
     <div x-data="{ open: false }" class="flex justify-evenly" x-cloak>
@@ -52,35 +52,11 @@
                 </span>
             @endif
         </button>
-        <button @click="open = true" class="mt-3 text-blue-600 font-semibold hover:underline">
-            Read more →
-        </button>
+ 
 
-        <x-read-more-card>
-            <div>
-                @if ($doctor->media_type === 'image')
-                    @if ($doctor->media_path)
-                        <img src="{{ asset($doctor->media_path) }}" alt="{{ $doctor->title }}"
-                            class="mx-auto mb-4 w-full h-40 rounded-lg" />
-                    @endif
-                @elseif($doctor->media_type === 'video')
-                    <video controls class="w-full h-96 object-cover rounded-3xl">
-                        <source src="{{ asset($doctor->media_path) }}">
-                        Your browser does not support the video tag.
-                    </video>
-                @endif
-            </div>
+           <a href="{{ route('Partials.doctor', $doctor) }}" class="read-more-button">
+        Read More
+    </a>
 
-            <slot name="content">
-
-                <h3 class="mb-1 text-xl sm:text-2xl font-semibold text-green-700 fix-underline">
-                    {{ $doctor->name }}
-                </h3>
-                
-<div class="prose text-sm text-gray-700 mb-3">
-    {!! $formatted !!}
-</div>
-            </slot>
-        </x-read-more-card>
     </div>
 </x-slot>

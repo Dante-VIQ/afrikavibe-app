@@ -12,8 +12,8 @@
             class="{{ request()->routeIs('destination') ? 'border-indigo-500 text-gray-900' : 'border-transparent text-gray-500' }} nav-link">Destinations</a>
         <a wire:navigate href="{{ route('art') }}"
             class="{{ request()->routeIs('art') ? 'border-indigo-500 text-gray-900' : 'border-transparent text-gray-500' }} nav-link">Culture</a>
-        <a wire:navigate href="{{ route('main') }}"
-            class="{{ request()->routeIs('main') ? 'border-indigo-500 text-gray-900' : 'border-transparent text-gray-500' }} nav-link">Blogs</a>
+        {{-- <a wire:navigate href="{{ route('main') }}"
+            class="{{ request()->routeIs('main') ? 'border-indigo-500 text-gray-900' : 'border-transparent text-gray-500' }} nav-link">Blogs</a> --}}
         {{-- <a wire:navigate href="./Header/slider" class="nav-link">Slider</a> --}}
 
 

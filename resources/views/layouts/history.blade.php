@@ -120,7 +120,11 @@
     <x-banner />
 
     <div class="max-h-screen bg-gray-100">
-        @livewire('navigation-menu')
+              @auth
+            @include('livewire.layout.navigation')
+        @else
+            @include('livewire.welcome.navigation')
+        @endauth
 
         {{-- <!-- Page Heading --> --}}
         @if (isset($header))

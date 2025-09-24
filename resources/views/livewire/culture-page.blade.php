@@ -36,7 +36,7 @@
                                 {{ $culture->user->name }}
                             </span>
                         </div>
-                                              <div x-data="{ open: false }" class="flex" x-cloak>
+                                              <div class="flex justify-around">
                             <button class="mt-2 px-4 py-1 bg-orange-500 rounded-full text-white hover:bg-orange-600"
                                 wire:click="$dispatch('openCommentModal', {
                                   commentableId: {{ $culture->id }},
@@ -49,12 +49,12 @@
                                 @endif
                             </button>
 
-                            
-                            <button @click="open = true" class="mt-3 text-blue-600 font-semibold hover:underline">
-                                Read more →
-                            </button>
 
-                            <x-read-more-card>
+           <a href="{{ route('Partials.culture', $culture) }}" class="read-more-button">
+        Read More
+            </a>
+
+                            {{-- <x-read-more-card>
                                 <div>
                                     @if ($culture->media_type === 'image')
                                         @if ($culture->media_path)
@@ -78,7 +78,7 @@
     {!! $formatted !!}
 </div>
                                 </slot>
-                            </x-read-more-card>
+                            </x-read-more-card> --}}
                         </div>
                     </div>
 

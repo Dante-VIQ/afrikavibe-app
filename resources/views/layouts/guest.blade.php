@@ -80,7 +80,7 @@
 
         <!-- Footer Start -->
         <div>
-<Livewire:footer-card />
+<livewire:footer-card />
         <!-- Footer End -->
 
     </div>

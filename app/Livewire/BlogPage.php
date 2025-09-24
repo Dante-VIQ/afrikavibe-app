@@ -39,18 +39,6 @@ class BlogPage extends Component
             'title' => ucfirst($category ?? 'Blog'),
         ]);
     }
-    #[Computed()]
-    public function blogs()
-    {
-        return Blog::latest()->get();
-    }
-
-    // #[Computed()]
-    // public function mount()
-    // {
-    //     return view('yutpo')
-    //     ->with('blog', Blog::findOrFail($blogID));
-    // }
 
     #[Computed()]
     public function show(Blog $blog)

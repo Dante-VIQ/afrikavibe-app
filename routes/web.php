@@ -1,28 +1,34 @@
 <?php
 
+use App\Models\Blog;
+use App\Models\Doctor;
 use App\Models\Comment;
-
+use App\Models\Culture;
 use App\Livewire\Welcome;
+use App\Livewire\BlogCard;
 use App\Livewire\BlogPage;
+use App\Livewire\ShowBlog;
 use App\Livewire\AboutPage;
+use Spatie\Sitemap\Sitemap;
 use App\Livewire\DoctorPage;
+use App\Livewire\ShowDoctor;
+use Spatie\Sitemap\Tags\Url;
 use App\Livewire\ContactPage;
 use App\Livewire\CultureCard;
 use App\Livewire\CulturePage;
+use App\Livewire\DoctorsCard;
 use App\Livewire\ServicePage;
+use App\Livewire\ShowCulture;
 use App\Livewire\CommentModal;
 use App\Livewire\AppontmentPage;
 use App\Livewire\AnalysisDashboard;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Request;
 use App\Http\Controllers\ItemController;
+use Illuminate\Support\Facades\Response;
 use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\TrackingController;
-use Spatie\Sitemap\Sitemap;
-use Spatie\Sitemap\Tags\Url;
-use Illuminate\Support\Facades\Response;
 
-Route::get('/robots.txt', function () {
+Route::get('/sitemap.xml', function () {
     $sitemap = Sitemap::create()
         ->add(Url::create('/')->setPriority(1.0)->setChangeFrequency('daily'))
         ->add(Url::create('/destinations')->setPriority(0.8)->setChangeFrequency('weekly'))
@@ -38,8 +44,8 @@ Route::get('/robots.txt', function () {
         );
     });
 
-// Add dynamic cultures
-Culture::all()->each(function ($culture) use ($sitemap) {
+    // Add dynamic cultures
+    Culture::all()->each(function ($culture) use ($sitemap) {
         $sitemap->add(
             Url::create("/cultures/{$culture->slug}")
                 ->setLastModificationDate($culture->updated_at)
@@ -48,7 +54,7 @@ Culture::all()->each(function ($culture) use ($sitemap) {
         );
     });
 
-    // Add dynamic destinations
+    // Add dynamic doctors (I assume you meant Doctor, not Destination)
     Doctor::all()->each(function ($doctor) use ($sitemap) {
         $sitemap->add(
             Url::create("/doctors/{$doctor->slug}")
@@ -58,17 +64,24 @@ Culture::all()->each(function ($culture) use ($sitemap) {
         );
     });
 
+    // Write to file AND return response
+    $sitemap->writeToFile(public_path('sitemap.xml'));
 
     return $sitemap->toResponse(request());
 });
 
-use Illuminate\Support\Facades\Response;
+ 
+
 
 Route::get('/robots.txt', function () {
     $content = "User-agent: *\n"
              . "Disallow: /Analysis\n"
              . "Disallow: /admin\n"
-             . "Disallow: /master\n\n"
+             . "Disallow: /master\n"
+             . "Disallow: /admin.php\n"
+             . "Disallow: /master.php\n"
+             . "Disallow: /admin/\n"
+             . "Disallow: /master/\n\n"
              . "Sitemap: " . url('/sitemap.xml');
 
     return Response::make($content, 200, [
@@ -90,11 +103,11 @@ Route::view('profile', 'profile')
 
 Route::get('/service', ServicePage::class);
 
-Route::get('doctors', DoctorPage::class);
+// Route::get('doctors', DoctorPage::class);
 Route::get('/destination', function() {
     return view('destination');
 })->name('destination');
-Route::get('/doctors/{doctor}', DoctorPage::class, 'show');
+Route::get('/doctor/{doctor}', ShowDoctor::class)->name('Partials.doctor');
 
 
 Route::get('/about', AboutPage::class);
@@ -103,11 +116,11 @@ Route::get('/appointment', AppontmentPage::class);
 
 Route::get('/contact', ContactPage::class);
 
-Route::get('cultures', CulturePage::class);
+// Route::get('cultures', CulturePage::class);
 Route::get('/art', function() {
     return view('art');
 })->name('art');
-Route::get('cultures/{culture}', CulturePage::class);
+Route::get('culture/{culture}', ShowCulture::class)->name('Partials.culture');
 
 // Route::get('/eco-destination', DoctorsCard::class);
 
@@ -115,10 +128,13 @@ Route::get('cultures/{culture}', CulturePage::class);
 //     return view('blog-lay');
 // })->name('blog-lay');
 
-Route::get('/blogs/{blog}', BlogPage::class, 'show');
-Route::get('blogs', BlogPage::class);
-Route::get('/blog', BlogPage::class);
-// Route::get('/blogs/{blog}', [BlogCard::class, 'show']);
+Route::get('/blog/{blog}', ShowBlog::class)->name('Partials.blog');
+// Route::get('blogs', BlogPage::class);
+//  Route::get('/blog', BlogPage::class);
+Route::get('/blog', function() {
+    return view('blog');
+})->name('blog');
+
 
 Route::post('track/view', [TrackingController::class, 'trackView']);
 

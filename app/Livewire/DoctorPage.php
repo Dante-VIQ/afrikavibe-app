@@ -26,10 +26,10 @@ public $detail;
 
      public $filter = null;
 
-    public function mount($category = null)
-    {
-        $this->filter = $category;
-    }
+    // public function mount($category = null)
+    // {
+    //     $this->filter = $category;
+    // }
 
     public function setFilter($category)
     {
@@ -42,12 +42,20 @@ public $detail;
             'title' => ucfirst($category ?? 'Doctor'),
         ]);
     }
-    #[Computed()]
-    public function doctors(){
-        $this->doctors = Doctor::latest()->get();
+    // #[Computed()]
+    // public function doctors(){
+    //     $this->doctors = Doctor::latest()->get();
 
-        // return view('destination')->with('doctors', $this->doctors);
+    //     // return view('destination')->with('doctors', $this->doctors);
 
+    // }
+
+   
+        public function mount(Doctor $doctor)
+    {
+
+         $this->doctor = $doctor;
+        // return view('Partials.doctor')->with('doctor', compact('doctor'));
     }
 
     public function comments()
@@ -63,18 +71,5 @@ public $detail;
         return view('livewire.doctor-page');
     }
 
-    // #[Computed()]
-    // public function show(Doctor $doctor)
-    // {
-    //     UserActivityLog::log(
-    //         action: 'view_doctor',
-    //         description: "Viewed doctor: {$doctor->title}",
-    //         metadata: [
-    //             'blog_id' =>$doctor->id,
-    //             'category' => $doctor->category
-    //         ]
-    //         );
 
-    //     return view('destination')->with('doctor', compact('doctor'));
-    // }
 }

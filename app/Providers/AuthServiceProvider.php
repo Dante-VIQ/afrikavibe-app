@@ -47,7 +47,7 @@ class AuthServiceProvider extends ServiceProvider
         });
 
         Gate::define('edit-content', function (User $user) {
-            return in_array($user->role, [User::ROLE_MASTER, User::ROLE_EDITOR, User::ROLE_ADMIN]);
+            return in_array($user->role, [User::ROLE_MASTER, User::ROLE_ADMIN]);
         });
 
         Gate::define('view-activity-logs', function ($user) {
