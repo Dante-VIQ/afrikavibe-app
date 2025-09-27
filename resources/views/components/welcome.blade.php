@@ -5,7 +5,13 @@
         <livewire:header-page />
     </div>
     {{-- partner --}}
-@include('partner.index')
+    {{-- @include('partner.index') --}}
+    <div class="container-xxl py-5">
+
+        <x-advertisers />
+
+    </div>
+    {{-- <!-- Header End --> --}}
 
     {{-- <!-- Service Start --> --}}
     <div class="container-xxl py-5">
@@ -58,7 +64,7 @@
         buttonText="Read More" buttonLink="/culture-cuisine/nyama-choma" /> --}}
 
     <section class="container-xxl py-5 bg-white">
- 
+
         <div class="mx-auto max-w-screen-sm text-center lg:mb-16 mb-8">
             <h2 class="text-2xl sm:text-3xl font-bold text-green-800 mb-4">
                 Daily Read

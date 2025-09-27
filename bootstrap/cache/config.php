@@ -108,9 +108,9 @@
   array (
     'paths' => 
     array (
-      0 => 'D:\\Master\\htdocs\\AfrikaVibe\\afrikavibe-app\\resources\\views',
+      0 => 'D:\\Git\\htdocs\\AfrikaVibe\\afrikavibe-app\\resources\\views',
     ),
-    'compiled' => 'D:\\Master\\htdocs\\AfrikaVibe\\afrikavibe-app\\storage\\framework\\views',
+    'compiled' => 'D:\\Git\\htdocs\\AfrikaVibe\\afrikavibe-app\\storage\\framework\\views',
   ),
   'app' => 
   array (
@@ -272,8 +272,8 @@
       'file' => 
       array (
         'driver' => 'file',
-        'path' => 'D:\\Master\\htdocs\\AfrikaVibe\\afrikavibe-app\\storage\\framework/cache/data',
-        'lock_path' => 'D:\\Master\\htdocs\\AfrikaVibe\\afrikavibe-app\\storage\\framework/cache/data',
+        'path' => 'D:\\Git\\htdocs\\AfrikaVibe\\afrikavibe-app\\storage\\framework/cache/data',
+        'lock_path' => 'D:\\Git\\htdocs\\AfrikaVibe\\afrikavibe-app\\storage\\framework/cache/data',
       ),
       'memcached' => 
       array (
@@ -535,7 +535,7 @@
       'local' => 
       array (
         'driver' => 'local',
-        'root' => 'D:\\Master\\htdocs\\AfrikaVibe\\afrikavibe-app\\storage\\app/private',
+        'root' => 'D:\\Git\\htdocs\\AfrikaVibe\\afrikavibe-app\\storage\\app/private',
         'serve' => true,
         'throw' => false,
         'report' => false,
@@ -543,7 +543,7 @@
       'public' => 
       array (
         'driver' => 'local',
-        'root' => 'D:\\Master\\htdocs\\AfrikaVibe\\afrikavibe-app\\storage\\app/public',
+        'root' => 'D:\\Git\\htdocs\\AfrikaVibe\\afrikavibe-app\\storage\\app/public',
         'url' => 'http://127.0.0.1:8000/storage',
         'visibility' => 'public',
         'throw' => false,
@@ -565,7 +565,7 @@
     ),
     'links' => 
     array (
-      'D:\\Master\\htdocs\\AfrikaVibe\\afrikavibe-app\\public\\storage' => 'D:\\Master\\htdocs\\AfrikaVibe\\afrikavibe-app\\storage\\app/public',
+      'D:\\Git\\htdocs\\AfrikaVibe\\afrikavibe-app\\public\\storage' => 'D:\\Git\\htdocs\\AfrikaVibe\\afrikavibe-app\\storage\\app/public',
     ),
   ),
   'fortify-options' => 
@@ -664,7 +664,7 @@
       'maxmind_database' => 
       array (
         'class' => 'Torann\\GeoIP\\Services\\MaxMindDatabase',
-        'database_path' => 'D:\\Master\\htdocs\\AfrikaVibe\\afrikavibe-app\\storage\\app/geoip.mmdb',
+        'database_path' => 'D:\\Git\\htdocs\\AfrikaVibe\\afrikavibe-app\\storage\\app/geoip.mmdb',
         'update_url' => 'https://download.maxmind.com/app/geoip_download?edition_id=GeoLite2-City&license_key=&suffix=tar.gz',
         'locales' => 
         array (
@@ -686,7 +686,7 @@
         'class' => 'Torann\\GeoIP\\Services\\IPGeoLocation',
         'secure' => true,
         'key' => NULL,
-        'continent_path' => 'D:\\Master\\htdocs\\AfrikaVibe\\afrikavibe-app\\storage\\app/continents.json',
+        'continent_path' => 'D:\\Git\\htdocs\\AfrikaVibe\\afrikavibe-app\\storage\\app/continents.json',
         'lang' => 'en',
       ),
       'ipdata' => 
@@ -750,7 +750,7 @@
   'livewire' => 
   array (
     'class_namespace' => 'App\\Livewire',
-    'view_path' => 'D:\\Master\\htdocs\\AfrikaVibe\\afrikavibe-app\\resources\\views/livewire',
+    'view_path' => 'D:\\Git\\htdocs\\AfrikaVibe\\afrikavibe-app\\resources\\views/livewire',
     'layout' => 'layouts.app',
     'lazy_placeholder' => NULL,
     'temporary_file_upload' => 
@@ -819,14 +819,14 @@
       'single' => 
       array (
         'driver' => 'single',
-        'path' => 'D:\\Master\\htdocs\\AfrikaVibe\\afrikavibe-app\\storage\\logs/laravel.log',
+        'path' => 'D:\\Git\\htdocs\\AfrikaVibe\\afrikavibe-app\\storage\\logs/laravel.log',
         'level' => 'debug',
         'replace_placeholders' => true,
       ),
       'daily' => 
       array (
         'driver' => 'daily',
-        'path' => 'D:\\Master\\htdocs\\AfrikaVibe\\afrikavibe-app\\storage\\logs/laravel.log',
+        'path' => 'D:\\Git\\htdocs\\AfrikaVibe\\afrikavibe-app\\storage\\logs/laravel.log',
         'level' => 'debug',
         'days' => 14,
         'replace_placeholders' => true,
@@ -891,7 +891,7 @@
       ),
       'emergency' => 
       array (
-        'path' => 'D:\\Master\\htdocs\\AfrikaVibe\\afrikavibe-app\\storage\\logs/laravel.log',
+        'path' => 'D:\\Git\\htdocs\\AfrikaVibe\\afrikavibe-app\\storage\\logs/laravel.log',
       ),
     ),
   ),
@@ -967,7 +967,7 @@
       'theme' => 'default',
       'paths' => 
       array (
-        0 => 'D:\\Master\\htdocs\\AfrikaVibe\\afrikavibe-app\\resources\\views/vendor/mail',
+        0 => 'D:\\Git\\htdocs\\AfrikaVibe\\afrikavibe-app\\resources\\views/vendor/mail',
       ),
     ),
   ),
@@ -1380,7 +1380,7 @@
     'lifetime' => 120,
     'expire_on_close' => false,
     'encrypt' => false,
-    'files' => 'D:\\Master\\htdocs\\AfrikaVibe\\afrikavibe-app\\storage\\framework/sessions',
+    'files' => 'D:\\Git\\htdocs\\AfrikaVibe\\afrikavibe-app\\storage\\framework/sessions',
     'connection' => NULL,
     'table' => 'sessions',
     'store' => NULL,

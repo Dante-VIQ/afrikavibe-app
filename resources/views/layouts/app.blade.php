@@ -100,7 +100,7 @@
      (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
     <script type="module" src="{{ asset('/js/main.js') }}" defer></script>
-
+        	
     @stack('modals')
 
 </body>
