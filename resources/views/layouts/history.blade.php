@@ -12,7 +12,7 @@
     <meta name="description"
         content="Dive into AfrikaVibe's rich compilation of African history and cuisine. From ancient civilizations to modern culinary delights, explore the continent's deep roots and savory flavors.">
 
-    <title>{{ config('app.name', 'AfrikaVibe') }}</title>
+    <title>{{ config('app.name', 'Vumbi') }}</title>
 
     {{-- <!-- Fonts --> --}}
     <link rel="preconnect" href="https://fonts.bunny.net">
@@ -147,7 +147,7 @@
 
     <script src="{{ asset('/public/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js') }}"></script>
 
-
+<script src="https://www.dwin2.com/pub.2580697.min.js"></script>
     <script src="{{ asset('https://code.jquery.com/jquery-3.4.1.min.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="{{ asset('/lib/wow/wow.min.js') }}"></script>

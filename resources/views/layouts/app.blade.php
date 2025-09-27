@@ -87,6 +87,7 @@
 
     @livewireScripts
     {{-- <x-skeleton-loader /> --}}
+    <script src="https://www.dwin2.com/pub.2580697.min.js"></script>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1920954764751411"
      crossorigin="anonymous"></script>
 <!-- Cutlery -->
@@ -100,7 +101,7 @@
      (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
     <script type="module" src="{{ asset('/js/main.js') }}" defer></script>
-        	
+
     @stack('modals')
 
 </body>
