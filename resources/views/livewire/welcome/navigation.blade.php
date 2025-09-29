@@ -28,6 +28,11 @@
                     </x-nav-link>
                 </div>
             </div>
+                {{-- <form action="/" method="POST" class="me-3">
+                    @csrf
+                    <label for="search" class="text-sm hidden"> Search </label>
+                    <input name="search" id="search" class="form-control rounded-xl p-3 border-2 border-x-gray-500 " placeholder="Search wih AI" type="text">
+                </form> --}}
             <!-- Login/Register Links -->
             <div class="hidden sm:flex sm:items-center sm:ms-6">
                 <div class="flex space-x-4">
@@ -45,6 +50,7 @@
             </div>
             <!-- Hamburger -->
             <div class="-me-2 flex items-center sm:hidden">
+
                 <button @click="open = ! open"
                     class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out">
                     <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
@@ -59,7 +65,7 @@
         </div>
     </div>
     <!-- Responsive Navigation Menu -->
-    <div :class="{ 'block': open, 'hidden': !open }" class="hidden sm:hidden">
+    <div :class="{ 'block': open, 'hidden': !open }" class="hidden sm:hidden justify-center space-y-2 max-h-full">
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')" wire:navigate>
                 {{ __('Dashboard') }}
@@ -74,19 +80,20 @@
                 {{ __('Blog') }}
             </x-responsive-nav-link>
         </div>
-        <div class="pt-4 pb-1 border-t border-gray-200 text-gray-700">
-            <div class="mt-3 space-y-1">
-                <x-responsive-nav-link :href="route('login')">
-                    {{ __('Log in') }}
+        <div class="pt-4 pb-1 border-t border-gray-200 text-gray-700 bottom-0 h-full max-h-full>
+            <div class="mt-3
+            space-y-1">
+            <x-responsive-nav-link :href="route('login')">
+                {{ __('Log in') }}
+            </x-responsive-nav-link>
+            @if (Route::has('register'))
+                <x-responsive-nav-link :href="route('register')">
+                    {{ __('Register') }}
                 </x-responsive-nav-link>
-                @if (Route::has('register'))
-                    <x-responsive-nav-link :href="route('register')">
-                        {{ __('Register') }}
-                    </x-responsive-nav-link>
-                @endif
-            </div>
+            @endif
         </div>
-        {{-- <nav class="main">
+    </div>
+    {{-- <nav class="main">
             <ul>
                 <li class="search">
                     <a class="fa-search" href="#search">Search</a>

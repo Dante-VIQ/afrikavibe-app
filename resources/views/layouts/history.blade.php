@@ -10,7 +10,7 @@
         content="African history, African cuisine, African food, African recipes, African heritage, African culture, African traditions, African historical sites, African culinary history, African dishes.">
 
     <meta name="description"
-        content="Dive into AfrikaVibe's rich compilation of African history and cuisine. From ancient civilizations to modern culinary delights, explore the continent's deep roots and savory flavors.">
+        content="Vumbi Ventures provides web development, SEO, and full travel support—guides, flight, hotel, and car bookings for seamless African adventures.">
 
     <title>{{ config('app.name', 'Vumbi') }}</title>
 
@@ -112,6 +112,16 @@
         }
     </script>
 
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-TJQZ8G6KGS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-TJQZ8G6KGS');
+</script>
+
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @livewireStyles
 </head>
@@ -143,7 +153,19 @@
     </div>
 
 
-
+  <script src="https://www.dwin2.com/pub.2580697.min.js"></script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1920954764751411"
+     crossorigin="anonymous"></script>
+<!-- Cutlery -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-1920954764751411"
+     data-ad-slot="3863684113"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
 
     <script src="{{ asset('/public/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js') }}"></script>
 

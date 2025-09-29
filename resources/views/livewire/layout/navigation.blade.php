@@ -130,6 +130,11 @@
         <!-- Responsive Settings Options -->
         <div class="pt-4 pb-1 border-t border-gray-200">
             @auth
+                        {{-- <form action="/" method="POST" class="me-3">
+                    @csrf
+                    <label for="search" class="text-sm hidden"> Search </label>
+                    <input name="search" id="search" class="form-control rounded-xl p-3 border-2 border-x-gray-500 " placeholder="Search wih AI" type="text">
+                </form> --}}
                 <div class="px-4">
                     <div class="font-medium text-base text-gray-800" x-data="{ name: '{{ auth()->user()->name }}' }" x-text="name"
                         x-on:profile-updated.window="name = $event.detail.name"></div>
@@ -140,14 +145,15 @@
                         {{ __('Profile') }}
                     </x-responsive-nav-link>
                     <!-- Authentication -->
-                    <button wire:click="logout" class="w-full text-start">
-                        <x-responsive-nav-link href="{{ route('logout') }}" @click.prevent="$root.submit();">
-                            {{ __('Log Out') }}
-                        </x-responsive-nav-link>
-
-                    </button>
+                <button wire:click="logout" class="w-full text-start">
+                    <x-responsive-nav-link>
+                        {{ __('Log Out') }}
+                    </x-responsive-nav-link>
+                </button>
                 </div>
             @else
+
+
                 <div class="px-4">
                     <div class="font-medium text-base text-gray-800">Guest</div>
                 </div>

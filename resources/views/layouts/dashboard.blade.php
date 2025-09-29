@@ -108,18 +108,30 @@
             }
         }
     </script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TJQZ8G6KGS"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-TJQZ8G6KGS');
+    </script>
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @livewireStyles
 </head>
 
 <body class="font-family" data-content-id="{{ $blog->id }}" data-content-type="{{ get_class($blog) }}">
-   @push('scripts')
-       <script>
-        window.contentTrackingEnabled = true;
-       </script>
-    @vite(['resources/js/content-tracking.js'])
-   @endpush
+    @push('scripts')
+        <script>
+            window.contentTrackingEnabled = true;
+        </script>
+        @vite(['resources/js/content-tracking.js'])
+    @endpush
     <x-banner />
 
     <div class="max-h-screen bg-gray-100">
@@ -143,7 +155,15 @@
 
 
 
-
+    <script src="https://www.dwin2.com/pub.2580697.min.js"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1920954764751411"
+        crossorigin="anonymous"></script>
+    <!-- Cutlery -->
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1920954764751411" data-ad-slot="3863684113"
+        data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
     <script src="{{ asset('/public/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js') }}"></script>
 
 

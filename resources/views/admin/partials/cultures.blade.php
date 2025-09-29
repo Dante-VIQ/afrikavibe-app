@@ -45,9 +45,9 @@
                                 <th>Clicks</th>
                             </tr>
                         </thead>
+                        <tbody>
                         @unless (count($cultures) == 0)
                             @foreach ($cultures as $culture)
-                                <tbody>
                                     <tr>
                                         <td>
                                             <div class="form-check form-check-flat mt-0">
@@ -90,10 +90,16 @@
                                                 In progress</div>
                                         </td>
                                     </tr>
-                                </tbody>
-                            @endforeach
 
-                        @endunless
+                                    @endforeach
+
+                                    @endunless
+                                    <tr>
+                                        <td>
+                                        <livewire:about-card />
+                                        </td>
+                                    </tr>
+                                </tbody>
                     </table>
                 </div>
             </div>

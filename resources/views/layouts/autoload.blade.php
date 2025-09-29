@@ -9,7 +9,7 @@
         content="Africa travel, African culture, African destinations, Explore Africa, travel blog, African art, African history, African cuisine.">
     <meta name="google-adsense-account" content="ca-pub-1920954764751411">
     <meta name="description"
-        content="Discover the rich tapestry of Africa's diverse cultures, breathtaking landscapes, and unique experiences. Explore top travel destinations, art, history, and cuisine on AfrikaVibe.">
+        content="Vumbi Ventures provides web development, SEO, and full travel support—guides, flight, hotel, and car bookings for seamless African adventures..">
 
     <meta name="google-adsense-account" content="ca-pub-1920954764751411">
     <!-- Logo and App Name at the top of the head visually -->
