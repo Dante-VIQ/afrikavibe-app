@@ -107,7 +107,7 @@ Route::get('/service', ServicePage::class);
 Route::get('/destination', function() {
     return view('destination');
 })->name('destination');
-Route::get('/doctor/{doctor}', ShowDoctor::class)->name('Partials.doctor');
+Route::get('doctor/{doctor}', ShowDoctor::class)->name('Partials.doctor');
 
 
 Route::get('/about', AboutPage::class);
@@ -128,7 +128,7 @@ Route::get('culture/{culture}', ShowCulture::class)->name('Partials.culture');
 //     return view('blog-lay');
 // })->name('blog-lay');
 
-Route::get('/blog/{blog}', ShowBlog::class)->name('Partials.blog');
+Route::get('blog/{blog}', ShowBlog::class)->name('Partials.blog');
 // Route::get('blogs', BlogPage::class);
 //  Route::get('/blog', BlogPage::class);
 Route::get('/blog', function() {
