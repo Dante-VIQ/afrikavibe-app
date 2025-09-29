@@ -17,7 +17,7 @@ class CreateHeaderMediaPost extends Component
     protected $rules = [
         'title' => 'nullable|string|max:255',
         'body' => 'nullable|string',
-        'media' => 'nullable|file|max:10240', // 10MB
+        'media' => 'nullable|file|max:20480', // 10MB
     ];
 
     // protected $listeners = ['openPostModal' => 'show'];
