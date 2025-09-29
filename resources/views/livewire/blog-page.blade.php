@@ -81,9 +81,9 @@
 
     </div>
     <div class="mt-12 text-center">
-        <a href="/blog"
+        <a href="/destination"
             class="inline-block bg-green-700 text-white px-6 py-3 rounded-full text-sm font-medium hover:bg-green-800 transition">
-            Read More Blogs
+            See our Destination package
         </a>
     </div>
 
