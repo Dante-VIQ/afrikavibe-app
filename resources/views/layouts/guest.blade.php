@@ -91,7 +91,11 @@
         <main>
             {{ $slot }}
             {{-- @livewire('spa-container') --}}
+    <div class="w-full flex justify-center my-4">
+        @include('layouts.partials.ads')
+    </div>
         </main>
+
 
         <div>
             <livewire:footer-card />
