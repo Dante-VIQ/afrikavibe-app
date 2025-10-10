@@ -6,11 +6,7 @@
     </div>
     {{-- partner --}}
     {{-- @include('partner.index') --}}
-    <div class="container-xxl py-5">
 
-        <x-advertisers />
-
-    </div>
     {{-- <!-- Header End --> --}}
 
     {{-- <!-- Service Start --> --}}
@@ -63,6 +59,13 @@
         caption="Kenya’s signature roasted meat, a dish that brings people together over laughter, stories, and spice."
         buttonText="Read More" buttonLink="/culture-cuisine/nyama-choma" /> --}}
 
+    <div class="container-xxl py-5">
+
+        <x-advertisers />
+
+    </div>
+
+
     <section class="container-xxl py-5 bg-white">
 
         <div class="mx-auto max-w-screen-sm text-center lg:mb-16 mb-8">
@@ -76,7 +79,9 @@
 
     </section>
 
-
+    <div class="w-full flex justify-center my-4">
+        @include('layouts.partials.ads')
+    </div>
 
     {{-- <!-- Appointment Start --> --}}
     {{-- <div class="container-xxl py-3">

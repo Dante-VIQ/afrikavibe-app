@@ -27,6 +27,7 @@ use App\Http\Controllers\ItemController;
 use Illuminate\Support\Facades\Response;
 use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\TrackingController;
+use App\Http\Controllers\AwinController;
 
 Route::get('/sitemap.xml', function () {
     $sitemap = Sitemap::create()
@@ -70,7 +71,7 @@ Route::get('/sitemap.xml', function () {
     return $sitemap->toResponse(request());
 });
 
- 
+
 
 
 Route::get('/robots.txt', function () {
@@ -135,6 +136,9 @@ Route::get('/blog', function() {
     return view('blog');
 })->name('blog');
 
+
+
+Route::get('/awin-products', [AwinController::class, 'index'])->name('components.advertisers');
 
 Route::post('track/view', [TrackingController::class, 'trackView']);
 

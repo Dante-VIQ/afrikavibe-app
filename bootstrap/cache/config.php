@@ -1265,6 +1265,11 @@
         'channel' => NULL,
       ),
     ),
+    'awin' => 
+    array (
+      'publisher_id' => '2580697',
+      'api_key' => '3154e104-7519-4113-911a-8edee157015c',
+    ),
   ),
   'session' => 
   array (

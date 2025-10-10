@@ -35,4 +35,9 @@ return [
         ],
     ],
 
+    'awin' => [
+    'publisher_id' => env('AWIN_PUBLISHER_ID'),
+    'api_key' => env('AWIN_API_KEY'),
+],
+
 ];
