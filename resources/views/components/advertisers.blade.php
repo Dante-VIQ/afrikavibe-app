@@ -15,7 +15,7 @@
                 </div>
             </div>
         @empty
-            <p>No products found.</p>
+            <p class="hidden">No products found.</p>
         @endforelse
  </div>
 
