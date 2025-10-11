@@ -11,7 +11,7 @@
     <meta name="description"
         content="Discover the rich tapestry of Africa's diverse cultures, breathtaking landscapes, and unique experiences. Explore top travel destinations, art, history, and cuisine on AfrikaVibe.">
 
-    {{-- <meta name="google-adsense-account" content="ca-pub-1920954764751411"> --}}
+ <meta name="google-adsense-account" content="ca-pub-1920954764751411">
     <!-- Logo and App Name at the top of the head visually -->
     <link rel="icon" href="{{ asset('img/logo1.png') }}" type="image/png">
     <link rel="apple-touch-icon" href="{{ asset('img/logo1.png') }}" type="image/png">
@@ -98,7 +98,11 @@
         <main>
             {{ $slot }}
             {{-- @livewire('spa-container') --}}
+    <div class="w-full flex justify-center my-4">
+        @include('layouts.partials.ads')
+    </div>
         </main>
+
 
         <div>
             <livewire:footer-card />
