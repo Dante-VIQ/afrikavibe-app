@@ -11,8 +11,7 @@
                     <p class="text-lg text-gray-600">
                         Adventure, Luxury, and Culture — your journey starts here.
                     </p>
-                    {{-- @include('livewire.appointment-form') --}}
-                    {{-- <livewire:appointment-form /> --}}
+
                 </div>
 
                 <!-- Right: Unique Social-Style Grid -->

@@ -34,11 +34,9 @@
 
     </div> --}}
 
+    {{-- @include('trip-planner.hotels') --}}
 
-    {{-- <!-- Service End --> --}}
     {{-- <!-- Destination Start --> --}}
-
-
     <div class="container-xxl py-5">
 
         <div class="text-center mx-auto mb-3 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
@@ -59,11 +57,11 @@
         caption="Kenya’s signature roasted meat, a dish that brings people together over laughter, stories, and spice."
         buttonText="Read More" buttonLink="/culture-cuisine/nyama-choma" /> --}}
 
-    <div class="container-xxl py-5">
+   {{-- <div class="container-xxl py-5">
 
         <x-advertisers />
 
-    </div>
+    </div>  --}}
 
 
     <section class="container-xxl py-5 bg-white">

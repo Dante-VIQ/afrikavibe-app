@@ -55,6 +55,14 @@
         }
     </script> --}}
 
+    <script data-noptimize="1" data-cfasync="false" data-wpfc-render="false">
+  (function () {
+      var script = document.createElement("script");
+      script.async = 1;
+      script.src = 'https://emrldtp.cc/NDY1NDg3.js?t=465487';
+      document.head.appendChild(script);
+  })();
+</script>
 <script>
     (function(h,o,t,j,a,r){
         h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
