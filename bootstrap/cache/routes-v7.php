@@ -400,7 +400,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::OFqPRizREwpscL4p',
+            '_route' => 'generated::fwFYS4UATOIjR6p5',
           ),
           1 => NULL,
           2 => 
@@ -538,7 +538,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::W3LbsfAsAE5iU2vh',
+            '_route' => 'generated::qR2AN05Hg8Jalsc6',
           ),
           1 => NULL,
           2 => 
@@ -558,7 +558,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::DA32rRtgIHkIKzY3',
+            '_route' => 'generated::L923fd86YSJWHVUt',
           ),
           1 => NULL,
           2 => 
@@ -591,569 +591,13 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      '/chatify' => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'chatify',
-          ),
-          1 => NULL,
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => false,
-          6 => NULL,
-        ),
-      ),
-      '/chatify/idInfo' => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'generated::dTo3cL3H5KYFYpKC',
-          ),
-          1 => NULL,
-          2 => 
-          array (
-            'POST' => 0,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => false,
-          6 => NULL,
-        ),
-      ),
-      '/chatify/sendMessage' => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'send.message',
-          ),
-          1 => NULL,
-          2 => 
-          array (
-            'POST' => 0,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => false,
-          6 => NULL,
-        ),
-      ),
-      '/chatify/fetchMessages' => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'fetch.messages',
-          ),
-          1 => NULL,
-          2 => 
-          array (
-            'POST' => 0,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => false,
-          6 => NULL,
-        ),
-      ),
-      '/chatify/chat/auth' => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'pusher.auth',
-          ),
-          1 => NULL,
-          2 => 
-          array (
-            'POST' => 0,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => false,
-          6 => NULL,
-        ),
-      ),
-      '/chatify/makeSeen' => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'messages.seen',
-          ),
-          1 => NULL,
-          2 => 
-          array (
-            'POST' => 0,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => false,
-          6 => NULL,
-        ),
-      ),
-      '/chatify/getContacts' => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'contacts.get',
-          ),
-          1 => NULL,
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => false,
-          6 => NULL,
-        ),
-      ),
-      '/chatify/updateContacts' => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'contacts.update',
-          ),
-          1 => NULL,
-          2 => 
-          array (
-            'POST' => 0,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => false,
-          6 => NULL,
-        ),
-      ),
-      '/chatify/star' => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'star',
-          ),
-          1 => NULL,
-          2 => 
-          array (
-            'POST' => 0,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => false,
-          6 => NULL,
-        ),
-      ),
-      '/chatify/favorites' => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'favorites',
-          ),
-          1 => NULL,
-          2 => 
-          array (
-            'POST' => 0,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => false,
-          6 => NULL,
-        ),
-      ),
-      '/chatify/search' => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'search',
-          ),
-          1 => NULL,
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => false,
-          6 => NULL,
-        ),
-      ),
-      '/chatify/shared' => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'shared',
-          ),
-          1 => NULL,
-          2 => 
-          array (
-            'POST' => 0,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => false,
-          6 => NULL,
-        ),
-      ),
-      '/chatify/deleteConversation' => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'conversation.delete',
-          ),
-          1 => NULL,
-          2 => 
-          array (
-            'POST' => 0,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => false,
-          6 => NULL,
-        ),
-      ),
-      '/chatify/deleteMessage' => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'message.delete',
-          ),
-          1 => NULL,
-          2 => 
-          array (
-            'POST' => 0,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => false,
-          6 => NULL,
-        ),
-      ),
-      '/chatify/updateSettings' => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'avatar.update',
-          ),
-          1 => NULL,
-          2 => 
-          array (
-            'POST' => 0,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => false,
-          6 => NULL,
-        ),
-      ),
-      '/chatify/setActiveStatus' => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'activeStatus.set',
-          ),
-          1 => NULL,
-          2 => 
-          array (
-            'POST' => 0,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => false,
-          6 => NULL,
-        ),
-      ),
-      '/chatify/api/chat/auth' => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'api.pusher.auth',
-          ),
-          1 => NULL,
-          2 => 
-          array (
-            'POST' => 0,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => false,
-          6 => NULL,
-        ),
-      ),
-      '/chatify/api/idInfo' => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'api.idInfo',
-          ),
-          1 => NULL,
-          2 => 
-          array (
-            'POST' => 0,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => false,
-          6 => NULL,
-        ),
-      ),
-      '/chatify/api/sendMessage' => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'api.send.message',
-          ),
-          1 => NULL,
-          2 => 
-          array (
-            'POST' => 0,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => false,
-          6 => NULL,
-        ),
-      ),
-      '/chatify/api/fetchMessages' => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'api.fetch.messages',
-          ),
-          1 => NULL,
-          2 => 
-          array (
-            'POST' => 0,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => false,
-          6 => NULL,
-        ),
-      ),
-      '/chatify/api/makeSeen' => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'api.messages.seen',
-          ),
-          1 => NULL,
-          2 => 
-          array (
-            'POST' => 0,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => false,
-          6 => NULL,
-        ),
-      ),
-      '/chatify/api/getContacts' => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'api.contacts.get',
-          ),
-          1 => NULL,
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => false,
-          6 => NULL,
-        ),
-      ),
-      '/chatify/api/star' => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'api.star',
-          ),
-          1 => NULL,
-          2 => 
-          array (
-            'POST' => 0,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => false,
-          6 => NULL,
-        ),
-      ),
-      '/chatify/api/favorites' => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'api.favorites',
-          ),
-          1 => NULL,
-          2 => 
-          array (
-            'POST' => 0,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => false,
-          6 => NULL,
-        ),
-      ),
-      '/chatify/api/search' => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'api.search',
-          ),
-          1 => NULL,
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => false,
-          6 => NULL,
-        ),
-      ),
-      '/chatify/api/shared' => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'api.shared',
-          ),
-          1 => NULL,
-          2 => 
-          array (
-            'POST' => 0,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => false,
-          6 => NULL,
-        ),
-      ),
-      '/chatify/api/deleteConversation' => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'api.conversation.delete',
-          ),
-          1 => NULL,
-          2 => 
-          array (
-            'POST' => 0,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => false,
-          6 => NULL,
-        ),
-      ),
-      '/chatify/api/updateSettings' => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'api.avatar.update',
-          ),
-          1 => NULL,
-          2 => 
-          array (
-            'POST' => 0,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => false,
-          6 => NULL,
-        ),
-      ),
-      '/chatify/api/setActiveStatus' => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'api.activeStatus.set',
-          ),
-          1 => NULL,
-          2 => 
-          array (
-            'POST' => 0,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => false,
-          6 => NULL,
-        ),
-      ),
       '/api/user' => 
       array (
         0 => 
         array (
           0 => 
           array (
-            '_route' => 'generated::tOmbDvlKuDtfxpgI',
+            '_route' => 'generated::XUROPUCaSsWHky3j',
           ),
           1 => NULL,
           2 => 
@@ -1173,7 +617,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::P1KLlgd8jLax3UmS',
+            '_route' => 'generated::8fKlDhCtJ5U1kgwf',
           ),
           1 => NULL,
           2 => 
@@ -1190,7 +634,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::AMezU9xItJeA7Rbc',
+            '_route' => 'generated::2tBl7ooenjIkUeht',
           ),
           1 => NULL,
           2 => 
@@ -1209,7 +653,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::maeqMMAYRCpwPdNd',
+            '_route' => 'generated::ZLHFF6Stc6elmMx8',
           ),
           1 => NULL,
           2 => 
@@ -1229,7 +673,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::IZGb1YG0NXJJT90o',
+            '_route' => 'generated::1zbOblI2xhNCwlQS',
           ),
           1 => NULL,
           2 => 
@@ -1249,7 +693,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::PP3RygYyLuGdWkRp',
+            '_route' => 'generated::hZcUvAYgqPHT366e',
           ),
           1 => NULL,
           2 => 
@@ -1269,7 +713,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::c8CUQHN1lr3Yu3Zh',
+            '_route' => 'generated::o2LPkiMn5VwrdWaq',
           ),
           1 => NULL,
           2 => 
@@ -1329,7 +773,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::P8MpdpoABBTaYtOD',
+            '_route' => 'generated::KkoWu6d19gZFfiXD',
           ),
           1 => NULL,
           2 => 
@@ -1369,7 +813,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::a4wYs2yOTjnV2x8I',
+            '_route' => 'generated::RcmBJHUJnBA4bOii',
           ),
           1 => NULL,
           2 => 
@@ -1389,7 +833,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::4WtCBdbWdnOjSsoi',
+            '_route' => 'generated::6iTmd1C1uNtoyHGb',
           ),
           1 => NULL,
           2 => 
@@ -1409,7 +853,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::qL4qp3MvHrUjWfKN',
+            '_route' => 'generated::2RQHZfjxPnOjyNeN',
           ),
           1 => NULL,
           2 => 
@@ -1463,6 +907,46 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
+      '/trip-planner' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'trip-planner.index',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/trip-planner/search' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'search',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
       '/awin-products' => 
       array (
         0 => 
@@ -1489,7 +973,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::Gp5ZqUnf6epgqgZN',
+            '_route' => 'generated::294lZoSjbDZ7zlP8',
           ),
           1 => NULL,
           2 => 
@@ -1564,7 +1048,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::BHZXr9VPoeGoKGEU',
+            '_route' => 'generated::dtHZeHIqH8Q0CdHZ',
           ),
           1 => NULL,
           2 => 
@@ -1584,7 +1068,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::bFIFihsSqkcAfkCz',
+            '_route' => 'generated::y4gnoehkuxMIgy9v',
           ),
           1 => NULL,
           2 => 
@@ -1604,7 +1088,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::xGLjriNiPxxlbgde',
+            '_route' => 'generated::3YFAQZfpGZO349ZK',
           ),
           1 => NULL,
           2 => 
@@ -1624,7 +1108,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::8f41oyccZVfl1Dhf',
+            '_route' => 'generated::6BqWzK8tcp8SVJ0I',
           ),
           1 => NULL,
           2 => 
@@ -1644,7 +1128,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::seZ2YfGXYl2SrzWq',
+            '_route' => 'generated::e0aTTGg9VNvuksTN',
           ),
           1 => NULL,
           2 => 
@@ -1664,7 +1148,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::ZwYJiPSkfsmVd0W2',
+            '_route' => 'generated::FzA0SuaOzg2cbMTO',
           ),
           1 => NULL,
           2 => 
@@ -1684,7 +1168,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::8RpvtstZOD4tu5A3',
+            '_route' => 'generated::ImEkkltH1gP7Case',
           ),
           1 => NULL,
           2 => 
@@ -1704,7 +1188,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::AtKB4QHdcft11ViH',
+            '_route' => 'generated::cTxkxoPuWz5q4OUj',
           ),
           1 => NULL,
           2 => 
@@ -1723,7 +1207,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::fVNlVHG6nKMzERfz',
+            '_route' => 'generated::6i4ejeZaXnJrSWo0',
           ),
           1 => NULL,
           2 => 
@@ -1760,7 +1244,7 @@ app('router')->setCompiledRoutes(
     ),
     2 => 
     array (
-      0 => '{^(?|/reset\\-password/([^/]++)(*:32)|/livewire/preview\\-file/([^/]++)(*:71)|/c(?|hatify/(?|download/([^/]++)(*:110)|group/([^/]++)(*:132)|([^/]++)(*:148)|api/download/([^/]++)(*:177))|ulture(?|/([^/]++)(*:204)|s/([^/]++)(?|/edit(*:230)|(*:238))))|/a(?|pi/comments/([^/]++)(?|/upvote(*:284)|(*:292))|bouts/([^/]++)(?|/edit(*:323)|(*:331)))|/doctor(?|/([^/]++)(*:360)|s/([^/]++)(?|/edit(*:386)|(*:394)))|/blog(?|/([^/]++)(*:421)|s/([^/]++)(?|/edit(*:447)|(*:455)))|/partners/([^/]++)(?|(*:486)|/(?|edit(*:502)|items(?|(*:518)|/(?|create(*:536)|([^/]++)(?|(*:555)|/edit(*:568)|(*:576)))|(*:586)))|(*:596))|/features/([^/]++)(?|/edit(*:631)|(*:639))|/s(?|ervices/([^/]++)(?|/edit(*:677)|(*:685))|torage/(.*)(*:705)))/?$}sDu',
+      0 => '{^(?|/reset\\-password/([^/]++)(*:32)|/livewire/preview\\-file/([^/]++)(*:71)|/a(?|pi/comments/([^/]++)(?|/upvote(*:113)|(*:121))|bouts/([^/]++)(?|/edit(*:152)|(*:160)))|/doctor(?|/([^/]++)(*:189)|s/([^/]++)(?|/edit(*:215)|(*:223)))|/culture(?|/([^/]++)(*:253)|s/([^/]++)(?|/edit(*:279)|(*:287)))|/blog(?|/([^/]++)(*:314)|s/([^/]++)(?|/edit(*:340)|(*:348)))|/partners/([^/]++)(?|(*:379)|/(?|edit(*:395)|items(?|(*:411)|/(?|create(*:429)|([^/]++)(?|(*:448)|/edit(*:461)|(*:469)))|(*:479)))|(*:489))|/features/([^/]++)(?|/edit(*:524)|(*:532))|/s(?|ervices/([^/]++)(?|/edit(*:570)|(*:578))|torage/(.*)(*:598)))/?$}sDu',
     ),
     3 => 
     array (
@@ -1810,192 +1294,13 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      110 => 
+      113 => 
       array (
         0 => 
         array (
           0 => 
           array (
-            '_route' => 'attachments.download',
-          ),
-          1 => 
-          array (
-            0 => 'fileName',
-          ),
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-      ),
-      132 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'group',
-          ),
-          1 => 
-          array (
-            0 => 'id',
-          ),
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-      ),
-      148 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'user',
-          ),
-          1 => 
-          array (
-            0 => 'id',
-          ),
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-      ),
-      177 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'api.attachments.download',
-          ),
-          1 => 
-          array (
-            0 => 'fileName',
-          ),
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-      ),
-      204 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'Partials.culture',
-          ),
-          1 => 
-          array (
-            0 => 'culture',
-          ),
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-      ),
-      230 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'generated::ZQIAttFYIOH32pZG',
-          ),
-          1 => 
-          array (
-            0 => 'culture',
-          ),
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => false,
-          6 => NULL,
-        ),
-      ),
-      238 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'generated::V29xvjEerFyJqAnM',
-          ),
-          1 => 
-          array (
-            0 => 'culture',
-          ),
-          2 => 
-          array (
-            'PUT' => 0,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-        1 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'generated::3pDrwP5KblhyvnKD',
-          ),
-          1 => 
-          array (
-            0 => 'culture',
-          ),
-          2 => 
-          array (
-            'DELETE' => 0,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-      ),
-      284 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'generated::Mq5d7UZrAUBNUFHF',
+            '_route' => 'generated::op4iVKJ2DiguO7FT',
           ),
           1 => 
           array (
@@ -2011,13 +1316,13 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      292 => 
+      121 => 
       array (
         0 => 
         array (
           0 => 
           array (
-            '_route' => 'generated::CAcIIghOIOLjIc24',
+            '_route' => 'generated::3AtqRACnSUPW8zs1',
           ),
           1 => 
           array (
@@ -2033,13 +1338,13 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      323 => 
+      152 => 
       array (
         0 => 
         array (
           0 => 
           array (
-            '_route' => 'generated::k1Jh9befZwS4Lur4',
+            '_route' => 'generated::gAcFCHVFoR6buNz8',
           ),
           1 => 
           array (
@@ -2056,13 +1361,13 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      331 => 
+      160 => 
       array (
         0 => 
         array (
           0 => 
           array (
-            '_route' => 'generated::tSn5wUAsM1KcDWr4',
+            '_route' => 'generated::zS7AbU4cj5OgoiVp',
           ),
           1 => 
           array (
@@ -2081,7 +1386,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::YO5YJbkOiERiR3ZL',
+            '_route' => 'generated::ndddElkskl6hQwV9',
           ),
           1 => 
           array (
@@ -2097,7 +1402,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      360 => 
+      189 => 
       array (
         0 => 
         array (
@@ -2120,13 +1425,13 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      386 => 
+      215 => 
       array (
         0 => 
         array (
           0 => 
           array (
-            '_route' => 'generated::tNcoJsbpeM6NXfhZ',
+            '_route' => 'generated::LE7fySIB82Vg6Dgd',
           ),
           1 => 
           array (
@@ -2143,13 +1448,13 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      394 => 
+      223 => 
       array (
         0 => 
         array (
           0 => 
           array (
-            '_route' => 'generated::psTj8JmH4Md9sCot',
+            '_route' => 'generated::JvTLzdBb5G7NPF2j',
           ),
           1 => 
           array (
@@ -2168,7 +1473,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::BKqxIVx5OxbF4FbE',
+            '_route' => 'generated::h4DEMHkGNHyPPwbM',
           ),
           1 => 
           array (
@@ -2184,7 +1489,94 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      421 => 
+      253 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'Partials.culture',
+          ),
+          1 => 
+          array (
+            0 => 'culture',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      279 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'generated::YjZYEJI90bqvGdPH',
+          ),
+          1 => 
+          array (
+            0 => 'culture',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      287 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'generated::2btStc0pEWFwbXwE',
+          ),
+          1 => 
+          array (
+            0 => 'culture',
+          ),
+          2 => 
+          array (
+            'PUT' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'generated::fkWTgNz4xVw7VBLv',
+          ),
+          1 => 
+          array (
+            0 => 'culture',
+          ),
+          2 => 
+          array (
+            'DELETE' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      314 => 
       array (
         0 => 
         array (
@@ -2207,13 +1599,13 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      447 => 
+      340 => 
       array (
         0 => 
         array (
           0 => 
           array (
-            '_route' => 'generated::2N5KWvVI8qjHmk32',
+            '_route' => 'generated::UU2LLnLlv1pD0DG4',
           ),
           1 => 
           array (
@@ -2230,13 +1622,13 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      455 => 
+      348 => 
       array (
         0 => 
         array (
           0 => 
           array (
-            '_route' => 'generated::AYqi9dN5BwexSQ5U',
+            '_route' => 'generated::5eLQncModaPISwxV',
           ),
           1 => 
           array (
@@ -2255,7 +1647,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::PPRDD24MgfJCn0JX',
+            '_route' => 'generated::GA1KmEuIH8O6inaP',
           ),
           1 => 
           array (
@@ -2271,7 +1663,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      486 => 
+      379 => 
       array (
         0 => 
         array (
@@ -2294,7 +1686,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      502 => 
+      395 => 
       array (
         0 => 
         array (
@@ -2317,7 +1709,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      518 => 
+      411 => 
       array (
         0 => 
         array (
@@ -2340,7 +1732,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      536 => 
+      429 => 
       array (
         0 => 
         array (
@@ -2363,7 +1755,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      555 => 
+      448 => 
       array (
         0 => 
         array (
@@ -2387,7 +1779,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      568 => 
+      461 => 
       array (
         0 => 
         array (
@@ -2411,7 +1803,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      576 => 
+      469 => 
       array (
         0 => 
         array (
@@ -2437,7 +1829,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::UOx6fDxKhDtFI6rM',
+            '_route' => 'generated::pboZMYL0ls2ZHZpg',
           ),
           1 => 
           array (
@@ -2474,7 +1866,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      586 => 
+      479 => 
       array (
         0 => 
         array (
@@ -2496,7 +1888,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      596 => 
+      489 => 
       array (
         0 => 
         array (
@@ -2521,7 +1913,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::sxMZmeHF6gP3BDRB',
+            '_route' => 'generated::BFihXDfHBxMH84MH',
           ),
           1 => 
           array (
@@ -2556,13 +1948,13 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      631 => 
+      524 => 
       array (
         0 => 
         array (
           0 => 
           array (
-            '_route' => 'generated::JDpysOTUxmiQHn6K',
+            '_route' => 'generated::IF2O9uYeNLQiEr3N',
           ),
           1 => 
           array (
@@ -2579,13 +1971,13 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      639 => 
+      532 => 
       array (
         0 => 
         array (
           0 => 
           array (
-            '_route' => 'generated::yQpUvHcUGkM6G9gK',
+            '_route' => 'generated::vxkoNZJGv6WYnMrN',
           ),
           1 => 
           array (
@@ -2604,7 +1996,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::7KYMQiH2zOW7O5vB',
+            '_route' => 'generated::OPPjk3kzj9jqP1MB',
           ),
           1 => 
           array (
@@ -2620,13 +2012,13 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      677 => 
+      570 => 
       array (
         0 => 
         array (
           0 => 
           array (
-            '_route' => 'generated::HcsIloxunDlYHzcw',
+            '_route' => 'generated::gwL6FsVlW8eJOk7C',
           ),
           1 => 
           array (
@@ -2643,13 +2035,13 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      685 => 
+      578 => 
       array (
         0 => 
         array (
           0 => 
           array (
-            '_route' => 'generated::heqZO26lytuyyLbg',
+            '_route' => 'generated::8yUDNHJwpm1xU9te',
           ),
           1 => 
           array (
@@ -2668,7 +2060,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::8ZUGez4EbcHhjBHa',
+            '_route' => 'generated::GSmqQXSpGERxAJ5y',
           ),
           1 => 
           array (
@@ -2684,7 +2076,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      705 => 
+      598 => 
       array (
         0 => 
         array (
@@ -3576,7 +2968,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::OFqPRizREwpscL4p' => 
+    'generated::fwFYS4UATOIjR6p5' => 
     array (
       'methods' => 
       array (
@@ -3599,7 +2991,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::OFqPRizREwpscL4p',
+        'as' => 'generated::fwFYS4UATOIjR6p5',
       ),
       'fallback' => false,
       'defaults' => 
@@ -3840,7 +3232,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::W3LbsfAsAE5iU2vh' => 
+    'generated::qR2AN05Hg8Jalsc6' => 
     array (
       'methods' => 
       array (
@@ -3852,7 +3244,7 @@ app('router')->setCompiledRoutes(
       array (
         'uses' => 'Livewire\\Mechanisms\\FrontendAssets\\FrontendAssets@returnJavaScriptAsFile',
         'controller' => 'Livewire\\Mechanisms\\FrontendAssets\\FrontendAssets@returnJavaScriptAsFile',
-        'as' => 'generated::W3LbsfAsAE5iU2vh',
+        'as' => 'generated::qR2AN05Hg8Jalsc6',
       ),
       'fallback' => false,
       'defaults' => 
@@ -3868,7 +3260,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::DA32rRtgIHkIKzY3' => 
+    'generated::L923fd86YSJWHVUt' => 
     array (
       'methods' => 
       array (
@@ -3880,7 +3272,7 @@ app('router')->setCompiledRoutes(
       array (
         'uses' => 'Livewire\\Mechanisms\\FrontendAssets\\FrontendAssets@maps',
         'controller' => 'Livewire\\Mechanisms\\FrontendAssets\\FrontendAssets@maps',
-        'as' => 'generated::DA32rRtgIHkIKzY3',
+        'as' => 'generated::L923fd86YSJWHVUt',
       ),
       'fallback' => false,
       'defaults' => 
@@ -3951,1223 +3343,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'chatify' => 
-    array (
-      'methods' => 
-      array (
-        0 => 'GET',
-        1 => 'HEAD',
-      ),
-      'uri' => 'chatify',
-      'action' => 
-      array (
-        'middleware' => 
-        array (
-          0 => 'web',
-          1 => 'auth',
-        ),
-        'uses' => 'Chatify\\Http\\Controllers\\MessagesController@index',
-        'controller' => 'Chatify\\Http\\Controllers\\MessagesController@index',
-        'namespace' => 'Chatify\\Http\\Controllers',
-        'prefix' => 'chatify',
-        'where' => 
-        array (
-        ),
-        'as' => 'chatify',
-      ),
-      'fallback' => false,
-      'defaults' => 
-      array (
-      ),
-      'wheres' => 
-      array (
-      ),
-      'bindingFields' => 
-      array (
-      ),
-      'lockSeconds' => NULL,
-      'waitSeconds' => NULL,
-      'withTrashed' => false,
-    ),
-    'generated::dTo3cL3H5KYFYpKC' => 
-    array (
-      'methods' => 
-      array (
-        0 => 'POST',
-      ),
-      'uri' => 'chatify/idInfo',
-      'action' => 
-      array (
-        'middleware' => 
-        array (
-          0 => 'web',
-          1 => 'auth',
-        ),
-        'uses' => 'Chatify\\Http\\Controllers\\MessagesController@idFetchData',
-        'controller' => 'Chatify\\Http\\Controllers\\MessagesController@idFetchData',
-        'namespace' => 'Chatify\\Http\\Controllers',
-        'prefix' => 'chatify',
-        'where' => 
-        array (
-        ),
-        'as' => 'generated::dTo3cL3H5KYFYpKC',
-      ),
-      'fallback' => false,
-      'defaults' => 
-      array (
-      ),
-      'wheres' => 
-      array (
-      ),
-      'bindingFields' => 
-      array (
-      ),
-      'lockSeconds' => NULL,
-      'waitSeconds' => NULL,
-      'withTrashed' => false,
-    ),
-    'send.message' => 
-    array (
-      'methods' => 
-      array (
-        0 => 'POST',
-      ),
-      'uri' => 'chatify/sendMessage',
-      'action' => 
-      array (
-        'middleware' => 
-        array (
-          0 => 'web',
-          1 => 'auth',
-        ),
-        'uses' => 'Chatify\\Http\\Controllers\\MessagesController@send',
-        'controller' => 'Chatify\\Http\\Controllers\\MessagesController@send',
-        'namespace' => 'Chatify\\Http\\Controllers',
-        'prefix' => 'chatify',
-        'where' => 
-        array (
-        ),
-        'as' => 'send.message',
-      ),
-      'fallback' => false,
-      'defaults' => 
-      array (
-      ),
-      'wheres' => 
-      array (
-      ),
-      'bindingFields' => 
-      array (
-      ),
-      'lockSeconds' => NULL,
-      'waitSeconds' => NULL,
-      'withTrashed' => false,
-    ),
-    'fetch.messages' => 
-    array (
-      'methods' => 
-      array (
-        0 => 'POST',
-      ),
-      'uri' => 'chatify/fetchMessages',
-      'action' => 
-      array (
-        'middleware' => 
-        array (
-          0 => 'web',
-          1 => 'auth',
-        ),
-        'uses' => 'Chatify\\Http\\Controllers\\MessagesController@fetch',
-        'controller' => 'Chatify\\Http\\Controllers\\MessagesController@fetch',
-        'namespace' => 'Chatify\\Http\\Controllers',
-        'prefix' => 'chatify',
-        'where' => 
-        array (
-        ),
-        'as' => 'fetch.messages',
-      ),
-      'fallback' => false,
-      'defaults' => 
-      array (
-      ),
-      'wheres' => 
-      array (
-      ),
-      'bindingFields' => 
-      array (
-      ),
-      'lockSeconds' => NULL,
-      'waitSeconds' => NULL,
-      'withTrashed' => false,
-    ),
-    'attachments.download' => 
-    array (
-      'methods' => 
-      array (
-        0 => 'GET',
-        1 => 'HEAD',
-      ),
-      'uri' => 'chatify/download/{fileName}',
-      'action' => 
-      array (
-        'middleware' => 
-        array (
-          0 => 'web',
-          1 => 'auth',
-        ),
-        'uses' => 'Chatify\\Http\\Controllers\\MessagesController@download',
-        'controller' => 'Chatify\\Http\\Controllers\\MessagesController@download',
-        'namespace' => 'Chatify\\Http\\Controllers',
-        'prefix' => 'chatify',
-        'where' => 
-        array (
-        ),
-        'as' => 'attachments.download',
-      ),
-      'fallback' => false,
-      'defaults' => 
-      array (
-      ),
-      'wheres' => 
-      array (
-      ),
-      'bindingFields' => 
-      array (
-      ),
-      'lockSeconds' => NULL,
-      'waitSeconds' => NULL,
-      'withTrashed' => false,
-    ),
-    'pusher.auth' => 
-    array (
-      'methods' => 
-      array (
-        0 => 'POST',
-      ),
-      'uri' => 'chatify/chat/auth',
-      'action' => 
-      array (
-        'middleware' => 
-        array (
-          0 => 'web',
-          1 => 'auth',
-        ),
-        'uses' => 'Chatify\\Http\\Controllers\\MessagesController@pusherAuth',
-        'controller' => 'Chatify\\Http\\Controllers\\MessagesController@pusherAuth',
-        'namespace' => 'Chatify\\Http\\Controllers',
-        'prefix' => 'chatify',
-        'where' => 
-        array (
-        ),
-        'as' => 'pusher.auth',
-      ),
-      'fallback' => false,
-      'defaults' => 
-      array (
-      ),
-      'wheres' => 
-      array (
-      ),
-      'bindingFields' => 
-      array (
-      ),
-      'lockSeconds' => NULL,
-      'waitSeconds' => NULL,
-      'withTrashed' => false,
-    ),
-    'messages.seen' => 
-    array (
-      'methods' => 
-      array (
-        0 => 'POST',
-      ),
-      'uri' => 'chatify/makeSeen',
-      'action' => 
-      array (
-        'middleware' => 
-        array (
-          0 => 'web',
-          1 => 'auth',
-        ),
-        'uses' => 'Chatify\\Http\\Controllers\\MessagesController@seen',
-        'controller' => 'Chatify\\Http\\Controllers\\MessagesController@seen',
-        'namespace' => 'Chatify\\Http\\Controllers',
-        'prefix' => 'chatify',
-        'where' => 
-        array (
-        ),
-        'as' => 'messages.seen',
-      ),
-      'fallback' => false,
-      'defaults' => 
-      array (
-      ),
-      'wheres' => 
-      array (
-      ),
-      'bindingFields' => 
-      array (
-      ),
-      'lockSeconds' => NULL,
-      'waitSeconds' => NULL,
-      'withTrashed' => false,
-    ),
-    'contacts.get' => 
-    array (
-      'methods' => 
-      array (
-        0 => 'GET',
-        1 => 'HEAD',
-      ),
-      'uri' => 'chatify/getContacts',
-      'action' => 
-      array (
-        'middleware' => 
-        array (
-          0 => 'web',
-          1 => 'auth',
-        ),
-        'uses' => 'Chatify\\Http\\Controllers\\MessagesController@getContacts',
-        'controller' => 'Chatify\\Http\\Controllers\\MessagesController@getContacts',
-        'namespace' => 'Chatify\\Http\\Controllers',
-        'prefix' => 'chatify',
-        'where' => 
-        array (
-        ),
-        'as' => 'contacts.get',
-      ),
-      'fallback' => false,
-      'defaults' => 
-      array (
-      ),
-      'wheres' => 
-      array (
-      ),
-      'bindingFields' => 
-      array (
-      ),
-      'lockSeconds' => NULL,
-      'waitSeconds' => NULL,
-      'withTrashed' => false,
-    ),
-    'contacts.update' => 
-    array (
-      'methods' => 
-      array (
-        0 => 'POST',
-      ),
-      'uri' => 'chatify/updateContacts',
-      'action' => 
-      array (
-        'middleware' => 
-        array (
-          0 => 'web',
-          1 => 'auth',
-        ),
-        'uses' => 'Chatify\\Http\\Controllers\\MessagesController@updateContactItem',
-        'controller' => 'Chatify\\Http\\Controllers\\MessagesController@updateContactItem',
-        'namespace' => 'Chatify\\Http\\Controllers',
-        'prefix' => 'chatify',
-        'where' => 
-        array (
-        ),
-        'as' => 'contacts.update',
-      ),
-      'fallback' => false,
-      'defaults' => 
-      array (
-      ),
-      'wheres' => 
-      array (
-      ),
-      'bindingFields' => 
-      array (
-      ),
-      'lockSeconds' => NULL,
-      'waitSeconds' => NULL,
-      'withTrashed' => false,
-    ),
-    'star' => 
-    array (
-      'methods' => 
-      array (
-        0 => 'POST',
-      ),
-      'uri' => 'chatify/star',
-      'action' => 
-      array (
-        'middleware' => 
-        array (
-          0 => 'web',
-          1 => 'auth',
-        ),
-        'uses' => 'Chatify\\Http\\Controllers\\MessagesController@favorite',
-        'controller' => 'Chatify\\Http\\Controllers\\MessagesController@favorite',
-        'namespace' => 'Chatify\\Http\\Controllers',
-        'prefix' => 'chatify',
-        'where' => 
-        array (
-        ),
-        'as' => 'star',
-      ),
-      'fallback' => false,
-      'defaults' => 
-      array (
-      ),
-      'wheres' => 
-      array (
-      ),
-      'bindingFields' => 
-      array (
-      ),
-      'lockSeconds' => NULL,
-      'waitSeconds' => NULL,
-      'withTrashed' => false,
-    ),
-    'favorites' => 
-    array (
-      'methods' => 
-      array (
-        0 => 'POST',
-      ),
-      'uri' => 'chatify/favorites',
-      'action' => 
-      array (
-        'middleware' => 
-        array (
-          0 => 'web',
-          1 => 'auth',
-        ),
-        'uses' => 'Chatify\\Http\\Controllers\\MessagesController@getFavorites',
-        'controller' => 'Chatify\\Http\\Controllers\\MessagesController@getFavorites',
-        'namespace' => 'Chatify\\Http\\Controllers',
-        'prefix' => 'chatify',
-        'where' => 
-        array (
-        ),
-        'as' => 'favorites',
-      ),
-      'fallback' => false,
-      'defaults' => 
-      array (
-      ),
-      'wheres' => 
-      array (
-      ),
-      'bindingFields' => 
-      array (
-      ),
-      'lockSeconds' => NULL,
-      'waitSeconds' => NULL,
-      'withTrashed' => false,
-    ),
-    'search' => 
-    array (
-      'methods' => 
-      array (
-        0 => 'GET',
-        1 => 'HEAD',
-      ),
-      'uri' => 'chatify/search',
-      'action' => 
-      array (
-        'middleware' => 
-        array (
-          0 => 'web',
-          1 => 'auth',
-        ),
-        'uses' => 'Chatify\\Http\\Controllers\\MessagesController@search',
-        'controller' => 'Chatify\\Http\\Controllers\\MessagesController@search',
-        'namespace' => 'Chatify\\Http\\Controllers',
-        'prefix' => 'chatify',
-        'where' => 
-        array (
-        ),
-        'as' => 'search',
-      ),
-      'fallback' => false,
-      'defaults' => 
-      array (
-      ),
-      'wheres' => 
-      array (
-      ),
-      'bindingFields' => 
-      array (
-      ),
-      'lockSeconds' => NULL,
-      'waitSeconds' => NULL,
-      'withTrashed' => false,
-    ),
-    'shared' => 
-    array (
-      'methods' => 
-      array (
-        0 => 'POST',
-      ),
-      'uri' => 'chatify/shared',
-      'action' => 
-      array (
-        'middleware' => 
-        array (
-          0 => 'web',
-          1 => 'auth',
-        ),
-        'uses' => 'Chatify\\Http\\Controllers\\MessagesController@sharedPhotos',
-        'controller' => 'Chatify\\Http\\Controllers\\MessagesController@sharedPhotos',
-        'namespace' => 'Chatify\\Http\\Controllers',
-        'prefix' => 'chatify',
-        'where' => 
-        array (
-        ),
-        'as' => 'shared',
-      ),
-      'fallback' => false,
-      'defaults' => 
-      array (
-      ),
-      'wheres' => 
-      array (
-      ),
-      'bindingFields' => 
-      array (
-      ),
-      'lockSeconds' => NULL,
-      'waitSeconds' => NULL,
-      'withTrashed' => false,
-    ),
-    'conversation.delete' => 
-    array (
-      'methods' => 
-      array (
-        0 => 'POST',
-      ),
-      'uri' => 'chatify/deleteConversation',
-      'action' => 
-      array (
-        'middleware' => 
-        array (
-          0 => 'web',
-          1 => 'auth',
-        ),
-        'uses' => 'Chatify\\Http\\Controllers\\MessagesController@deleteConversation',
-        'controller' => 'Chatify\\Http\\Controllers\\MessagesController@deleteConversation',
-        'namespace' => 'Chatify\\Http\\Controllers',
-        'prefix' => 'chatify',
-        'where' => 
-        array (
-        ),
-        'as' => 'conversation.delete',
-      ),
-      'fallback' => false,
-      'defaults' => 
-      array (
-      ),
-      'wheres' => 
-      array (
-      ),
-      'bindingFields' => 
-      array (
-      ),
-      'lockSeconds' => NULL,
-      'waitSeconds' => NULL,
-      'withTrashed' => false,
-    ),
-    'message.delete' => 
-    array (
-      'methods' => 
-      array (
-        0 => 'POST',
-      ),
-      'uri' => 'chatify/deleteMessage',
-      'action' => 
-      array (
-        'middleware' => 
-        array (
-          0 => 'web',
-          1 => 'auth',
-        ),
-        'uses' => 'Chatify\\Http\\Controllers\\MessagesController@deleteMessage',
-        'controller' => 'Chatify\\Http\\Controllers\\MessagesController@deleteMessage',
-        'namespace' => 'Chatify\\Http\\Controllers',
-        'prefix' => 'chatify',
-        'where' => 
-        array (
-        ),
-        'as' => 'message.delete',
-      ),
-      'fallback' => false,
-      'defaults' => 
-      array (
-      ),
-      'wheres' => 
-      array (
-      ),
-      'bindingFields' => 
-      array (
-      ),
-      'lockSeconds' => NULL,
-      'waitSeconds' => NULL,
-      'withTrashed' => false,
-    ),
-    'avatar.update' => 
-    array (
-      'methods' => 
-      array (
-        0 => 'POST',
-      ),
-      'uri' => 'chatify/updateSettings',
-      'action' => 
-      array (
-        'middleware' => 
-        array (
-          0 => 'web',
-          1 => 'auth',
-        ),
-        'uses' => 'Chatify\\Http\\Controllers\\MessagesController@updateSettings',
-        'controller' => 'Chatify\\Http\\Controllers\\MessagesController@updateSettings',
-        'namespace' => 'Chatify\\Http\\Controllers',
-        'prefix' => 'chatify',
-        'where' => 
-        array (
-        ),
-        'as' => 'avatar.update',
-      ),
-      'fallback' => false,
-      'defaults' => 
-      array (
-      ),
-      'wheres' => 
-      array (
-      ),
-      'bindingFields' => 
-      array (
-      ),
-      'lockSeconds' => NULL,
-      'waitSeconds' => NULL,
-      'withTrashed' => false,
-    ),
-    'activeStatus.set' => 
-    array (
-      'methods' => 
-      array (
-        0 => 'POST',
-      ),
-      'uri' => 'chatify/setActiveStatus',
-      'action' => 
-      array (
-        'middleware' => 
-        array (
-          0 => 'web',
-          1 => 'auth',
-        ),
-        'uses' => 'Chatify\\Http\\Controllers\\MessagesController@setActiveStatus',
-        'controller' => 'Chatify\\Http\\Controllers\\MessagesController@setActiveStatus',
-        'namespace' => 'Chatify\\Http\\Controllers',
-        'prefix' => 'chatify',
-        'where' => 
-        array (
-        ),
-        'as' => 'activeStatus.set',
-      ),
-      'fallback' => false,
-      'defaults' => 
-      array (
-      ),
-      'wheres' => 
-      array (
-      ),
-      'bindingFields' => 
-      array (
-      ),
-      'lockSeconds' => NULL,
-      'waitSeconds' => NULL,
-      'withTrashed' => false,
-    ),
-    'group' => 
-    array (
-      'methods' => 
-      array (
-        0 => 'GET',
-        1 => 'HEAD',
-      ),
-      'uri' => 'chatify/group/{id}',
-      'action' => 
-      array (
-        'middleware' => 
-        array (
-          0 => 'web',
-          1 => 'auth',
-        ),
-        'uses' => 'Chatify\\Http\\Controllers\\MessagesController@index',
-        'controller' => 'Chatify\\Http\\Controllers\\MessagesController@index',
-        'namespace' => 'Chatify\\Http\\Controllers',
-        'prefix' => 'chatify',
-        'where' => 
-        array (
-        ),
-        'as' => 'group',
-      ),
-      'fallback' => false,
-      'defaults' => 
-      array (
-      ),
-      'wheres' => 
-      array (
-      ),
-      'bindingFields' => 
-      array (
-      ),
-      'lockSeconds' => NULL,
-      'waitSeconds' => NULL,
-      'withTrashed' => false,
-    ),
-    'user' => 
-    array (
-      'methods' => 
-      array (
-        0 => 'GET',
-        1 => 'HEAD',
-      ),
-      'uri' => 'chatify/{id}',
-      'action' => 
-      array (
-        'middleware' => 
-        array (
-          0 => 'web',
-          1 => 'auth',
-        ),
-        'uses' => 'Chatify\\Http\\Controllers\\MessagesController@index',
-        'controller' => 'Chatify\\Http\\Controllers\\MessagesController@index',
-        'namespace' => 'Chatify\\Http\\Controllers',
-        'prefix' => 'chatify',
-        'where' => 
-        array (
-        ),
-        'as' => 'user',
-      ),
-      'fallback' => false,
-      'defaults' => 
-      array (
-      ),
-      'wheres' => 
-      array (
-      ),
-      'bindingFields' => 
-      array (
-      ),
-      'lockSeconds' => NULL,
-      'waitSeconds' => NULL,
-      'withTrashed' => false,
-    ),
-    'api.pusher.auth' => 
-    array (
-      'methods' => 
-      array (
-        0 => 'POST',
-      ),
-      'uri' => 'chatify/api/chat/auth',
-      'action' => 
-      array (
-        'middleware' => 
-        array (
-          0 => 'api',
-        ),
-        'uses' => 'Chatify\\Http\\Controllers\\Api\\MessagesController@pusherAuth',
-        'controller' => 'Chatify\\Http\\Controllers\\Api\\MessagesController@pusherAuth',
-        'namespace' => 'Chatify\\Http\\Controllers\\Api',
-        'prefix' => 'chatify/api',
-        'where' => 
-        array (
-        ),
-        'as' => 'api.pusher.auth',
-      ),
-      'fallback' => false,
-      'defaults' => 
-      array (
-      ),
-      'wheres' => 
-      array (
-      ),
-      'bindingFields' => 
-      array (
-      ),
-      'lockSeconds' => NULL,
-      'waitSeconds' => NULL,
-      'withTrashed' => false,
-    ),
-    'api.idInfo' => 
-    array (
-      'methods' => 
-      array (
-        0 => 'POST',
-      ),
-      'uri' => 'chatify/api/idInfo',
-      'action' => 
-      array (
-        'middleware' => 
-        array (
-          0 => 'api',
-        ),
-        'uses' => 'Chatify\\Http\\Controllers\\Api\\MessagesController@idFetchData',
-        'controller' => 'Chatify\\Http\\Controllers\\Api\\MessagesController@idFetchData',
-        'namespace' => 'Chatify\\Http\\Controllers\\Api',
-        'prefix' => 'chatify/api',
-        'where' => 
-        array (
-        ),
-        'as' => 'api.idInfo',
-      ),
-      'fallback' => false,
-      'defaults' => 
-      array (
-      ),
-      'wheres' => 
-      array (
-      ),
-      'bindingFields' => 
-      array (
-      ),
-      'lockSeconds' => NULL,
-      'waitSeconds' => NULL,
-      'withTrashed' => false,
-    ),
-    'api.send.message' => 
-    array (
-      'methods' => 
-      array (
-        0 => 'POST',
-      ),
-      'uri' => 'chatify/api/sendMessage',
-      'action' => 
-      array (
-        'middleware' => 
-        array (
-          0 => 'api',
-        ),
-        'uses' => 'Chatify\\Http\\Controllers\\Api\\MessagesController@send',
-        'controller' => 'Chatify\\Http\\Controllers\\Api\\MessagesController@send',
-        'namespace' => 'Chatify\\Http\\Controllers\\Api',
-        'prefix' => 'chatify/api',
-        'where' => 
-        array (
-        ),
-        'as' => 'api.send.message',
-      ),
-      'fallback' => false,
-      'defaults' => 
-      array (
-      ),
-      'wheres' => 
-      array (
-      ),
-      'bindingFields' => 
-      array (
-      ),
-      'lockSeconds' => NULL,
-      'waitSeconds' => NULL,
-      'withTrashed' => false,
-    ),
-    'api.fetch.messages' => 
-    array (
-      'methods' => 
-      array (
-        0 => 'POST',
-      ),
-      'uri' => 'chatify/api/fetchMessages',
-      'action' => 
-      array (
-        'middleware' => 
-        array (
-          0 => 'api',
-        ),
-        'uses' => 'Chatify\\Http\\Controllers\\Api\\MessagesController@fetch',
-        'controller' => 'Chatify\\Http\\Controllers\\Api\\MessagesController@fetch',
-        'namespace' => 'Chatify\\Http\\Controllers\\Api',
-        'prefix' => 'chatify/api',
-        'where' => 
-        array (
-        ),
-        'as' => 'api.fetch.messages',
-      ),
-      'fallback' => false,
-      'defaults' => 
-      array (
-      ),
-      'wheres' => 
-      array (
-      ),
-      'bindingFields' => 
-      array (
-      ),
-      'lockSeconds' => NULL,
-      'waitSeconds' => NULL,
-      'withTrashed' => false,
-    ),
-    'api.attachments.download' => 
-    array (
-      'methods' => 
-      array (
-        0 => 'GET',
-        1 => 'HEAD',
-      ),
-      'uri' => 'chatify/api/download/{fileName}',
-      'action' => 
-      array (
-        'middleware' => 
-        array (
-          0 => 'api',
-        ),
-        'uses' => 'Chatify\\Http\\Controllers\\Api\\MessagesController@download',
-        'controller' => 'Chatify\\Http\\Controllers\\Api\\MessagesController@download',
-        'namespace' => 'Chatify\\Http\\Controllers\\Api',
-        'prefix' => 'chatify/api',
-        'where' => 
-        array (
-        ),
-        'as' => 'api.attachments.download',
-      ),
-      'fallback' => false,
-      'defaults' => 
-      array (
-      ),
-      'wheres' => 
-      array (
-      ),
-      'bindingFields' => 
-      array (
-      ),
-      'lockSeconds' => NULL,
-      'waitSeconds' => NULL,
-      'withTrashed' => false,
-    ),
-    'api.messages.seen' => 
-    array (
-      'methods' => 
-      array (
-        0 => 'POST',
-      ),
-      'uri' => 'chatify/api/makeSeen',
-      'action' => 
-      array (
-        'middleware' => 
-        array (
-          0 => 'api',
-        ),
-        'uses' => 'Chatify\\Http\\Controllers\\Api\\MessagesController@seen',
-        'controller' => 'Chatify\\Http\\Controllers\\Api\\MessagesController@seen',
-        'namespace' => 'Chatify\\Http\\Controllers\\Api',
-        'prefix' => 'chatify/api',
-        'where' => 
-        array (
-        ),
-        'as' => 'api.messages.seen',
-      ),
-      'fallback' => false,
-      'defaults' => 
-      array (
-      ),
-      'wheres' => 
-      array (
-      ),
-      'bindingFields' => 
-      array (
-      ),
-      'lockSeconds' => NULL,
-      'waitSeconds' => NULL,
-      'withTrashed' => false,
-    ),
-    'api.contacts.get' => 
-    array (
-      'methods' => 
-      array (
-        0 => 'GET',
-        1 => 'HEAD',
-      ),
-      'uri' => 'chatify/api/getContacts',
-      'action' => 
-      array (
-        'middleware' => 
-        array (
-          0 => 'api',
-        ),
-        'uses' => 'Chatify\\Http\\Controllers\\Api\\MessagesController@getContacts',
-        'controller' => 'Chatify\\Http\\Controllers\\Api\\MessagesController@getContacts',
-        'namespace' => 'Chatify\\Http\\Controllers\\Api',
-        'prefix' => 'chatify/api',
-        'where' => 
-        array (
-        ),
-        'as' => 'api.contacts.get',
-      ),
-      'fallback' => false,
-      'defaults' => 
-      array (
-      ),
-      'wheres' => 
-      array (
-      ),
-      'bindingFields' => 
-      array (
-      ),
-      'lockSeconds' => NULL,
-      'waitSeconds' => NULL,
-      'withTrashed' => false,
-    ),
-    'api.star' => 
-    array (
-      'methods' => 
-      array (
-        0 => 'POST',
-      ),
-      'uri' => 'chatify/api/star',
-      'action' => 
-      array (
-        'middleware' => 
-        array (
-          0 => 'api',
-        ),
-        'uses' => 'Chatify\\Http\\Controllers\\Api\\MessagesController@favorite',
-        'controller' => 'Chatify\\Http\\Controllers\\Api\\MessagesController@favorite',
-        'namespace' => 'Chatify\\Http\\Controllers\\Api',
-        'prefix' => 'chatify/api',
-        'where' => 
-        array (
-        ),
-        'as' => 'api.star',
-      ),
-      'fallback' => false,
-      'defaults' => 
-      array (
-      ),
-      'wheres' => 
-      array (
-      ),
-      'bindingFields' => 
-      array (
-      ),
-      'lockSeconds' => NULL,
-      'waitSeconds' => NULL,
-      'withTrashed' => false,
-    ),
-    'api.favorites' => 
-    array (
-      'methods' => 
-      array (
-        0 => 'POST',
-      ),
-      'uri' => 'chatify/api/favorites',
-      'action' => 
-      array (
-        'middleware' => 
-        array (
-          0 => 'api',
-        ),
-        'uses' => 'Chatify\\Http\\Controllers\\Api\\MessagesController@getFavorites',
-        'controller' => 'Chatify\\Http\\Controllers\\Api\\MessagesController@getFavorites',
-        'namespace' => 'Chatify\\Http\\Controllers\\Api',
-        'prefix' => 'chatify/api',
-        'where' => 
-        array (
-        ),
-        'as' => 'api.favorites',
-      ),
-      'fallback' => false,
-      'defaults' => 
-      array (
-      ),
-      'wheres' => 
-      array (
-      ),
-      'bindingFields' => 
-      array (
-      ),
-      'lockSeconds' => NULL,
-      'waitSeconds' => NULL,
-      'withTrashed' => false,
-    ),
-    'api.search' => 
-    array (
-      'methods' => 
-      array (
-        0 => 'GET',
-        1 => 'HEAD',
-      ),
-      'uri' => 'chatify/api/search',
-      'action' => 
-      array (
-        'middleware' => 
-        array (
-          0 => 'api',
-        ),
-        'uses' => 'Chatify\\Http\\Controllers\\Api\\MessagesController@search',
-        'controller' => 'Chatify\\Http\\Controllers\\Api\\MessagesController@search',
-        'namespace' => 'Chatify\\Http\\Controllers\\Api',
-        'prefix' => 'chatify/api',
-        'where' => 
-        array (
-        ),
-        'as' => 'api.search',
-      ),
-      'fallback' => false,
-      'defaults' => 
-      array (
-      ),
-      'wheres' => 
-      array (
-      ),
-      'bindingFields' => 
-      array (
-      ),
-      'lockSeconds' => NULL,
-      'waitSeconds' => NULL,
-      'withTrashed' => false,
-    ),
-    'api.shared' => 
-    array (
-      'methods' => 
-      array (
-        0 => 'POST',
-      ),
-      'uri' => 'chatify/api/shared',
-      'action' => 
-      array (
-        'middleware' => 
-        array (
-          0 => 'api',
-        ),
-        'uses' => 'Chatify\\Http\\Controllers\\Api\\MessagesController@sharedPhotos',
-        'controller' => 'Chatify\\Http\\Controllers\\Api\\MessagesController@sharedPhotos',
-        'namespace' => 'Chatify\\Http\\Controllers\\Api',
-        'prefix' => 'chatify/api',
-        'where' => 
-        array (
-        ),
-        'as' => 'api.shared',
-      ),
-      'fallback' => false,
-      'defaults' => 
-      array (
-      ),
-      'wheres' => 
-      array (
-      ),
-      'bindingFields' => 
-      array (
-      ),
-      'lockSeconds' => NULL,
-      'waitSeconds' => NULL,
-      'withTrashed' => false,
-    ),
-    'api.conversation.delete' => 
-    array (
-      'methods' => 
-      array (
-        0 => 'POST',
-      ),
-      'uri' => 'chatify/api/deleteConversation',
-      'action' => 
-      array (
-        'middleware' => 
-        array (
-          0 => 'api',
-        ),
-        'uses' => 'Chatify\\Http\\Controllers\\Api\\MessagesController@deleteConversation',
-        'controller' => 'Chatify\\Http\\Controllers\\Api\\MessagesController@deleteConversation',
-        'namespace' => 'Chatify\\Http\\Controllers\\Api',
-        'prefix' => 'chatify/api',
-        'where' => 
-        array (
-        ),
-        'as' => 'api.conversation.delete',
-      ),
-      'fallback' => false,
-      'defaults' => 
-      array (
-      ),
-      'wheres' => 
-      array (
-      ),
-      'bindingFields' => 
-      array (
-      ),
-      'lockSeconds' => NULL,
-      'waitSeconds' => NULL,
-      'withTrashed' => false,
-    ),
-    'api.avatar.update' => 
-    array (
-      'methods' => 
-      array (
-        0 => 'POST',
-      ),
-      'uri' => 'chatify/api/updateSettings',
-      'action' => 
-      array (
-        'middleware' => 
-        array (
-          0 => 'api',
-        ),
-        'uses' => 'Chatify\\Http\\Controllers\\Api\\MessagesController@updateSettings',
-        'controller' => 'Chatify\\Http\\Controllers\\Api\\MessagesController@updateSettings',
-        'namespace' => 'Chatify\\Http\\Controllers\\Api',
-        'prefix' => 'chatify/api',
-        'where' => 
-        array (
-        ),
-        'as' => 'api.avatar.update',
-      ),
-      'fallback' => false,
-      'defaults' => 
-      array (
-      ),
-      'wheres' => 
-      array (
-      ),
-      'bindingFields' => 
-      array (
-      ),
-      'lockSeconds' => NULL,
-      'waitSeconds' => NULL,
-      'withTrashed' => false,
-    ),
-    'api.activeStatus.set' => 
-    array (
-      'methods' => 
-      array (
-        0 => 'POST',
-      ),
-      'uri' => 'chatify/api/setActiveStatus',
-      'action' => 
-      array (
-        'middleware' => 
-        array (
-          0 => 'api',
-        ),
-        'uses' => 'Chatify\\Http\\Controllers\\Api\\MessagesController@setActiveStatus',
-        'controller' => 'Chatify\\Http\\Controllers\\Api\\MessagesController@setActiveStatus',
-        'namespace' => 'Chatify\\Http\\Controllers\\Api',
-        'prefix' => 'chatify/api',
-        'where' => 
-        array (
-        ),
-        'as' => 'api.activeStatus.set',
-      ),
-      'fallback' => false,
-      'defaults' => 
-      array (
-      ),
-      'wheres' => 
-      array (
-      ),
-      'bindingFields' => 
-      array (
-      ),
-      'lockSeconds' => NULL,
-      'waitSeconds' => NULL,
-      'withTrashed' => false,
-    ),
-    'generated::tOmbDvlKuDtfxpgI' => 
+    'generated::XUROPUCaSsWHky3j' => 
     array (
       'methods' => 
       array (
@@ -5190,13 +3366,13 @@ app('router')->setCompiledRoutes(
         \'email\' => $user?->email,
         \'avatar_url\' => $user?->avatar_url ?? null
     ]);
-}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000000009b70000000000000000";}}',
+}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000000009490000000000000000";}}',
         'namespace' => NULL,
         'prefix' => 'api',
         'where' => 
         array (
         ),
-        'as' => 'generated::tOmbDvlKuDtfxpgI',
+        'as' => 'generated::XUROPUCaSsWHky3j',
       ),
       'fallback' => false,
       'defaults' => 
@@ -5212,7 +3388,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::P1KLlgd8jLax3UmS' => 
+    'generated::8fKlDhCtJ5U1kgwf' => 
     array (
       'methods' => 
       array (
@@ -5246,13 +3422,13 @@ app('router')->setCompiledRoutes(
     ->get();
 
     return \\response()->json($comments);
-}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000000009b60000000000000000";}}',
+}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000000009480000000000000000";}}',
         'namespace' => NULL,
         'prefix' => 'api',
         'where' => 
         array (
         ),
-        'as' => 'generated::P1KLlgd8jLax3UmS',
+        'as' => 'generated::8fKlDhCtJ5U1kgwf',
       ),
       'fallback' => false,
       'defaults' => 
@@ -5268,7 +3444,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::AMezU9xItJeA7Rbc' => 
+    'generated::2tBl7ooenjIkUeht' => 
     array (
       'methods' => 
       array (
@@ -5299,13 +3475,13 @@ app('router')->setCompiledRoutes(
     ]);
 
     return \\response()->json($comment->load(\'user\'));
-}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000000009bb0000000000000000";}}',
+}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"000000000000094d0000000000000000";}}',
         'namespace' => NULL,
         'prefix' => 'api',
         'where' => 
         array (
         ),
-        'as' => 'generated::AMezU9xItJeA7Rbc',
+        'as' => 'generated::2tBl7ooenjIkUeht',
       ),
       'fallback' => false,
       'defaults' => 
@@ -5321,7 +3497,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::Mq5d7UZrAUBNUFHF' => 
+    'generated::op4iVKJ2DiguO7FT' => 
     array (
       'methods' => 
       array (
@@ -5347,13 +3523,13 @@ app('router')->setCompiledRoutes(
         $status = \'added\';
     }
     return \\response()->json([\'status\' => $status, \'upvotes\' => $comment->upvotes()->count()]);
-}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000000009bd0000000000000000";}}',
+}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"000000000000094f0000000000000000";}}',
         'namespace' => NULL,
         'prefix' => 'api',
         'where' => 
         array (
         ),
-        'as' => 'generated::Mq5d7UZrAUBNUFHF',
+        'as' => 'generated::op4iVKJ2DiguO7FT',
       ),
       'fallback' => false,
       'defaults' => 
@@ -5369,7 +3545,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::CAcIIghOIOLjIc24' => 
+    'generated::3AtqRACnSUPW8zs1' => 
     array (
       'methods' => 
       array (
@@ -5390,13 +3566,13 @@ app('router')->setCompiledRoutes(
     }
     $comment->delete();
     return \\response()->json([\'status\' => \'deleted\']);
-}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000000009bf0000000000000000";}}',
+}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000000009510000000000000000";}}',
         'namespace' => NULL,
         'prefix' => 'api',
         'where' => 
         array (
         ),
-        'as' => 'generated::CAcIIghOIOLjIc24',
+        'as' => 'generated::3AtqRACnSUPW8zs1',
       ),
       'fallback' => false,
       'defaults' => 
@@ -5412,7 +3588,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::maeqMMAYRCpwPdNd' => 
+    'generated::ZLHFF6Stc6elmMx8' => 
     array (
       'methods' => 
       array (
@@ -5440,8 +3616,8 @@ app('router')->setCompiledRoutes(
                     return response(\\Illuminate\\Support\\Facades\\View::file(\'D:\\\\Git\\\\htdocs\\\\AfrikaVibe\\\\afrikavibe-app\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Foundation\\\\Configuration\'.\'/../resources/health-up.blade.php\', [
                         \'exception\' => $exception,
                     ]), status: $exception ? 500 : 200);
-                }";s:5:"scope";s:54:"Illuminate\\Foundation\\Configuration\\ApplicationBuilder";s:4:"this";N;s:4:"self";s:32:"00000000000009b40000000000000000";}}',
-        'as' => 'generated::maeqMMAYRCpwPdNd',
+                }";s:5:"scope";s:54:"Illuminate\\Foundation\\Configuration\\ApplicationBuilder";s:4:"this";N;s:4:"self";s:32:"00000000000009460000000000000000";}}',
+        'as' => 'generated::ZLHFF6Stc6elmMx8',
       ),
       'fallback' => false,
       'defaults' => 
@@ -5457,7 +3633,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::IZGb1YG0NXJJT90o' => 
+    'generated::1zbOblI2xhNCwlQS' => 
     array (
       'methods' => 
       array (
@@ -5511,13 +3687,13 @@ app('router')->setCompiledRoutes(
     $sitemap->writeToFile(\\public_path(\'sitemap.xml\'));
 
     return $sitemap->toResponse(\\request());
-}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000000009c30000000000000000";}}',
+}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000000009550000000000000000";}}',
         'namespace' => NULL,
         'prefix' => '',
         'where' => 
         array (
         ),
-        'as' => 'generated::IZGb1YG0NXJJT90o',
+        'as' => 'generated::1zbOblI2xhNCwlQS',
       ),
       'fallback' => false,
       'defaults' => 
@@ -5533,7 +3709,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::PP3RygYyLuGdWkRp' => 
+    'generated::hZcUvAYgqPHT366e' => 
     array (
       'methods' => 
       array (
@@ -5561,13 +3737,13 @@ app('router')->setCompiledRoutes(
     return \\Illuminate\\Support\\Facades\\Response::make($content, 200, [
         \'Content-Type\' => \'text/plain\',
     ]);
-}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000000009c50000000000000000";}}',
+}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000000009570000000000000000";}}',
         'namespace' => NULL,
         'prefix' => '',
         'where' => 
         array (
         ),
-        'as' => 'generated::PP3RygYyLuGdWkRp',
+        'as' => 'generated::hZcUvAYgqPHT366e',
       ),
       'fallback' => false,
       'defaults' => 
@@ -5583,7 +3759,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::c8CUQHN1lr3Yu3Zh' => 
+    'generated::o2LPkiMn5VwrdWaq' => 
     array (
       'methods' => 
       array (
@@ -5604,7 +3780,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::c8CUQHN1lr3Yu3Zh',
+        'as' => 'generated::o2LPkiMn5VwrdWaq',
       ),
       'fallback' => false,
       'defaults' => 
@@ -5721,7 +3897,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::P8MpdpoABBTaYtOD' => 
+    'generated::KkoWu6d19gZFfiXD' => 
     array (
       'methods' => 
       array (
@@ -5742,7 +3918,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::P8MpdpoABBTaYtOD',
+        'as' => 'generated::KkoWu6d19gZFfiXD',
       ),
       'fallback' => false,
       'defaults' => 
@@ -5774,7 +3950,7 @@ app('router')->setCompiledRoutes(
         ),
         'uses' => 'O:55:"Laravel\\SerializableClosure\\UnsignedSerializableClosure":1:{s:12:"serializable";O:46:"Laravel\\SerializableClosure\\Serializers\\Native":5:{s:3:"use";a:0:{}s:8:"function";s:47:"function() {
     return \\view(\'destination\');
-}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000000009cb0000000000000000";}}',
+}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"000000000000095d0000000000000000";}}',
         'namespace' => NULL,
         'prefix' => '',
         'where' => 
@@ -5833,7 +4009,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::a4wYs2yOTjnV2x8I' => 
+    'generated::RcmBJHUJnBA4bOii' => 
     array (
       'methods' => 
       array (
@@ -5854,7 +4030,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::a4wYs2yOTjnV2x8I',
+        'as' => 'generated::RcmBJHUJnBA4bOii',
       ),
       'fallback' => false,
       'defaults' => 
@@ -5870,7 +4046,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::4WtCBdbWdnOjSsoi' => 
+    'generated::6iTmd1C1uNtoyHGb' => 
     array (
       'methods' => 
       array (
@@ -5891,7 +4067,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::4WtCBdbWdnOjSsoi',
+        'as' => 'generated::6iTmd1C1uNtoyHGb',
       ),
       'fallback' => false,
       'defaults' => 
@@ -5907,7 +4083,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::qL4qp3MvHrUjWfKN' => 
+    'generated::2RQHZfjxPnOjyNeN' => 
     array (
       'methods' => 
       array (
@@ -5928,7 +4104,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::qL4qp3MvHrUjWfKN',
+        'as' => 'generated::2RQHZfjxPnOjyNeN',
       ),
       'fallback' => false,
       'defaults' => 
@@ -5960,7 +4136,7 @@ app('router')->setCompiledRoutes(
         ),
         'uses' => 'O:55:"Laravel\\SerializableClosure\\UnsignedSerializableClosure":1:{s:12:"serializable";O:46:"Laravel\\SerializableClosure\\Serializers\\Native":5:{s:3:"use";a:0:{}s:8:"function";s:39:"function() {
     return \\view(\'art\');
-}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000000009d10000000000000000";}}',
+}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000000009630000000000000000";}}',
         'namespace' => NULL,
         'prefix' => '',
         'where' => 
@@ -6072,13 +4248,88 @@ app('router')->setCompiledRoutes(
         ),
         'uses' => 'O:55:"Laravel\\SerializableClosure\\UnsignedSerializableClosure":1:{s:12:"serializable";O:46:"Laravel\\SerializableClosure\\Serializers\\Native":5:{s:3:"use";a:0:{}s:8:"function";s:40:"function() {
     return \\view(\'blog\');
-}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000000009d50000000000000000";}}',
+}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000000009670000000000000000";}}',
         'namespace' => NULL,
         'prefix' => '',
         'where' => 
         array (
         ),
         'as' => 'blog',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'trip-planner.index' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'trip-planner',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'O:55:"Laravel\\SerializableClosure\\UnsignedSerializableClosure":1:{s:12:"serializable";O:46:"Laravel\\SerializableClosure\\Serializers\\Native":5:{s:3:"use";a:0:{}s:8:"function";s:54:"function() {
+    return \\view(\'trip-planner.index\');
+}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000000009690000000000000000";}}',
+        'namespace' => NULL,
+        'prefix' => '',
+        'where' => 
+        array (
+        ),
+        'as' => 'trip-planner.index',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'search' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'trip-planner/search',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\TripPlannerController@search',
+        'controller' => 'App\\Http\\Controllers\\TripPlannerController@search',
+        'namespace' => NULL,
+        'prefix' => '',
+        'where' => 
+        array (
+        ),
+        'as' => 'search',
       ),
       'fallback' => false,
       'defaults' => 
@@ -6131,7 +4382,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::Gp5ZqUnf6epgqgZN' => 
+    'generated::294lZoSjbDZ7zlP8' => 
     array (
       'methods' => 
       array (
@@ -6151,7 +4402,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::Gp5ZqUnf6epgqgZN',
+        'as' => 'generated::294lZoSjbDZ7zlP8',
       ),
       'fallback' => false,
       'defaults' => 
@@ -6387,7 +4638,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::sxMZmeHF6gP3BDRB' => 
+    'generated::BFihXDfHBxMH84MH' => 
     array (
       'methods' => 
       array (
@@ -6407,7 +4658,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::sxMZmeHF6gP3BDRB',
+        'as' => 'generated::BFihXDfHBxMH84MH',
       ),
       'fallback' => false,
       'defaults' => 
@@ -6679,7 +4930,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::UOx6fDxKhDtFI6rM' => 
+    'generated::pboZMYL0ls2ZHZpg' => 
     array (
       'methods' => 
       array (
@@ -6699,7 +4950,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::UOx6fDxKhDtFI6rM',
+        'as' => 'generated::pboZMYL0ls2ZHZpg',
       ),
       'fallback' => false,
       'defaults' => 
@@ -6751,7 +5002,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::BHZXr9VPoeGoKGEU' => 
+    'generated::dtHZeHIqH8Q0CdHZ' => 
     array (
       'methods' => 
       array (
@@ -6772,7 +5023,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::BHZXr9VPoeGoKGEU',
+        'as' => 'generated::dtHZeHIqH8Q0CdHZ',
       ),
       'fallback' => false,
       'defaults' => 
@@ -6788,7 +5039,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::bFIFihsSqkcAfkCz' => 
+    'generated::y4gnoehkuxMIgy9v' => 
     array (
       'methods' => 
       array (
@@ -6809,7 +5060,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::bFIFihsSqkcAfkCz',
+        'as' => 'generated::y4gnoehkuxMIgy9v',
       ),
       'fallback' => false,
       'defaults' => 
@@ -6825,7 +5076,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::xGLjriNiPxxlbgde' => 
+    'generated::3YFAQZfpGZO349ZK' => 
     array (
       'methods' => 
       array (
@@ -6846,7 +5097,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::xGLjriNiPxxlbgde',
+        'as' => 'generated::3YFAQZfpGZO349ZK',
       ),
       'fallback' => false,
       'defaults' => 
@@ -6862,7 +5113,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::k1Jh9befZwS4Lur4' => 
+    'generated::gAcFCHVFoR6buNz8' => 
     array (
       'methods' => 
       array (
@@ -6883,7 +5134,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::k1Jh9befZwS4Lur4',
+        'as' => 'generated::gAcFCHVFoR6buNz8',
       ),
       'fallback' => false,
       'defaults' => 
@@ -6899,7 +5150,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::tSn5wUAsM1KcDWr4' => 
+    'generated::zS7AbU4cj5OgoiVp' => 
     array (
       'methods' => 
       array (
@@ -6919,7 +5170,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::tSn5wUAsM1KcDWr4',
+        'as' => 'generated::zS7AbU4cj5OgoiVp',
       ),
       'fallback' => false,
       'defaults' => 
@@ -6935,7 +5186,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::YO5YJbkOiERiR3ZL' => 
+    'generated::ndddElkskl6hQwV9' => 
     array (
       'methods' => 
       array (
@@ -6955,7 +5206,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::YO5YJbkOiERiR3ZL',
+        'as' => 'generated::ndddElkskl6hQwV9',
       ),
       'fallback' => false,
       'defaults' => 
@@ -6971,7 +5222,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::8f41oyccZVfl1Dhf' => 
+    'generated::6BqWzK8tcp8SVJ0I' => 
     array (
       'methods' => 
       array (
@@ -6992,7 +5243,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::8f41oyccZVfl1Dhf',
+        'as' => 'generated::6BqWzK8tcp8SVJ0I',
       ),
       'fallback' => false,
       'defaults' => 
@@ -7008,7 +5259,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::2N5KWvVI8qjHmk32' => 
+    'generated::UU2LLnLlv1pD0DG4' => 
     array (
       'methods' => 
       array (
@@ -7029,7 +5280,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::2N5KWvVI8qjHmk32',
+        'as' => 'generated::UU2LLnLlv1pD0DG4',
       ),
       'fallback' => false,
       'defaults' => 
@@ -7045,7 +5296,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::AYqi9dN5BwexSQ5U' => 
+    'generated::5eLQncModaPISwxV' => 
     array (
       'methods' => 
       array (
@@ -7065,7 +5316,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::AYqi9dN5BwexSQ5U',
+        'as' => 'generated::5eLQncModaPISwxV',
       ),
       'fallback' => false,
       'defaults' => 
@@ -7081,7 +5332,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::PPRDD24MgfJCn0JX' => 
+    'generated::GA1KmEuIH8O6inaP' => 
     array (
       'methods' => 
       array (
@@ -7101,7 +5352,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::PPRDD24MgfJCn0JX',
+        'as' => 'generated::GA1KmEuIH8O6inaP',
       ),
       'fallback' => false,
       'defaults' => 
@@ -7117,7 +5368,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::seZ2YfGXYl2SrzWq' => 
+    'generated::e0aTTGg9VNvuksTN' => 
     array (
       'methods' => 
       array (
@@ -7138,7 +5389,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::seZ2YfGXYl2SrzWq',
+        'as' => 'generated::e0aTTGg9VNvuksTN',
       ),
       'fallback' => false,
       'defaults' => 
@@ -7154,7 +5405,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::JDpysOTUxmiQHn6K' => 
+    'generated::IF2O9uYeNLQiEr3N' => 
     array (
       'methods' => 
       array (
@@ -7175,7 +5426,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::JDpysOTUxmiQHn6K',
+        'as' => 'generated::IF2O9uYeNLQiEr3N',
       ),
       'fallback' => false,
       'defaults' => 
@@ -7191,7 +5442,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::yQpUvHcUGkM6G9gK' => 
+    'generated::vxkoNZJGv6WYnMrN' => 
     array (
       'methods' => 
       array (
@@ -7211,7 +5462,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::yQpUvHcUGkM6G9gK',
+        'as' => 'generated::vxkoNZJGv6WYnMrN',
       ),
       'fallback' => false,
       'defaults' => 
@@ -7227,7 +5478,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::7KYMQiH2zOW7O5vB' => 
+    'generated::OPPjk3kzj9jqP1MB' => 
     array (
       'methods' => 
       array (
@@ -7247,7 +5498,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::7KYMQiH2zOW7O5vB',
+        'as' => 'generated::OPPjk3kzj9jqP1MB',
       ),
       'fallback' => false,
       'defaults' => 
@@ -7263,7 +5514,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::HcsIloxunDlYHzcw' => 
+    'generated::gwL6FsVlW8eJOk7C' => 
     array (
       'methods' => 
       array (
@@ -7284,7 +5535,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::HcsIloxunDlYHzcw',
+        'as' => 'generated::gwL6FsVlW8eJOk7C',
       ),
       'fallback' => false,
       'defaults' => 
@@ -7300,7 +5551,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::heqZO26lytuyyLbg' => 
+    'generated::8yUDNHJwpm1xU9te' => 
     array (
       'methods' => 
       array (
@@ -7320,7 +5571,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::heqZO26lytuyyLbg',
+        'as' => 'generated::8yUDNHJwpm1xU9te',
       ),
       'fallback' => false,
       'defaults' => 
@@ -7336,7 +5587,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::8ZUGez4EbcHhjBHa' => 
+    'generated::GSmqQXSpGERxAJ5y' => 
     array (
       'methods' => 
       array (
@@ -7356,7 +5607,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::8ZUGez4EbcHhjBHa',
+        'as' => 'generated::GSmqQXSpGERxAJ5y',
       ),
       'fallback' => false,
       'defaults' => 
@@ -7372,7 +5623,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::ZwYJiPSkfsmVd0W2' => 
+    'generated::FzA0SuaOzg2cbMTO' => 
     array (
       'methods' => 
       array (
@@ -7393,7 +5644,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::ZwYJiPSkfsmVd0W2',
+        'as' => 'generated::FzA0SuaOzg2cbMTO',
       ),
       'fallback' => false,
       'defaults' => 
@@ -7409,7 +5660,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::ZQIAttFYIOH32pZG' => 
+    'generated::YjZYEJI90bqvGdPH' => 
     array (
       'methods' => 
       array (
@@ -7430,7 +5681,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::ZQIAttFYIOH32pZG',
+        'as' => 'generated::YjZYEJI90bqvGdPH',
       ),
       'fallback' => false,
       'defaults' => 
@@ -7446,7 +5697,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::V29xvjEerFyJqAnM' => 
+    'generated::2btStc0pEWFwbXwE' => 
     array (
       'methods' => 
       array (
@@ -7466,7 +5717,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::V29xvjEerFyJqAnM',
+        'as' => 'generated::2btStc0pEWFwbXwE',
       ),
       'fallback' => false,
       'defaults' => 
@@ -7482,7 +5733,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::3pDrwP5KblhyvnKD' => 
+    'generated::fkWTgNz4xVw7VBLv' => 
     array (
       'methods' => 
       array (
@@ -7502,7 +5753,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::3pDrwP5KblhyvnKD',
+        'as' => 'generated::fkWTgNz4xVw7VBLv',
       ),
       'fallback' => false,
       'defaults' => 
@@ -7518,7 +5769,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::8RpvtstZOD4tu5A3' => 
+    'generated::ImEkkltH1gP7Case' => 
     array (
       'methods' => 
       array (
@@ -7539,7 +5790,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::8RpvtstZOD4tu5A3',
+        'as' => 'generated::ImEkkltH1gP7Case',
       ),
       'fallback' => false,
       'defaults' => 
@@ -7555,7 +5806,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::tNcoJsbpeM6NXfhZ' => 
+    'generated::LE7fySIB82Vg6Dgd' => 
     array (
       'methods' => 
       array (
@@ -7576,7 +5827,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::tNcoJsbpeM6NXfhZ',
+        'as' => 'generated::LE7fySIB82Vg6Dgd',
       ),
       'fallback' => false,
       'defaults' => 
@@ -7592,7 +5843,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::psTj8JmH4Md9sCot' => 
+    'generated::JvTLzdBb5G7NPF2j' => 
     array (
       'methods' => 
       array (
@@ -7612,7 +5863,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::psTj8JmH4Md9sCot',
+        'as' => 'generated::JvTLzdBb5G7NPF2j',
       ),
       'fallback' => false,
       'defaults' => 
@@ -7628,7 +5879,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::BKqxIVx5OxbF4FbE' => 
+    'generated::h4DEMHkGNHyPPwbM' => 
     array (
       'methods' => 
       array (
@@ -7648,7 +5899,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::BKqxIVx5OxbF4FbE',
+        'as' => 'generated::h4DEMHkGNHyPPwbM',
       ),
       'fallback' => false,
       'defaults' => 
@@ -7664,7 +5915,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::AtKB4QHdcft11ViH' => 
+    'generated::cTxkxoPuWz5q4OUj' => 
     array (
       'methods' => 
       array (
@@ -7684,7 +5935,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::AtKB4QHdcft11ViH',
+        'as' => 'generated::cTxkxoPuWz5q4OUj',
       ),
       'fallback' => false,
       'defaults' => 
@@ -7700,7 +5951,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::fVNlVHG6nKMzERfz' => 
+    'generated::6i4ejeZaXnJrSWo0' => 
     array (
       'methods' => 
       array (
@@ -7721,7 +5972,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::fVNlVHG6nKMzERfz',
+        'as' => 'generated::6i4ejeZaXnJrSWo0',
       ),
       'fallback' => false,
       'defaults' => 
@@ -7790,7 +6041,7 @@ app('router')->setCompiledRoutes(
                         $config,
                         $isProduction
                     ))($request, $path);
-                }";s:5:"scope";s:47:"Illuminate\\Filesystem\\FilesystemServiceProvider";s:4:"this";N;s:4:"self";s:32:"0000000000000a050000000000000000";}}',
+                }";s:5:"scope";s:47:"Illuminate\\Filesystem\\FilesystemServiceProvider";s:4:"this";N;s:4:"self";s:32:"000000000000099a0000000000000000";}}',
         'as' => 'storage.local',
       ),
       'fallback' => false,

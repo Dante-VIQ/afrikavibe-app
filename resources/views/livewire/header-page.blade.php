@@ -8,18 +8,19 @@
                     <h1 class="text-4xl font-extrabold text-gray-900 mb-4">
                         Explore Africa Your Way
                     </h1>
-                    <p class="text-lg text-gray-600">
-                        Adventure, Luxury, and Culture — your journey starts here.
+                    <p class="text-md italic text-gray-600">
+                        Adventure, Luxury, and Culture, Your journey starts here.
                     </p>
 
+                    @Include('Partials._search')
                 </div>
 
                 <!-- Right: Unique Social-Style Grid -->
-               
+
                 {{-- image/video slider --}}
                 <div>
 
-                    <livewire:header-media-feed />  
+                    <livewire:header-media-feed />
                 </div>
 
             </div>

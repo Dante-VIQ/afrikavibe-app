@@ -137,9 +137,10 @@ Route::get('/blog', function() {
     return view('blog');
 })->name('blog');
 
-
-Route::get('/plan-a-trip', [TripPlannerController::class, 'searchHotels'])->name('plan.trip');
-
+Route::get('/trip-planner', function() {
+    return view('trip-planner.index');
+})->name('trip-planner.index');
+Route::get('/trip-planner/search', [TripPlannerController::class, 'search'])->name('search');
 
 Route::get('/awin-products', [AwinController::class, 'index'])->name('components.advertisers');
 

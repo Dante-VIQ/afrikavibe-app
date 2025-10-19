@@ -1,24 +1,20 @@
-<script>
-    function search() {
-        const query = document.getElementById('searchQuery').value;
+<div class="mt-10 p-4 bg-gray-100 shadow rounded-2xl">
+    <h1 class="text-2xl font-bold text-center mb-4">Plan Your Trip</h1>
 
-        fetch('/search', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'X-CSRF-TOKEN': '{{ csrf_token() }}'
-            },
-            body: JSON.stringify({ query })
-        })
-        .then(response => response.json())
-        .then(data => {
-            let resultsHtml = '';
+    <form action="{{ route('search') }}" method="get" class="flex flex-col gap-4">
+        <input type="text" name="query" placeholder="Enter city or Destination.." class="border border-gray-600 p-3 rounded-xl"
+            required >
 
-            data.results.forEach(result => {
-                resultsHtml += '<div class="mt-2 p-2 border rounded">${result.title}</div>';
-            });
+        <select name="budject" class="border p-3 rounded-xl">
+            <option value="">All Budgets</option>
+            <option value="budget">Budget Friendly</option>
+            <option value="moderate">Moderate</option>
+            <option value="luxury">Luxury</option>
 
-            document.getElementById('searchResults').innerHTML = resultsHtml;
-        });
-    }
-</script>
+        </select>
+
+        <button type="submit" class="bg-green-600 hover:bg-green-700 text-gray-100 font-semibold py-2 px-6 rounded-xl">
+            Find Place
+        </button>
+    </form>
+</div>

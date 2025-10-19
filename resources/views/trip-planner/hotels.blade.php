@@ -1,5 +1,9 @@
+ @if(!empty($hotels))
  <div class="max-w-6xl mx-auto py-4">
-        <h1 class="text-2xl font-bold mb-6 text-center">Plan a Trip - Find Your Stay</h1>
+            <h2 class="text-xl font-bold mb-4">
+        Hotels near "{{ $query }}" 
+        @if($budget) ({{ ucfirst($budget) }} stays) @endif
+    </h2>
 
         <div class="grid md:grid-cols-3 gap-6">
             @foreach ($hotels as $hotel)
@@ -23,4 +27,9 @@
             @endforeach
         </div>
     </div>
-
+@else
+    <div class="max-w-4xl mx-auto py-10 text-center">
+        <h2 class="text-2xl font-bold mb-4">No Hotels Found</h2>
+        <p class="text-gray-600">We couldn't find any hotels matching your criteria. Please try adjusting your search.</p>
+    </div>
+    @endif

@@ -34,7 +34,7 @@
 
     </div> --}}
 
-    {{-- @include('trip-planner.hotels') --}}
+    {{-- @include('trip-planner.results') --}}
 
     {{-- <!-- Destination Start --> --}}
     <div class="container-xxl py-5">
