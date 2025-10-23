@@ -17,7 +17,7 @@
                     <x-nav-link wire:click="$emit('navigateTo', 'dashboard')" href="/dashboard" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
-                    <x-nav-link wire:click="$emit('navigateTo', 'doctors')" href="doctors" :active="request()->routeIs('doctors')">
+                    <x-nav-link wire:click="$emit('navigateTo', 'destination')" href="destination" :active="request()->routeIs('doctors')">
                         {{ __('Destinations') }}
                     </x-nav-link>
                     <x-nav-link wire:click="$emit('navigateTo', 'art')" href="/art" :active="request()->routeIs('art')">
