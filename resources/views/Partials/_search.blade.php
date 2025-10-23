@@ -1,7 +1,7 @@
-<div class="mt-10 p-4 bg-gray-100 shadow rounded-2xl">
+<div class="max-w-7xl mx-auto mt-10 p-4 bg-gray-100 shadow rounded-2xl">
     <h1 class="text-2xl font-bold text-center mb-4">Plan Your Trip</h1>
 
-    <form action="{{ route('search') }}" method="get" class="flex flex-col gap-4">
+    <form action="{{ route('showResults') }}" method="get" class="flex flex-col gap-4">
         <input type="text" name="query" placeholder="Enter city or Destination.." class="border border-gray-600 p-3 rounded-xl"
             required >
 

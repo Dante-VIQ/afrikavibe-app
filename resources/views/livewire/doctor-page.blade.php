@@ -1,4 +1,10 @@
 <div wire:key="{ $doctor->id }">
+
+    @push('scripts')
+        <script async
+            src="https://tpscr.com/content?currency=usd&trs=465487&shmarker=677991&locale=en&powered_by=true&limit=4&primary_color=00AE98&results_background_color=FFFFFF&form_background_color=FFFFFF&promo_id=4563&campaign_id=111"
+            charset="utf-8"></script>
+    @endpush
     <section class="bg-white px-4 mx-auto max-w-screen-xl text-center lg:py-8 lg:px-6">
         <!-- Full Page Skeleton Loader (shown during Livewire loading) -->
         <div class="w-full min-h-screen bg-gray-200 dark:bg-gray-800 animate-pulse fixed inset-0 z-50" wire:loading.flex>
@@ -28,8 +34,8 @@
             @unless (count($doctors) == 0)
                 @foreach ($doctors as $doctor)
                     <x-destination-card wire:loading.remove>
-                    
-    @include('livewire.includes.doctor-show')
+
+                        @include('livewire.includes.doctor-show')
                     </x-destination-card>
                 @endforeach
             @else

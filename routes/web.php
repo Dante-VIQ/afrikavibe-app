@@ -20,14 +20,16 @@ use App\Livewire\DoctorsCard;
 use App\Livewire\ServicePage;
 use App\Livewire\ShowCulture;
 use App\Livewire\CommentModal;
+use App\Livewire\SearchResults;
 use App\Livewire\AppontmentPage;
 use App\Livewire\AnalysisDashboard;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AwinController;
 use App\Http\Controllers\ItemController;
 use Illuminate\Support\Facades\Response;
 use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\TrackingController;
-use App\Http\Controllers\AwinController;
+use App\Http\Controllers\Api\BookingController;
 use App\Http\Controllers\TripPlannerController;
 
 Route::get('/sitemap.xml', function () {
@@ -137,10 +139,10 @@ Route::get('/blog', function() {
     return view('blog');
 })->name('blog');
 
-Route::get('/trip-planner', function() {
-    return view('trip-planner.index');
-})->name('trip-planner.index');
-Route::get('/trip-planner/search', [TripPlannerController::class, 'search'])->name('search');
+Route::get('/trip/results', SearchResults::class)->name('trip.results'); // accepts q as query param
+
+// API route for AJAX (optional)
+Route::get('/api/search', [BookingController::class,'search'])->name('api.search');
 
 Route::get('/awin-products', [AwinController::class, 'index'])->name('components.advertisers');
 

@@ -12,7 +12,11 @@
                         Adventure, Luxury, and Culture, Your journey starts here.
                     </p>
 
-                    @Include('Partials._search')
+                    @livewire('trip-planner')
+
+                    @if (request()->has('q'))
+                        @livewire('search-results', ['q' => request('q')])
+                    @endif
                 </div>
 
                 <!-- Right: Unique Social-Style Grid -->
