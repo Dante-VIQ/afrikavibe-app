@@ -4,6 +4,8 @@
     <div>
         <livewire:header-page />
     </div>
+
+    <x-cta-tours />
     {{-- partner --}}
     {{-- @include('partner.index') --}}
 

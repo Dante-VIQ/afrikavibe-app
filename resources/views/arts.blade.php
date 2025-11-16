@@ -1,5 +1,7 @@
 @extends('layouts.art')
 <div>
     <livewire:culture-card />
-    <livewire:about-card />
+    <div>
+        <livewire:about-card />
+    </div>
 </div>

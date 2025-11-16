@@ -21,39 +21,6 @@
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
     {{-- <link href="{{ asset('/css/bootstrap.min.css') }}" rel="stylesheet"> --}}
 
-    <!-- Inline CSS for masking -->
-    {{-- <style>
-        .splash-mask .splash-image {
-            width: 100%;
-            height: 100%;
-            background-image: url('{{ $photo }}');
-            background-size: cover;
-            background-position: center;
-
-            -webkit-mask-image: url('{{ $mask }}');
-            -webkit-mask-repeat: no-repeat;
-            -webkit-mask-size: cover;
-            -webkit-mask-position: center;
-
-            mask-image: url('{{ $mask }}');
-            mask-repeat: no-repeat;
-            mask-size: cover;
-            mask-position: center;
-        }
-    </style> --}}
-    {{-- <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    fontFamily: {
-                        'body': ['Open Sans', 'sans-serif'],
-                        'heading': ['Roboto', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script> --}}
 
     <script data-noptimize="1" data-cfasync="false" data-wpfc-render="false">
   (function () {
@@ -63,16 +30,10 @@
       document.head.appendChild(script);
   })();
 </script>
-<script>
-    (function(h,o,t,j,a,r){
-        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-        h._hjSettings={hjid:6533028,hjsv:6};
-        a=o.getElementsByTagName('head')[0];
-        r=o.createElement('script');r.async=1;
-        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-        a.appendChild(r);
-    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
-</script>
+{{-- 
+ <script async
+            src="https://tpscr.com/content?currency=usd&trs=465487&shmarker=677991&locale=en&powered_by=true&limit=4&primary_color=00AE98&results_background_color=FFFFFF&form_background_color=FFFFFF&promo_id=4563&campaign_id=111"
+            charset="utf-8"></script> --}}
     <!-- Vite Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
@@ -106,7 +67,7 @@
     @livewireScripts
     {{-- <x-skeleton-loader /> --}}
     <script src="https://www.dwin2.com/pub.2580697.min.js"></script>
-    
+
     <script type="module" src="{{ asset('/js/main.js') }}" defer></script>
 
     @stack('modals')

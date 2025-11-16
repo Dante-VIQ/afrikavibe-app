@@ -2,24 +2,7 @@
     <div class="col-sm-12">
         <div class="home-tab">
             @include('admin.head')
-            <div class="tab-content tab-content-basic">
-                <div class="tab-pane fade show active" id="overview" role="tabpanel" aria-labelledby="overview">
-                    {{-- @include('admin.insight') --}}
-                    {{-- <div class="max-w-3xl mx-auto bg-white p-6 rounded-lg shadow">
-                        <h1 class="text-xl font-bold mb-4">Add New Partner</h1>
-                        @include('partner.create')
-                    </div> --}}
-                    <div class="row">
-                        <div class="col-lg-8 d-flex flex-column">
-                            <div class="row flex-grow">
-                                @include('admin.perfomance')
-                            </div>
-                        </div>
-                        <div class="col-lg-4 d-flex flex-column">
-                            @include('admin.summary')
 
-                        </div>
-                    </div>
                     <div class="row">
                         <div class="col-lg-8 d-flex flex-column">
                             @include('admin.market')
@@ -58,8 +41,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
+
         </div>
     </div>
 </div>

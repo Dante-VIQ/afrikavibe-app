@@ -5,13 +5,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+<meta name="google-adsense-account" content="ca-pub-1920954764751411">
     <meta name="keywords"
         content="Africa travel, African culture, African destinations, Explore Africa, travel blog, African art, African history, African cuisine.">
-    <meta name="google-adsense-account" content="ca-pub-1920954764751411">
     <meta name="description"
         content="Discover the rich tapestry of Africa's diverse cultures, breathtaking landscapes, and unique experiences. Explore top travel destinations, art, history, and cuisine on AfrikaVibe.">
-
- <meta name="google-adsense-account" content="ca-pub-1920954764751411">
     <!-- Logo and App Name at the top of the head visually -->
     <link rel="icon" href="{{ asset('img/logo1.png') }}" type="image/png">
     <link rel="apple-touch-icon" href="{{ asset('img/logo1.png') }}" type="image/png">
@@ -22,48 +20,9 @@
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
     {{-- <link href="{{ asset('/css/bootstrap.min.css') }}" rel="stylesheet"> --}}
-<script data-noptimize="1" data-cfasync="false" data-wpfc-render="false">
-  (function () {
-      var script = document.createElement("script");
-      script.async = 1;
-      script.src = 'https://emrldtp.cc/NDY1NDg3.js?t=465487';
-      document.head.appendChild(script);
-  })();
-</script>
-    <!-- Inline CSS for masking -->
-    {{-- <style>
-        .splash-mask .splash-image {
-            width: 100%;
-            height: 100%;
-            background-image: url('{{ $photo }}');
-            background-size: cover;
-            background-position: center;
 
-            -webkit-mask-image: url('{{ $mask }}');
-            -webkit-mask-repeat: no-repeat;
-            -webkit-mask-size: cover;
-            -webkit-mask-position: center;
 
-            mask-image: url('{{ $mask }}');
-            mask-repeat: no-repeat;
-            mask-size: cover;
-            mask-position: center;
-        }
-    </style> --}}
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TJQZ8G6KGS"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-        gtag('js', new Date());
-
-        gtag('config', 'G-TJQZ8G6KGS');
-    </script>
-
-<script data-noptimize="1" data-cfasync="false" data-wpfc-render="false">
+    <script data-noptimize="1" data-cfasync="false" data-wpfc-render="false">
   (function () {
       var script = document.createElement("script");
       script.async = 1;
@@ -72,17 +31,9 @@
   })();
 </script>
 
-{{-- <script>
-    (function(h,o,t,j,a,r){
-        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-        h._hjSettings={hjid:6533028,hjsv:6};
-        a=o.getElementsByTagName('head')[0];
-        r=o.createElement('script');r.async=1;
-        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-        a.appendChild(r);
-    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
-</script> --}}
-
+            {{-- <script async
+            src="https://tpscr.com/content?currency=usd&trs=465487&shmarker=677991&locale=en&powered_by=true&limit=4&primary_color=00AE98&results_background_color=FFFFFF&form_background_color=FFFFFF&promo_id=4563&campaign_id=111"
+            charset="utf-8"></script> --}}
     <!-- Vite Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
@@ -95,26 +46,21 @@
     <x-banner />
 
     <div class="min-h-screen bg-gray-100">
-        @auth
-            @include('livewire.layout.navigation')
-            {{-- <livewire:layout.navigation /> --}}
-        @else
-            @include('livewire.welcome.navigation')
-        @endauth
+        @include('livewire.layout.navigation')
 
         <!-- Page Content -->
         <main>
             {{ $slot }}
             {{-- @livewire('spa-container') --}}
-    <div class="w-full flex justify-center my-4">
-        @include('layouts.partials.ads')
-    </div>
         </main>
 
 
+        <!-- Footer Start -->
         <div>
             <livewire:footer-card />
         </div>
+        <!-- Footer End -->
+
     </div>
     @livewire('comment-modal')
 
