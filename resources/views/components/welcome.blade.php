@@ -5,7 +5,6 @@
         <livewire:header-page />
     </div>
 
-    <x-cta-tours />
     {{-- partner --}}
     {{-- @include('partner.index') --}}
 
@@ -59,11 +58,12 @@
         caption="Kenya’s signature roasted meat, a dish that brings people together over laughter, stories, and spice."
         buttonText="Read More" buttonLink="/culture-cuisine/nyama-choma" /> --}}
 
-   {{-- <div class="container-xxl py-5">
+    <div class="container-xxl py-5">
 
-        <x-advertisers />
+           <x-cta-tours />
 
-    </div>  --}}
+
+    </div>
 
 
     <section class="container-xxl py-5 bg-white">
