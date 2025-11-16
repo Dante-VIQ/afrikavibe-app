@@ -23,7 +23,7 @@
                         </x-button>
                         <div x-show="open"
                             class="fixed inset-0 z-50 flex items-center justify-center bg-gray-800 bg-opacity-50 px-2 p-6">
-                            <div class="w-full max-w-lg sm:max-w-md md:max-w-lg lg:max-w-xl bg-white rounded-lg shadow-lg p-4 sm:p-6 md:p-8 relative overflow-y-auto max-h-[90vh] py-6" x-on:click.outside.prevent="open = false">
+                            <div class="w-full max-w-lg sm:max-w-md md:max-w-lg lg:max-w-xl bg-white rounded-lg shadow-lg p-4 sm:p-6 md:p-8 relative overflow-y-auto max-h-[80vh] py-6" x-on:click.outside.prevent="open = false">
                                 <button @click="open = false"
                                     class="absolute top-2 right-2 sm:top-4 sm:right-4 text-gray-500 hover:text-gray-700 text-2xl sm:text-3xl">&times;</button>
                                 <!-- Place your form or content here -->
