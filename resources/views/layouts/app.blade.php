@@ -22,18 +22,14 @@
     {{-- <link href="{{ asset('/css/bootstrap.min.css') }}" rel="stylesheet"> --}}
 
 
-    <script data-noptimize="1" data-cfasync="false" data-wpfc-render="false">
-  (function () {
-      var script = document.createElement("script");
-      script.async = 1;
-      script.src = 'https://emrldtp.cc/NDY1NDg3.js?t=465487';
-      document.head.appendChild(script);
-  })();
-</script>
-{{-- 
- <script async
-            src="https://tpscr.com/content?currency=usd&trs=465487&shmarker=677991&locale=en&powered_by=true&limit=4&primary_color=00AE98&results_background_color=FFFFFF&form_background_color=FFFFFF&promo_id=4563&campaign_id=111"
-            charset="utf-8"></script> --}}
+        <script data-noptimize="1" data-cfasync="false" data-wpfc-render="false">
+            (function () {
+                    var script = document.createElement("script");
+                    script.async = 1;
+                    script.src = 'https://emrldtp.cc/NDY1NDg3.js?t=465487';
+                    document.head.appendChild(script);
+            })();
+        </script>
     <!-- Vite Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
