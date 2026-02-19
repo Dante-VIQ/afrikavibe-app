@@ -21,6 +21,7 @@
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
     {{-- <link href="{{ asset('/css/bootstrap.min.css') }}" rel="stylesheet"> --}}
 
+<script src="https://analytics.ahrefs.com/analytics.js" data-key="86XMcrcnBj1CKAdhUIRDSg" async></script>
 
     <script data-noptimize="1" data-cfasync="false" data-wpfc-render="false">
   (function () {
